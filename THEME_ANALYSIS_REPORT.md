@@ -27,16 +27,12 @@
 
 ## 2. Review of Recent Changes & Design Modifications
 
-### 2.1. Typography & Font System (`assets/custom.css`)
-In `assets/custom.css` (lines 1012–1082), custom styling was added for the **Grindela Retro Font & Slight-Twist Typography System**:
-```css
-@font-face {
-  font-family: 'Grindela';
-  src: url('Grindela.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+### 2.1. Typography & Font System (UPDATED & IMPLEMENTED ✅)
+The typography system has been upgraded to a modern, editorial design:
+- **Display & Headings:** `"Fraunces", Georgia, serif` (Google Fonts variable font with optical sizing)
+- **Body & Sans UI:** `"Inter Tight", "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
+- Loaded via high-performance `<link rel="stylesheet">` with `display=swap` and preconnect in `layout/theme.liquid`.
+- Configured across `:root` tokens `--font-display-family`, `--font-heading-family`, `--font-sans-family`, and `--font-body-family`.
 
 body, .body-font {
   font-family: 'Grindela', sans-serif !important;

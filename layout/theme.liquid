@@ -8,6 +8,8 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -35,50 +37,24 @@
     <script src="{{ 'wow.min.js' | asset_url }}"></script>
      <script src="{{ 'slick.min.js' | asset_url }}"></script>    
     {{ content_for_header }}   
-    {% style %}      
-       {%- liquid
-      if settings.custom_font_script_1 != blank
-      echo settings.custom_font_script_1
-      endif
-      if settings.custom_font_script_2 != blank
-      echo settings.custom_font_script_2
-      endif
-      if settings.custom_font_script_3 != blank
-      echo settings.custom_font_script_3
-      endif
-        %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}                 
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-    
+    {% style %}
       :root {
-        {%- if settings.custom_font_family_1 != blank %}
-        --font-heading-family: {{ settings.custom_font_family_1 }}
-        {% else %}
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-         {%  endif -%}
-        --font-heading-style: {{ settings.type_header_font.style }};
-        --font-heading-weight: {{ settings.type_header_font.weight }};
+        --font-display-family: "Fraunces", Georgia, serif;
+        --font-heading-family: "Fraunces", Georgia, serif;
+        --font-sans-family: "Inter Tight", "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-body-family: var(--font-sans-family);
+        --font-additional-family: var(--font-display-family);
+        --font-heading-style: normal;
+        --font-heading-weight: 700;
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
         
-
-        {%- if settings.custom_font_family_2 != blank %}
-        --font-body-family: {{ settings.custom_font_family_2 }}
-        {% else %}
-        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-        {% endif -%}
-        --font-body-style: {{ settings.type_body_font.style }};
-        --font-body-weight: {{ settings.type_body_font.weight }};
-        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+        --font-body-style: normal;
+        --font-body-weight: 400;
+        --font-body-weight-bold: 600;
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
 
-
-        {%- if settings.custom_font_family_3 != blank %}
-        --font-additional-family: {{ settings.custom_font_family_3 }}
-        {%  else %}
-        --font-additional-family: {{ settings.type_additional_font.family }}, {{ settings.type_additional_font.fallback_families }};
-        {%  endif -%}
-        --font-additional-heading-style: {{ settings.type_additional_font.style }};
-        --font-additional-heading-weight: {{ settings.type_additional_font.weight }};
+        --font-additional-heading-style: normal;
+        --font-additional-heading-weight: 600;
          
         --color-base-text: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
      
@@ -212,7 +188,7 @@
      {% endif %}
       background-repeat: no-repeat;
       background-position:center;
-      background-color: rgb(var(--color-background));
+      background-color: rgb(var(--color-base-background-1));
       }
     .alert-overlay-wrapper {position:relative; width: 100%; height: 100%;}
       .alert-overlay{

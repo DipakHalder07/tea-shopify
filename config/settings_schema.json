@@ -1289,7 +1289,8 @@
       },
       {
         "type": "image_picker",
-        "id": "breadcrumb_image"
+        "id": "breadcrumb_image",
+        "label": "Breadcrumb background image"
       },
       {
         "type": "select",

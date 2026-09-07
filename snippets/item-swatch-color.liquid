@@ -16,7 +16,7 @@
 
           {% if optionCount < 3 %} 
           <li class="variant-swatch item-swatch color-values">
-            <a class="item-swatch swatch swatch-element {% if forloop.first %} active{% endif %} color {{ colorCODE | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}"">
+            <a class="item-swatch swatch swatch-element {% if forloop.first %} active{% endif %} color {{ colorCODE | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
               <tooltip class="tooltip d-none">{{ variant_value | replace: '-', ' ' }}</tooltip>
 
               {%- if variant_value.swatch.image -%}

@@ -108,7 +108,7 @@
                     {%- endif -%}
                     <fieldset class="facets-wrap parent-wrap {% if filter_type == 'vertical' %} facets-wrap-vertical{% endif %}">
                       <legend class="visually-hidden">{{ filter.label | escape }}</legend>
-                   <ul class="{% if filter_type != 'vertical' %} facets__list{% endif %} list-unstyled no-js-hidden facets__list-{{ filter.label | handle }} role="list">          
+                   <ul class="{% if filter_type != 'vertical' %} facets__list{% endif %} list-unstyled no-js-hidden facets__list-{{ filter.label | handle }}" role="list">          
                 {%- for value in filter.values -%}
                           <li class="list-menu__item facets__item{% if forloop.index > 10 and filter_type == 'vertical' %} show-more-item hidden{% endif %}">
                             <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="Filter-{{ filter.label | escape }}-{{ forloop.index }} facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
