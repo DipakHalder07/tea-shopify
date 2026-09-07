@@ -28,12 +28,12 @@
 
   <!-- Blend Indicator Rule Bar -->
   <div class="nidhi-blend-bar">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
+    <div class="dotted-rule"></div>
     <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
       <div class="row">
         <div class="nidhi-blend-bar-inner">
-          <span id="heroNo" style="background-color: var(--background, #100B06); padding-right: 1.25rem; position: relative; z-index: 2;">Blend N0.01</span>
-          <span id="heroName" class="animate-fade-in" style="background-color: var(--background, #100B06); padding-left: 1.25rem; position: relative; z-index: 2;">Classic Masala Chai</span>
+          <span id="heroNo">Blend N0.01</span>
+          <span id="heroName" class="animate-fade-in">Classic Masala Chai</span>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
   <!-- ============ HERO CAROUSEL ROW WITH FULL-WIDTH DOTTED LINE ============ -->
   <div class="nidhi-carousel-row">
     <!-- Edge-to-Edge Full-Width Horizontal Dotted Line Behind Slider & Navigation Buttons -->
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
+    <div class="dotted-rule"></div>
 
     <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
       <div class="row">
@@ -105,8 +105,8 @@
 
   <!-- Bottom CTA Row With Dotted Line -->
   <div class="nidhi-cta-row">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
-    <div class="nidhi-cta-pill-box" style="position: relative; z-index: 10; display: inline-flex; align-items: center; background-color: var(--background, #100B06); padding: 0 1.25rem;">
+    <div class="dotted-rule"></div>
+    <div class="nidhi-cta-pill-box">
       <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="nidhi-cta-btn">
         <div class="nidhi-cta-btn-bg"></div>
         <span class="nidhi-cta-text-wrap">
@@ -219,21 +219,65 @@
     will-change: transform, opacity;
   }
 
-  /* Dotted Rule Styling - High Contrast & Clearly Visible */
+  /* Dotted Rule Styling */
   .dotted-rule {
+    height: 1px;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(245, 228, 199, 0.45) 0px,
+      rgba(245, 228, 199, 0.45) 4px,
+      transparent 4px,
+      transparent 10px
+    );
     position: absolute;
     left: 0;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 100% !important;
-    height: 2px !important;
-    background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px) !important;
-    background-repeat: repeat-x !important;
-    border: none !important;
-    opacity: 0.9 !important;
-    pointer-events: none !important;
+    pointer-events: none;
     z-index: 1;
+  }
+
+  /* Animation Name: bucks-fade */
+  @keyframes bucks-fade {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: bucks-fade 0.5s ease-out both;
+  }
+
+  #heroNo {
+    background-color: var(--background, #100B06);
+    padding-right: 1.25rem;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+
+  #heroName {
+    background-color: var(--background, #100B06);
+    padding-left: 1.25rem;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+
+  .nidhi-cta-pill-box {
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--background, #100B06);
+    padding: 0 1.25rem;
   }
 
   .nidhi-blend-bar {
@@ -794,7 +838,7 @@
       gsap.fromTo(
         ["#heroNo", "#heroName"],
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: "power3.out", delay: 0.4 }
+        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: "power3.out", delay: 0.4, clearProps: "transform,opacity" }
       );
 
       gsap.fromTo(
@@ -972,9 +1016,10 @@
         });
 
         if (nameEl) {
+          // Update text and replay the fade-in animation
           nameEl.textContent = SLIDES[index].name;
           nameEl.classList.remove("animate-fade-in");
-          void nameEl.offsetWidth;
+          void nameEl.offsetWidth; // Forces DOM reflow so animation restarts
           nameEl.classList.add("animate-fade-in");
         }
         if (noEl) {
