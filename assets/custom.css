@@ -1225,16 +1225,23 @@ body,
   -webkit-text-stroke: 2.2px var(--cream) !important;
 }
 
-.dotted-rule {
-  height: 1px;
-  width: 100%;
+.dotted-rule,
+div.dotted-rule,
+div.dotted-rule:empty,
+.dotted-rule:empty {
+  display: block !important;
+  height: 1px !important;
+  width: 100% !important;
   background-image: repeating-linear-gradient(
     to right,
     rgba(245, 228, 199, 0.45) 0px,
     rgba(245, 228, 199, 0.45) 4px,
     transparent 4px,
     transparent 10px
-  );
+  ) !important;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
 }
 
 /* Animation Name: hero-bg-pulse */

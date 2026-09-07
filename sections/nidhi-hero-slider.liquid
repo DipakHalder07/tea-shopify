@@ -28,7 +28,7 @@
 
   <!-- Blend Indicator Rule Bar -->
   <div class="nidhi-blend-bar">
-    <div class="dotted-rule"></div>
+    <div class="dotted-rule" aria-hidden="true">&zwnj;</div>
     <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
       <div class="row">
         <div class="nidhi-blend-bar-inner">
@@ -42,7 +42,7 @@
   <!-- ============ HERO CAROUSEL ROW WITH FULL-WIDTH DOTTED LINE ============ -->
   <div class="nidhi-carousel-row">
     <!-- Edge-to-Edge Full-Width Horizontal Dotted Line Behind Slider & Navigation Buttons -->
-    <div class="dotted-rule"></div>
+    <div class="dotted-rule" aria-hidden="true">&zwnj;</div>
 
     <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
       <div class="row">
@@ -105,7 +105,7 @@
 
   <!-- Bottom CTA Row With Dotted Line -->
   <div class="nidhi-cta-row">
-    <div class="dotted-rule"></div>
+    <div class="dotted-rule" aria-hidden="true">&zwnj;</div>
     <div class="nidhi-cta-pill-box">
       <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="nidhi-cta-btn">
         <div class="nidhi-cta-btn-bg"></div>
@@ -219,17 +219,21 @@
     will-change: transform, opacity;
   }
 
-  /* Dotted Rule Styling */
-  .dotted-rule {
-    height: 1px;
-    width: 100%;
+  /* Dotted Rule Styling - Explicit display: block to override theme div:empty { display: none } */
+  .dotted-rule,
+  div.dotted-rule,
+  div.dotted-rule:empty,
+  .dotted-rule:empty {
+    display: block !important;
+    height: 1px !important;
+    width: 100% !important;
     background-image: repeating-linear-gradient(
       to right,
       rgba(245, 228, 199, 0.45) 0px,
       rgba(245, 228, 199, 0.45) 4px,
       transparent 4px,
       transparent 10px
-    );
+    ) !important;
     position: absolute;
     left: 0;
     right: 0;
@@ -237,6 +241,9 @@
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 1;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0;
   }
 
   /* Animation Name: bucks-fade */
