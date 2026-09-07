@@ -61,7 +61,7 @@
               
               <!-- The Animated Pulsating Background Circle -->
               <div id="heroTint"
-                class="h-64 w-64 rounded-full transition-colors duration-700 sm:h-80 sm:w-80 md:h-[460px] md:w-[460px] lg:h-[540px] lg:w-[540px] xl:h-[620px] xl:w-[620px] animate-hero-bg shadow-2xl"
+                class="h-64 w-64 rounded-full transition-colors duration-700 sm:h-80 sm:w-80 md:h-[460px] md:w-[460px] lg:h-[540px] lg:w-[540px] xl:h-[620px] xl:w-[620px] animate-hero-bg"
                 style="background: var(--pink)">
               </div>
 
@@ -107,13 +107,8 @@
   <div class="nidhi-cta-row">
     <div class="dotted-rule" aria-hidden="true">&zwnj;</div>
     <div class="nidhi-cta-pill-box">
-      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="nidhi-cta-btn">
-        <div class="nidhi-cta-btn-bg"></div>
-        <span class="nidhi-cta-text-wrap">
-          <span style="visibility: hidden; font-weight: 700; white-space: nowrap;">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-          <span class="nidhi-cta-text-top">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-          <span class="nidhi-cta-text-bottom">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-        </span>
+      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="button button--primary">
+        {{ section.settings.button_text | default: 'Explore Blends' }}
       </a>
     </div>
   </div>
@@ -172,7 +167,7 @@
   .nidhi-heading-wrap {
     position: relative;
     z-index: 10;
-    max-width: var(--large_desktop, 1500px);
+    max-width: 1650px;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
@@ -180,34 +175,41 @@
   }
   @media (max-width: 767px) {
     .nidhi-heading-wrap {
-      padding: 0 10px;
+      padding: 0 12px;
     }
   }
   .nidhi-hero-title {
     font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
     font-optical-sizing: auto;
     text-transform: uppercase;
-    line-height: 0.88 !important;
-    letter-spacing: -0.02em;
+    line-height: 0.86 !important;
+    letter-spacing: -0.025em;
     font-weight: 800 !important;
-    font-size: clamp(3rem, 8.8vw, 8.2rem) !important;
+    font-size: clamp(3.2rem, 11vw, 5.5rem) !important;
     margin: 0 auto;
-    max-width: 1450px;
+    max-width: 1650px;
     text-align: center;
   }
   @media (min-width: 768px) {
     .nidhi-hero-title {
-      font-size: clamp(4.4rem, 7.8vw, 7.6rem) !important;
+      font-size: clamp(5.5rem, 9.8vw, 8.8rem) !important;
+      line-height: 0.85 !important;
     }
   }
   @media (min-width: 1280px) {
     .nidhi-hero-title {
-      font-size: clamp(5.6rem, 7.5vw, 8.2rem) !important;
+      font-size: clamp(7.5rem, 9.6vw, 11.2rem) !important;
+      line-height: 0.84 !important;
     }
   }
   .nidhi-hero-title .text-outline {
     color: transparent !important;
-    -webkit-text-stroke: 2.2px #f5e4c7 !important;
+    -webkit-text-stroke: 2.5px #f5e4c7 !important;
+  }
+  @media (min-width: 1024px) {
+    .nidhi-hero-title .text-outline {
+      -webkit-text-stroke: 3px #f5e4c7 !important;
+    }
   }
   .nidhi-hero-title .text-cream {
     color: #f5e4c7 !important;
@@ -276,6 +278,23 @@
     position: relative;
     z-index: 2;
     display: inline-block;
+  }
+
+  @media (max-width: 767px) {
+    #heroNo {
+      display: none !important;
+    }
+    .nidhi-blend-bar-inner {
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 0 10px;
+    }
+    #heroName {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+      text-align: center !important;
+      margin: 0 auto !important;
+    }
   }
 
   .nidhi-cta-pill-box {
@@ -476,8 +495,8 @@
     border-radius: 9999px;
     background: var(--pink, #FF3366);
     flex-shrink: 0;
-    transition: background-color 700ms ease, background 700ms ease, box-shadow 700ms ease;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(255, 51, 102, 0.55);
+    transition: background-color 700ms ease, background 700ms ease;
+    box-shadow: none !important;
     will-change: transform;
   }
   @media (min-width: 640px) {
@@ -855,7 +874,7 @@
       );
 
       gsap.fromTo(
-        ".nidhi-cta-btn",
+        [".nidhi-cta-row .button", ".nidhi-cta-btn"],
         { y: 25, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.55 }
       );
@@ -866,7 +885,6 @@
         name: "Classic Masala Chai",
         img: "{{ 'hero.png' | asset_url }}",
         tint: "var(--pink)",
-        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(255, 51, 102, 0.55)",
         topIngredient: "{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
       },
@@ -874,7 +892,6 @@
         name: "Honey Lemon Green Tea",
         img: "{{ 'product-2.png' | asset_url }}",
         tint: "#2E6941",
-        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(46, 105, 65, 0.55)",
         topIngredient: "{{ 'isolated_honey_dipper_with_dripping_golden_honey_transparent_background.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}"
       },
@@ -882,7 +899,6 @@
         name: "Rose Cardamom Black Tea",
         img: "{{ 'product-3.png' | asset_url }}",
         tint: "var(--red)",
-        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(230, 57, 70, 0.55)",
         topIngredient: "{{ 'green_cardamom.png' | asset_url }}",
         bottomIngredient: "{{ 'star_anise.png' | asset_url }}"
       }
@@ -962,7 +978,7 @@
           setTimeout(() => {
             if (tint) {
               tint.style.background = SLIDES[index].tint;
-              if (SLIDES[index].glow) tint.style.boxShadow = SLIDES[index].glow;
+              tint.style.boxShadow = "none";
             }
 
             if (tintWrap) {
@@ -989,7 +1005,7 @@
         } else {
           if (tint) {
             tint.style.background = SLIDES[index].tint;
-            if (SLIDES[index].glow) tint.style.boxShadow = SLIDES[index].glow;
+            tint.style.boxShadow = "none";
           }
           if (tintWrap) tintWrap.style.transform = "scale(1)";
           if (topWrap) { topWrap.style.transform = "scale(1)"; topWrap.style.opacity = "1"; }

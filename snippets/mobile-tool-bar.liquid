@@ -50,29 +50,67 @@
    </div>
 </div>
 <style>
-  .mobile-toolbar__icons  {display:flex;justify-content:center;}
-  .mobile-toolbar__icons svg {width:16px;height:16px;}
   .mobile-toolbar__icons {
     display: flex;
     justify-content: center;
     position: sticky;
     width: 100%;
     bottom: 0;
-    background: var(--gradient-base-background-1);
-    z-index: 2;
-    box-shadow: 0 0 10px #1a1a1a26;
-}
-  .mobile-toolbar__icons .header__icon {height: 100%;width: auto;margin:0!important;display: flex;
-    flex-direction: column;
-    text-transform: capitalize;padding:14px 0;}
-  .mobile-toolbar__icons .mobile-toolbar{padding: 0;display: grid;grid-template-columns: repeat(4, 1fr);width: 100%;}
-  .mobile-toolbar__icons .mobile-toolbar .header__icon .icon-text{line-height:14px;font-size:14px;font-weight:400;margin-top:7px;height: fit-content;}
-  .mobile-toolbar__icons .header__icon:not(:last-child){border-right:1px solid rgba(var(--color-base-accent-1), 0.2);}
-  .mobile-toolbar__icons .header__icon .mobile-dtxc-wishlist-count.cart-count-bubble{top: -2px;right: -7px;}
-  .mobile-toolbar__icons .header__icon .icon-with-count{position:relative;display: flex;}
-  .mega-full-width-active.overflow-hidden-tablet .mobile-toolbar__icons {z-index: 1;}
-  @media screen and (min-width: 750px) {
-    .mobile-toolbar__icons {display:none;}
+    background: #100B06 !important;
+    border-top: 1px solid rgba(245, 228, 199, 0.15) !important;
+    z-index: 99;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
   }
-  .overflow-hidden-tablet .mobile-toolbar__icons{z-index:1;}
+  .mobile-toolbar__icons svg {
+    width: 20px;
+    height: 20px;
+    color: #f5e4c7 !important;
+    stroke: #f5e4c7 !important;
+  }
+  .mobile-toolbar__icons .header__icon {
+    height: 100%;
+    width: auto;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    padding: 12px 0;
+    color: #f5e4c7 !important;
+  }
+  .mobile-toolbar__icons .mobile-toolbar {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+  .mobile-toolbar__icons .mobile-toolbar .header__icon .icon-text {
+    line-height: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+    height: fit-content;
+    color: #f5e4c7 !important;
+  }
+  .mobile-toolbar__icons .header__icon:not(:last-child) {
+    border-right: 1px solid rgba(245, 228, 199, 0.15) !important;
+  }
+  .mobile-toolbar__icons .header__icon .mobile-dtxc-wishlist-count.cart-count-bubble {
+    top: -2px;
+    right: -7px;
+  }
+  .mobile-toolbar__icons .header__icon .icon-with-count {
+    position: relative;
+    display: flex;
+  }
+  .mega-full-width-active.overflow-hidden-tablet .mobile-toolbar__icons {
+    z-index: 1;
+  }
+  @media screen and (min-width: 750px) {
+    .mobile-toolbar__icons {
+      display: none !important;
+    }
+  }
+  .overflow-hidden-tablet .mobile-toolbar__icons {
+    z-index: 1;
+  }
 </style>

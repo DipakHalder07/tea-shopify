@@ -1452,13 +1452,58 @@ header svg[fill]:not([fill="none"]),
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
 }
 
-/* Remove button hover shadows as requested */
-.nidhi-hero-section .nidhi-nav-btn:hover,
-.nidhi-hero-section .nidhi-cta-btn:hover,
-.nidhi-hero-section button:hover,
-.nidhi-hero-section a.nidhi-cta-btn:hover,
-button[data-hero]:hover {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+/* Mobile Sticky Bottom Toolbar Styling */
+.mobile-toolbar__icons {
+  background: #100B06 !important;
+  border-top: 1px solid rgba(245, 228, 199, 0.15) !important;
+  z-index: 99 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
 }
+
+.mobile-toolbar__icons svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #f5e4c7 !important;
+  stroke: #f5e4c7 !important;
+}
+
+.mobile-toolbar__icons .header__icon {
+  color: #f5e4c7 !important;
+  padding: 12px 0 !important;
+}
+
+.mobile-toolbar__icons .header__icon .icon-text {
+  color: #f5e4c7 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.mobile-toolbar__icons .header__icon:not(:last-child) {
+  border-right: 1px solid rgba(245, 228, 199, 0.15) !important;
+}
+
+.mobile-toolbar__icons .header__icon:hover,
+.mobile-toolbar__icons .header__icon:hover svg,
+.mobile-toolbar__icons .header__icon:hover .icon-text {
+  color: var(--pink, #FF3366) !important;
+  stroke: var(--pink, #FF3366) !important;
+}
+
+/* Mobile Blend Bar: Hide Blend number and center product title */
+@media (max-width: 767px) {
+  #heroNo {
+    display: none !important;
+  }
+  .nidhi-blend-bar-inner {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  #heroName {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+}
+
 
