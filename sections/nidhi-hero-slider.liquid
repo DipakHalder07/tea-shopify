@@ -13,94 +13,109 @@
   <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-tl" />
   <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-br" />
 
-  <!-- Hero Main Heading (Extra Large & Imposing) -->
-  <div class="nidhi-heading-wrap">
-    <h1 id="heroTitle" class="nidhi-hero-title">
-      <span class="text-outline">{{ section.settings.heading_outline | default: 'Sip Wellness.' }}</span>
-      <span class="text-cream">{{ section.settings.heading_solid | default: 'Taste Purity. Love Every Cup.' }}</span>
-    </h1>
+  <!-- Hero Main Heading (3 Distinct Dramatic Lines) -->
+  <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+    <div class="row">
+      <div class="nidhi-heading-wrap">
+        <h1 id="heroTitle" class="nidhi-hero-title">
+          <span class="text-outline block">{{ section.settings.heading_line_1 | default: section.settings.heading_outline | default: 'Sip Wellness.' }}</span>
+          <span class="text-cream block">{{ section.settings.heading_line_2 | default: 'Taste Purity.' }}</span>
+          <span class="text-cream block">{{ section.settings.heading_line_3 | default: 'Love Every Cup.' }}</span>
+        </h1>
+      </div>
+    </div>
   </div>
 
   <!-- Blend Indicator Rule Bar -->
   <div class="nidhi-blend-bar">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
-    <div class="nidhi-blend-bar-inner">
-      <span id="heroNo">Blend N0.01</span>
-      <span id="heroName" class="animate-fade-in">Classic Masala Chai</span>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
+    <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+      <div class="row">
+        <div class="nidhi-blend-bar-inner">
+          <span id="heroNo" style="background-color: var(--background, #100B06); padding-right: 1.25rem; position: relative; z-index: 2;">Blend N0.01</span>
+          <span id="heroName" class="animate-fade-in" style="background-color: var(--background, #100B06); padding-left: 1.25rem; position: relative; z-index: 2;">Classic Masala Chai</span>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- ============ HERO CAROUSEL ROW WITH FULL-WIDTH DOTTED LINE ============ -->
   <div class="nidhi-carousel-row">
     <!-- Edge-to-Edge Full-Width Horizontal Dotted Line Behind Slider & Navigation Buttons -->
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
 
-    <div class="nidhi-carousel-inner">
-      <!-- Previous Slide Button -->
-      <button data-hero="-1" type="button" aria-label="Previous blend" class="nidhi-nav-btn">
-        <span>&larr;</span>
-      </button>
+    <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+      <div class="row">
+        <div class="nidhi-carousel-inner">
+          <!-- Previous Slide Button -->
+          <button data-hero="-1" type="button" aria-label="Previous blend" class="nidhi-nav-btn">
+            <span>&larr;</span>
+          </button>
 
-      <!-- Center Active Blend Presentation Stage -->
-      <div class="nidhi-stage">
-        <!-- Wrapper for transition & parallax -->
-        <div id="heroTintWrap"
-          class="absolute flex items-center justify-center pointer-events-none transition-transform duration-500 will-change-transform"
-          style="transform: scale(1);">
-          
-          <!-- The Animated Pulsating Background Circle -->
-          <div id="heroTint"
-            class="h-56 w-56 rounded-full transition-colors duration-700 sm:h-72 sm:w-72 md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[540px] xl:w-[540px] animate-hero-bg shadow-2xl"
-            style="background: var(--pink)">
-          </div>
+          <!-- Center Active Blend Presentation Stage -->
+          <div class="nidhi-stage">
+            <!-- Wrapper for transition & parallax -->
+            <div id="heroTintWrap"
+              class="absolute flex items-center justify-center pointer-events-none transition-transform duration-500 will-change-transform"
+              style="transform: scale(1);">
+              
+              <!-- The Animated Pulsating Background Circle -->
+              <div id="heroTint"
+                class="h-64 w-64 rounded-full transition-colors duration-700 sm:h-80 sm:w-80 md:h-[460px] md:w-[460px] lg:h-[540px] lg:w-[540px] xl:h-[620px] xl:w-[620px] animate-hero-bg shadow-2xl"
+                style="background: var(--pink)">
+              </div>
 
-        </div>
-
-        <!-- Top-Right & Bottom-Left Floating Botanical Companion Accents -->
-        <div class="nidhi-companions-box">
-          <!-- Top Right Companion (Shrink & Bloom on Slide Change) -->
-          <div id="heroTopWrap" style="transform: scale(1);">
-            <div class="animate-float-companion-top" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
-              <img id="heroTopImg"
-                src="{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}"
-                alt="Tea Spices"
-                class="nidhi-companion-img" />
             </div>
-          </div>
 
-          <!-- Bottom Left Companion (Visible on sm+) -->
-          <div id="heroBottomWrap" style="transform: scale(1);">
-            <div class="animate-float-companion-bottom" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
-              <img id="heroBottomImg"
-                src="{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
-                alt="Tea Strainer"
-                class="nidhi-companion-img" />
+            <!-- Top-Right & Bottom-Left Floating Botanical Companion Accents -->
+            <div class="nidhi-companions-box">
+              <!-- Top Right Companion (Shrink & Bloom on Slide Change) -->
+              <div id="heroTopWrap" style="transform: scale(1);">
+                <div class="animate-float-companion-top" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
+                  <img id="heroTopImg"
+                    src="{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}"
+                    alt="Tea Spices"
+                    class="nidhi-companion-img" />
+                </div>
+              </div>
+
+              <!-- Bottom Left Companion (Visible on sm+) -->
+              <div id="heroBottomWrap" style="transform: scale(1);">
+                <div class="animate-float-companion-bottom" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
+                  <img id="heroBottomImg"
+                    src="{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
+                    alt="Tea Strainer"
+                    class="nidhi-companion-img" />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Dynamic Product Slide Packs -->
-        <div id="heroSlides"></div>
+            <!-- Dynamic Product Slide Packs -->
+            <div id="heroSlides"></div>
+          </div>
+
+          <!-- Next Slide Button -->
+          <button data-hero="1" type="button" aria-label="Next blend" class="nidhi-nav-btn">
+            <span>&rarr;</span>
+          </button>
+        </div>
       </div>
-
-      <!-- Next Slide Button -->
-      <button data-hero="1" type="button" aria-label="Next blend" class="nidhi-nav-btn">
-        <span>&rarr;</span>
-      </button>
     </div>
   </div>
 
   <!-- Bottom CTA Row With Dotted Line -->
   <div class="nidhi-cta-row">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
-    <a href="{{ section.settings.button_link | default: '#products' }}" class="nidhi-cta-btn">
-      <div class="nidhi-cta-btn-bg"></div>
-      <span class="nidhi-cta-text-wrap">
-        <span style="visibility: hidden; font-weight: 700; white-space: nowrap;">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-        <span class="nidhi-cta-text-top">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-        <span class="nidhi-cta-text-bottom">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
-      </span>
-    </a>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; transform: translateY(-50%); background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px); opacity: 0.9; pointer-events: none; z-index: 1;"></div>
+    <div class="nidhi-cta-pill-box" style="position: relative; z-index: 10; display: inline-flex; align-items: center; background-color: var(--background, #100B06); padding: 0 1.25rem;">
+      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="nidhi-cta-btn">
+        <div class="nidhi-cta-btn-bg"></div>
+        <span class="nidhi-cta-text-wrap">
+          <span style="visibility: hidden; font-weight: 700; white-space: nowrap;">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+          <span class="nidhi-cta-text-top">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+          <span class="nidhi-cta-text-bottom">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -153,15 +168,20 @@
     .nidhi-branch-br { width: 850px; }
   }
 
-  /* Extra Large Grand Heading */
+  /* Container inner elements aligned with Shopify header container */
   .nidhi-heading-wrap {
     position: relative;
     z-index: 10;
-    max-width: 1550px;
+    max-width: var(--large_desktop, 1500px);
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
     text-align: center;
+  }
+  @media (max-width: 767px) {
+    .nidhi-heading-wrap {
+      padding: 0 10px;
+    }
   }
   .nidhi-hero-title {
     font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
@@ -193,17 +213,27 @@
     color: #f5e4c7 !important;
   }
 
-  /* Crisp High-Visibility Dotted Rule Styling */
+  #heroTitle .char,
+  #heroTitle .word {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  /* Dotted Rule Styling - High Contrast & Clearly Visible */
   .dotted-rule {
     position: absolute;
     left: 0;
     right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100% !important;
-    height: 0px !important;
-    border-top: 2.5px dotted #f5e4c7 !important;
-    background: none !important;
-    opacity: 0.85 !important;
+    height: 2px !important;
+    background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px) !important;
+    background-repeat: repeat-x !important;
+    border: none !important;
+    opacity: 0.9 !important;
     pointer-events: none !important;
+    z-index: 1;
   }
 
   .nidhi-blend-bar {
@@ -220,12 +250,13 @@
   .nidhi-blend-bar-inner {
     position: relative;
     z-index: 2;
-    max-width: 1500px;
+    max-width: var(--large_desktop, 1500px);
     margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
     font-family: var(--font-display-family), "Fraunces", Georgia, serif;
     font-size: 13px;
     text-transform: uppercase;
@@ -233,20 +264,15 @@
     color: #f5e4c7;
     font-weight: 700;
   }
+  @media (max-width: 767px) {
+    .nidhi-blend-bar-inner {
+      padding: 0 10px;
+    }
+  }
   @media (min-width: 768px) {
     .nidhi-blend-bar-inner {
       font-size: 16px;
-      padding: 0 40px;
     }
-  }
-  .nidhi-blend-bar-inner span {
-    background-color: #100B06;
-  }
-  .nidhi-blend-bar-inner #heroNo {
-    padding-right: 1.2rem;
-  }
-  .nidhi-blend-bar-inner #heroName {
-    padding-left: 1.2rem;
   }
 
   .nidhi-carousel-row {
@@ -263,17 +289,22 @@
   .nidhi-carousel-inner {
     position: relative;
     z-index: 10;
-    max-width: 1500px;
+    max-width: var(--large_desktop, 1500px);
     margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
     gap: 12px;
+  }
+  @media (max-width: 767px) {
+    .nidhi-carousel-inner {
+      padding: 0 10px;
+    }
   }
   @media (min-width: 768px) {
     .nidhi-carousel-inner {
-      padding: 0 40px;
       gap: 24px;
     }
   }
@@ -318,7 +349,8 @@
     transform: scale(1.1);
     background-color: #E63946 !important;
     border-color: #E63946 !important;
-    box-shadow: 0 12px 30px -5px rgba(230, 57, 70, 0.6);
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
   }
   .nidhi-nav-btn span {
     font-size: 1.3rem;
@@ -339,19 +371,35 @@
     flex: 1;
     align-items: center;
     justify-content: center;
-    height: 520px;
-    min-height: 400px;
-    max-height: 640px;
+    height: 56vh;
+    min-height: 480px;
+    max-height: 760px;
     overflow: visible;
   }
   @media (min-width: 640px) {
     .nidhi-stage {
-      height: 560px;
+      height: 62vh;
+      min-height: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .nidhi-stage {
+      height: 68vh;
+      min-height: 600px;
     }
   }
   @media (min-width: 1024px) {
     .nidhi-stage {
-      height: 600px;
+      height: 74vh;
+      min-height: 660px;
+      max-height: 840px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .nidhi-stage {
+      height: 78vh;
+      min-height: 720px;
+      max-height: 900px;
     }
   }
 
@@ -372,8 +420,8 @@
     z-index: 5;
   }
   #heroTint {
-    width: 14rem;
-    height: 14rem;
+    width: 17rem;
+    height: 17rem;
     border-radius: 9999px;
     background: var(--pink, #FF3366);
     flex-shrink: 0;
@@ -383,26 +431,26 @@
   }
   @media (min-width: 640px) {
     #heroTint {
-      width: 18rem;
-      height: 18rem;
+      width: 22rem;
+      height: 22rem;
     }
   }
   @media (min-width: 768px) {
     #heroTint {
-      width: 400px;
-      height: 400px;
+      width: 460px;
+      height: 460px;
     }
   }
   @media (min-width: 1024px) {
     #heroTint {
-      width: 480px;
-      height: 480px;
+      width: 540px;
+      height: 540px;
     }
   }
   @media (min-width: 1280px) {
     #heroTint {
-      width: 540px;
-      height: 540px;
+      width: 620px;
+      height: 620px;
     }
   }
 
@@ -428,7 +476,7 @@
       transform: rotate(4deg) translateY(0px);
     }
     50% {
-      transform: rotate(6.5deg) translateY(-18px);
+      transform: rotate(6.5deg) translateY(-20px);
     }
   }
   .hero-floating-pack {
@@ -444,19 +492,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 320px;
+    max-width: 380px;
     pointer-events: none;
     z-index: 20;
   }
-  @media (min-width: 640px) { .nidhi-companions-box { max-width: 420px; } }
-  @media (min-width: 768px) { .nidhi-companions-box { max-width: 500px; } }
-  @media (min-width: 1024px) { .nidhi-companions-box { max-width: 600px; } }
-  @media (min-width: 1280px) { .nidhi-companions-box { max-width: 680px; } }
+  @media (min-width: 640px) { .nidhi-companions-box { max-width: 480px; } }
+  @media (min-width: 768px) { .nidhi-companions-box { max-width: 580px; } }
+  @media (min-width: 1024px) { .nidhi-companions-box { max-width: 680px; } }
+  @media (min-width: 1280px) { .nidhi-companions-box { max-width: 780px; } }
 
   #heroTopWrap {
     position: absolute;
-    top: -1.5rem;
-    right: -1rem;
+    top: -2rem;
+    right: -1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -465,8 +513,8 @@
   }
   #heroBottomWrap {
     position: absolute;
-    bottom: -1.5rem;
-    left: -1rem;
+    bottom: -2rem;
+    left: -1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -477,16 +525,16 @@
   .nidhi-companion-img {
     position: relative;
     z-index: 10;
-    width: 80px;
+    width: 95px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.65));
     pointer-events: none;
   }
-  @media (min-width: 640px) { .nidhi-companion-img { width: 110px; } }
-  @media (min-width: 768px) { .nidhi-companion-img { width: 140px; } }
-  @media (min-width: 1024px) { .nidhi-companion-img { width: 180px; } }
-  @media (min-width: 1280px) { .nidhi-companion-img { width: 210px; } }
+  @media (min-width: 640px) { .nidhi-companion-img { width: 130px; } }
+  @media (min-width: 768px) { .nidhi-companion-img { width: 170px; } }
+  @media (min-width: 1024px) { .nidhi-companion-img { width: 210px; } }
+  @media (min-width: 1280px) { .nidhi-companion-img { width: 250px; } }
 
   #heroSlides {
     position: absolute;
@@ -509,16 +557,38 @@
     will-change: transform, opacity;
   }
   .hero-slide-item img {
-    height: auto;
-    max-height: 460px;
+    height: 125%;
+    max-height: 600px;
     width: auto;
-    max-width: 85vw;
+    max-width: 90vw;
     object-fit: contain;
-    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.65));
+    filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.72));
     pointer-events: none;
   }
-  @media (min-width: 640px) { .hero-slide-item img { max-height: 500px; } }
-  @media (min-width: 1024px) { .hero-slide-item img { max-height: 540px; } }
+  @media (min-width: 640px) {
+    .hero-slide-item img {
+      height: 132%;
+      max-height: 680px;
+    }
+  }
+  @media (min-width: 768px) {
+    .hero-slide-item img {
+      height: 140%;
+      max-height: 760px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-slide-item img {
+      height: 148%;
+      max-height: 840px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-slide-item img {
+      height: 152%;
+      max-height: 920px;
+    }
+  }
 
   .nidhi-cta-row {
     position: relative;
@@ -551,9 +621,9 @@
     cursor: pointer;
   }
   .nidhi-cta-btn:hover {
-    transform: scale(1.06);
+    transform: scale(1.05);
     border-color: #E63946 !important;
-    box-shadow: 0 20px 30px -5px rgba(255, 51, 102, 0.5);
+    box-shadow: none !important;
   }
   .nidhi-cta-btn-bg {
     position: absolute;
@@ -610,6 +680,136 @@
 
 <script>
   (function () {
+    /* ---------- SPLIT TEXT PLUGIN POLYFILL (FROM hero.html) ---------- */
+    const SplitTextPlugin = window.SplitText || class {
+      constructor(target, options = {}) {
+        const elements = typeof target === "string" ? Array.from(document.querySelectorAll(target)) : (Array.isArray(target) ? target : [target]);
+        this.chars = [];
+        this.words = [];
+        this.lines = [];
+
+        elements.forEach((el) => {
+          const wordsClass = options.wordsClass || "word";
+          const charsClass = options.charsClass || "char";
+          const includeChars = options.type && options.type.includes("chars");
+
+          const processNode = (node, extraClasses = []) => {
+            const fragment = document.createDocumentFragment();
+
+            if (node.nodeType === 3) {
+              const text = node.textContent;
+              const wordsArr = text.split(/(\s+)/);
+
+              wordsArr.forEach((part) => {
+                if (/\s+/.test(part)) {
+                  fragment.appendChild(document.createTextNode(part));
+                  return;
+                }
+                if (!part) return;
+
+                const wordSpan = document.createElement("span");
+                wordSpan.className = [wordsClass, ...extraClasses].filter(Boolean).join(" ");
+                wordSpan.style.display = "inline-block";
+
+                if (includeChars) {
+                  part.split("").forEach((char) => {
+                    const charSpan = document.createElement("span");
+                    charSpan.className = [charsClass, ...extraClasses].filter(Boolean).join(" ");
+                    charSpan.style.display = "inline-block";
+                    charSpan.textContent = char;
+                    wordSpan.appendChild(charSpan);
+                    this.chars.push(charSpan);
+                  });
+                } else {
+                  wordSpan.textContent = part;
+                }
+
+                fragment.appendChild(wordSpan);
+                this.words.push(wordSpan);
+              });
+            } else if (node.nodeType === 1) {
+              if (node.tagName === "BR") {
+                fragment.appendChild(node.cloneNode(true));
+              } else {
+                const elementClasses = Array.from(node.classList).filter(c => !["block", "flex", "grid", "hidden", "inline"].includes(c));
+                const combinedClasses = [...extraClasses, ...elementClasses];
+                Array.from(node.childNodes).forEach((child) => {
+                  fragment.appendChild(processNode(child, combinedClasses));
+                });
+                if (node.classList.contains("block")) {
+                  fragment.appendChild(document.createElement("br"));
+                }
+              }
+            }
+
+            return fragment;
+          };
+
+          const childNodes = Array.from(el.childNodes);
+          el.innerHTML = "";
+          childNodes.forEach((child) => {
+            el.appendChild(processNode(child));
+          });
+
+          this.lines.push(el);
+        });
+      }
+
+      static create(target, options) {
+        return new SplitTextPlugin(target, options);
+      }
+    };
+
+    /* ---------- HERO HEADING ENTRANCE ANIMATION (FROM hero.html) ---------- */
+    function initHeroHeadingGsap() {
+      if (typeof gsap === "undefined") {
+        setTimeout(initHeroHeadingGsap, 50);
+        return;
+      }
+      const titleEl = document.getElementById("heroTitle");
+      if (!titleEl || titleEl.dataset.gsapInitialized) return;
+      titleEl.dataset.gsapInitialized = "true";
+
+      // Split heading into chars and set bouncy elastic pop on page load
+      const heading = SplitTextPlugin.create("#heroTitle", {
+        type: "lines, words, chars",
+        charsClass: "char",
+        wordsClass: "word",
+      });
+
+      gsap.fromTo(
+        heading.chars,
+        { y: 55, opacity: 0, scale: 0.45 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          stagger: 0.015,
+          ease: "elastic.out(0.75, 0.25)",
+          delay: 0.1,
+        }
+      );
+
+      gsap.fromTo(
+        ["#heroNo", "#heroName"],
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: "power3.out", delay: 0.4 }
+      );
+
+      gsap.fromTo(
+        "[data-hero]",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, stagger: 0.12, duration: 0.7, ease: "back.out(1.8)", delay: 0.5 }
+      );
+
+      gsap.fromTo(
+        ".nidhi-cta-btn",
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.55 }
+      );
+    }
+
     const SLIDES = [
       {
         name: "Classic Masala Chai",
@@ -803,6 +1003,7 @@
           go(+b.dataset.hero);
         });
       });
+
       render(false);
       resetAutoplay();
 
@@ -849,10 +1050,21 @@
       }
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initHeroCarousel);
-    } else {
+    function startInit() {
       initHeroCarousel();
+      const loader = document.getElementById("loader");
+      if (!loader) {
+        initHeroHeadingGsap();
+      } else {
+        window.addEventListener("nidhi:loaderDone", initHeroHeadingGsap);
+        setTimeout(initHeroHeadingGsap, 2600);
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", startInit);
+    } else {
+      startInit();
     }
   })();
 </script>
@@ -865,15 +1077,21 @@
   "settings": [
     {
       "type": "text",
-      "id": "heading_outline",
-      "label": "Outline Heading Text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1 (Outline)",
       "default": "Sip Wellness."
     },
     {
       "type": "text",
-      "id": "heading_solid",
-      "label": "Solid Heading Text",
-      "default": "Taste Purity. Love Every Cup."
+      "id": "heading_line_2",
+      "label": "Heading Line 2 (Solid)",
+      "default": "Taste Purity."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_3",
+      "label": "Heading Line 3 (Solid)",
+      "default": "Love Every Cup."
     },
     {
       "type": "text",
@@ -885,6 +1103,18 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "page_full_width",
+      "label": "Page Full Width (Match Header)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "page_full_width_spacing",
+      "label": "Page Full Width Spacing (Match Header)",
+      "default": true
     }
   ],
   "presets": [

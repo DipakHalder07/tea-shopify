@@ -1226,12 +1226,10 @@ body,
 }
 
 .dotted-rule {
-  display: block !important;
-  width: 100% !important;
-  height: 0px !important;
-  border-top: 2.5px dotted #f5e4c7 !important;
-  background: none !important;
-  opacity: 0.85 !important;
+  background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, 0.85) 0 4px, transparent 4px 10px) !important;
+  height: 2px !important;
+  border: none !important;
+  opacity: 0.9 !important;
   pointer-events: none !important;
 }
 
@@ -1440,5 +1438,15 @@ header svg[fill]:not([fill="none"]),
 .shopify-section-header-sticky {
   border-bottom: 1px solid rgba(245, 228, 199, 0.12) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Remove button hover shadows as requested */
+.nidhi-hero-section .nidhi-nav-btn:hover,
+.nidhi-hero-section .nidhi-cta-btn:hover,
+.nidhi-hero-section button:hover,
+.nidhi-hero-section a.nidhi-cta-btn:hover,
+button[data-hero]:hover {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
