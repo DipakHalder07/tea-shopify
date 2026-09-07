@@ -36,6 +36,8 @@
     <script  src="{{ 'jquery-cookie-min.js' | asset_url }}"></script>
     <script src="{{ 'wow.min.js' | asset_url }}"></script>
      <script src="{{ 'slick.min.js' | asset_url }}"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     {{ content_for_header }}   
     {% style %}
       :root {
@@ -300,11 +302,11 @@
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
-     {% if settings.preloader_enable %}
-   <div id="preloader">
-    <div class="spinner"></div> 
-    </div>
-    {% endif %}
+    <!-- Ambient Botanical Tea Leaf Pattern Background -->
+    <div class="pointer-events-none fixed inset-0 z-0 bg-repeat opacity-20 select-none"
+      style="background-image: url('{{ 'tea-leaf-pattern.svg' | asset_url }}'); background-size: 260px 260px; position: fixed; inset: 0; pointer-events: none; z-index: -1;"></div>
+
+    {% render 'nidhi-loader' %}
     <div class="mobile-menu" data-menu="dt-main-menu"> </div>
     <div class="mobile-menu-overlay"></div> 
     {%- if settings.cart_type == 'drawer' -%}

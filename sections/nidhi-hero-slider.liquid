@@ -1,0 +1,809 @@
+{% comment %}
+  Nidhi Tea Hero Slider Section
+  Faithfully ports the Hero design and interactive carousel from Nidhi Tea index.html
+{% endcomment %}
+
+<section id="hero" class="nidhi-hero-section">
+  <!-- Corner Botanical Tea Branches (Decorative Background) -->
+  <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-tl" />
+  <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-br" />
+
+  <!-- Hero Main Heading -->
+  <div class="nidhi-heading-wrap">
+    <h1 id="heroTitle" class="nidhi-hero-title">
+      <span class="text-outline">{{ section.settings.heading_outline | default: 'Sip Wellness.' }}</span>
+      <span class="text-cream">{{ section.settings.heading_solid | default: 'Taste Purity. Love Every Cup.' }}</span>
+    </h1>
+  </div>
+
+  <!-- Blend Indicator Rule Bar -->
+  <div class="nidhi-blend-bar">
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.6;"></div>
+    <div class="nidhi-blend-bar-inner">
+      <span id="heroNo">Blend N0.01</span>
+      <span id="heroName" class="animate-fade-in">Classic Masala Chai</span>
+    </div>
+  </div>
+
+  <!-- ============ HERO CAROUSEL ROW WITH FULL-WIDTH DOTTED LINE ============ -->
+  <div class="nidhi-carousel-row">
+    <!-- Edge-to-Edge Full-Width Horizontal Dotted Line Behind Slider & Navigation Buttons -->
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.7; z-index: 0; pointer-events: none;"></div>
+
+    <div class="nidhi-carousel-inner">
+      <!-- Previous Slide Button -->
+      <button data-hero="-1" type="button" aria-label="Previous blend" class="nidhi-nav-btn">
+        <span>&larr;</span>
+      </button>
+
+      <!-- Center Active Blend Presentation -->
+      <div class="nidhi-stage">
+        <!-- Solid Center Color Tint Circle -->
+        <div id="heroTintWrap" style="transform: scale(1);">
+          <div id="heroTint" class="animate-hero-bg" style="background: var(--pink, #FF3366);"></div>
+        </div>
+
+        <!-- Top-Right & Bottom-Left Floating Botanical Companion Accents -->
+        <div class="nidhi-companions-box">
+          <!-- Top Right Companion (Shrink & Bloom on Slide Change) -->
+          <div id="heroTopWrap" style="transform: scale(1);">
+            <div class="animate-float-companion-top" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
+              <img id="heroTopImg"
+                src="{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}"
+                alt="Tea Spices"
+                class="nidhi-companion-img" />
+            </div>
+          </div>
+
+          <!-- Bottom Left Companion (Visible on sm+) -->
+          <div id="heroBottomWrap" style="transform: scale(1);">
+            <div class="animate-float-companion-bottom" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
+              <img id="heroBottomImg"
+                src="{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
+                alt="Tea Strainer"
+                class="nidhi-companion-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Product Slides -->
+        <div id="heroSlides"></div>
+      </div>
+
+      <!-- Next Slide Button -->
+      <button data-hero="1" type="button" aria-label="Next blend" class="nidhi-nav-btn">
+        <span>&rarr;</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Row With Dotted Line -->
+  <div class="nidhi-cta-row">
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.7; pointer-events: none;"></div>
+    <a href="{{ section.settings.button_link | default: '#products' }}" class="nidhi-cta-btn">
+      <div class="nidhi-cta-btn-bg"></div>
+      <span class="nidhi-cta-text-wrap">
+        <span style="visibility: hidden; font-weight: 700; white-space: nowrap;">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+        <span class="nidhi-cta-text-top">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+        <span class="nidhi-cta-text-bottom">{{ section.settings.button_text | default: 'Explore Blends' }}</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .nidhi-hero-section {
+    position: relative;
+    min-height: 90vh;
+    overflow: hidden;
+    padding-top: 140px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background, #100B06);
+    color: var(--cream, #f5e4c7);
+  }
+  @media (max-width: 768px) {
+    .nidhi-hero-section {
+      padding-top: 110px;
+      padding-bottom: 40px;
+      min-height: auto;
+    }
+  }
+
+  .nidhi-branch-tl {
+    position: absolute;
+    top: -4rem;
+    left: -5rem;
+    width: 300px;
+    height: auto;
+    opacity: 0.12;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  .nidhi-branch-br {
+    position: absolute;
+    bottom: -5rem;
+    right: -6rem;
+    width: 320px;
+    height: auto;
+    opacity: 0.12;
+    transform: rotate(135deg);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  @media (min-width: 640px) {
+    .nidhi-branch-tl { width: 540px; opacity: 0.15; }
+    .nidhi-branch-br { width: 580px; opacity: 0.15; }
+  }
+  @media (min-width: 1024px) {
+    .nidhi-branch-tl { width: 780px; }
+    .nidhi-branch-br { width: 820px; }
+  }
+
+  .nidhi-heading-wrap {
+    position: relative;
+    z-index: 10;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .nidhi-hero-title {
+    font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
+    font-optical-sizing: auto;
+    text-transform: uppercase;
+    line-height: 0.90;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 7.5vw, 6.4rem);
+    margin: 0 auto;
+    max-width: 1100px;
+    text-align: center;
+  }
+  .nidhi-hero-title .text-outline {
+    color: transparent !important;
+    -webkit-text-stroke: 1.5px var(--cream, #f5e4c7);
+  }
+  .nidhi-hero-title .text-cream {
+    color: var(--cream, #f5e4c7) !important;
+  }
+
+  .nidhi-blend-bar {
+    position: relative;
+    z-index: 10;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  .nidhi-blend-bar-inner {
+    position: relative;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-family: var(--font-display-family), "Fraunces", Georgia, serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--cream, #f5e4c7);
+    font-weight: 600;
+  }
+  @media (min-width: 768px) {
+    .nidhi-blend-bar-inner {
+      font-size: 15px;
+      padding: 0 40px;
+    }
+  }
+  .nidhi-blend-bar-inner span {
+    background-color: var(--background, #100B06);
+  }
+  .nidhi-blend-bar-inner #heroNo {
+    padding-right: 1rem;
+  }
+  .nidhi-blend-bar-inner #heroName {
+    padding-left: 1rem;
+  }
+
+  .nidhi-carousel-row {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+  @media (min-width: 768px) {
+    .nidhi-carousel-row {
+      margin: 2.5rem 0;
+    }
+  }
+  .nidhi-carousel-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    gap: 12px;
+  }
+  @media (min-width: 768px) {
+    .nidhi-carousel-inner {
+      padding: 0 40px;
+      gap: 24px;
+    }
+  }
+
+  .nidhi-nav-btn {
+    position: relative;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    border: 2px solid var(--pink, #FF3366) !important;
+    background-color: var(--pink, #FF3366) !important;
+    color: var(--cream, #f5e4c7) !important;
+    box-shadow: 0 10px 25px -5px rgba(255, 51, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  @media (min-width: 640px) {
+    .nidhi-nav-btn {
+      width: 56px;
+      height: 56px;
+    }
+  }
+  @media (min-width: 768px) {
+    .nidhi-nav-btn {
+      width: 68px;
+      height: 68px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .nidhi-nav-btn {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .nidhi-nav-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--red, #E63946) !important;
+    border-color: var(--red, #E63946) !important;
+  }
+  .nidhi-nav-btn span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .nidhi-nav-btn span {
+      font-size: 1.6rem;
+    }
+  }
+
+  .nidhi-stage {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    min-height: 380px;
+    max-height: 760px;
+  }
+  @media (min-width: 640px) {
+    .nidhi-stage {
+      height: 58vh;
+      min-height: 440px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .nidhi-stage {
+      height: 70vh;
+    }
+  }
+
+  #heroTintWrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: transform 500ms;
+    will-change: transform;
+    z-index: 5;
+  }
+  #heroTint {
+    width: 224px;
+    height: 224px;
+    border-radius: 9999px;
+    transition: background-color 700ms;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  @media (min-width: 640px) {
+    #heroTint {
+      width: 288px;
+      height: 288px;
+    }
+  }
+  @media (min-width: 768px) {
+    #heroTint {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  @media (min-width: 1024px) {
+    #heroTint {
+      width: 480px;
+      height: 480px;
+    }
+  }
+  @media (min-width: 1280px) {
+    #heroTint {
+      width: 560px;
+      height: 560px;
+    }
+  }
+
+  .nidhi-companions-box {
+    position: absolute;
+    inset: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    pointer-events: none;
+    z-index: 20;
+  }
+  @media (min-width: 640px) { .nidhi-companions-box { max-width: 380px; } }
+  @media (min-width: 768px) { .nidhi-companions-box { max-width: 480px; } }
+  @media (min-width: 1024px) { .nidhi-companions-box { max-width: 580px; } }
+  @media (min-width: 1280px) { .nidhi-companions-box { max-width: 680px; } }
+
+  #heroTopWrap {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    will-change: transform;
+  }
+  #heroBottomWrap {
+    position: absolute;
+    bottom: -1rem;
+    left: -0.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    will-change: transform;
+  }
+  @media (min-width: 640px) {
+    #heroBottomWrap { display: flex; }
+  }
+
+  .nidhi-companion-img {
+    position: relative;
+    z-index: 10;
+    width: 64px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+  }
+  @media (min-width: 640px) { .nidhi-companion-img { width: 96px; } }
+  @media (min-width: 768px) { .nidhi-companion-img { width: 128px; } }
+  @media (min-width: 1024px) { .nidhi-companion-img { width: 176px; } }
+  @media (min-width: 1280px) { .nidhi-companion-img { width: 208px; } }
+
+  #heroSlides {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 25;
+  }
+  .hero-slide-item {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+  .hero-slide-item img {
+    height: 115%;
+    max-height: 720px;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.45));
+    pointer-events: none;
+  }
+  @media (min-width: 640px) { .hero-slide-item img { height: 122%; } }
+  @media (min-width: 768px) { .hero-slide-item img { height: 130%; } }
+  @media (min-width: 1024px) { .hero-slide-item img { height: 138%; } }
+  @media (min-width: 1280px) { .hero-slide-item img { height: 142%; max-height: 820px; } }
+
+  .nidhi-cta-row {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    width: 100%;
+  }
+  .nidhi-cta-btn {
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid var(--pink, #FF3366) !important;
+    background-color: var(--pink, #FF3366) !important;
+    padding: 16px 44px;
+    font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--cream, #f5e4c7) !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .nidhi-cta-btn:hover {
+    transform: scale(1.05);
+    border-color: var(--red, #E63946) !important;
+    box-shadow: 0 20px 25px -5px rgba(255, 51, 102, 0.4);
+  }
+  .nidhi-cta-btn-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--pink, #FF3366);
+    transition: background-color 0.3s;
+    pointer-events: none;
+  }
+  .nidhi-cta-btn:hover .nidhi-cta-btn-bg {
+    background-color: var(--red, #E63946);
+  }
+  .nidhi-cta-text-wrap {
+    position: relative;
+    z-index: 20;
+    display: block;
+    overflow: hidden;
+    height: 1.35em;
+    line-height: 1.35em;
+    pointer-events: none;
+  }
+  .nidhi-cta-text-top {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(0);
+    opacity: 1;
+    color: var(--cream, #f5e4c7);
+  }
+  .nidhi-cta-btn:hover .nidhi-cta-text-top {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  .nidhi-cta-text-bottom {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(100%);
+    opacity: 0;
+    color: var(--cream, #f5e4c7);
+  }
+  .nidhi-cta-btn:hover .nidhi-cta-text-bottom {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  (function () {
+    const SLIDES = [
+      {
+        name: "Classic Masala Chai",
+        img: "{{ 'hero.png' | asset_url }}",
+        tint: "var(--pink, #FF3366)",
+        topIngredient: "{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}",
+        bottomIngredient: "{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
+      },
+      {
+        name: "Honey Lemon Green Tea",
+        img: "{{ 'product-2.png' | asset_url }}",
+        tint: "#2E6941",
+        topIngredient: "{{ 'isolated_honey_dipper_with_dripping_golden_honey_transparent_background.png' | asset_url }}",
+        bottomIngredient: "{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}"
+      },
+      {
+        name: "Rose Cardamom Black Tea",
+        img: "{{ 'product-3.png' | asset_url }}",
+        tint: "var(--red, #E63946)",
+        topIngredient: "{{ 'green_cardamom.png' | asset_url }}",
+        bottomIngredient: "{{ 'star_anise.png' | asset_url }}"
+      }
+    ];
+
+    function initHeroCarousel() {
+      const wrap = document.getElementById("heroSlides");
+      if (!wrap) return;
+
+      const tint = document.getElementById("heroTint");
+      const tintWrap = document.getElementById("heroTintWrap");
+      const topWrap = document.getElementById("heroTopWrap");
+      const bottomWrap = document.getElementById("heroBottomWrap");
+      const topImg = document.getElementById("heroTopImg");
+      const bottomImg = document.getElementById("heroBottomImg");
+      const nameEl = document.getElementById("heroName");
+      const noEl = document.getElementById("heroNo");
+      const heroBtns = document.querySelectorAll("[data-hero]");
+      const heroSection = document.getElementById("hero");
+      let index = 0, autoplayTimer = null, btnPopupTimer = null, isTransitioning = false;
+
+      wrap.innerHTML = SLIDES.map((s, i) => `
+        <div class="hero-slide-item pointer-events-none absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform opacity-0" data-hero-slide="${i}">
+          <img src="${s.img}" alt="${s.name}" class="hero-floating-pack pointer-events-none">
+        </div>
+      `).join("");
+      const slides = [...wrap.querySelectorAll(".hero-slide-item")];
+
+      function hideHeroBtns() {
+        heroBtns.forEach((b) => {
+          b.style.transition = "transform 220ms ease-out, opacity 220ms ease-out";
+          b.style.transform = "scale(0)";
+          b.style.opacity = "0";
+          b.style.pointerEvents = "none";
+        });
+      }
+
+      function popupHeroBtns() {
+        clearTimeout(btnPopupTimer);
+        btnPopupTimer = setTimeout(() => {
+          heroBtns.forEach((b) => {
+            b.style.transition = "transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease";
+            b.style.transform = "scale(1)";
+            b.style.opacity = "1";
+            b.style.pointerEvents = "auto";
+          });
+          isTransitioning = false;
+        }, 620);
+      }
+
+      function render(animateEffects = false) {
+        const n = SLIDES.length;
+
+        if (animateEffects) {
+          isTransitioning = true;
+          hideHeroBtns();
+          popupHeroBtns();
+
+          if (tintWrap) {
+            tintWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1)";
+            tintWrap.style.transform = "scale(0.85)";
+          }
+
+          if (topWrap) {
+            topWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease";
+            topWrap.style.transform = "scale(0) rotate(-35deg)";
+            topWrap.style.opacity = "0";
+          }
+          if (bottomWrap) {
+            bottomWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease";
+            bottomWrap.style.transform = "scale(0) rotate(35deg)";
+            bottomWrap.style.opacity = "0";
+          }
+
+          setTimeout(() => {
+            if (tint) tint.style.background = SLIDES[index].tint;
+
+            if (tintWrap) {
+              tintWrap.style.transition = "transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1)";
+              tintWrap.style.transform = "scale(1)";
+            }
+
+            if (topImg && bottomImg) {
+              topImg.src = SLIDES[index].topIngredient;
+              bottomImg.src = SLIDES[index].bottomIngredient;
+            }
+
+            if (topWrap) {
+              topWrap.style.transition = "transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease";
+              topWrap.style.transform = "scale(1) rotate(0deg)";
+              topWrap.style.opacity = "1";
+            }
+            if (bottomWrap) {
+              bottomWrap.style.transition = "transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease";
+              bottomWrap.style.transform = "scale(1) rotate(0deg)";
+              bottomWrap.style.opacity = "1";
+            }
+          }, 260);
+        } else {
+          if (tint) tint.style.background = SLIDES[index].tint;
+          if (tintWrap) tintWrap.style.transform = "scale(1)";
+          if (topWrap) { topWrap.style.transform = "scale(1)"; topWrap.style.opacity = "1"; }
+          if (bottomWrap) { bottomWrap.style.transform = "scale(1)"; bottomWrap.style.opacity = "1"; }
+          if (topImg) topImg.src = SLIDES[index].topIngredient;
+          if (bottomImg) bottomImg.src = SLIDES[index].bottomIngredient;
+        }
+
+        slides.forEach((sl, i) => {
+          let off = i - index;
+          if (off > n / 2) off -= n;
+          if (off < -n / 2) off += n;
+
+          const isActive = off === 0;
+          if (isActive) {
+            sl.style.opacity = "1";
+            sl.style.zIndex = "20";
+            sl.style.pointerEvents = "none";
+            sl.style.transform = "translate3d(0, 0, 0) scale(1) rotate(0deg)";
+          } else if (off < 0) {
+            sl.style.opacity = "0";
+            sl.style.zIndex = "10";
+            sl.style.pointerEvents = "none";
+            sl.style.transform = "translate3d(-180%, 0, 0) scale(0.7) rotate(-10deg)";
+          } else {
+            sl.style.opacity = "0";
+            sl.style.zIndex = "10";
+            sl.style.pointerEvents = "none";
+            sl.style.transform = "translate3d(180%, 0, 0) scale(0.7) rotate(10deg)";
+          }
+        });
+
+        if (nameEl) {
+          nameEl.textContent = SLIDES[index].name;
+          nameEl.classList.remove("animate-fade-in");
+          void nameEl.offsetWidth;
+          nameEl.classList.add("animate-fade-in");
+        }
+        if (noEl) {
+          noEl.textContent = "Blend N0.0" + (index + 1);
+        }
+      }
+
+      function go(step) {
+        if (isTransitioning) return;
+        index = (index + step + SLIDES.length) % SLIDES.length;
+        render(true);
+        resetAutoplay();
+      }
+
+      function resetAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = setInterval(() => {
+          index = (index + 1) % SLIDES.length;
+          render(true);
+        }, 6000);
+      }
+
+      heroBtns.forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          go(+b.dataset.hero);
+        });
+      });
+      render(false);
+      resetAutoplay();
+
+      // Mobile Touch Swipe Navigation
+      let touchStartX = 0, touchStartY = 0;
+      const carouselContainer = wrap.parentElement;
+      if (carouselContainer) {
+        carouselContainer.addEventListener("touchstart", (e) => {
+          if (e.touches && e.touches[0]) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        carouselContainer.addEventListener("touchend", (e) => {
+          if (!touchStartX) return;
+          const touchEndX = e.changedTouches[0].clientX;
+          const touchEndY = e.changedTouches[0].clientY;
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+          if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) go(1);
+            else go(-1);
+          }
+          touchStartX = 0;
+          touchStartY = 0;
+        }, { passive: true });
+      }
+
+      // Mouse Parallax on Hero Section
+      if (heroSection && typeof gsap !== "undefined") {
+        heroSection.addEventListener("mousemove", (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+          gsap.to(tintWrap, { x: x * 20, y: y * 20, duration: 0.8, ease: "power2.out" });
+          gsap.to(wrap, { x: x * 12, y: y * 12, duration: 0.8, ease: "power2.out" });
+        });
+
+        heroSection.addEventListener("mouseleave", () => {
+          gsap.to([tintWrap, wrap], { x: 0, y: 0, duration: 1, ease: "power2.out" });
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initHeroCarousel);
+    } else {
+      initHeroCarousel();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Nidhi Hero Slider",
+  "tag": "section",
+  "class": "section-nidhi-hero-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_outline",
+      "label": "Outline Heading Text",
+      "default": "Sip Wellness."
+    },
+    {
+      "type": "text",
+      "id": "heading_solid",
+      "label": "Solid Heading Text",
+      "default": "Taste Purity. Love Every Cup."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Label",
+      "default": "Explore Blends"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nidhi Hero Slider"
+    }
+  ]
+}
+{% endschema %}

@@ -1129,3 +1129,167 @@ h5, .h5, h6, .h6 {
 .font-sans {
   font-family: var(--font-sans-family) !important;
 }
+
+/* ==========================================================================
+   NIDHI TEA COLOR PALETTE & GLOBAL BACKGROUND STYLING
+   ========================================================================== */
+:root {
+  --background: #100B06;
+  --cream: #f5e4c7;
+  --gold: #F7C665;
+  --flame: #F15726;
+  --cherry: #C4321C;
+  --smoke: #2A231C;
+  --espresso: #100B06;
+  --pink: #FF3366;
+  --pink-hover: #E01E5A;
+  --red: #E63946;
+  --red-dark: #C4321C;
+}
+
+::selection {
+  background: var(--pink) !important;
+  color: var(--cream) !important;
+}
+
+body,
+.gradient {
+  background-color: var(--background) !important;
+  color: var(--cream) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
+.bg-gold {
+  background-color: var(--gold) !important;
+}
+
+.bg-flame {
+  background-color: var(--flame) !important;
+}
+
+.bg-cherry {
+  background-color: var(--cherry) !important;
+}
+
+.bg-pink {
+  background-color: var(--pink) !important;
+}
+
+.bg-red {
+  background-color: var(--red) !important;
+}
+
+.text-cream {
+  color: var(--cream) !important;
+}
+
+.border-pink {
+  border-color: var(--pink) !important;
+}
+
+.border-red {
+  border-color: var(--red) !important;
+}
+
+/* ==========================================================================
+   NIDHI TEA HERO & SLIDER STYLES & ANIMATIONS
+   ========================================================================== */
+.display-tight {
+  font-family: var(--font-display-family), "Fraunces", serif !important;
+  font-optical-sizing: auto;
+  text-transform: uppercase;
+  line-height: .88;
+  letter-spacing: -.005em;
+  font-weight: 700;
+}
+
+.text-outline {
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px var(--cream);
+}
+
+.dotted-rule {
+  background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, .35) 0 4px, transparent 4px 10px);
+}
+
+@keyframes hero-bg-pulse {
+  0%, 100% {
+    transform: scale(0.96);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.animate-hero-bg {
+  animation: hero-bg-pulse 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-pack-float {
+  0%, 100% {
+    transform: rotate(5deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(6.5deg) translateY(-16px);
+  }
+}
+
+.hero-floating-pack {
+  animation: hero-pack-float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float-companion-top {
+  0%, 100% {
+    transform: translateY(0px) rotate(14deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(22deg);
+  }
+}
+
+@keyframes float-companion-bottom {
+  0%, 100% {
+    transform: translateY(0px) rotate(-14deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(-8deg);
+  }
+}
+
+.animate-float-companion-top {
+  animation: float-companion-top 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-companion-bottom {
+  animation: float-companion-bottom 4.6s ease-in-out infinite;
+  animation-delay: 0.6s;
+  will-change: transform;
+}
+
+@keyframes bucks-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-in {
+  animation: bucks-fade .5s ease-out both;
+}
+
+#heroTitle .char,
+#heroTitle .word {
+  display: inline-block;
+  will-change: transform;
+}
+
