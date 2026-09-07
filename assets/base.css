@@ -4166,7 +4166,7 @@ svg.placeholder_svg {
 
 address{font-style:normal;}
 .overflow-hidden-mobile #shopify-section-header {
-    z-index: 0;
+    z-index: 99999;
 }
 input[type=password]:not(:placeholder-shown) {
     font-family: 'pass', 'Roboto', Helvetica, Arial, sans-serif;
