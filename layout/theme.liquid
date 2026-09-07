@@ -306,7 +306,9 @@
     <div class="pointer-events-none fixed inset-0 z-0 bg-repeat opacity-20 select-none"
       style="background-image: url('{{ 'tea-leaf-pattern.svg' | asset_url }}'); background-size: 260px 260px; position: fixed; inset: 0; pointer-events: none; z-index: -1;"></div>
 
-    {% render 'nidhi-loader' %}
+    {% if template.name == 'index' or template == 'index' %}
+      {% render 'nidhi-loader' %}
+    {% endif %}
     <div class="mobile-menu" data-menu="dt-main-menu"> </div>
     <div class="mobile-menu-overlay"></div> 
     {%- if settings.cart_type == 'drawer' -%}

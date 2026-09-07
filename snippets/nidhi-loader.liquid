@@ -3,6 +3,7 @@
   Faithful port from Nidhi Tea index.html with instant color rendering and bulletproof GSAP animation
 {% endcomment %}
 
+{% if template.name == 'index' or template == 'index' %}
 <style>
   #loader {
     position: fixed;
@@ -285,3 +286,4 @@
     startLoaderAnimation();
   })();
 </script>
+{% endif %}
