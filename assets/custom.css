@@ -1,3 +1,17 @@
+:root {
+  --background: #100B06;
+  --cream: #f5e4c7;
+  --gold: #F7C665;
+  --flame: #F15726;
+  --cherry: #C4321C;
+  --smoke: #2A231C;
+  --espresso: #100B06;
+  --pink: #FF3366;
+  --pink-hover: #E01E5A;
+  --red: #E63946;
+  --red-dark: #C4321C;
+}
+
 .bg-color-sandal {
   background-color: #a89166;
   border-color: #a89166;
@@ -1221,36 +1235,20 @@ body,
   pointer-events: none !important;
 }
 
-/* Clear, Obvious Zoom In & Zoom Out Breathing Animation on Hero Round Background */
-@keyframes hero-tint-zoom {
-  0% {
-    transform: scale(0.86);
-    filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
-  }
-  50% {
-    transform: scale(1.14);
-    filter: drop-shadow(0 0 95px rgba(255, 51, 102, 0.8));
-  }
-  100% {
-    transform: scale(0.86);
-    filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
-  }
-}
-
+/* Animation Name: hero-bg-pulse */
 @keyframes hero-bg-pulse {
   0%, 100% {
-    transform: scale(0.86);
+    transform: scale(0.96);
   }
   50% {
-    transform: scale(1.14);
+    transform: scale(1.04);
   }
 }
 
-#heroTint,
+/* Class applied to the background circle */
 .animate-hero-bg {
-  animation: hero-tint-zoom 3.4s ease-in-out infinite !important;
-  transform-origin: center center !important;
-  will-change: transform, filter !important;
+  animation: hero-bg-pulse 6s ease-in-out infinite !important;
+  will-change: transform;
 }
 
 @keyframes hero-pack-float {

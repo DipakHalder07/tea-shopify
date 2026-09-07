@@ -43,9 +43,17 @@
 
       <!-- Center Active Blend Presentation Stage -->
       <div class="nidhi-stage">
-        <!-- Prominent Solid Center Color Tint Circle with Ambient Glow, Pulse & Float -->
-        <div id="heroTintWrap">
-          <div id="heroTint" class="animate-hero-bg"></div>
+        <!-- Wrapper for transition & parallax -->
+        <div id="heroTintWrap"
+          class="absolute flex items-center justify-center pointer-events-none transition-transform duration-500 will-change-transform"
+          style="transform: scale(1);">
+          
+          <!-- The Animated Pulsating Background Circle -->
+          <div id="heroTint"
+            class="h-56 w-56 rounded-full transition-colors duration-700 sm:h-72 sm:w-72 md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[540px] xl:w-[540px] animate-hero-bg shadow-2xl"
+            style="background: var(--pink)">
+          </div>
+
         </div>
 
         <!-- Top-Right & Bottom-Left Floating Botanical Companion Accents -->
@@ -358,73 +366,60 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    transition: transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-property: transform;
+    transition-duration: 500ms;
     will-change: transform;
     z-index: 5;
   }
   #heroTint {
-    width: 320px;
-    height: 320px;
+    width: 14rem;
+    height: 14rem;
     border-radius: 9999px;
-    background-color: #FF3366;
+    background: var(--pink, #FF3366);
     flex-shrink: 0;
-    transition: background-color 700ms ease, box-shadow 700ms ease;
-    box-shadow: 0 0 90px rgba(255, 51, 102, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8);
-    will-change: transform, box-shadow;
+    transition: background-color 700ms ease, background 700ms ease, box-shadow 700ms ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(255, 51, 102, 0.55);
+    will-change: transform;
   }
   @media (min-width: 640px) {
     #heroTint {
-      width: 420px;
-      height: 420px;
+      width: 18rem;
+      height: 18rem;
     }
   }
   @media (min-width: 768px) {
     #heroTint {
-      width: 520px;
-      height: 520px;
+      width: 400px;
+      height: 400px;
     }
   }
   @media (min-width: 1024px) {
     #heroTint {
-      width: 600px;
-      height: 600px;
+      width: 480px;
+      height: 480px;
     }
   }
   @media (min-width: 1280px) {
     #heroTint {
-      width: 660px;
-      height: 660px;
+      width: 540px;
+      height: 540px;
     }
   }
 
-  /* Dynamic Zoom In / Zoom Out Breathing Animation on Product Background Circle */
-  @keyframes hero-tint-zoom {
-    0% {
-      transform: scale(0.86);
-      filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
-    }
-    50% {
-      transform: scale(1.14);
-      filter: drop-shadow(0 0 95px rgba(255, 51, 102, 0.8));
-    }
-    100% {
-      transform: scale(0.86);
-      filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
-    }
-  }
+  /* Animation Name: hero-bg-pulse */
   @keyframes hero-bg-pulse {
     0%, 100% {
-      transform: scale(0.86);
+      transform: scale(0.96);
     }
     50% {
-      transform: scale(1.14);
+      transform: scale(1.04);
     }
   }
-  .animate-hero-bg,
-  #heroTint {
-    animation: hero-tint-zoom 3.4s ease-in-out infinite !important;
-    transform-origin: center center !important;
-    will-change: transform, filter !important;
+
+  /* Class applied to the background circle */
+  .animate-hero-bg {
+    animation: hero-bg-pulse 6s ease-in-out infinite !important;
+    will-change: transform;
   }
 
   /* Floating Idle Animation on Product Pack (Tilt 5deg + Float) */
@@ -619,8 +614,8 @@
       {
         name: "Classic Masala Chai",
         img: "{{ 'hero.png' | asset_url }}",
-        tint: "#FF3366",
-        glow: "0 0 90px rgba(255, 51, 102, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
+        tint: "var(--pink)",
+        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(255, 51, 102, 0.55)",
         topIngredient: "{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
       },
@@ -628,15 +623,15 @@
         name: "Honey Lemon Green Tea",
         img: "{{ 'product-2.png' | asset_url }}",
         tint: "#2E6941",
-        glow: "0 0 90px rgba(46, 105, 65, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
+        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(46, 105, 65, 0.55)",
         topIngredient: "{{ 'isolated_honey_dipper_with_dripping_golden_honey_transparent_background.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}"
       },
       {
         name: "Rose Cardamom Black Tea",
         img: "{{ 'product-3.png' | asset_url }}",
-        tint: "#E63946",
-        glow: "0 0 90px rgba(230, 57, 70, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
+        tint: "var(--red)",
+        glow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 90px rgba(230, 57, 70, 0.55)",
         topIngredient: "{{ 'green_cardamom.png' | asset_url }}",
         bottomIngredient: "{{ 'star_anise.png' | asset_url }}"
       }
@@ -695,9 +690,10 @@
           hideHeroBtns();
           popupHeroBtns();
 
+          // Step 1: Shrink & Dip down on slide exit (260ms)
           if (tintWrap) {
             tintWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1)";
-            tintWrap.style.transform = "scale(0.82)";
+            tintWrap.style.transform = "scale(0.85)";
           }
 
           if (topWrap) {
@@ -711,10 +707,11 @@
             bottomWrap.style.opacity = "0";
           }
 
+          // Step 2: Swap color and spring back up to full size (550ms spring easing)
           setTimeout(() => {
             if (tint) {
-              tint.style.backgroundColor = SLIDES[index].tint;
-              tint.style.boxShadow = SLIDES[index].glow;
+              tint.style.background = SLIDES[index].tint;
+              if (SLIDES[index].glow) tint.style.boxShadow = SLIDES[index].glow;
             }
 
             if (tintWrap) {
@@ -740,8 +737,8 @@
           }, 260);
         } else {
           if (tint) {
-            tint.style.backgroundColor = SLIDES[index].tint;
-            tint.style.boxShadow = SLIDES[index].glow;
+            tint.style.background = SLIDES[index].tint;
+            if (SLIDES[index].glow) tint.style.boxShadow = SLIDES[index].glow;
           }
           if (tintWrap) tintWrap.style.transform = "scale(1)";
           if (topWrap) { topWrap.style.transform = "scale(1)"; topWrap.style.opacity = "1"; }
