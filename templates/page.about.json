@@ -1,0 +1,683 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "e0e317d7-f4e4-443a-8d9a-dd3eced24d2c": {
+      "type": "breadcrumb",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_image": "shopify://shop_images/AdobeStock_369708595_1_2.png",
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "accent-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "9654d0e3-3cff-4b38-ad3c-12aaff41362a": {
+      "type": "home-slider-width-tabs",
+      "blocks": {
+        "template--21548898222380__9654d0e3-3cff-4b38-ad3c-12aaff41362a-slider_tab-1": {
+          "type": "slider_tab",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "mobile_image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "show_image": true,
+            "show_content": true,
+            "content_position": "center",
+            "text_alignment": "left",
+            "tab": "",
+            "tab_image": "shopify://shop_images/AdobeStock_537707102_1.png",
+            "main_title": "welcome to grove.co - where you get your clothesfrom we create our bestproducts to give you ashopping experience like",
+            "main_title_size": "62",
+            "sub_title": "",
+            "sub_title_size": "30",
+            "text": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptent taciti sociosqu ad litora torq\nuent per conubia nostra, per inceptos himenaeos. Sed vestibulum venenatis sem et posuere.",
+            "text_size": "16",
+            "link_text": "Shop Now",
+            "link": "/"
+          }
+        },
+        "e82af2a5-ba6d-4ccc-9ca5-3d557082c5da": {
+          "type": "slider_tab",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "mobile_image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "show_image": true,
+            "show_content": true,
+            "content_position": "center",
+            "text_alignment": "left",
+            "tab": "",
+            "tab_image": "shopify://shop_images/AdobeStock_537707259_1.png",
+            "main_title": "welcome to grove.co - where you get your clothesfrom we create our bestproducts to give you ashopping experience like",
+            "main_title_size": "62",
+            "sub_title": "",
+            "sub_title_size": "30",
+            "text": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum venenatis sem et posuere.",
+            "text_size": "16",
+            "link_text": "Shop Now",
+            "link": "/"
+          }
+        },
+        "a69fd062-8a24-498e-ab17-d533e55d716b": {
+          "type": "slider_tab",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "mobile_image": "shopify://shop_images/Mask_group_13_be152ed7-37aa-436a-a398-bb9ccba65f81.png",
+            "show_image": true,
+            "show_content": true,
+            "content_position": "center",
+            "text_alignment": "left",
+            "tab": "",
+            "tab_image": "shopify://shop_images/AdobeStock_537186552_1.png",
+            "main_title": "welcome to grove.co - where you get your clothesfrom we create our bestproducts to give you ashopping experience like",
+            "main_title_size": "62",
+            "sub_title": "",
+            "sub_title_size": "30",
+            "text": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptent taciti sociosqu ad litora torq uent per conubia nostra, per inceptos himenaeos. Sed vestibulum venenatis sem et posuere.",
+            "text_size": "16",
+            "link_text": "Shop Now",
+            "link": "/"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__9654d0e3-3cff-4b38-ad3c-12aaff41362a-slider_tab-1",
+        "e82af2a5-ba6d-4ccc-9ca5-3d557082c5da",
+        "a69fd062-8a24-498e-ab17-d533e55d716b"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "color_scheme": "background-1",
+        "slider_progress_title_color": "",
+        "slider_progress_bar_color": "",
+        "slider_progress_bar_bg_color": "",
+        "disable_arrows": true,
+        "enable_two_column_block": true,
+        "slider_height": 890,
+        "slider_height_lap": 800,
+        "slider_height_tab": 600,
+        "slider_height_mobile": 400,
+        "padding_top": 115,
+        "padding_bottom": 0,
+        "custom_class_name": "custom-slider-tab"
+      }
+    },
+    "16695e71-a0ef-4ffc-9de1-f56cb2201704": {
+      "type": "support-block",
+      "blocks": {
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cotton_3_8579e388-bd2f-429a-a51f-31b6ddef655d.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Cotton 86%",
+            "text": "<p>Quisque a sapien congue leo blandit portaent vel ante ut felis molestie vehis nec lorem.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "accent-1"
+          }
+        },
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cotton_1_eaa90f13-fb59-44ca-9374-90bb989bad48.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Elastic 08%",
+            "text": "<p>Quisque a sapien congue leo blandit portaent vel ante ut felis molestie vehis nec lorem.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "accent-1"
+          }
+        },
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cotton_2_1_0b172b97-e610-4d15-b525-205ff7c5a931.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Softness 06%",
+            "text": "<p>Quisque a sapien congue leo blandit portaent vel ante ut felis molestie vehis nec lorem.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "accent-1"
+          }
+        },
+        "1130717f-3351-49cc-ba7d-e4a70ee19483": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cotton_2_547e51bc-a3b0-4769-8cfd-328c13046fcd.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Softness 06%",
+            "text": "<p>Quisque a sapien congue leo blandit portaent vel ante ut felis molestie vehis nec lorem.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "accent-1"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-1",
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-2",
+        "template--21548898222380__16695e71-a0ef-4ffc-9de1-f56cb2201704-column-3",
+        "1130717f-3351-49cc-ba7d-e4a70ee19483"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "block_styles": "grid__items",
+        "block_column_alignment": "left",
+        "icon_outer_size": "",
+        "icon_size": "27",
+        "image_radius": "",
+        "vertical_position": "veritcal_center",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "swiper_enable": true,
+        "desktop_column": 4,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": "about-support-block"
+      }
+    },
+    "27ce395c-0fa1-4c18-9a67-e64cb1dcab7e": {
+      "type": "inner-page-team-section",
+      "blocks": {
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-1": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_30.png",
+            "show_content": true,
+            "block_title": "Freya Mccarthy",
+            "block_sub_title": "CEO",
+            "block_description": "",
+            "block_button_text": "",
+            "block_button_link": "",
+            "desktop_content_alignment": "center"
+          }
+        },
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-2": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_33.png",
+            "show_content": true,
+            "block_title": "Yandel Rasmussen",
+            "block_sub_title": "Fashion Designer",
+            "block_description": "",
+            "block_button_text": "",
+            "block_button_link": "",
+            "desktop_content_alignment": "center"
+          }
+        },
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-3": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_32.png",
+            "show_content": true,
+            "block_title": "Braelynn Vaughn",
+            "block_sub_title": "Manager",
+            "block_description": "",
+            "block_button_text": "",
+            "block_button_link": "",
+            "desktop_content_alignment": "center"
+          }
+        },
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-4": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_31.png",
+            "show_content": true,
+            "block_title": "Jermaine Garcia",
+            "block_sub_title": "Marketing Lead",
+            "block_description": "",
+            "block_button_text": "",
+            "block_button_link": "",
+            "desktop_content_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-1",
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-2",
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-3",
+        "template--21548898222380__27ce395c-0fa1-4c18-9a67-e64cb1dcab7e-text-4"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "Meet our team",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "team-section": "4",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "custom_class_name": "about-team-section",
+        "swiper_enable": true,
+        "desktop_column": 4,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2
+      }
+    },
+    "7724e625-a125-4b9c-a92a-0c7824f7dd76": {
+      "type": "testimonials",
+      "blocks": {
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-1": {
+          "type": "text",
+          "settings": {
+            "block_color_scheme": "accent-2",
+            "content_heading": "",
+            "image": "shopify://shop_images/Mask_group_29.png",
+            "author": "Emilio Morse",
+            "job_title": "Ceo of polonos",
+            "quote": "Donec luctus, erat quis pharetra volutpat, diam lectus porttitor purus, quis commodo nisi dui ac ipsum. Nulla porttitor dapibus lacus, at feugiat sapien facilisis nec. Curabitur vestibulum est quis pulvinar porta. Praesent ut gravida risus, vitae commodo lectus. Donec sem ex, condimentum eget aliquet sit amet, suscipit non mi. Morbi volutpat lobortis mi eu fringilla. Orci varius natoque penatibus et magnis dis parturient montes",
+            "star": "0",
+            "link_label": "",
+            "link": "",
+            "product": "9-product-with-thumb-horizontal"
+          }
+        },
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-2": {
+          "type": "text",
+          "settings": {
+            "block_color_scheme": "accent-2",
+            "content_heading": "",
+            "image": "shopify://shop_images/Mask_group_29.png",
+            "author": "Emilio Morse",
+            "job_title": "Ceo of polonos",
+            "quote": "Donec luctus, erat quis pharetra volutpat, diam lectus porttitor purus, quis commodo nisi dui ac ipsum. Nulla porttitor dapibus lacus, at feugiat sapien facilisis nec. Curabitur vestibulum est quis pulvinar porta. Praesent ut gravida risus, vitae commodo lectus. Donec sem ex, condimentum eget aliquet sit amet, suscipit non mi. Morbi volutpat lobortis mi eu fringilla. Orci varius natoque penatibus et magnis dis parturient montes",
+            "star": "3",
+            "link_label": "",
+            "link": "",
+            "product": "07-product-with-left-thumb"
+          }
+        },
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-3": {
+          "type": "text",
+          "settings": {
+            "block_color_scheme": "accent-2",
+            "content_heading": "",
+            "image": "shopify://shop_images/Mask_group_29.png",
+            "author": "Emilio Morse",
+            "job_title": "Ceo of polonos",
+            "quote": "Donec luctus, erat quis pharetra volutpat, diam lectus porttitor purus, quis commodo nisi dui ac ipsum. Nulla porttitor dapibus lacus, at feugiat sapien facilisis nec. Curabitur vestibulum est quis pulvinar porta. Praesent ut gravida risus, vitae commodo lectus. Donec sem ex, condimentum eget aliquet sit amet, suscipit non mi. Morbi volutpat lobortis mi eu fringilla. Orci varius natoque penatibus et magnis dis parturient montes",
+            "star": "3",
+            "link_label": "",
+            "link": "",
+            "product": "diana-korr-shoulder-bag"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-1",
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-2",
+        "template--21548898222380__7724e625-a125-4b9c-a92a-0c7824f7dd76-text-3"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "What they say about us",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "Etiam sit amet ipsum nec diam malesuada por. Integepat nisi.",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "color_scheme": "accent-2",
+        "testimonial_text_alignment": "center",
+        "testimonial_style": "style1",
+        "padding_top": 0,
+        "padding_bottom": 92,
+        "custom_class_name": "fashiontestimonial about-testimonial",
+        "desktop_column": 1,
+        "tablet_column": 1,
+        "mobile_column": 1,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0
+      }
+    },
+    "a8d21fb9-6528-498f-8e3f-93c9dde8e5fc": {
+      "type": "support-block",
+      "blocks": {
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26132.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Flexible Payment",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26133.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Online support",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_25179_fd3ecb79-b8a8-4b02-af4a-9c98f31f8723.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "In-store Pickup",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-1",
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-2",
+        "template--21548898222380__a8d21fb9-6528-498f-8e3f-93c9dde8e5fc-column-3"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "block_styles": "grid__items",
+        "block_column_alignment": "center",
+        "icon_outer_size": "",
+        "icon_size": "90",
+        "image_radius": "",
+        "vertical_position": "veritcal_center",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "swiper_enable": true,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": "fashion2support"
+      }
+    },
+    "5d94ff68-3828-41e0-bedb-b86611de7966": {
+      "type": "newsletter",
+      "blocks": {
+        "5e5dab9b-3553-4016-a43a-135eec2386d6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_25613_2.png"
+          }
+        },
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay Ahead with Our Style Predictions",
+            "heading_size": "h1"
+          }
+        },
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-paragraph-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Quisque nec nisi ut velit bibendum interdum non in nulla.</p>",
+            "text_style": "body"
+          }
+        },
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-email_form-1": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "5e5dab9b-3553-4016-a43a-135eec2386d6",
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-heading-1",
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-paragraph-1",
+        "template--21548898222380__5d94ff68-3828-41e0-bedb-b86611de7966-email_form-1"
+      ],
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "custom_class_name": "fashion2newsletter"
+      }
+    },
+    "7c071d41-ae01-41cb-85d3-dcea2be962ba": {
+      "type": "marquee-section",
+      "blocks": {
+        "template--21548898222380__7c071d41-ae01-41cb-85d3-dcea2be962ba-text-5": {
+          "type": "text",
+          "settings": {
+            "block_heading": "<span>*</span>FREE SHIPPING ON ORDERS OVER €75<span>*</span>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__7c071d41-ae01-41cb-85d3-dcea2be962ba-text-5"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "speed": 8,
+        "color_scheme": "inverse",
+        "heading_size": "h3",
+        "gradient_text_background": "",
+        "marquee_padding": 20,
+        "custom_class_name": "fashionmarquee",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "304c2b7c-72b2-4f91-912c-d6452e0bca0b": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-2": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_34.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-3": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_35.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-4": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_37.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "600e9054-4742-416a-9a29-a983dbfac916": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_39.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "be961867-08ea-4761-9f1b-b712ebc52257": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_38.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        },
+        "bc83d2ee-a256-4fce-9346-d459d1f591a1": {
+          "type": "text",
+          "settings": {
+            "block_image": "shopify://shop_images/Mask_group_36.png",
+            "show_content": false,
+            "icon_class": false,
+            "block_sub_title": "Sub title",
+            "block_description": "Short description",
+            "block_button_link": "",
+            "block_video": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-2",
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-3",
+        "template--21548898222380__304c2b7c-72b2-4f91-912c-d6452e0bca0b-text-4",
+        "600e9054-4742-416a-9a29-a983dbfac916",
+        "be961867-08ea-4761-9f1b-b712ebc52257",
+        "bc83d2ee-a256-4fce-9346-d459d1f591a1"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "overlay_height": 290,
+        "overlay_height_laptop": 290,
+        "overlay_height_tab": 290,
+        "overlay_height_mobile": 200,
+        "desktop_content_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "swiper_enable": true,
+        "desktop_column": 6,
+        "laptop_column": 5,
+        "tablet_column": 4,
+        "mobile_column": 2,
+        "centered_slide": false,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e0e317d7-f4e4-443a-8d9a-dd3eced24d2c",
+    "9654d0e3-3cff-4b38-ad3c-12aaff41362a",
+    "16695e71-a0ef-4ffc-9de1-f56cb2201704",
+    "27ce395c-0fa1-4c18-9a67-e64cb1dcab7e",
+    "7724e625-a125-4b9c-a92a-0c7824f7dd76",
+    "a8d21fb9-6528-498f-8e3f-93c9dde8e5fc",
+    "5d94ff68-3828-41e0-bedb-b86611de7966",
+    "7c071d41-ae01-41cb-85d3-dcea2be962ba",
+    "304c2b7c-72b2-4f91-912c-d6452e0bca0b"
+  ]
+}

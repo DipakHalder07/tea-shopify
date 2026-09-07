@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "6cd6487e-d9a0-4ded-85ba-5068911dc2fd": {
+      "type": "breadcrumb",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_image": "shopify://shop_images/Mask_group_28.png",
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "accent-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "dac594f5-6f42-441b-b718-a5640c6f4896": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Would I be able to withdraw or alter my request?",
+            "icon": "none",
+            "row_content": "<p>Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem.</p>",
+            "page": ""
+          }
+        },
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are the products on your website authentic designer items?",
+            "icon": "none",
+            "row_content": "<p>Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. </p>",
+            "page": ""
+          }
+        },
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I know my size for designer clothing?",
+            "icon": "none",
+            "row_content": "<p>At enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. </p>",
+            "page": ""
+          }
+        },
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are my personal and payment details secure on your website?",
+            "icon": "none",
+            "row_content": "<p>Blandit fusce id  blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem.</p>",
+            "page": ""
+          }
+        },
+        "a28c49d0-90ca-483f-bf46-d4bee34fac3b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer international shipping?",
+            "icon": "none",
+            "row_content": "<p>Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. </p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-0",
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-1",
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-2",
+        "template--16688272900316__dac594f5-6f42-441b-b718-a5640c6f4896-16672924418c53fb80-3",
+        "a28c49d0-90ca-483f-bf46-d4bee34fac3b"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "layout": "row",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-1",
+        "open_first_collapsible_row": true,
+        "enable_address_block": true,
+        "image": "shopify://shop_images/Mask_group_40.png",
+        "image_ratio": "adapt",
+        "address_heading": "About grove.co",
+        "address_desc": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptenttaciti sociosqu ad litora torquent per conubia nostra,",
+        "collapsible_address": "",
+        "collapsible_contact_no": "",
+        "collapsible_contact_id": "",
+        "desktop_layout": "image_second",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class_name": "custom-faq"
+      }
+    },
+    "d675f3ce-be02-4aaa-9549-e924a90a15a0": {
+      "type": "collapsible-content",
+      "blocks": {
+        "13eac8dc-62ed-4b44-a017-b9a67b3a94b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Would I be able to withdraw or alter my request?",
+            "icon": "none",
+            "row_content": "<p>Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem.</p>",
+            "page": ""
+          }
+        },
+        "ae6c839f-ce47-4e32-bc97-f954aac00ef5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are the products on your website authentic designer items?",
+            "icon": "none",
+            "row_content": "<p>Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. </p>",
+            "page": ""
+          }
+        },
+        "a3c832ae-a299-4f11-97cf-7ce8ea1cfcdc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I know my size for designer clothing?",
+            "icon": "none",
+            "row_content": "<p>At enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. </p>",
+            "page": ""
+          }
+        },
+        "5681fecd-ffac-4dca-805d-d0917109f8ec": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are my personal and payment details secure on your website?",
+            "icon": "none",
+            "row_content": "<p>Blandit fusce id  blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. Maecenas in odo lorem.Maecenas in dictum at commodo lorem.</p>",
+            "page": ""
+          }
+        },
+        "545b7f32-53d6-4e21-bfcb-ab8e6ed2eabd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer international shipping?",
+            "icon": "none",
+            "row_content": "<p>Maecenas in odo lorem.Maecenas in dictum at commodo lorem. Fusce id blandit blandit finibus eros. Vestibulum eu maximus turpis. Ut enim mas da id scelerisque eu, volutpat id mi. imus turpis. Ut enim massa, malesuad mi. </p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "13eac8dc-62ed-4b44-a017-b9a67b3a94b0",
+        "ae6c839f-ce47-4e32-bc97-f954aac00ef5",
+        "a3c832ae-a299-4f11-97cf-7ce8ea1cfcdc",
+        "5681fecd-ffac-4dca-805d-d0917109f8ec",
+        "545b7f32-53d6-4e21-bfcb-ab8e6ed2eabd"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "layout": "row",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-1",
+        "open_first_collapsible_row": true,
+        "enable_address_block": true,
+        "image": "shopify://shop_images/Mask_group_40.png",
+        "image_ratio": "adapt",
+        "address_heading": "Shipping & Policy",
+        "address_desc": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptenttaciti sociosqu ad litora torquent per conubia nostra,",
+        "collapsible_address": "",
+        "collapsible_contact_no": "",
+        "collapsible_contact_id": "",
+        "desktop_layout": "image_first",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "custom_class_name": "custom-faq"
+      }
+    },
+    "61f84a49-ed0f-447f-ba5f-4285c285fe26": {
+      "type": "support-block",
+      "blocks": {
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26132.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Flexible Payment",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26133.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Online support",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_25179_fd3ecb79-b8a8-4b02-af4a-9c98f31f8723.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "In-store Pickup",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-1",
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-2",
+        "template--21548898320684__61f84a49-ed0f-447f-ba5f-4285c285fe26-column-3"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "block_styles": "grid__items",
+        "block_column_alignment": "center",
+        "icon_outer_size": "90",
+        "icon_size": "",
+        "image_radius": "",
+        "vertical_position": "veritcal_center",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "swiper_enable": true,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": "fashion2support"
+      }
+    }
+  },
+  "order": [
+    "6cd6487e-d9a0-4ded-85ba-5068911dc2fd",
+    "main",
+    "dac594f5-6f42-441b-b718-a5640c6f4896",
+    "d675f3ce-be02-4aaa-9549-e924a90a15a0",
+    "61f84a49-ed0f-447f-ba5f-4285c285fe26"
+  ]
+}

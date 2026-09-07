@@ -1,0 +1,184 @@
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.footer-block--newsletter .newsletter-form{justify-content:unset; align-items:unset;flex-direction: unset;}
+@media screen and (min-width: 750px) {
+  .newsletter-form {
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 55rem;
+    position: relative;
+    padding-left: 0px;
+  }
+
+}
+
+.newsletter-form__field-wrapper {
+  width: 100%;
+}
+
+.newsletter-form__field-wrapper .field__input {
+  padding: 0 2.6rem 0 2.6rem;
+}
+
+@media screen and (max-width: 480px) {
+.newsletter-form__field-wrapper .field__input{  padding: 0 1.4rem 0 1.4rem;}
+}
+.newsletter-form__field-wrapper .field {
+  z-index: 0;
+}
+
+.newsletter-form__message {
+  justify-content: center;
+  margin-bottom: 0;
+  outline: none;
+  box-shadow: none;
+  outline-offset: unset;
+}
+
+.newsletter-form__message--success {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .newsletter-form__message {
+    justify-content: center;
+    width:100%;
+  }
+  .newsletter-form__button {
+  width: 12.8rem;
+  }
+}
+
+.newsletter-form__button {
+     width: 16.3rem;
+    top: 0;
+    bottom:0;
+    margin:0 0 0 10px ;
+    z-index: 2;
+    font-size: 1.4rem;
+    position: relative;
+
+}
+
+.newsletter-form__button:focus-visible {
+  box-shadow: none;
+  background-color: transparent;
+  transition:all 0.3s linear;
+  outline:none;outline-offset:0;
+} 
+
+.newsletter-form__button:hover {
+    background: var(--gradient-base-background-2);
+    color:rgb(var(--color-base-solid-button-labels)) ;
+}
+
+
+.newsletter-form__button .icon {
+  width: 1.5rem;
+}
+.field:after{display:none;}
+ .newsletter__wrapper-right{margin-top:30px;}
+
+.newletter_wrapper-block .field__input{ height: 5rem;background: var(--gradient-base-background-2);}
+.newletter_wrapper-block .field:hover.field:after{box-shadow:unset;}
+.newletter_wrapper-block .field__button{ font-family: var(--font-body-family);height:auto;}
+.newletter_wrapper-block .field__button svg{width:16px; height:14px; transition: all .3s linear; fill: var(--gradient-background);}
+.newletter_wrapper-block .field__button:hover { color: var(--gradient-base-background-1);}
+.newsletter__wrapper-left h2{ margin:0 0 1rem 0;} 
+@media screen and (max-width: 749px) {
+.newsletter__wrapper .newsletter-form__field-wrapper{ max-width: 50rem;}
+.newsletter__wrapper-left{    margin-bottom: 20px;}
+}
+.section-email-signup .newsletter-form__button{font-family:var(--font-heading-family);}
+
+
+/*fashion-newsletter*/
+.fashionnewsletter .newletter_wrapper-block .field__input{height:6.9rem; width: 60.6rem;  border-radius: 13px;}
+.fashionnewsletter .newletter_wrapper-block .field__button { position: absolute; right: 8px; width: 13.3rem; height: 5.3rem; margin: auto;   border-radius: var(--media-radius);}
+.fashionnewsletter  .newletter_wrapper-block { display: flex; justify-content: space-between; padding: 0 9rem; align-items: center;}
+.fashionnewsletter .newsletter__wrapper-left { text-align: left;}
+.fashionnewsletter .newsletter-form{ max-width: 60.6rem;}
+.fashionnewsletter .newsletter__wrapper-left h2 { font-family: var(--font-additional-family); text-transform: uppercase; font-weight: 700; line-height: 72px;  font-size: 5rem;}
+.fashionnewsletter .newsletter__wrapper-center{height:147px;}
+.fashionnewsletter .newsletter__wrapper-right{    margin-top: 0;}
+.fashionnewsletter .newsletter__wrapper{    padding-right: 0; padding-left: 0; border-radius: 16px;}
+
+
+
+/*fashion2-newsletter*/
+.fashion2newsletter .newletter_wrapper-block .field__input{height:6.9rem; width: 60.6rem;  border-radius: 60px;border:1px solid transparent;}
+.fashion2newsletter .newletter_wrapper-block .field__input:focus{    border: var(--inputs-border-width) solid rgb(var(--color-foreground));}
+.fashion2newsletter .newletter_wrapper-block .field__button { position: absolute; right: 8px; width: 13.3rem; height: 5.3rem; margin: auto; border-radius: 60px;background-color: rgb(var(--color-base-outline-button-labels));color:var(--gradient-base-background-2);}
+.fashion2newsletter .newletter_wrapper-block .field__button:hover {background-color: rgb(var(--color-base-solid-button-labels));}
+.fashion2newsletter  .newletter_wrapper-block { display: flex; flex-direction: column; justify-content: center; padding: 0; align-items: center;}
+.fashion2newsletter .newsletter__wrapper-left { text-align: center; z-index:1;}
+.fashion2newsletter .newsletter-form{ max-width: 60.6rem;}
+.fashion2newsletter .newsletter__wrapper-left h2 {text-transform: uppercase; font-weight: 700; line-height: 72px;  font-size: 6.2rem;}
+.fashion2newsletter .newsletter__wrapper-center{height:147px;  position: absolute; right: 0;  top: 0;  z-index: 0;}
+.fashion2newsletter .newsletter__wrapper-right{    margin-top: 6rem;}
+.fashion2newsletter .newsletter__wrapper{    padding-right: 0; padding-left: 0; border-radius: 16px; max-width: 727px; margin: auto;}
+
+
+
+
+@media screen and (max-width: 1850px) {
+  .fashionnewsletter  .newletter_wrapper-block{padding: 0 6rem;}
+}
+@media screen and (max-width: 1540px) {
+ .fashionnewsletter .newsletter__wrapper-left h2  {font-size: 4rem;}
+.fashionnewsletter .newsletter-form, .fashionnewsletter .newletter_wrapper-block .field__input {  max-width: 50.6rem;}  
+  .fashion2newsletter .newsletter__wrapper-left h2 {font-size: 5.2rem;}
+}
+@media screen and (max-width: 1440px) {
+.fashionnewsletter .newsletter__wrapper-center { height: 120px; width: 120px;}
+.fashionnewsletter  .newletter_wrapper-block{padding: 0 4rem;}
+.fashionnewsletter .newsletter-form, .fashionnewsletter .newletter_wrapper-block .field__input {  max-width: 45.6rem;}  
+}
+@media screen and (max-width: 1199px) {
+.fashionnewsletter .newsletter__wrapper-left {
+    text-align: center;
+    order: 2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  .fashionnewsletter .newletter_wrapper-block{flex-direction:column;}
+  .fashionnewsletter .newsletter__wrapper-center{    order: 1;}
+  .fashionnewsletter .newsletter__wrapper-right { order: 3;}
+}
+@media screen and (max-width: 990px){
+  .fashion2newsletter .newsletter__wrapper-left h2 {font-size: 4.2rem;}
+  .fashion2newsletter .newsletter__wrapper-center{right:30px;}
+}
+@media screen and (max-width: 749px){
+ .fashionnewsletter .newsletter__wrapper-left h2  {font-size: 3rem; line-height:normal;}  
+  .fashion2newsletter .newsletter__wrapper-right,
+  .fashion2newsletter .newsletter-form,
+  .newsletter__wrapper .newsletter-form__field-wrapper,
+  .fashion2newsletter .newletter_wrapper-block .field__input{width:100%;max-width:100%;}
+}
+@media screen and  (max-width: 530px) {
+  .fashionnewsletter .newsletter-form, .fashionnewsletter .newletter_wrapper-block .field__input {  max-width: 40.6rem;}  
+  .fashion2newsletter .newsletter__wrapper-left h2 {font-size: 3rem; line-height:normal;}
+  .fashion2newsletter .newsletter__wrapper-right{ margin-top: 3rem;}
+    .fashion2newsletter .newsletter__wrapper-center{right:0px;}
+}
+@media screen and  (max-width: 479px) {
+  .fashionnewsletter .newsletter-form, .fashionnewsletter .newletter_wrapper-block .field__input {  max-width: 25.6rem;}  
+  .fashionnewsletter .newletter_wrapper-block .field__button{position:relative;}
+  .fashionnewsletter .newsletter-form__field-wrapper .field{flex-direction:column; gap:15px;}
+  .fashionnewsletter .newsletter__wrapper-center{width:100px; height:100px;}
+
+ 
+  .fashion2newsletter .newletter_wrapper-block .field__input{    height: 4.9rem;}
+  .fashion2newsletter .newletter_wrapper-block .field__button{position:relative;}
+  .fashion2newsletter .newsletter-form__field-wrapper .field{flex-direction:column; gap:15px;}
+  .fashion2newsletter .newsletter__wrapper-center{width:80px; height:80px;}
+  .fashion2newsletter .newsletter__wrapper-right{ margin-top: 2rem;}
+}
+

@@ -1,0 +1,94 @@
+{% unless settings.shipping_calculator == 'Disabled' %}  
+  <div class="cart-drawer-detail">
+<div id="shipping-calculator" class="drawer-details">
+  <div  id="shipping-calculator-block">
+    <p class="field">
+      <label for="address_country">Country/region</label>
+      <select class="dt-sc-btn" id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+    </p>
+    <div class="state-postal-code">
+    <p class="field" id="address_province_container" style="display:none;">
+      <label for="address_province" id="address_province_label">State</label>
+      <select class="dt-sc-btn" id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+    </p>  
+    <p class="field">
+      <label for="address_zip">Postal/ZIP code</label>
+      <input type="text" id="address_zip" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
+    </p>
+    </div>
+    <p class="field">
+      <input type="button" class="get-rates btn button" value="{{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' }}" />
+    </p>
+  </div>
+  <div id="wrapper-response"></div>  
+</div>
+  </div>
+{% endunless %}
+
+<script id="shipping-calculator-response-template" type="text/template">
+  {% raw %}
+  <p id="shipping-rates-feedback" {{#if success}} class="success" {{else}} class="error" {{/if}}>
+  {{#if success}}
+    {{#if rates}}
+      {{#rates}}
+        {{#if @first}}
+            Rates start at {{price}}.
+        {{/if}}
+      {{/rates}}
+    {{else}}
+      We do not ship to this destination.
+    {{/if}}    
+  {{else}}
+    {{ errorFeedback }}
+  {{/if}}
+  </p>
+  {% endraw %}
+</script>
+
+<!--[if lte IE 8]>
+<style> #shipping-calculator { display: none; } </style>
+<![endif]-->
+
+<script>
+  var  theme = {
+    strings: {
+      shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'shipping' | json }},
+      shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},
+      {% if customer %}shippingCalcCustomerIsLoggedIn: true,{% endif %}
+      shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
+    }
+  }
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+<script src="/services/javascripts/countries.js"></script>
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+
+<style type="text/css">
+  #shipping-rates-feedback { padding:20px 0;margin:0; }
+  #shipping-calculator .select2-container{ width:100% !important; }
+  #shipping-calculator .dt-sc-btn { border: var(--inputs-border-width) solid rgb(var(--color-foreground),0.2);  background-image: url("data:image/svg+xml,%0A%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.6484 1.99305C12.1172 1.5373 12.1172 0.797563 11.6484 0.341813C11.1797 -0.113937 10.4188 -0.113937 9.95004 0.341813L5.99735 4.18477L2.04701 0.341813C1.57825 -0.113937 0.817391 -0.113937 0.350984 0.341813C0.117779 0.568542 0 0.868559 0 1.16629C0 1.46401 0.117779 1.76403 0.350984 1.99076L5.15169 6.65819C5.62045 7.11394 6.38131 7.11394 6.84772 6.65819L11.6484 1.99305Z' fill='black' fill-opacity='0.7'/%3E%3C/svg%3E%0A"); -webkit-appearance: none;
+  -moz-appearance: none;appearance: none;background-position: 92%;background-repeat: no-repeat;  display: flex; justify-content: space-between; font-family: var(--font-body-family); font-size: 1.6rem;color: var(--gradient-base-accent-1); }  
+  #shipping-calculator .field label { display: block; margin: 0 0 1.2em; font-size: 1.8rem; font-weight:500;line-height: normal;}
+  #shipping-calculator .field input[type=text] { display: inline-block; box-sizing: border-box; margin: 0; font-size: 1em; outline: 0; -webkit-appearance: none; border: var(--inputs-border-width) solid rgb(var(--color-foreground),0.2); }  
+  #shipping-calculator #wrapper-response { clear: both; margin-top:-30px;}
+  #shipping-calculator select{     width: 100%;    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");    background-position: 98%;     background-repeat: no-repeat;     }
+  #shipping-calculator .dt-sc-btn,
+  #shipping-calculator .field input[type=text]{ min-width: calc(12rem + var(--buttons-border-width) * 2);min-height: calc(5.8rem + var(--buttons-border-width) * 2);padding: 1.5rem 2.4rem;border-radius: var(--buttons-radius);outline: 0;box-shadow: none;width:100%;transition:all 0.3s linear;}
+  #shipping-calculator .field {display:block;margin-bottom: 30px;}
+   #shipping-calculator .button{width:100%}
+  #shipping-calculator .field input[type=text]:focus,
+  #shipping-calculator select.dt-sc-btn:focus{border:var(--inputs-border-width) solid rgb(var(--color-foreground))}
+  #shipping-calculator .state-postal-code{display:flex;gap:15px;}
+  #shipping-calculator .state-postal-code #address_province{background-position: 86%;}
+  #shipping-calculator .dt-sc-btn{text-overflow: ellipsis;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;padding: 1.5rem 3.5rem 1.5rem 2.4rem;}
+  @media (max-width: 1439px) {#shipping-calculator .field label{font-size:1.6rem;}  }
+   @media (max-width: 990px) {
+     #shipping-calculator .dt-sc-btn, #shipping-calculator .field input[type=text]{min-height: calc(5rem + var(--buttons-border-width) * 2);}
+   }
+  
+  @media (max-width: 800px) { #shipping-calculator .field { float: none; } }
+  @media (max-width: 479px){  #shipping-calculator .state-postal-code{flex-direction: column;gap:0;} 
+                           #shipping-calculator .field{    margin-bottom: 20px;}}
+ 
+</style>

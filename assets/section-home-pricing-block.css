@@ -1,0 +1,56 @@
+
+.home-pricing-block .home-pricing-block-inner .main-title,
+.home-pricing-block .home-pricing-block-inner .sub-title{margin:0;padding: 0 60px;}
+.home-pricing-block .home-pricing-block-inner{padding:60px 0;background: var(--gradient-base-accent-3);border-radius: 15px;backdrop-filter: blur(1.5px);border: 1px solid rgba(var(--color-base-background-2),0.11);}
+.home-pricing-block .home-pricing-block-inner .main-title{    font-size: 60px;text-transform: uppercase; font-family: var(--font-additional-family);}
+.home-pricing-block .home-pricing-block-inner .sub-title{font-size:12px;text-transform: uppercase;margin-bottom:35px;letter-spacing: 3.6px;font-weight:600;}
+.home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li h6{margin:0 0 0 12px;}
+.home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list{    
+    margin: 0;
+    border-top: 1px solid rgba(var(--color-base-background-2),0.11);
+    padding: 40px 0 0;
+    list-style: none;}
+.home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li:not(:last-child){margin-bottom:12px;}
+.home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li{display: flex;align-items: flex-start;padding: 0 60px;}
+.home-pricing-block .title-wrapper-with-link{margin:0;}
+.home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li svg{width:10px;height:11px;}
+.home-pricing-block .home-pricing-section  .grid__item.slider__slide:nth-child(2){transform: translateY(60px);-webkit-transform: translateY(60px);}  
+.home-pricing-block .home-pricing-section  .grid__item.slider__slide .additional-wrapper{display: flex; padding: 14px 14px 14px 24px;margin: 36px 60px 0;gap:20px;justify-content: space-between;align-items: center;border-radius:10px;background: rgba(var(--color-base-outline-button-labels));}
+.home-pricing-block .home-pricing-section  .grid__item.slider__slide .additional-wrapper .additional-text{margin:0;text-transform: uppercase;letter-spacing: 3.6px; line-height: normal;}
+.home-pricing-block .home-pricing-section  .grid__item.slider__slide .additional-wrapper .additional-text span{  
+   display: block;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: var(--font-additional-family);
+    line-height: normal;
+    letter-spacing: 0;
+}
+.home-pricing-block .home-pricing-section  .grid__item.slider__slide{padding-bottom:60px;}
+
+ @media screen and (max-width: 1540px) {
+  .home-pricing-block .home-pricing-block-inner .main-title,
+  .home-pricing-block .home-pricing-block-inner .sub-title,
+  .home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li{padding: 0 30px;} 
+  .home-pricing-block .home-pricing-section  .grid__item.slider__slide .additional-wrapper{margin: 36px 30px 0;padding:14px;} 
+  .home-pricing-block .home-pricing-block-inner{padding:30px 0;}  
+  .home-pricing-block .home-pricing-block-inner .main-title{ font-size: 46px;} 
+ }
+@media screen and (max-width: 1024px) {
+  .custom-home-pricing .slider.slider--mobile{flex-wrap: inherit;}
+  .custom-home-pricing  .slider-buttons{display:flex!important; margin-top: 30px;}
+  .custom-home-pricing.home-pricing-block .home-pricing-section .grid__item.slider__slide{width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);}
+  .home-pricing-block .home-pricing-section  .grid__item.slider__slide:nth-child(2){transform: translateY(0px);-webkit-transform: translateY(0px);} 
+  .home-pricing-block .home-pricing-section  .grid__item.slider__slide{padding-bottom:0px;}
+  .home-pricing-block .title-wrapper-with-link{margin:0 0 40px;}
+}
+@media screen and (max-width: 749px) {
+  .custom-home-pricing.home-pricing-block .home-pricing-section .grid__item.slider__slide{width: 100%;max-width: 100%;}
+}
+@media screen and (max-width: 480px) {
+.home-pricing-block .home-pricing-block-inner .main-title {font-size: 34px;}
+.home-pricing-block .home-pricing-block-inner .main-title,
+  .home-pricing-block .home-pricing-block-inner .sub-title,
+  .home-pricing-block .home-pricing-block-inner .dt-sc-pricing-list li{padding: 0 20px;} 
+  .home-pricing-block .home-pricing-section  .grid__item.slider__slide .additional-wrapper{margin: 25px 20px 0;gap:15px;}
+  .home-pricing-block .home-pricing-section .grid__item.slider__slide .additional-wrapper .additional-text span{font-size:18px;}
+}

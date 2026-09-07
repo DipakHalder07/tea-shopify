@@ -1,0 +1,309 @@
+{%- assign sticky_form_id = 'product-form-' | append: section.id -%}
+<product-form
+  class="product-form sticky-bar-form"
+  style="{% if section.settings.enable_sticky_bar %}display:block; {% else %} display:none; {% endif %}"
+  id="sticky-bar-form"
+>
+  {%- form 'product',
+    product,
+    id: sticky_form_id,
+    class: 'form',
+    novalidate: 'novalidate',
+    data-type: 'add-to-cart-form'
+  -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+      disabled
+    >
+
+    <div class="sticky-bar" id="bar-active">
+      <div class="product-title-sticky">
+        <ul
+          id="Slider-Gallery-{{ section.id }}"
+          class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
+          role="list"
+        >
+          {%- liquid
+            assign featured_media = product.selected_or_first_available_variant.featured_media
+            assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+            assign media_width = 0.75
+          -%}
+          {%- if product.selected_or_first_available_variant.featured_media != null -%}
+            <li
+              id="Slide-{{ section.id }}-{{ featured_media.id }}"
+              class="product__media-item grid__item slider__slide is-active{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains featured_media.src %} product__media-item--variant{% endif %}"
+              data-media-id="{{ section.id }}-{{ featured_media.id }}"
+            >
+              <img
+                srcset="
+                  {% if featured_media.preview_image.width >= 100 %}{{ featured_media.preview_image | image_url: width: 100 }} 100w,{% endif %}
+                  {% if featured_media.preview_image.width >= 200 %}{{ featured_media.preview_image | image_url: width: 200 }} 200w,{% endif %}
+                  {{ featured_media.preview_image | image_url }} 100w
+                "
+                src="{{ featured_media | image_url: width: 100 }}"
+                sizes="(min-width: {{ settings.page_width }}px) 200px, (min-width: 990px) calc(100vw), (min-width: 750px) calc(100vw), calc(100vw)"
+                width="100"
+                height="{{ 100 | divided_by: featured_media.preview_image.aspect_ratio | ceil }}"
+                alt="{{ featured_media.preview_image.alt | escape }}"
+              >
+            </li>
+          {%- endif -%}
+        </ul>
+        <div class="sticky-title-price">
+          <div class="sticky-bar-title">
+            <a class="link" href="#ProductInfo-{{ section.id }}">
+              <span class="sticky-title">{{ product.title }}</span></a
+            >
+          </div>
+          <div
+            class="no-js-hidden price-wrapper"
+            id="sticky-price-{{ section.id }}"
+            role="status"
+            {{ block.shopify_attributes }}
+          >
+            {%- render 'price', product: product, use_variant: true -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky-bar-price">
+        <div class="variant-drop-down">
+          <div
+            class="hidden product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <label class="form__label" for="Quantity-{{ section.id }}">
+              {{ 'products.product.quantity.label' | t }}
+            </label>
+
+            <quantity-input class="quantity">
+              <button class="quantity__button no-js-hidden" name="minus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-minus' %}
+              </button>
+              <input
+                class="quantity__input"
+                type="number"
+                name="quantity"
+                id="Quantity-{{ section.id }}"
+                min="1"
+                value="1"
+                form="{{ product_form_id }}"
+              >
+              <button class="quantity__button no-js-hidden" name="plus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-plus' %}
+              </button>
+            </quantity-input>
+          </div>
+          {% if product.has_only_default_variant %}
+            <span class="sticky-bar-price">
+              <div
+                class="no-js-hidden price-wrapper"
+                id="sticky-price-{{ section.id }}"
+                role="status"
+                {{ block.shopify_attributes }}
+              >
+                {%- render 'price', product: product, use_variant: true -%}
+              </div>
+            </span>
+          {% endif %}
+          {%- unless product.has_only_default_variant -%}
+            <variant-selects
+              class="no-js-hidden"
+              data-section="{{ section.id }}"
+              data-url="{{ product.url }}"
+              {{ block.shopify_attributes }}
+            >
+              {%- for option in product.options_with_values -%}
+                <div class="product-form__input product-form__input--dropdown">
+                  <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                    {{ option.name }}
+                  </label>
+                  <div class="select">
+                    <select
+                      id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                      class="select__select"
+                      name="options[{{ option.name | escape }}]"
+                      form="{{ product_form_id }}"
+                    >
+                      {%- for value in option.values -%}
+                        <option
+                          value="{{ value | escape }}"
+                          {% if option.selected_value == value %}
+                            selected="selected"
+                          {% endif %}
+                        >
+                          {{ value }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                </div>
+              {%- endfor -%}
+
+              <script type="application/json">
+                {{ product.variants | json }}
+              </script>
+            </variant-selects>
+          {%- endunless -%}
+
+          <div class="product-form__buttons">
+            <button
+              type="submit"
+              name="add"
+              class="product-form__submit  button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+              id="sticky-bar-button"
+            >
+              <span>
+                {%- if product.selected_or_first_available_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              <div class="loading-overlay__spinner hidden">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  role="presentation"
+                  class="spinner"
+                  viewBox="0 0 66 66"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle class="path" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <span class="sticky-bar-close">{% render 'icon-close' %}</span>
+    </div>
+  {% endform %}
+</product-form>
+
+<script>
+  document.querySelector('.sticky-bar-close').addEventListener('click', function () {
+    const stikcyForm = document.getElementById('sticky-bar-form');
+    stikcyForm.classList.add('visibility-hidden');
+  });
+  if (!customElements.get('sticky-form')) {
+    customElements.define(
+      'sticky-form',
+      class ProductForm extends HTMLElement {
+        constructor() {
+          super();
+          this.form = this.querySelector('form');
+          if (!this.form) return;
+          this.form.querySelector('[name=id]').disabled = false;
+          this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
+          this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+          this.submitButton = this.querySelector('[type="submit"]');
+          if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
+          this.hideErrors = this.dataset.hideErrors === 'true';
+        }
+
+        onSubmitHandler(evt) {
+          evt.preventDefault();
+          if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
+
+          this.handleErrorMessage();
+
+          this.submitButton.setAttribute('aria-disabled', true);
+          this.submitButton.classList.add('loading');
+          this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+
+          const config = fetchConfig('javascript');
+          config.headers['X-Requested-With'] = 'XMLHttpRequest';
+          delete config.headers['Content-Type'];
+
+          const formData = new FormData(this.form);
+          console.log(formData + 'Fome');
+
+          if (this.cart) {
+            formData.append(
+              'sections',
+              this.cart.getSectionsToRender().map((section) => section.id)
+            );
+            formData.append('sections_url', window.location.pathname);
+            this.cart.setActiveElement(document.activeElement);
+          }
+
+          config.body = formData;
+          fetch(`${routes.cart_add_url}`, config)
+            .then((response) => response.json())
+            .then((response) => {
+              if (response.status) {
+                this.handleErrorMessage(response.description);
+
+                const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
+                if (!soldOutMessage) return;
+                this.submitButton.setAttribute('aria-disabled', true);
+                this.submitButton.querySelector('span').classList.add('hidden');
+                soldOutMessage.classList.remove('hidden');
+                this.error = true;
+                return;
+              } else if (!this.cart) {
+                window.location = window.routes.cart_url;
+                return;
+              }
+
+              this.error = false;
+              const quickAddModal = this.closest('quick-add-modal');
+              if (quickAddModal) {
+                document.body.addEventListener(
+                  'modalClosed',
+                  () => {
+                    setTimeout(() => {
+                      this.cart.renderContents(response);
+                    });
+                  },
+                  { once: true }
+                );
+                quickAddModal.hide(true);
+              } else {
+                this.cart.renderContents(response);
+              }
+              console.log(Object.fromEntries(formData.entries()));
+            })
+            .catch((e) => {
+              console.error(e);
+            })
+            .finally(() => {
+              this.submitButton.classList.remove('loading');
+              if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
+              if (!this.error) this.submitButton.removeAttribute('aria-disabled');
+              this.querySelector('.loading-overlay__spinner').classList.add('hidden');
+              setTimeout(function () {
+                giftCart();
+              }, 1000);
+            });
+        }
+
+        handleErrorMessage(errorMessage = false) {
+          if (this.hideErrors) return;
+          this.errorMessageWrapper =
+            this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
+          if (!this.errorMessageWrapper) return;
+          this.errorMessage =
+            this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
+          this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
+          if (errorMessage) {
+            this.errorMessage.textContent = errorMessage;
+          }
+        }
+      }
+    );
+  }
+</script>

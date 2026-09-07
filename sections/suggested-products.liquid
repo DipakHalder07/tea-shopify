@@ -1,0 +1,322 @@
+{% if section.settings.display_recent_purchase %}
+<ul class="customer-who-purchased text-{{ section.settings.placement}}">
+  {% for block in section.blocks %}    
+  {%- assign product = all_products[block.settings.product] -%}
+  <li class="product-data">
+    <div class="product-image">
+    <a href="{{ product.url | within: collection }}">            
+    {% unless product.featured_image == blank %}
+      <img loading="lazy" src="{{ product.featured_image | image_url : width: 250 }}" alt="{{ product.featured_image.src.alt | escape }}"  width="" height="">                        
+      {% endunless %}
+    </a>
+    </div>
+    <div class="product-content">
+    <p><span class="purchased">{{ section.settings.text}}</span>
+    <a href="{{ product.url | within: collection }}">
+     <span class="title">{{ product.title | truncatewords: 5 }}</span>
+    </a>
+    <span class="location">{{block.settings.from}}</span>
+    </p>
+    <div class="timing-content">  
+    <p class="timing-data"><span class="timing">{{block.settings.time}}</span></p>
+    <p class="timing-verified"><span class="verified">{% render 'icon-verified' %} {{block.settings.verified_text}}</span></p>   
+    </div>   
+    </div>
+       <a href="javascript:void(0)" onclick="event.preventDefault()" title="Close" class="dT_close">
+      <svg id="Group_24924" data-name="Group 24924" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+            <defs>
+            <clipPath id="clip-path">
+            <rect id="Rectangle_8252" data-name="Rectangle 8252" width="25" height="25" fill="none"/>
+            </clipPath>
+            </defs>
+            <g id="Group_24923" data-name="Group 24923" >
+            <path id="Path_38934" data-name="Path 38934" d="M23.214,25a1.78,1.78,0,0,1-1.263-.523L.523,3.048A1.786,1.786,0,0,1,3.048.523L24.477,21.952A1.786,1.786,0,0,1,23.214,25" transform="translate(0)"/>
+            <path id="Path_38935" data-name="Path 38935" d="M1.786,25A1.786,1.786,0,0,1,.523,21.952L21.952.523a1.786,1.786,0,1,1,2.525,2.525L3.048,24.477A1.78,1.78,0,0,1,1.786,25" transform="translate(0 0)"/>
+            </g>
+            </svg>
+   </a>
+  </li>           
+  {% endfor %}
+</ul>
+{% endif %}
+
+<script type="text/javascript">
+  if ($.cookie('dT_suggested-cookie') == 'closed') {
+    $('.customer-who-purchased').remove();
+  }
+
+  $('.dT_close').bind('click',function(){
+    $('.customer-who-purchased').remove();
+    $.cookie('dT_suggested-cookie', 'closed', {expires:1, path:'/'});
+  });      
+
+  var elements = $('.customer-who-purchased li');
+  var init_element = 0;
+  var i = 0;
+  //elements.css({top: 0,left: 0,}).fadeOut(1);
+  elements.removeClass('active');
+  function fadeInRandomElement() { 
+    if ( i % 2 == 0) {
+      var currentItem = elements.eq(init_element);      
+      currentItem.addClass('active');
+      setTimeout(function(){ 
+        currentItem.removeClass('active')
+      }, 8000);
+
+      init_element++;
+      if(elements.length == init_element) {
+        init_element = 0;
+      }
+
+    }
+
+    i++;
+
+  }
+
+  setInterval(function(){ 
+    fadeInRandomElement();
+  }, 8000);
+
+
+</script>
+
+<style type="text/css">
+
+  .customer-who-purchased{  
+    pointer-events: none;
+    margin: 0;
+    height: 129px;
+    max-width: 350px;
+    min-width: 350px;
+    position: fixed;
+    bottom: 20px;
+    width: auto;
+    z-index: 3;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    padding:0;
+        }
+
+  .customer-who-purchased.text-left { left: 20px; }
+  .customer-who-purchased.text-right { right: 20px; }
+
+  .customer-who-purchased .product-data {
+    display: flex;
+    justify-content:space-between;
+    height: auto;
+    margin: 0;
+    opacity: 0;
+    padding: 12px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+/*     visibility: hidden; */
+    width: 100%;
+    border-radius:0;
+    align-items:center;
+    pointer-events: none;
+    transform: translateX(-100px) scale(.8);
+    transition: all .5s;
+      }
+  .customer-who-purchased .product-data:before {
+   background-color:var(--gradient-base-background-2);
+   content: "";
+    display: block;
+    height: auto;
+/*     margin: -15px -25px; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: auto;
+    z-index: -1;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0 30px rgb(0 0 0 / 15%);
+    box-shadow:0 0 30px rgb(0 0 0 / 15%);
+          }
+
+  .customer-who-purchased .product-data.active { pointer-events: all; opacity: 1;  transform: translateX(0) scale(1); }
+  .customer-who-purchased .product-data p { font-size: 12px; line-height: normal;margin:0; }
+  .customer-who-purchased .product-data p span {
+    display: inline;
+    padding: 0px; 
+  }
+  .customer-who-purchased .product-data p  span.verified {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 0px; 
+  }
+.customer-who-purchased .timing-content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+  .customer-who-purchased .product-data span.title, 
+  .customer-who-purchased .product-data p span.location { font-weight: 400; }  
+
+  .customer-who-purchased .product-data p span.purchased { padding-left: 0;color:var(--gradient-base-accent-2);font-size:12px;font-weight:400; }
+
+  .customer-who-purchased .product-data p span.timing {     
+    font-size: 12px;
+    font-weight: 400;
+/*     position: absolute;
+    bottom: -10px;
+    right: -10px; */
+    color: var(--gradient-base-accent-2); }
+    .customer-who-purchased .product-data p.timing-data{margin-top:0px}
+
+  .customer-who-purchased .product-data .product-image a img {
+    width: 100%;
+    height:100%;
+   border-radius:11px;object-fit: contain;
+  }
+
+  .customer-who-purchased .product-data .dT_close {
+    height: auto;
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    text-align: center;
+    width: auto;
+    pointer-events: all;
+    
+      }
+ .customer-who-purchased .product-image {
+     padding-right: 13px;
+     width:105px;
+     height:105px;
+   }
+  .customer-who-purchased .product-data .dT_close svg { 
+    height: 12px;
+/*     position: absolute; 
+    right: 10px; 
+    top: 10px;  */
+    width: 12px;
+    fill:currentcolor;
+    transition: all 0.3s linear;
+  }
+  .customer-who-purchased .product-data .dT_close:hover  {
+    color:rgb(var(--color-base-outline-button-labels));
+  }
+  @media (max-width:450px) {
+    .customer-who-purchased{
+      left: 0 !important;
+      right: 0!important;
+      margin: auto;
+    }
+  }
+  @media (max-width:1540px) {
+ .customer-who-purchased.text-left { left: 20px; }
+  .customer-who-purchased{ bottom:20px}  
+  }
+.customer-who-purchased .product-data span.title {
+    color: var(--gradient-base-accent-1);
+    transition: all 0.3s linear;
+    font-size:18px;
+    font-weight:700;
+    line-height:normal;
+    font-family: var(--font-heading-family);
+    margin:0;
+    display: inline-block;
+}
+ .customer-who-purchased .product-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+}
+ .customer-who-purchased .product-data span.title:hover {
+    color: rgb(var(--color-base-outline-button-labels));
+} 
+  .enquiry-overlay .customer-who-purchased {
+        opacity: 0;
+}
+  @media (max-width:749px) {
+  .customer-who-purchased{ bottom:80px}  
+   }
+  @media (max-width:480px) {
+  .customer-who-purchased{display:none;}
+    }
+</style>
+
+{% schema %}
+{
+"name": "t:sections.suggested-products.name",
+"class": "customer-purchased",
+"settings": [
+{
+"type" : "checkbox",
+"id" : "display_recent_purchase",
+"label" : "t:sections.suggested-products.settings.display_recent_purchase.label",
+"default" : true
+},        
+{
+"type": "radio",
+"id": "placement",
+"label" : "t:sections.suggested-products.settings.placement.label",
+"options": [
+{
+"value": "left",
+"label" : "t:sections.suggested-products.settings.placement.options__1.label"
+},
+{
+"value": "right",
+"label" : "t:sections.suggested-products.settings.placement.options__2.label"
+}
+],
+"default": "right"        
+},        
+{
+"type" : "textarea",
+"id" : "text",
+"label" : "t:sections.suggested-products.settings.text.label",
+"default" : "Someone recently bought a"
+}
+],
+"blocks" : [
+{
+"type" : "image",
+"name" : "Product",
+"settings":[
+{
+"type" : "product",
+"id" : "product",
+"label" : "t:sections.suggested-products.blocks.image.settings.product.label"
+},
+{
+"type" : "text",
+"id" : "from",
+"default" : "Texas, US",
+"label" : "t:sections.suggested-products.blocks.image.settings.from.label"
+},
+{
+"type" : "text",
+"id" : "time",
+"default" : "10 minutes ago",
+"label" : "t:sections.suggested-products.blocks.image.settings.time.label"
+},
+{
+"type" : "checkbox",
+"id" : "verified",
+"label" : "t:sections.suggested-products.blocks.image.settings.verified.label",
+"default" : true
+}, 
+{
+"type" : "text",
+"id" : "verified_text",
+"default" : "Verified",
+"label" : "t:sections.suggested-products.blocks.image.settings.verified_text.label"
+}
+]
+}
+]
+}
+{% endschema %}
+

@@ -1,0 +1,150 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "page_full_width": false,
+        "page_full_width_spacing": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "e1883bf3-71d6-4592-9d20-b4fd2b710c70": {
+      "type": "breadcrumb",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "use_breadcrumb_title": true,
+        "breadcrumb_image": "shopify://shop_images/AdobeStock_369708595_1_2.png",
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "accent-1",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "90f0a638-f544-4cb8-b4ae-9cb2c45d3d54": {
+      "type": "form-image",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "Let’s Talk",
+        "sub_heading": "",
+        "description": "Aliquam vestibulum mauris eu velit imperdiet venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum venenatis sem et posuere.",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "left",
+        "color_scheme": "background-1",
+        "custom_liquid": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15663.528800912365!2d77.0443103!3d11.0474579!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8583a7d68dff5%3A0x181af0c54e886b2e!2sDigitalgrove!5e0!3m2!1sen!2sin!4v1700132779578!5m2!1sen!2sin\" width=\"100%\" height=\"430\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "address_heading": "We'd Love to Hear from You",
+        "address_desc": "Please do not hesitate to contact us if you have any queries or complaints concerning our directory website. Our customer service team is here to help and may be reached via phone, email, or through our online contact form.",
+        "collapsible_address": "No.20/1, Goldwins, Coimbatore, TN 641014",
+        "collapsible_contact_no": "contact@example.com",
+        "collapsible_contact_id": "+000 123 456789",
+        "block_alignments": "block-with-form",
+        "padding_top": 100,
+        "padding_bottom": 88,
+        "custom_class_name": "contact-style-2"
+      }
+    },
+    "d7c3b214-3cc5-4553-8327-3cc3e12d4d7c": {
+      "type": "support-block",
+      "blocks": {
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26132.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Flexible Payment",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_26133.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Online support",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Group_25179_fd3ecb79-b8a8-4b02-af4a-9c98f31f8723.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "In-store Pickup",
+            "text": "<p>Ut nec luctus urna. Suspendisse sagittis metus nulla sit amet imperdiet leo volutpat eu. Nunc in erat erat.</p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-1",
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-2",
+        "template--21650591351084__d7c3b214-3cc5-4553-8327-3cc3e12d4d7c-column-3"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "left",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "block_styles": "grid__items",
+        "block_column_alignment": "center",
+        "icon_outer_size": "90",
+        "icon_size": "",
+        "image_radius": "",
+        "vertical_position": "veritcal_center",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "swiper_enable": true,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 2,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": "fashion2support"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e1883bf3-71d6-4592-9d20-b4fd2b710c70",
+    "90f0a638-f544-4cb8-b4ae-9cb2c45d3d54",
+    "d7c3b214-3cc5-4553-8327-3cc3e12d4d7c"
+  ]
+}

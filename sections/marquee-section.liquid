@@ -1,0 +1,278 @@
+{{ 'section-marquee.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign margin = section.settings.margin | split: ','
+  assign margin_top = margin[0]
+  assign margin_bottom = margin[1]
+  assign padding = section.settings.padding | split: ','
+  assign padding_top = padding[0]
+  assign padding_bottom = padding[1]
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  .marquee-section .section-{{ section.id }}-padding .swiper-slide{
+    padding: 5px {{ section.settings.marquee_padding }}px;
+  }
+  {% if section.settings.marquee_image %}
+     .section-{{ section.id }}-padding .marquee-block:after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate( 50%,-50%);
+      width: 79px;
+      height: 79px;
+      color: inherit;
+      font-size: 40px;
+      background:url({{ section.settings.marquee_image | image_url: width: 79 }});
+      no-repeat center;
+      background-size: contain;
+      }
+   
+   @media screen and (max-width: 1440px) {
+       .marquee-section.fashionmarquee  h2.marquee-title.h1 {font-size:4.2rem}
+       .marquee-section.fashionmarquee .marquee-block:after {width:65px; height:65px;}
+       .marquee-section.fashionmarquee .section-{{ section.id }}-padding .swiper-slide{ padding: 5px {{ section.settings.marquee_padding | times: 0.75 | round: 0 }}px;}
+    }
+  @media screen and (max-width: 1199px) {
+      .marquee-section.fashionmarquee .marquee-block:after {width:50px; height:50px;}
+      .marquee-section.fashionmarquee .section-{{ section.id }}-padding .swiper-slide{ padding: 5px {{ section.settings.marquee_padding | times: 0.5 | round: 0 }}px;}
+      .marquee-section.fashionmarquee  h2.marquee-title.h1 {font-size:3.2rem}
+    }
+  @media screen and (max-width: 576px) { 
+    .marquee-section.fashionmarquee .marquee-block:after {width:40px; height:40px;}
+    .marquee-section.fashionmarquee  h2.marquee-title.h1 {font-size:2.2rem}
+  }
+  {% endif %}
+
+   .marquee-section.fashionmarquee  h2.marquee-title.h1 {text-transform: uppercase;}
+   .marquee-section.fashionmarquee .section-{{ section.id }}-padding .row{position: relative;z-index: 1;}
+   .marquee-section .row { border-radius: var(--buttons-radius);}
+  /* .marquee-section.fashionmarquee { margin: 0 var(--page-full-width-spacing); border-radius: var(--media-radius);} */
+{%- endstyle -%}
+
+<div class="marquee-section  gradient {{ section.settings.custom_class_name }}">
+  <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %} ">
+    <div class="row color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding isolate">
+      <div class="swiper-container marquee-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if section.blocks.size == 1 %}
+              {% if forloop.index == 1 %}
+                {% for i in (1..4) %}
+                  <li class="marquee-block swiper-slide">
+                    {% if block.settings.block_heading != blank %}
+                      <h2 class="marquee-title {{ section.settings.heading_size }}">{{ block.settings.block_heading }}</h2>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% else %}
+              <li class="marquee-block swiper-slide">
+                {% if block.settings.block_heading != blank %}
+                  <h2 class="marquee-title {{ section.settings.heading_size }}">{{ block.settings.block_heading }}</h2>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    let SwiperTop = new Swiper('.marquee-swiper', {
+    spaceBetween: 0,
+    centeredSlides: true,
+    speed: {{ section.settings.speed | times: 1000 }},
+    autoplay: {
+      delay: 1,
+    },
+    loop: true,
+    slidesPerView:'auto',
+    allowTouchMove: false,
+    disableOnInteraction: true
+  });
+</script>
+{% schema %}
+{
+  "name": "t:sections.marquee.name",
+  "class": "section section-marquee",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "page_full_width",
+      "default": false,
+      "label": "t:sections.all.page_full_width.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "page_full_width_spacing",
+      "default": false,
+      "label": "t:sections.all.page_full_width_spacing.label"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "unit": "s",
+      "label": "Speed",
+      "default": 8
+    },
+    {
+      "type": "image_picker",
+      "id": "marquee_image",
+      "label": "t:sections.marquee.settings.marquee_image.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "id": "gradient_text_background",
+      "type": "color_background",
+      "label": "t:sections.marquee.settings.gradient_text_background.label"
+    },
+    {
+      "type": "range",
+      "id": "marquee_padding",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.marquee.settings.marquee_padding.label",
+      "default": 36
+    },
+    {	
+    "type": "header",	
+    "content": "t:sections.all.custom_class_heading.content"	
+    },	
+    {	
+    "type": "text",	
+    "id": "custom_class_name",	
+    "label": "t:sections.all.custom_class_name.label"	
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.marquee.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "t:sections.marquee.blocks.text.settings.block_heading.label",
+          "default": "Main Heading"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Marquee",
+      "category": "Marquee",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

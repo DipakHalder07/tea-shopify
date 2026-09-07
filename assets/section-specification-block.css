@@ -1,0 +1,296 @@
+.specification-block .specification-banner {  display: flex;  width: 100%;}
+.specification-block .specification-banner.specification-container.position-vertical-center{align-items: center;}
+.specification-block .specification-banner.specification-container.position-default{align-items: flex-start;}
+.specification-block .specification-banner.specification-container.position-vertical-bottom{align-items: flex-end;}
+.specification-block .specification-banner.specification-container{  justify-content: space-between;  column-gap: var(--grid-desktop-horizontal-spacing);  row-gap: var(--grid-desktop-vertical-spacing);}
+.specification-block .dt-sc-additional-grids{  width: calc(.5 *50%); display: grid;  height: 100%;  column-gap: var(--grid-desktop-horizontal-spacing);  row-gap: var(--grid-desktop-vertical-spacing);}
+.specification-block-main-grid { width: calc(50% - 30px); text-align: center;}
+.specification-block-support-block{    display: flex; flex-wrap: wrap; margin-bottom:3rem; /* height: 100%;*/}
+.specification-block .specification-block-support-content {  padding-left: 20px; padding-right: 0;}
+.specification-block .specification-block-support-content { width: calc(100% - 50px);}
+.specification-block-support-icon-image {  width: 50px;  height: 50px;  border-radius: 0px;}
+.specification-block-support-icon-image { display: flex; justify-content: center; align-items: center;}
+.specification-block .specification-block-image{width:100%;}
+.specification-block .specification-block-image img{width:100%; height:100%;}
+.specification-block-content{  display: flex;  justify-content: center;}
+.specification-block-banner.grid .specification-block-content{align-items: center;width: 100%;}
+.dt-sc-grid-banner-inner.Left{ text-align: left;}
+.dt-sc-grid-banner-inner.Right{ text-align: right;}
+.dt-sc-grid-banner-inner.Center{ text-align: center;}
+/*Additional grid*/
+.specification-banner.specification-container.style3 .specification-block-main-grid{ width: calc(50% - 10px);}
+.specification-banner.specification-container.style3 .dt-sc-additional-grids{ width: calc(50% - 10px); }
+/*Overlay*/
+
+.specification-block-banner.overlay{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+.specification-block .specification-block-banner.overlay .specification-block-image{  width:100%;  position: absolute;  height: 100%;}
+.specification-block .specification-block-banner.overlay  .specification-block-content{position:relative; height:auto;  padding: 20px;margin:15px;}
+.specification-block  h5.specification-block-support-heading{margin:0;}
+.specification-block .specification-block-main-grid h4.specification-block-main-title{ margin: 0;}
+.specification-block .specification-block-main-grid p.specification-block-description{ margin: 0;}
+.specification-block-banner.center {align-items: center; justify-content: center;}
+.specification-block-banner.center-left {align-items: flex-start; justify-content: center;}
+.specification-block-banner.center-right {  align-items: flex-end; justify-content: center;}
+.specification-block-banner.top-left { justify-content: flex-start; align-items: flex-start;}
+.specification-block-banner.top-center { justify-content: flex-start; align-items: center;}
+.specification-block-banner.top-right { justify-content: flex-start; align-items: flex-end;}
+.specification-block-banner.bottom-left { justify-content: flex-end; align-items: flex-start;}
+.specification-block-banner.bottom-center { justify-content: flex-end; align-items: center;}
+.specification-block-banner.bottom-right { justify-content: flex-end; align-items: flex-end;}
+.specification-block-support-content .specification-block-support-description{margin-bottom:0; margin-top:5px;}
+@media (max-width: 1540px){
+  .specification-block .dt-sc-additional-grids{ width: calc(.5 *60%);}
+  .specification-block-main-grid{    width: calc(40% - var(--grid-desktop-vertical-spacing));}
+}
+@media (max-width: 1199px){
+   .specification-block .dt-sc-additional-grids{ width: calc(.5 *65%);}
+  .specification-block-main-grid{    width: calc(35% - var(--grid-desktop-vertical-spacing));}
+}
+@media screen and (max-width: 990px){
+  .specification-block-main-grid {width:100%;}
+  .specification-block .dt-sc-additional-grids{  width: calc(50% - calc(.5 *30px));}
+  .specification-block .specification-banner{  display: flex; flex-wrap: wrap;}
+  .specification-block-main-grid, .specification-banner.specification-container.style3 .specification-block-main-grid{    width: 100%; margin-bottom: 0px; order: -1;}
+}
+@media screen and (max-width: 749px){
+.specification-block .dt-sc-additional-grids{column-gap: calc(var(--grid-desktop-horizontal-spacing) / 2);row-gap: calc(var(--grid-desktop-vertical-spacing) / 2);}
+}
+@media screen and (max-width: 576px){
+  .specification-block .dt-sc-additional-grids,
+  .specification-banner.specification-container.style3 .dt-sc-additional-grids{width:100%;}
+} 
+.specification-block .specification-banner.specification-container.style1 .dt-sc-additional-grids{    width: unset;}
+
+/*custom-css-1*/
+
+.specification-block .fashionspecification .specification-block-image img{border-radius: var(--media-radius);}
+.specification-block .fashionspecification .specification-banner.specification-container.style3 .dt-sc-additional-grids{ border-radius: var(--media-radius); padding: 40px;   }
+.specification-block .fashionspecification .specification-block-support-icon-image {  width: 46px;  height: 46px;  border-radius: 50%;  border: 1px solid var(--color-icon);  padding: 10px; background: var(--gradient-base-background-2);}
+.specification-block .fashionspecification  .specification-banner.specification-container.style3 .specification-block-main-grid{ width: calc(36% - 10px);}
+.specification-block .fashionspecification  .specification-banner.specification-container.style3 .dt-sc-additional-grids{ width: calc(64% - 10px); background:var(--gradient-base-background-2);    grid-template-columns: 270px 3fr; position: relative;}
+.specification-block .fashionspecification .specification-block-main-grid h4.specification-block-main-title{    color: var(--gradient-base-background-2); font-size: 5.2rem; text-transform: uppercase; line-height: 62px; font-weight: 400;}
+.specification-block .fashionspecification  .specification-block-banner.overlay .specification-block-content{background:transparent;}
+.specification-block .fashionspecification .specification-block-support-block{flex-direction:column;     background: var(--gradient-base-background-3); color: var(--gradient-base-background-2); width: 100%; max-width: 255px; padding: 20px; border-radius: 16px;}
+.specification-block .fashionspecification .specification-block-support-content{ padding-left: 0; padding-top:15px;     display: flex; align-items: center; width:100%;}
+.specification-block .fashionspecification .specification-block-support-content .specification-block-support-description { margin-bottom: 0; margin-top: 0; margin-left: 12px; font-size: 2.4rem; font-family: var(--font-heading-family);    color: rgba(var(--color-base-background-2), 0.5);}
+.specification-block .fashionspecification h5.specification-block-support-heading{font-size: 2.4rem;color: var(--gradient-base-background-2); text-transform: uppercase;}
+
+.specification-block .fashionspecification .specification-block-support-block{margin-bottom:2rem;}
+.specification-block .fashionspecification  .dt-sc-additional-grids  h2.main-title{   text-transform: uppercase; font-size:5.2rem; margin-bottom: 0; line-height: 62px;}
+.specification-block .fashionspecification p.dt-sc-heading-description { max-width: 685px;  line-height: 26px;  color: var(--gradient-base-accent-2);  text-transform: lowercase;}
+.specification-block .fashionspecification a.additional_block.button{background: transparent;border: 1px solid rgba(var(--color-base-solid-button-labels));color: rgba(var(--color-base-solid-button-labels));}
+.specification-block .fashionspecification a.additional_block.button:hover{background: rgba(var(--color-base-outline-button-labels));border: 1px solid rgba(var(--color-base-outline-button-labels));color: var(--gradient-base-background-2);}
+.specification-block .fashionspecification .specification-block-main-grid h4.specification-block-main-title{
+   background: linear-gradient(to right, var(--gradient-base-background-2) 20%, rgba(var(--color-base-outline-button-labels)) 40%, rgba(var(--color-base-outline-button-labels)) 60%, var(--gradient-base-background-2) 80%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: shine-animation 3s linear infinite;
+    animation: shine-animation 3s linear infinite;}
+
+@keyframes shine-animation {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media screen and (min-width: 801px){
+  .specification-block .fashionspecification .specification-block-support-block:last-child{margin-bottom:0rem;}
+}
+/*fashion2specifcation*/
+ 
+.specification-block .fashion2specifcation .specification-banner.specification-container.style3 .specification-block-main-grid {
+    width: calc(31% - 10px);
+}
+.specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids {
+    width: calc(69% - 10px); background: var(--gradient-base-accent-1);  padding: 120px 60px;
+}  
+.specification-block .fashion2specifcation .specification-block-support-icon-image{    background: var(--gradient-base-background-2)}
+.specification-block .fashion2specifcation .specification-block-support-icon-image img{width:27px; height:27px;}
+.specification-block .fashion2specifcation .additional_section_blocks { display: grid; align-items: center; justify-content: center; grid-template-columns:repeat(3,1fr);}
+.specification-block .fashion2specifcation .specification-block-support-block { display: grid; grid-template-columns: 50px 1fr; margin-bottom: 0rem;}
+.specification-block .fashion2specifcation .specification-block h5.specification-block-support-heading { margin-top: 15px; margin-bottom: 15px;}
+.specification-block .fashion2specifcation .specification-block-banner.overlay .specification-block-content{    position: absolute; height: auto; padding: 20px; margin: 15px; bottom: 0; top: auto;}
+.specification-block .fashion2specifcation .specification-block-banner.overlay .specification-block-image { width: 100%; position: relative; height: 100%;display:flex;}
+.specification-block .fashion2specifcation .specification-block-main-grid h4.specification-block-main-title { margin: 0; font-size: 3rem; font-weight: 700; font-family: var(--font-additional-family); max-width: 370px; text-transform: uppercase; margin-bottom: 24px; line-height: 40px;}
+.specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids h2.main-title{  margin: 0;  font-size: 6.2rem; text-transform: uppercase; font-family: var(--font-additional-family); font-style: normal; font-weight: 700;}
+.specification-block .fashion2specifcation .additional_grid_block{    display: inline-block; width: auto; max-width: max-content; height: max-content;}
+.specification-block .fashion2specifcation .additional_grid_block .additional_block.button{margin-right:25px;}
+.specification-block .fashion2specifcation .specification-block-support-content{ padding-left: 10px;}
+
+
+/*fashion3specifcation*/
+
+.specification-block .fashion3specification .specification-banner.specification-container.style3 .specification-block-main-grid {
+    width: calc(27% - 30px);
+}
+.specification-block .fashion3specification .specification-banner.specification-container.style3 .dt-sc-additional-grids {
+    width: calc(73% - 30px); 
+}  
+.specification-block .fashion3specification .specification-block-banner.overlay .specification-block-content{    position: absolute; background: transparent; top: -55px; right: -44px; padding: 0; margin: 0;}
+.specification-block .fashion3specification .specification-block-banner.overlay{overflow:visible;}
+.specification-block .fashion3specification .specification-block-image img{border-radius:var(--media-radius);}
+.specification-block .fashion3specification  h2.main-title{font-family: var(--font-additional-family); font-size: 5.2rem; max-width: 832px;  margin-top: 0;}
+.specification-block .fashion3specification .additional_section_blocks { display: grid; grid-template-columns: repeat(2,1fr); max-width: 750px;}
+.specification-block .fashion3specification .specification-block-support-block { display: flex; flex-direction: column; flex-wrap: wrap; margin-bottom: 3rem;}
+.specification-block .fashion3specification  h5.specification-block-support-heading{  font-size: 2rem; font-family: var(--font-additional-family);}
+.specification-block .fashion3specification .specification-block-support-content .specification-block-support-description{    text-transform: lowercase;  line-height: 24px;}
+.specification-block .fashion3specification  .specification-block-support-content{padding-left: 0px; padding-top:20px;}
+.specification-block .fashion3specification  .dt-sc-heading-description{    max-width: 662px;}
+.specification-block .fashion3specification .specification-banner.specification-container.style3{ z-index: 1;  padding: 120px 60px;}
+.specification-block .fashion3specification .additional_block.button{width:fit-content;}
+.specification-block .fashion3specification .specification-block-support-block{margin-bottom:6rem;}
+
+
+
+/*fashion2specification*/
+@media screen and (max-width: 1540px){
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids h2.main-title{font-size:5.2rem;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids{ padding: 100px 40px;}
+}
+
+@media screen and (max-width: 1610px){
+  .specification-block .fashionspecification .specification-banner.specification-container.style3 .dt-sc-additional-grids{grid-template-columns: 1fr 2.5fr;}
+    .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title br{display:none;}
+}
+@media screen and (max-width: 1440px){
+   .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title br{display:none;}
+   .specification-block .fashionspecification .specification-banner.specification-container.style3 .dt-sc-additional-grids{grid-template-columns: 1fr 2fr;}
+   .specification-block .fashionspecification .specification-banner.specification-container.style3 .dt-sc-additional-grids{ padding:40px 20px;} 
+  .specification-block .fashionspecification  .dt-sc-additional-grids  h2.main-title{font-size:4.2rem; line-height:normal;}
+
+   .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids h2.main-title{font-size:4.2rem;} 
+
+   .specification-block .fashion3specification .specification-banner.specification-container.style3 .specification-block-main-grid { width: calc(30% - 20px);}
+   .specification-block .fashion3specification .specification-banner.specification-container.style3 .dt-sc-additional-grids { width: calc(70% - 20px); } 
+   .specification-block .fashion3specification .specification-block-support-block {margin-bottom:3rem;}  
+   .specification-block .fashion3specification .specification-banner.specification-container.style3{ padding: 60px;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3:before{  bottom: 47px; transform: scale(0.8);}
+  .specification-block .fashion3specification  h2.main-title{font-size:4.2rem;} 
+}
+@media screen and (min-width: 1200px){
+.specification-block .fashionspecification a.additional_block.button{grid-column: 2 / 3; height: fit-content; width: fit-content; grid-row: 1; position: absolute; bottom: 90px;}
+.specification-block .fashionspecification .additional_section_blocks { grid-column: 1 / 2; grid-row: 1 / 2;}
+.specification-block .fashionspecification  .dt-sc-heading.Left { grid-column: 2 / 3; grid-row: 1; position: relative;}
+}
+@media screen and (max-width: 1199px){
+  .specification-block .fashionspecification  .specification-banner.specification-container.style3 .specification-block-main-grid{ width:calc(38% - 10px);}
+  .specification-block .fashionspecification  .specification-banner.specification-container.style3 .dt-sc-additional-grids{ width:calc(62% - 10px);    grid-template-columns: repeat(1,1fr);}
+  .specification-block .fashionspecification .additional_section_blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;}
+  .specification-block .fashionspecification .specification-block-support-block { margin-bottom: 0;  max-width: 100%; padding: 15px;}
+    .specification-block .fashionspecification h5.specification-block-support-heading,
+  .specification-block .fashionspecification .specification-block-support-content .specification-block-support-description{font-size:1.8rem;}
+  .specification-block .fashionspecification .specification-block-main-grid h4.specification-block-main-title{font-size:3.2rem; line-height:normal;}
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title{margin:0;}
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title br{display:none;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids h2.main-title{font-size:3.2rem; line-height:normal;}
+
+  .specification-block .fashion2specifcation .additional_section_blocks{ display: grid; grid-template-columns:repeat(2,1fr);}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids{ padding: 60px 40px;}
+
+  .specification-block .fashion3specification  h2.main-title{font-size:3.2rem;} 
+  .specification-block .fashion3specification .specification-banner.specification-container.style3 .specification-block-main-grid { width: calc(40% - 20px);}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3 .dt-sc-additional-grids { width: calc(60% - 20px);   margin-top: 0; margin-bottom: auto;} 
+}
+@media screen and (max-width: 992px){
+  .specification-block .fashion2specifcation .additional_section_blocks {  display: grid; grid-template-columns: repeat(1,1fr);}
+  .specification-block .fashion2specifcation .specification-block-main-grid h4.specification-block-main-title{ font-size: 2.2rem; line-height: normal;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .specification-block-main-grid { width: calc(35% - 10px);}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids { width: calc(65% - 10px);}  
+  .specification-block .fashion2specifcation .specification-block-support-block{  margin-bottom: 2rem;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3{ padding: 60px 30px;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3:before{right:0;}
+   .specification-block .fashion3specification  .dt-sc-grid-banner-inner img{transform:scale(0.7);}
+  
+}
+@media screen and (max-width: 880px){
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .specification-block-main-grid { width: 100%; margin:auto;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids { width:100%;  height: 600px;} 
+  .specification-block .fashion2specifcation .additional_grid_block{  margin-bottom: 0rem;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container{gap:40px;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids{height:100%;}
+}
+
+
+
+
+@media screen and (max-width: 959px) and (min-width: 801px){
+  .specification-block .fashionspecification h5.specification-block-support-heading,
+  .specification-block .fashionspecification .specification-block-support-content .specification-block-support-description{font-size:1.6rem;}
+  .specification-block .fashionspecification .specification-block-support-icon-image{margin:auto;}
+  .specification-block .fashionspecification .specification-block-support-content{    flex-direction: column; align-items: center;}
+}
+@media screen and (max-width: 800px){
+  .specification-block .fashionspecification  .specification-banner.specification-container.style3 .specification-block-main-grid{ width:100%;  max-width: 500px; margin:auto;}
+  .specification-block .fashionspecification  .specification-banner.specification-container.style3 .dt-sc-additional-grids{ width:100%; grid-template-columns: 1fr;}
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title br{display:none;}
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title{margin:0; font-size:3.2rem;}
+  .specification-block .fashionspecification a.additional_block.button { margin-top: 20px;}
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title{line-height:normal; margin:0;}
+  .specification-block .fashionspecification .specification-block-support-block{margin-bottom:2rem;}
+
+  .specification-block .fashion3specification .specification-banner.specification-container.style3 .specification-block-main-grid{width:100%;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3 .dt-sc-additional-grids{width:100%;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3:before{opacity:0;}
+  .specification-block .fashion3specification .specification-block-banner.overlay .specification-block-content{width:100px; height:100px; right:-20px;}
+   .specification-block .fashion3specification .dt-sc-grid-banner-inner img{transform:scale(1);}
+}
+@media screen and (max-width: 768px) and (min-width: 610px){
+  .specification-block .fashionspecification .additional_section_blocks { display: grid; grid-template-columns: repeat(3,1fr); gap:10px;}  
+  .specification-block .fashionspecification .specification-block-support-block{max-width:100%;}
+}
+@media screen and (max-width: 609px){
+   .specification-block .fashionspecification h5.specification-block-support-heading,
+  .specification-block .fashionspecification .specification-block-support-content .specification-block-support-description{font-size:1.8rem;}
+  .specification-block .fashionspecification .specification-block-support-block{margin-bottom:0;}
+  .specification-block .fashionspecification .specification-block-support-block{padding:15px;}
+  .specification-block .fashionspecification .specification-block-main-grid h4.specification-block-main-title{    font-size: 3.2rem; line-height: normal;}
+  .specification-block .fashionspecification .additional_section_blocks { display: grid; grid-template-columns: repeat(2,1fr); gap:10px;}  
+}
+@media screen and (max-width: 576px){
+  .specification-block .fashionspecification .dt-sc-additional-grids h2.main-title{margin:0; font-size:2.2rem;}
+  
+  
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids h2.main-title{font-size:2.2rem;line-height:normal;}
+  .specification-block .fashion2specifcation .specification-block-support-content{ width: calc(100% - 20px);}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .dt-sc-additional-grids{    padding: 40px 20px;}
+  .specification-block .fashion2specifcation .additional_grid_block .additional_block.button{margin-right:0; margin-bottom:20px;}
+  .specification-block .fashion2specifcation .specification-banner.specification-container.style3 .specification-block-main-grid{width:100%;}
+  .specification-block .fashion2specifcation h5.specification-block-support-heading{font-size: 1.6rem;}
+
+  .specification-block .fashion3specification h2.main-title{margin:0; font-size:2.2rem;}
+  .specification-block .fashion3specification .specification-banner.specification-container.style3{ padding:0;}
+  .specification-block .fashion3specification h5.specification-block-support-heading{font-size:1.8rem;}
+  .specification-block .fashion3specification .dt-sc-grid-banner-inner img{transform:scale(1);}
+  .specification-block .fashion3specification .specification-block-banner.overlay .specification-block-content{width:80px; height:80px; right:0; top:0;}
+}
+@media screen and (max-width: 609px){
+    .specification-block .fashionspecification .additional_section_blocks { display: grid; grid-template-columns: repeat(1,1fr); gap:10px;justify-items: center;}
+  .specification-block .fashionspecification .specification-block-support-content{justify-content:center;}
+  .specification-block .fashionspecification .specification-block-support-block{  align-items: center;}
+  .specification-block .fashionspecification .specification-block-main-grid h4.specification-block-main-title{font-size:2.2rem;}
+  .specification-block .fashionspecification .specification-block-banner.overlay .specification-block-content{padding:0;}
+
+  .specification-block .fashion3specification .specification-block-support-block{align-items:center;  justify-content: center;}
+  .specification-block .fashion3specification .additional_section_blocks{grid-template-columns:repeat(1,1fr); max-width:100%;}
+  .specification-block .fashion3specification .specification-block-support-content,
+  .specification-block .fashion3specification .specification-banner.specification-container.style3 .dt-sc-additional-grids{text-align:center;}
+  .specification-block .fashion3specification .additional_block.button{margin:auto;}
+}
+
+

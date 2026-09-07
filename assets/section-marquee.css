@@ -1,0 +1,19 @@
+.marquee-section {overflow: hidden;}
+.marquee-section  .swiper-container {width: 100%;height: 100%;position: relative;overflow: hidden;}
+.marquee-section  .swiper-wrapper {transition-timing-function: linear !important;position: relative;}
+.marquee-section  .swiper-slide {text-align: center;font-size: 33px;display: flex;justify-content: center;align-items: center;width: auto;position: relative;background: transparent;}
+.marquee-section  :is(.marquee-title) {margin: 0; color: rgb(var(--color-text),.9);}
+
+  
+.fashionmarquee .marquee-title span {margin: 0 15px;}
+/* .fashionmarquee .page-full-width.page-full-width_spacing .row{margin:0;}                      */
+/* .marquee .row{
+    background: var(--gradient-background);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: linear-gradient(90deg, rgba(70, 70, 70, 0.9), rgba(193, 193, 193, 1) 49.71%, rgba(70, 70, 70, 0.9) 99.46%);
+    background-blend-mode: hard-light;
+} */
+@media screen and (max-width: 480px) {
+ .fashionmarquee .marquee-title span {margin: 0 5px;}    
+ }

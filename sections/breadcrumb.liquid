@@ -1,0 +1,293 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+ @media screen and (max-width: 576px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+    }
+  } 
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  } 
+  
+ {%  unless section.settings.breadcrumb_image == blank  %}
+ .breadcrumb {background:url({{ section.settings.breadcrumb_image | image_url: width: 1920 }});background-repeat:no-repeat;background-size:cover;border-radius: var(--media-radius);padding-left:60px;padding-right:60px;background-attachment: fixed;background-position: center; }  
+     {% endunless %}
+ .breadcrumb a{color: rgba(var(--color-foreground),1);}  
+ .breadcrumb a:hover{ color: rgb(var(--color-base-outline-button-labels));}
+ .breadcrumb{position: relative;z-index: 1;}  
+ .breadcrumb .breadcrumb_title{margin:0; font-weight: 400;font-size: 5.2rem;text-transform: uppercase;}
+ .breadcrumb a, .breadcrumb span{display: inline-block;margin-top:1rem;font-size:1.6rem;font-weight:400; padding: 0;text-transform: capitalize;opacity:0.7;} 
+ .breadcrumb.text-center{text-align:center;}  
+ .breadcrumb.text-start{text-align:left;}  
+ .breadcrumb.text-end{text-align:right;}
+ .breadcrumb:before { position: absolute; content: "";  display: block;  width: 100%;  height: 100%;  left: 0;  top: 0;  z-index: -1;background:rgba(var(--color-base-background-1));opacity:.{{section.settings.image_overlay_opacity}};}  
+
+   span.breadcrumb__sep svg {
+    width: 1rem;
+    height: 1rem;
+    fill:currentcolor;
+}
+  @media screen and (max-width: 990px) {
+     .breadcrumb {padding-left:30px;padding-right:30px;}
+  }
+  
+  @media screen and (max-width: 576px) { 
+    .breadcrumb .breadcrumb_title{font-size: 2.6rem; margin-bottom:1rem;}
+    .breadcrumb a, .breadcrumb span{font-size:1.4rem; margin:0;}
+  }
+{% endstyle %}
+<div class="breadcrumb-section color-{{ section.settings.color_scheme }} gradient {{ section.settings.custom_class_name }} ">
+ <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+  <div class="row"> 
+   <nav class="breadcrumb text-{{ section.settings.breadcrumb_style }} section-{{ section.id }}-padding isolate"  aria-label="breadcrumbs {{ request.page_type }}">
+     {% if template contains 'product' %}  
+      {% if section.settings.use_breadcrumb_title %}
+    <h2 class="breadcrumb_title ">{{ product.title }}</h2>
+        {% endif %}
+    {% if collection %}
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a> 
+    <span aria-hidden="true" class="breadcrumb__sep"> 
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    {% if collection.handle %}
+    {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+    {{ collection.title | link_to: url }}  
+    {% endif %}
+    {% else %}
+    {% capture url %}/collections/all{% endcapture %}
+    <a href="{{ url }}">{{ 'general.breadcrumbs.all' | t }}</a>
+    {% endif %}
+
+    <span aria-hidden="true" class="breadcrumb__sep">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ product.title }}</span>
+
+
+    {% elsif template contains 'collection' and collection.handle %}
+    {% if template == 'list-collections' %}
+     {% if section.settings.use_breadcrumb_title %}  
+    <h1 class="breadcrumb_title">{{ 'general.breadcrumbs.all_collections' | t }}</h1>
+      {% endif %}  
+    {% else %}
+    {% if section.settings.use_breadcrumb_title %}     
+    <h1 class="breadcrumb_title">{{ collection.title }}</h1>
+    {% endif %}     
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+  <span aria-hidden="true" class="breadcrumb__sep">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+       <a href="/collections" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.all_collections' | t }}</a>
+    <span aria-hidden="true" class="breadcrumb__sep">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    {% if current_tags %}
+    {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+    {{ collection.title | link_to: url }}
+    <span aria-hidden="true" class="breadcrumb__sep">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ collection.title }}</span>
+
+    {% endif %}  
+    {% endif %}
+    {% elsif template == 'blog' %}
+    {% if section.settings.use_breadcrumb_title %}  
+    <h1 class="breadcrumb_title">{{ blog.title }}</h1>
+    {% endif %}
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+    <span aria-hidden="true" class="breadcrumb__sep">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    {% if current_tags %}
+    {{ blog.title | link_to: blog.url }}
+    <span aria-hidden="true" class="breadcrumb__sep">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+
+    <span>{{ blog.title }}</span>
+
+    {% endif %}
+
+    {% elsif template == 'article' %}
+     {% if section.settings.use_breadcrumb_title %}   
+    <h2 class="breadcrumb_title">{{ article.title }}</h2>
+     {% endif %} 
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+    <span aria-hidden="true" class="breadcrumb__sep">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    {{ blog.title | link_to: blog.url }}
+    <span aria-hidden="true" class="breadcrumb__sep">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ article.title }}</span>
+
+    {% elsif template contains 'page' %}
+    {% if section.settings.use_breadcrumb_title %}  
+    <h1 class="breadcrumb_title">{{ page.title }}</h1>
+     {% endif %}   
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+    <span aria-hidden="true" class="breadcrumb__sep">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ page.title }}</span>
+
+    {% else %}
+    {% if template == 'list-collections' %}
+    {% if section.settings.use_breadcrumb_title %}    
+    <h1 class="breadcrumb_title">{{ 'general.breadcrumbs.all_collections' | t }}</h1>
+    {% endif %}  
+    {% else %}
+      
+    {% if section.settings.use_breadcrumb_title %}      
+    <h1 class="breadcrumb_title">{{ page_title }}</h1>
+    {% endif %}    
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+    <span aria-hidden="true" class="breadcrumb__sep">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 7.75 1.34375 L 6.25 2.65625 L 14.65625 12 L 6.25 21.34375 L 7.75 22.65625 L 16.75 12.65625 L 17.34375 12 L 16.75 11.34375 Z"></path></svg>
+    </span>
+    <span>{{ page_title }}</span>
+    {% endif %}
+
+    {% endif %}
+  
+</nav>
+  </div>   
+</div>
+ </div>
+
+{% schema %}
+  {
+      "name": "t:sections.breadcrumb.name",
+    "settings": [
+      {
+      "type":"checkbox",
+      "id":"page_full_width",
+       "default": false,
+      "label": "t:sections.all.page_full_width.label"
+    },
+    {
+      "type":"checkbox",
+      "id":"page_full_width_spacing",
+       "default": false,
+      "label": "t:sections.all.page_full_width_spacing.label"
+    },
+      {
+        "type": "checkbox",
+        "id": "use_breadcrumb_title",
+        "label": "Enable breadcrumb title",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "breadcrumb_image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "breadcrumb_style",
+        "label": "Style",
+        "default": "center",
+        "options": [
+          {
+            "value": "start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "image_overlay_opacity",
+        "label": "Opacity",
+        "min": 0,
+        "max": 99,
+        "step": 1,
+        "unit": "%",
+        "default": 40
+      },
+     {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+    ],
+    
+   "presets": [
+    {
+      "name": "t:sections.breadcrumb.presets.name"
+    }
+  ]
+}
+
+{% endschema %}        

@@ -1,0 +1,264 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+   }
+   @media screen and (max-width: 480px) {
+     .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.25 | round: 0 }}px;
+     }
+   }
+   @media screen and (min-width: 1201px) {
+     .section-{{ section.id }}-padding {
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+     }
+   }
+     .cart__footer input.discount-code {
+       height: var(--button-height);
+       width: 18rem;
+       padding: 0 10px;
+       font-size:16px;
+       border-radius: var(--inputs-radius);
+       border: var(--inputs-border-width) solid rgb(var(--color-foreground),0.2);
+       font-family: var(--font-heading-family);transition:all 0.3s linear;
+   }
+       .cart__footer input.discount-code:focus-visible {
+         box-shadow: none;
+         outline: none;
+         outline-offset: none;
+     }
+       .cart__footer input.discount-code:focus {box-shadow:none;border:var(--inputs-border-width) solid rgb(var(--color-foreground),1);}
+      .cart__footer form.discount{margin-top:2rem;    margin-bottom: 1rem;}
+       .cart__note label{font-weight:700;}
+       .cart__note label span{margin-left:7px;}
+       .cart__footer .cart__note .field__input{height: 13rem;margin-top: 25px;}
+       .cart__footer cart-note.cart__note.field{display:block;}
+       .cart__footer cart-note.cart__note.field summary span{display: flex;align-items: center;font-size:18px;font-weight:500;}
+       .cart__footer cart-note.cart__note.field summary span svg{margin-right:6px;}
+       @media screen and (max-width: 990px) and (min-width:750px){
+         .cart__footer cart-note.cart__note.field{width:50%;}
+         /* .cart__footer>* { width: 39rem;} */
+         .cart__footer form.discount{text-align: end;}
+       }
+
+      @media screen and (max-width: 749px) {
+     /*     .cart__footer input.discount-code{text-align:center;} */
+         .cart__footer form.discount{text-align:center;}
+       }
+        @media screen and (max-width: 400px) {
+       .cart__footer input.discount-code{width: 16rem;}
+       .cart__footer .cart__blocks .button{padding:0 20px;}
+
+        }
+          .cart__footer form.discount {
+             width: 100%;
+             display: flex;
+            justify-content: space-between;
+         }
+         .cart__footer input.discount-code {width: calc(60% - 10px);}
+         .cart__footer input.discount-code {
+             width: 100%;
+             margin-right: 1rem;
+         }
+         .cart__footer button#apply-coupon{width:40%;}
+         .cart__footer button#apply-coupon {
+             min-width: fit-content;
+             border: none;
+         }
+          .cart__note span.cart-note-content {display: flex;align-items: center;font-weight: 500; font-size: 1.6rem; font-family: var(--font-body-family); margin-bottom: 2.6rem;}
+          .cart__note span.cart-note-content svg{margin-right:15px;}
+          .cart__checkout-button {max-width: initial;}
+          .cart__footer .cart__blocks .totals__subtotal-value{margin-left:15px;}
+          .cart__footer input.discount-code::placeholder{font-family:var(--font-body-family);}
+          #shipping-calculator .field{margin-top:0;}
+{%- endstyle -%}
+<div
+  class=" {% if cart == empty %} is-empty {% else %} section-{{ section.id }}-padding {% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div>
+    <div class="cart__footer">
+      {%- if settings.show_shipping_info -%}
+        <h3>Get shipping estimates</h3>
+        <div id="Shipping-Wrapper">
+          {% render 'shipping-calculator' %}
+        </div>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-content" {{ block.shopify_attributes }}>
+                <div class="totals">
+                  <h2 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h2>
+                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <small class="tax-note caption-large rte">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M7.5 15C11.6421 15 15 11.6421 15 7.5C15 3.35786 11.6421 0 7.5 0C3.35786 0 0 3.35786 0 7.5C0 11.6421 3.35786 15 7.5 15Z" fill="currentcolor" fill-opacity="0.7"/>
+                    <path d="M7.4153 9.07824L7.00545 5.1057C6.94453 4.51461 7.40218 4 7.98897 4H8.01113C8.59762 4 9.05499 4.51373 8.99465 5.10452L8.58888 9.07735C8.55798 9.3791 8.307 9.6085 8.00734 9.6085H7.99655C7.69718 9.6085 7.4462 9.37939 7.41501 9.07794L7.4153 9.07824ZM7.09407 11.0862V11.0676C7.09407 10.563 7.49808 10.1538 7.99626 10.1538H8.01462C8.5128 10.1538 8.91681 10.563 8.91681 11.0676V11.0862C8.91681 11.5908 8.5128 12 8.01462 12H7.99626C7.49808 12 7.09407 11.5908 7.09407 11.0862Z" fill="white"/>
+                  </svg>
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+        <div class="discount">
+          {%- render 'dt-discount-code' -%}
+        </div>
+
+        <!--
+          <form method="post" action="/cart" class="discount">
+            <input type="text" name="discount" placeholder="Discount cod..." class="discount-code" required="required">
+            <button id="apply-coupon" class="button button-primary" type="button">Apply</button>
+          </form>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    //const element = document.getElementById("drawer-discount");
+    //   var savedCode = localStorage.getItem('coupon')
+    //    $("input[name=discount]").val(savedCode);
+
+    // $('#apply-coupon').on('click', function(event){
+    //      event.preventDefault();
+    //      var target = '/checkout?discount=';
+    //      var dT_Discount =  $('input[name="discount"]').val();
+    //      var dTGo = target+dT_Discount;
+    //      console.log(dTGo);
+    //      window.location.href = dTGo;
+    //    });
+
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function (event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

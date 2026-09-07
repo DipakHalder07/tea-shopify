@@ -1,0 +1,122 @@
+.section.form-image .contact img {
+  max-width: 100%;
+}
+
+.section.form-image .contact .form__message {
+  align-items: flex-start;
+  border: none; 
+  box-shadow: none;
+  outline: none;
+  outline-offset: unset;margin-top: 0;
+}
+
+.section.form-image .contact .icon-success {
+ width: 2rem;
+ height: 2rem;
+}
+
+.section.form-image .contact .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+ .section.form-image .contact .field {
+    margin-bottom: 2rem;
+  }
+}
+
+.section.form-image .contact__button {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+ .section.form-image  .contact__button {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+.section.form-image .field .field__input{padding:1rem 3rem;height:6rem;min-height:6rem; line-height: 38px;background: var(--gradient-base-background-2);border:1px solid var(--gradient-base-background-2);}
+.section.form-image .field .field__input:focus{border:1px solid rgb(var(--color-foreground));}
+.grecaptcha-badge {
+  visibility: hidden;
+}
+/* form#ContactForm{ margin-top:5rem;} */
+
+.field__input{ border: 1px solid rgba(var(--color-base-accent-1), 0.2);
+    background-color: rgba(var(--color-foreground),0.1);}
+.section.form-image .form-contact{    display: flex; align-content: center; align-items: center; flex-wrap: wrap; }
+.section.form-image  .contact .title-wrapper--no-top-margin span{    
+  display: block;
+    font-size: 3.5rem;
+    color: var(--color-icon);
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-family: var(--font-heading-family);}
+
+.collapsible_address-block .address-blocks{display: grid;grid-template-columns: repeat(3, 1fr);}
+.collapsible_address-block .address-blocks li {display: flex; flex-direction: column; text-align: center;}
+.collapsible_address-block .address-blocks li span svg{width:4.5rem;height:4.5rem;fill: rgba(var(--color-base-outline-button-labels));color: rgba(var(--color-base-outline-button-labels));}
+.collapsible_address-block .address-blocks li .contact-icons{display: flex;justify-content:center;margin-bottom:20px;}
+.collapsible_address-block .address-blocks li a{width:max-content;margin:0 auto;}
+.form-contact .map-contact-detail {margin-top: 30px;width:100%;}
+.form-contact .layout-contact-left{margin-top: 30px;}
+.form-contact .collapsible_address-block .address-block-heading{text-align:center;margin:0 0 10px;}
+.form-contact .collapsible_address-block .address-block-desc{margin:0 0 30px;text-align:center;}
+.form-image .map-with-form  .map-contact-detail iframe{border-radius: var(--media-radius);}
+.section.form-image  .details-wrapper .contact-heading{margin: 0 0 8px;font-size: 24px;text-transform: uppercase;font-weight: 700;line-height: normal;font-family: var(--font-heading-family);}
+
+@media (max-width:576px){
+.section.form-image .contact .title{ font-size:3rem;}
+.collapsible_address-block .address-blocks{grid-template-columns: repeat(1, 1fr);grid-gap:30px;}  
+}
+
+.contact-style-2 .contact-detail-block{order: -1;margin:0;}
+.section.form-image .contact-style-2 .form-contact.block-with-form .map-contact-detail{width:100%; margin-top: 90px;}
+.contact-style-2 .collapsible_address-block .address-blocks li{ flex-direction: row;text-align:left;}
+.contact-style-2 .form-contact .collapsible_address-block .address-block-heading,
+.contact-style-2 .form-contact .collapsible_address-block .address-block-desc{text-align:left;}
+.contact-style-2  .collapsible_address-block .address-blocks li a{margin:0;}
+.contact-style-2 .collapsible_address-block .address-blocks{    grid-template-columns: repeat(1,1fr);grid-gap:40px;margin-top: 60px;}
+.contact-style-2 .collapsible_address-block .address-blocks li .contact-icons{margin:0 22px 0 0;}
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block{ padding: 90px 60px;background: var(--gradient-base-background-2);border-radius: var(--media-radius);}
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block .collapsible_address-block .address-block-heading{    font-size: calc(var(--font-heading-scale) * 5.2rem);text-transform:uppercase; margin-bottom:3rem;}
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block .collapsible_address-block .address-block-desc{max-width:510px;}
+.section.form-image .contact-style-2 .form-contact.block-with-form  .contact{ padding: 90px 80px;background: var(--gradient-base-accent-1);color: var(--gradient-base-background-2);border-radius: var(--media-radius);}
+.section.form-image .contact-style-2 .form-contact.block-with-form  .contact .newsletter-checkbox{display:none;}
+.section.form-image .contact-style-2 .title-wrapper-with-link .title {color: var(--gradient-base-background-2); text-transform: uppercase;}
+.form-contact.block-with-form .contact__button .button:hover{background: var(--gradient-base-background-2);color: var(--gradient-base-accent-1);}
+
+@media (max-width:1540px){
+.contact-style-2 .collapsible_address-block .address-blocks{grid-template-columns: repeat(1,1fr);}  
+}
+@media (max-width:1199px){
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact {padding: 90px 60px;}
+}
+@media (max-width:990px){
+.section.form-image .contact-style-2 .form-contact.block-with-form .map-contact-detail{margin:0}
+}
+@media (max-width:1024px) and (min-width:768px){
+.contact-style-2 .collapsible_address-block .address-blocks {grid-template-columns: repeat(2,1fr);}
+}
+@media (max-width:749px){
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact,
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block{padding: 50px 40px;}
+}
+@media (max-width:576px){
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block .collapsible_address-block .address-block-heading{ font-size:3rem;}
+.contact-style-2 .collapsible_address-block .address-blocks{margin-top:30px;}  
+}
+@media (max-width:400px){
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact,
+.section.form-image .contact-style-2 .form-contact.block-with-form .contact-detail-block{padding: 40px 25px;}
+.contact-style-2  .collapsible_address-block .address-blocks li span svg{width:3rem;height:3rem;}  
+.contact-style-2 .collapsible_address-block .address-blocks li .contact-icons{margin:6px 15px 0 0;}  
+}

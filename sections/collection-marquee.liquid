@@ -1,0 +1,413 @@
+{%- style -%}
+  :root {
+  --color-text: navy;
+  --color-bg: papayawhip;
+  --color-bg-accent: #ecdcc0;
+  --size: 35rem;
+  --gap: calc(var(--size) / 2);
+  --duration: 120s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+   .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+.marquee_text {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  min-width: 100%;
+  animation: scroll-x var(--duration) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__group {
+    animation-play-state: paused;
+  }
+}
+
+.marquee--reverse .marquee__group {
+  animation-direction: reverse;
+  animation-delay: -4s;
+}
+.marquee-collection .title-wrapper-with-link .title{
+    font-size: 4.4rem;
+    font-family: var(--font-additional-family);
+    font-style: italic;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+@keyframes scroll-x {
+  from {
+    transform: translateX(var(--scroll-start));
+  }
+  to {
+    transform: translateX(var(--scroll-end));
+  }
+}
+
+@keyframes scroll-y {
+  from {
+    transform: translateY(var(--scroll-start));
+  }
+  to {
+    transform: translateY(var(--scroll-end));
+  }
+}
+
+/* Element styles */
+.marquee_text h6 {
+  place-items: center;
+  width: 100%;
+  line-height:normal;
+  font-size: 5rem;
+  font-family: var(--font-additional-family);
+  font-weight:400;
+   margin: 0;
+  text-transform: capitalize;
+}
+.marquee_text h6 sup{
+  font-size:2.6rem;
+}
+.marquee_text{position:relative; padding: 25px 0;}  
+.marquee_text:after {
+    content: "";
+    position: absolute;
+    background: #D3BD9E;
+    width: 100%;
+    height: 1px;
+    top: 0;
+} 
+.marquee_text:last-child:before {
+    content: "";
+    background: #D3BD9E;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+}  
+/* Parent wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: auto;
+  max-width: 100vw;
+}
+
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.marquee__group img{
+      width: 118px;
+    height: 73px;
+}
+.collection-marquee .row{position:relative;}
+.collection-marquee .row:after{
+   content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:url({{ section.settings.marquee_image | image_url: width:1920  }});
+  background-repeat: no-repeat; left: 0; right: 0; z-index:-1; top:0; bottom:0;    border-radius: 0;
+}
+@media screen and (max-width: 1199px) {
+  .marquee_text h6{font-size:3.6rem;}
+}
+@media screen and (max-width: 990px) {
+.marquee_text h6{font-size:3rem;}
+.marquee_text h6 sup { font-size: 2.2rem;}   
+.marquee_text{  padding: 10px 0;} 
+.marquee-collection .title-wrapper-with-link .title{font-size:4.2rem}  
+}    
+@media screen and (max-width: 576px) {
+.marquee_text h6{font-size:2rem;}
+.marquee_text h6 sup { font-size: 1.6rem;}   
+.marquee_text{  padding: 10px 0;} 
+.marquee__group {gap:1rem;}  
+.marquee_text {gap:15rem;}  
+.marquee-collection .title-wrapper-with-link .title{font-size:3.2rem}  
+}
+    
+{%- endstyle -%}
+
+<div class="collection-marquee color-{{ section.settings.color_scheme }} gradient {{ section.settings.custom_class_name }}">
+  <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+    <div class="row section-{{ section.id }}-padding isolate">
+      <div class="marquee-collection">
+       {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin content-align--{{ section.settings.column_alignment }}">
+        {%- if section.settings.sub_heading != blank -%}  
+         <h6 class="sub-heading">{{ section.settings.sub_heading | escape }}</h6>
+         {%- endif -%} 
+         {%- if section.settings.title != blank -%}  
+          <h2 class="title {{ section.settings.heading_size }}">
+            {{ section.settings.title | escape }}
+          </h2>
+          {%- endif -%} 
+          {%- if section.settings.description != blank -%}  
+          <p class="description">{{ section.settings.description }}</p>
+          {%- endif -%}   
+          {%- if section.settings.button_label != blank -%}
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+       
+      </div>
+    {%- endunless -%}    
+      <article class="wrapper">
+         <div class="marquee_text">
+            <div class="marquee__group">
+              {% for block in section.blocks %}
+                <img src="{{ block.settings.collection.image | image_url: width: 300 }}" width="{{ block.settings.collection.image.width }}" height= "{{ block.settings.collection.image.height }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup> </h6>
+              {% endfor %}
+            </div>
+            <div  class="marquee__group">
+              {% for block in section.blocks %}
+              <img src="{{ block.settings.collection.image | image_url: width: 300 }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup></h6>
+              {% endfor %}
+            </div>   
+          </div> 
+         <div class="marquee_text marquee--reverse">
+            <div class="marquee__group">
+              {% for block in section.blocks %}
+                <img src="{{ block.settings.collection.image | image_url: width: 300 }}" width="{{ block.settings.collection.image.width }}" height= "{{ block.settings.collection.image.height }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup> </h6>
+              {% endfor %}
+            </div>
+            <div  class="marquee__group">
+               {% for block in section.blocks %}
+                <img src="{{ block.settings.collection.image | image_url: width: 300 }}" width="{{ block.settings.collection.image.width }}" height= "{{ block.settings.collection.image.height }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup> </h6>
+              {% endfor %}
+            </div>   
+          </div> 
+         <div class="marquee_text">
+            <div class="marquee__group">
+               {% for block in section.blocks %}
+                <img src="{{ block.settings.collection.image | image_url: width: 300 }}" width="{{ block.settings.collection.image.width }}" height= "{{ block.settings.collection.image.height }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup> </h6>
+              {% endfor %}
+            </div>
+            <div  class="marquee__group">
+               {% for block in section.blocks %}
+                <img src="{{ block.settings.collection.image | image_url: width: 300 }}" width="{{ block.settings.collection.image.width }}" height= "{{ block.settings.collection.image.height }}"/>
+              <h6>{{ block.settings.collection.title }} <sup>{{ block.settings.collection.all_products_count }}</sup> </h6>
+              {% endfor %}
+            </div>   
+          </div> 
+      </article>  
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const marquees = document.querySelectorAll(".marquee");
+const wrapper = document.querySelector(".wrapper");
+
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.collection-marquee.name",
+  "class": "section collection-marquee",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "page_full_width",
+      "default": false,
+      "label": "t:sections.all.page_full_width.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "page_full_width_spacing",
+      "default": false,
+      "label": "t:sections.all.page_full_width_spacing.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Featured Blog",
+      "label": "t:sections.all.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+     "default":"Sub heading",  
+      "label": "t:sections.all.sub_heading.label"
+    },
+     {
+      "type": "text",
+      "id": "description",
+      "default":"Use this text to share the information which you like!.",    
+      "label": "t:sections.all.description.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "t:sections.all.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.button_link.label"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "unit": "s",
+      "label": "Speed",
+      "default": 8
+    },
+    {
+      "type": "image_picker",
+      "id": "marquee_image",
+      "label": "t:sections.collection-marquee.settings.marquee_image.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "range",
+      "id": "marquee_padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.collection-marquee.settings.marquee_padding.label",
+      "default": 36
+    },
+    {	
+    "type": "header",	
+    "content": "t:sections.all.custom_class_heading.content"	
+    },	
+    {	
+    "type": "text",	
+    "id": "custom_class_name",	
+    "label": "t:sections.all.custom_class_name.label"	
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.collection-marquee.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "t:sections.collection-marquee.blocks.text.settings.block_heading.label",
+          "default": "Main Heading"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.collection-marquee.blocks.text.settings.collection.label"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "collection marquee",
+      "category": "Marquee"
+    }
+  ]
+}
+{% endschema %}
