@@ -1208,25 +1208,49 @@ body,
 
 .text-outline {
   color: transparent !important;
-  -webkit-text-stroke: 1.5px var(--cream);
+  -webkit-text-stroke: 2.2px var(--cream) !important;
 }
 
 .dotted-rule {
-  background-image: repeating-linear-gradient(to right, rgba(245, 228, 199, .35) 0 4px, transparent 4px 10px);
+  display: block !important;
+  width: 100% !important;
+  height: 0px !important;
+  border-top: 2.5px dotted #f5e4c7 !important;
+  background: none !important;
+  opacity: 0.85 !important;
+  pointer-events: none !important;
+}
+
+/* Clear, Obvious Zoom In & Zoom Out Breathing Animation on Hero Round Background */
+@keyframes hero-tint-zoom {
+  0% {
+    transform: scale(0.86);
+    filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
+  }
+  50% {
+    transform: scale(1.14);
+    filter: drop-shadow(0 0 95px rgba(255, 51, 102, 0.8));
+  }
+  100% {
+    transform: scale(0.86);
+    filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
+  }
 }
 
 @keyframes hero-bg-pulse {
   0%, 100% {
-    transform: scale(0.96);
+    transform: scale(0.86);
   }
   50% {
-    transform: scale(1.04);
+    transform: scale(1.14);
   }
 }
 
+#heroTint,
 .animate-hero-bg {
-  animation: hero-bg-pulse 6s ease-in-out infinite;
-  will-change: transform;
+  animation: hero-tint-zoom 3.4s ease-in-out infinite !important;
+  transform-origin: center center !important;
+  will-change: transform, filter !important;
 }
 
 @keyframes hero-pack-float {
@@ -1291,5 +1315,132 @@ body,
 #heroTitle .word {
   display: inline-block;
   will-change: transform;
+}
+
+/* ==========================================================================
+   DARK LUXURY HEADER STYLING (THEME ESPRESSO BG #100B06 & CREAM TEXT #f5e4c7)
+   ========================================================================== */
+.section-header,
+.header-wrapper,
+#shopify-section-header,
+.shopify-section-header-sticky,
+header.header,
+#header,
+.header,
+.header-row,
+.top-bar,
+.announcement-bar,
+.drawer__header {
+  background-color: #100B06 !important;
+  color: #f5e4c7 !important;
+  border-color: rgba(245, 228, 199, 0.12) !important;
+}
+
+.header-wrapper .color-background-1,
+header.header.color-background-1,
+.header-wrapper .color-background-2,
+header.header.color-background-2 {
+  background-color: #100B06 !important;
+  color: #f5e4c7 !important;
+}
+
+/* Header Links, Nav items, Typography */
+header a,
+.header a,
+.header__heading-link,
+.header__heading,
+.header__menu-item,
+.dt-sc-nav-link,
+.dt-sc-nav-link span,
+.list-menu__item,
+.header summary,
+.header span,
+.top-bar a,
+.announcement-bar a,
+.header__icon,
+.header-drawer__close {
+  color: #f5e4c7 !important;
+}
+
+header a:hover,
+.header a:hover,
+.header__menu-item:hover,
+.dt-sc-nav-link:hover,
+.dt-sc-nav-link:hover span {
+  color: #F7C665 !important;
+}
+
+/* Header SVGs and Icons */
+header svg,
+.header svg,
+.header__icon svg,
+.header .icon,
+.header svg path,
+.icon-search svg path,
+.header__icon--menu svg path,
+.header__icon--wishlist svg path,
+.header__icon--cart svg path,
+.header__icon--account svg path,
+.header-drawer__close svg path,
+.modal__toggle-close svg path {
+  stroke: #f5e4c7 !important;
+  color: #f5e4c7 !important;
+}
+
+header svg[fill]:not([fill="none"]),
+.header svg[fill]:not([fill="none"]) {
+  fill: #f5e4c7 !important;
+}
+
+/* Cart & Wishlist Count Bubbles */
+.cart-count-bubble,
+.dtxc-wishlist-count,
+.dtx-wish-count {
+  background-color: #FF3366 !important;
+  color: #f5e4c7 !important;
+  border: 1px solid #100B06 !important;
+}
+
+/* Dropdown Menus and Mobile Drawer */
+.dt-sc-dropdown-menu,
+.megamenu_megamenu,
+.sub-menu-block,
+.menu-drawer,
+.menu-drawer__navigation-container,
+.menu-drawer__inner-container,
+.drawer__inner,
+.menu-drawer-header {
+  background-color: #1A130C !important;
+  color: #f5e4c7 !important;
+  border-color: rgba(245, 228, 199, 0.15) !important;
+}
+
+.menu-drawer a,
+.menu-drawer span,
+.menu-drawer summary,
+.dt-sc-dropdown-menu a,
+.megamenu_megamenu a {
+  color: #f5e4c7 !important;
+}
+
+/* Search input in header */
+.header input.search__input,
+.search-modal input.search__input {
+  background-color: #1A130C !important;
+  color: #f5e4c7 !important;
+  border-color: rgba(245, 228, 199, 0.25) !important;
+}
+
+.header input.search__input::placeholder,
+.search-modal input.search__input::placeholder {
+  color: rgba(245, 228, 199, 0.5) !important;
+}
+
+/* Sticky Header Separator */
+.header-wrapper--border-bottom,
+.header-wrapper,
+.shopify-section-header-sticky {
+  border-bottom: 1px solid rgba(245, 228, 199, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
 }
 

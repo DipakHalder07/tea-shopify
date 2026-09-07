@@ -1,6 +1,11 @@
 {% comment %}
   Nidhi Tea Hero Slider Section
   Faithfully ports the Hero design and interactive carousel from Nidhi Tea index.html
+  - Massive title: "Sip Wellness. Taste Purity. Love Every Cup."
+  - High-contrast 2px dotted rule lines across the page
+  - Prominent vibrant pulsing circular background with floating breathing animation
+  - Floating product pack with idle 3D tilt & vertical float
+  - Smooth blend switching with shrink & bloom animations
 {% endcomment %}
 
 <section id="hero" class="nidhi-hero-section">
@@ -8,7 +13,7 @@
   <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-tl" />
   <img src="{{ 'botanical-tea-branch.svg' | asset_url }}" alt="" aria-hidden="true" class="nidhi-branch-br" />
 
-  <!-- Hero Main Heading -->
+  <!-- Hero Main Heading (Extra Large & Imposing) -->
   <div class="nidhi-heading-wrap">
     <h1 id="heroTitle" class="nidhi-hero-title">
       <span class="text-outline">{{ section.settings.heading_outline | default: 'Sip Wellness.' }}</span>
@@ -18,7 +23,7 @@
 
   <!-- Blend Indicator Rule Bar -->
   <div class="nidhi-blend-bar">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.6;"></div>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
     <div class="nidhi-blend-bar-inner">
       <span id="heroNo">Blend N0.01</span>
       <span id="heroName" class="animate-fade-in">Classic Masala Chai</span>
@@ -28,7 +33,7 @@
   <!-- ============ HERO CAROUSEL ROW WITH FULL-WIDTH DOTTED LINE ============ -->
   <div class="nidhi-carousel-row">
     <!-- Edge-to-Edge Full-Width Horizontal Dotted Line Behind Slider & Navigation Buttons -->
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.7; z-index: 0; pointer-events: none;"></div>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
 
     <div class="nidhi-carousel-inner">
       <!-- Previous Slide Button -->
@@ -36,11 +41,11 @@
         <span>&larr;</span>
       </button>
 
-      <!-- Center Active Blend Presentation -->
+      <!-- Center Active Blend Presentation Stage -->
       <div class="nidhi-stage">
-        <!-- Solid Center Color Tint Circle -->
-        <div id="heroTintWrap" style="transform: scale(1);">
-          <div id="heroTint" class="animate-hero-bg" style="background: var(--pink, #FF3366);"></div>
+        <!-- Prominent Solid Center Color Tint Circle with Ambient Glow, Pulse & Float -->
+        <div id="heroTintWrap">
+          <div id="heroTint" class="animate-hero-bg"></div>
         </div>
 
         <!-- Top-Right & Bottom-Left Floating Botanical Companion Accents -->
@@ -66,7 +71,7 @@
           </div>
         </div>
 
-        <!-- Dynamic Product Slides -->
+        <!-- Dynamic Product Slide Packs -->
         <div id="heroSlides"></div>
       </div>
 
@@ -79,7 +84,7 @@
 
   <!-- Bottom CTA Row With Dotted Line -->
   <div class="nidhi-cta-row">
-    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); opacity: 0.7; pointer-events: none;"></div>
+    <div class="dotted-rule" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 0; transform: translateY(-50%); border-top: 2.5px dotted #f5e4c7; opacity: 0.85; z-index: 1; pointer-events: none;"></div>
     <a href="{{ section.settings.button_link | default: '#products' }}" class="nidhi-cta-btn">
       <div class="nidhi-cta-btn-bg"></div>
       <span class="nidhi-cta-text-wrap">
@@ -94,21 +99,16 @@
 <style>
   .nidhi-hero-section {
     position: relative;
-    min-height: 90vh;
     overflow: hidden;
-    padding-top: 140px;
-    padding-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 35px;
     background-color: var(--background, #100B06);
     color: var(--cream, #f5e4c7);
   }
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .nidhi-hero-section {
-      padding-top: 110px;
-      padding-bottom: 40px;
-      min-height: auto;
+      padding-top: 45px;
+      padding-bottom: 45px;
     }
   }
 
@@ -116,9 +116,9 @@
     position: absolute;
     top: -4rem;
     left: -5rem;
-    width: 300px;
+    width: 320px;
     height: auto;
-    opacity: 0.12;
+    opacity: 0.14;
     transform: rotate(-45deg);
     pointer-events: none;
     user-select: none;
@@ -128,27 +128,28 @@
     position: absolute;
     bottom: -5rem;
     right: -6rem;
-    width: 320px;
+    width: 340px;
     height: auto;
-    opacity: 0.12;
+    opacity: 0.14;
     transform: rotate(135deg);
     pointer-events: none;
     user-select: none;
     z-index: 0;
   }
   @media (min-width: 640px) {
-    .nidhi-branch-tl { width: 540px; opacity: 0.15; }
-    .nidhi-branch-br { width: 580px; opacity: 0.15; }
+    .nidhi-branch-tl { width: 560px; opacity: 0.16; }
+    .nidhi-branch-br { width: 600px; opacity: 0.16; }
   }
   @media (min-width: 1024px) {
-    .nidhi-branch-tl { width: 780px; }
-    .nidhi-branch-br { width: 820px; }
+    .nidhi-branch-tl { width: 800px; }
+    .nidhi-branch-br { width: 850px; }
   }
 
+  /* Extra Large Grand Heading */
   .nidhi-heading-wrap {
     position: relative;
     z-index: 10;
-    max-width: 1500px;
+    max-width: 1550px;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
@@ -158,30 +159,59 @@
     font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
     font-optical-sizing: auto;
     text-transform: uppercase;
-    line-height: 0.90;
-    letter-spacing: -0.005em;
-    font-weight: 700;
-    font-size: clamp(2.4rem, 7.5vw, 6.4rem);
+    line-height: 0.88 !important;
+    letter-spacing: -0.02em;
+    font-weight: 800 !important;
+    font-size: clamp(3rem, 8.8vw, 8.2rem) !important;
     margin: 0 auto;
-    max-width: 1100px;
+    max-width: 1450px;
     text-align: center;
+  }
+  @media (min-width: 768px) {
+    .nidhi-hero-title {
+      font-size: clamp(4.4rem, 7.8vw, 7.6rem) !important;
+    }
+  }
+  @media (min-width: 1280px) {
+    .nidhi-hero-title {
+      font-size: clamp(5.6rem, 7.5vw, 8.2rem) !important;
+    }
   }
   .nidhi-hero-title .text-outline {
     color: transparent !important;
-    -webkit-text-stroke: 1.5px var(--cream, #f5e4c7);
+    -webkit-text-stroke: 2.2px #f5e4c7 !important;
   }
   .nidhi-hero-title .text-cream {
-    color: var(--cream, #f5e4c7) !important;
+    color: #f5e4c7 !important;
+  }
+
+  /* Crisp High-Visibility Dotted Rule Styling */
+  .dotted-rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    height: 0px !important;
+    border-top: 2.5px dotted #f5e4c7 !important;
+    background: none !important;
+    opacity: 0.85 !important;
+    pointer-events: none !important;
   }
 
   .nidhi-blend-bar {
     position: relative;
     z-index: 10;
-    margin-top: 2rem;
+    margin: 1.8rem 0 1rem 0;
     width: 100%;
+  }
+  @media (min-width: 768px) {
+    .nidhi-blend-bar {
+      margin: 2.2rem 0 1.2rem 0;
+    }
   }
   .nidhi-blend-bar-inner {
     position: relative;
+    z-index: 2;
     max-width: 1500px;
     margin: 0 auto;
     display: flex;
@@ -189,37 +219,37 @@
     justify-content: space-between;
     padding: 0 20px;
     font-family: var(--font-display-family), "Fraunces", Georgia, serif;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--cream, #f5e4c7);
-    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #f5e4c7;
+    font-weight: 700;
   }
   @media (min-width: 768px) {
     .nidhi-blend-bar-inner {
-      font-size: 15px;
+      font-size: 16px;
       padding: 0 40px;
     }
   }
   .nidhi-blend-bar-inner span {
-    background-color: var(--background, #100B06);
+    background-color: #100B06;
   }
   .nidhi-blend-bar-inner #heroNo {
-    padding-right: 1rem;
+    padding-right: 1.2rem;
   }
   .nidhi-blend-bar-inner #heroName {
-    padding-left: 1rem;
+    padding-left: 1.2rem;
   }
 
   .nidhi-carousel-row {
     position: relative;
     z-index: 10;
     width: 100%;
-    margin: 1.5rem 0;
+    margin: 0.8rem 0 1.2rem 0;
   }
   @media (min-width: 768px) {
     .nidhi-carousel-row {
-      margin: 2.5rem 0;
+      margin: 1.2rem 0 1.8rem 0;
     }
   }
   .nidhi-carousel-inner {
@@ -246,50 +276,51 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
     border-radius: 9999px;
-    border: 2px solid var(--pink, #FF3366) !important;
-    background-color: var(--pink, #FF3366) !important;
-    color: var(--cream, #f5e4c7) !important;
-    box-shadow: 0 10px 25px -5px rgba(255, 51, 102, 0.4);
+    border: 2px solid #FF3366 !important;
+    background-color: #FF3366 !important;
+    color: #f5e4c7 !important;
+    box-shadow: 0 10px 25px -5px rgba(255, 51, 102, 0.45);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     touch-action: manipulation;
   }
   @media (min-width: 640px) {
     .nidhi-nav-btn {
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
     }
   }
   @media (min-width: 768px) {
     .nidhi-nav-btn {
-      width: 68px;
-      height: 68px;
+      width: 72px;
+      height: 72px;
     }
   }
   @media (min-width: 1024px) {
     .nidhi-nav-btn {
-      width: 80px;
-      height: 80px;
+      width: 82px;
+      height: 82px;
     }
   }
   .nidhi-nav-btn:hover {
     transform: scale(1.1);
-    background-color: var(--red, #E63946) !important;
-    border-color: var(--red, #E63946) !important;
+    background-color: #E63946 !important;
+    border-color: #E63946 !important;
+    box-shadow: 0 12px 30px -5px rgba(230, 57, 70, 0.6);
   }
   .nidhi-nav-btn span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     line-height: 1;
     pointer-events: none;
   }
   @media (min-width: 768px) {
     .nidhi-nav-btn span {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
   }
 
@@ -300,62 +331,115 @@
     flex: 1;
     align-items: center;
     justify-content: center;
-    height: 50vh;
-    min-height: 380px;
-    max-height: 760px;
+    height: 520px;
+    min-height: 400px;
+    max-height: 640px;
+    overflow: visible;
   }
   @media (min-width: 640px) {
     .nidhi-stage {
-      height: 58vh;
-      min-height: 440px;
+      height: 560px;
     }
   }
   @media (min-width: 1024px) {
     .nidhi-stage {
-      height: 70vh;
+      height: 600px;
     }
   }
 
+  /* Center Color Tint Circle (Sized Generously with Rhythmic Breathing Pulse & Ambient Glow) */
   #heroTintWrap {
     position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    transition: transform 500ms;
+    transition: transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1);
     will-change: transform;
     z-index: 5;
   }
   #heroTint {
-    width: 224px;
-    height: 224px;
+    width: 320px;
+    height: 320px;
     border-radius: 9999px;
-    transition: background-color 700ms;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background-color: #FF3366;
+    flex-shrink: 0;
+    transition: background-color 700ms ease, box-shadow 700ms ease;
+    box-shadow: 0 0 90px rgba(255, 51, 102, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+    will-change: transform, box-shadow;
   }
   @media (min-width: 640px) {
     #heroTint {
-      width: 288px;
-      height: 288px;
+      width: 420px;
+      height: 420px;
     }
   }
   @media (min-width: 768px) {
     #heroTint {
-      width: 400px;
-      height: 400px;
+      width: 520px;
+      height: 520px;
     }
   }
   @media (min-width: 1024px) {
     #heroTint {
-      width: 480px;
-      height: 480px;
+      width: 600px;
+      height: 600px;
     }
   }
   @media (min-width: 1280px) {
     #heroTint {
-      width: 560px;
-      height: 560px;
+      width: 660px;
+      height: 660px;
     }
+  }
+
+  /* Dynamic Zoom In / Zoom Out Breathing Animation on Product Background Circle */
+  @keyframes hero-tint-zoom {
+    0% {
+      transform: scale(0.86);
+      filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
+    }
+    50% {
+      transform: scale(1.14);
+      filter: drop-shadow(0 0 95px rgba(255, 51, 102, 0.8));
+    }
+    100% {
+      transform: scale(0.86);
+      filter: drop-shadow(0 0 35px rgba(255, 51, 102, 0.45));
+    }
+  }
+  @keyframes hero-bg-pulse {
+    0%, 100% {
+      transform: scale(0.86);
+    }
+    50% {
+      transform: scale(1.14);
+    }
+  }
+  .animate-hero-bg,
+  #heroTint {
+    animation: hero-tint-zoom 3.4s ease-in-out infinite !important;
+    transform-origin: center center !important;
+    will-change: transform, filter !important;
+  }
+
+  /* Floating Idle Animation on Product Pack (Tilt 5deg + Float) */
+  @keyframes hero-pack-float {
+    0%, 100% {
+      transform: rotate(4deg) translateY(0px);
+    }
+    50% {
+      transform: rotate(6.5deg) translateY(-18px);
+    }
+  }
+  .hero-floating-pack {
+    animation: hero-pack-float 4.5s ease-in-out infinite !important;
+    will-change: transform;
+    transform-origin: center center;
   }
 
   .nidhi-companions-box {
@@ -365,19 +449,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 300px;
+    max-width: 320px;
     pointer-events: none;
     z-index: 20;
   }
-  @media (min-width: 640px) { .nidhi-companions-box { max-width: 380px; } }
-  @media (min-width: 768px) { .nidhi-companions-box { max-width: 480px; } }
-  @media (min-width: 1024px) { .nidhi-companions-box { max-width: 580px; } }
+  @media (min-width: 640px) { .nidhi-companions-box { max-width: 420px; } }
+  @media (min-width: 768px) { .nidhi-companions-box { max-width: 500px; } }
+  @media (min-width: 1024px) { .nidhi-companions-box { max-width: 600px; } }
   @media (min-width: 1280px) { .nidhi-companions-box { max-width: 680px; } }
 
   #heroTopWrap {
     position: absolute;
-    top: -1rem;
-    right: 0;
+    top: -1.5rem;
+    right: -1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -386,35 +470,34 @@
   }
   #heroBottomWrap {
     position: absolute;
-    bottom: -1rem;
-    left: -0.5rem;
-    display: none;
+    bottom: -1.5rem;
+    left: -1rem;
+    display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
     will-change: transform;
   }
-  @media (min-width: 640px) {
-    #heroBottomWrap { display: flex; }
-  }
 
   .nidhi-companion-img {
     position: relative;
     z-index: 10;
-    width: 64px;
+    width: 80px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.6));
     pointer-events: none;
   }
-  @media (min-width: 640px) { .nidhi-companion-img { width: 96px; } }
-  @media (min-width: 768px) { .nidhi-companion-img { width: 128px; } }
-  @media (min-width: 1024px) { .nidhi-companion-img { width: 176px; } }
-  @media (min-width: 1280px) { .nidhi-companion-img { width: 208px; } }
+  @media (min-width: 640px) { .nidhi-companion-img { width: 110px; } }
+  @media (min-width: 768px) { .nidhi-companion-img { width: 140px; } }
+  @media (min-width: 1024px) { .nidhi-companion-img { width: 180px; } }
+  @media (min-width: 1280px) { .nidhi-companion-img { width: 210px; } }
 
   #heroSlides {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -431,18 +514,16 @@
     will-change: transform, opacity;
   }
   .hero-slide-item img {
-    height: 115%;
-    max-height: 720px;
+    height: auto;
+    max-height: 460px;
     width: auto;
-    max-width: none;
+    max-width: 85vw;
     object-fit: contain;
-    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.45));
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.65));
     pointer-events: none;
   }
-  @media (min-width: 640px) { .hero-slide-item img { height: 122%; } }
-  @media (min-width: 768px) { .hero-slide-item img { height: 130%; } }
-  @media (min-width: 1024px) { .hero-slide-item img { height: 138%; } }
-  @media (min-width: 1280px) { .hero-slide-item img { height: 142%; max-height: 820px; } }
+  @media (min-width: 640px) { .hero-slide-item img { max-height: 500px; } }
+  @media (min-width: 1024px) { .hero-slide-item img { max-height: 540px; } }
 
   .nidhi-cta-row {
     position: relative;
@@ -450,7 +531,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     width: 100%;
   }
   .nidhi-cta-btn {
@@ -460,34 +541,34 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 12px;
-    border: 2px solid var(--pink, #FF3366) !important;
-    background-color: var(--pink, #FF3366) !important;
+    border-radius: 14px;
+    border: 2px solid #FF3366 !important;
+    background-color: #FF3366 !important;
     padding: 16px 44px;
     font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--cream, #f5e4c7) !important;
+    letter-spacing: 0.22em;
+    color: #f5e4c7 !important;
     text-decoration: none !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
   }
   .nidhi-cta-btn:hover {
-    transform: scale(1.05);
-    border-color: var(--red, #E63946) !important;
-    box-shadow: 0 20px 25px -5px rgba(255, 51, 102, 0.4);
+    transform: scale(1.06);
+    border-color: #E63946 !important;
+    box-shadow: 0 20px 30px -5px rgba(255, 51, 102, 0.5);
   }
   .nidhi-cta-btn-bg {
     position: absolute;
     inset: 0;
-    background-color: var(--pink, #FF3366);
+    background-color: #FF3366;
     transition: background-color 0.3s;
     pointer-events: none;
   }
   .nidhi-cta-btn:hover .nidhi-cta-btn-bg {
-    background-color: var(--red, #E63946);
+    background-color: #E63946;
   }
   .nidhi-cta-text-wrap {
     position: relative;
@@ -508,7 +589,7 @@
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     transform: translateY(0);
     opacity: 1;
-    color: var(--cream, #f5e4c7);
+    color: #f5e4c7;
   }
   .nidhi-cta-btn:hover .nidhi-cta-text-top {
     transform: translateY(-100%);
@@ -524,7 +605,7 @@
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     transform: translateY(100%);
     opacity: 0;
-    color: var(--cream, #f5e4c7);
+    color: #f5e4c7;
   }
   .nidhi-cta-btn:hover .nidhi-cta-text-bottom {
     transform: translateY(0);
@@ -538,7 +619,8 @@
       {
         name: "Classic Masala Chai",
         img: "{{ 'hero.png' | asset_url }}",
-        tint: "var(--pink, #FF3366)",
+        tint: "#FF3366",
+        glow: "0 0 90px rgba(255, 51, 102, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
         topIngredient: "{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}"
       },
@@ -546,13 +628,15 @@
         name: "Honey Lemon Green Tea",
         img: "{{ 'product-2.png' | asset_url }}",
         tint: "#2E6941",
+        glow: "0 0 90px rgba(46, 105, 65, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
         topIngredient: "{{ 'isolated_honey_dipper_with_dripping_golden_honey_transparent_background.png' | asset_url }}",
         bottomIngredient: "{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}"
       },
       {
         name: "Rose Cardamom Black Tea",
         img: "{{ 'product-3.png' | asset_url }}",
-        tint: "var(--red, #E63946)",
+        tint: "#E63946",
+        glow: "0 0 90px rgba(230, 57, 70, 0.55), 0 25px 60px -15px rgba(0, 0, 0, 0.8)",
         topIngredient: "{{ 'green_cardamom.png' | asset_url }}",
         bottomIngredient: "{{ 'star_anise.png' | asset_url }}"
       }
@@ -613,7 +697,7 @@
 
           if (tintWrap) {
             tintWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1)";
-            tintWrap.style.transform = "scale(0.85)";
+            tintWrap.style.transform = "scale(0.82)";
           }
 
           if (topWrap) {
@@ -628,7 +712,10 @@
           }
 
           setTimeout(() => {
-            if (tint) tint.style.background = SLIDES[index].tint;
+            if (tint) {
+              tint.style.backgroundColor = SLIDES[index].tint;
+              tint.style.boxShadow = SLIDES[index].glow;
+            }
 
             if (tintWrap) {
               tintWrap.style.transition = "transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1)";
@@ -652,7 +739,10 @@
             }
           }, 260);
         } else {
-          if (tint) tint.style.background = SLIDES[index].tint;
+          if (tint) {
+            tint.style.backgroundColor = SLIDES[index].tint;
+            tint.style.boxShadow = SLIDES[index].glow;
+          }
           if (tintWrap) tintWrap.style.transform = "scale(1)";
           if (topWrap) { topWrap.style.transform = "scale(1)"; topWrap.style.opacity = "1"; }
           if (bottomWrap) { bottomWrap.style.transform = "scale(1)"; bottomWrap.style.opacity = "1"; }
