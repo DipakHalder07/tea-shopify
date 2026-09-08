@@ -1705,6 +1705,7 @@ header svg[fill]:not([fill="none"]),
   margin: 0 auto !important;
   display: block !important;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45)) !important;
+  transform: rotate(335deg) !important;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
@@ -1714,7 +1715,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-4px) scale(0.92) !important;
+  transform: translateY(-4px) scale(0.92) rotate(335deg) !important;
 }
 
 /* Floating overlay for inner action buttons */
@@ -1809,24 +1810,23 @@ header svg[fill]:not([fill="none"]),
 .card__top-header .card__heading a {
   color: #FFFFFF !important;
   text-decoration: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 1px !important;
-  line-height: 0.9 !important;
+  display: block !important;
+  text-align: center !important;
+  line-height: 1.15 !important;
 }
 
-.card__top-header .card__heading .card__title-line {
-  display: block !important;
+.card__top-header .card__heading .card__title-text,
+.card__top-header .card__heading .card__title-line,
+.card__top-header .card__heading a {
   font-family: var(--font-heading-family), "Fraunces", Georgia, serif !important;
-  font-size: clamp(2.2rem, 2.6vw, 3.1rem) !important;
+  font-size: clamp(1.8rem, 2.1vw, 2.5rem) !important;
   font-weight: 900 !important;
   letter-spacing: -0.01em !important;
-  line-height: 0.92 !important;
+  line-height: 1.15 !important;
   text-transform: uppercase !important;
   color: #FFFFFF !important;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  display: inline-block !important;
 }
 
 /* On hover card: title scales slightly down (matching index.html 0.88 scale) */

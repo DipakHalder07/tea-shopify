@@ -42,10 +42,7 @@
       <div class="card__top-header desktop-only-title">
         <h3 class="card__heading" data-title="true">
           <a href="{{ card_product.url | within: collection }}" class="full-unstyled-link">
-            {%- assign title_words = card_product.title | split: ' ' -%}
-            {%- for word in title_words -%}
-              <span class="card__title-line">{{ word | escape }}</span>
-            {%- endfor -%}
+            <span class="card__title-text">{{ card_product.title | escape }}</span>
           </a>
         </h3>
       </div>
