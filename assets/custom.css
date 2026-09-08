@@ -1705,7 +1705,6 @@ header svg[fill]:not([fill="none"]),
   margin: 0 auto !important;
   display: block !important;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45)) !important;
-  transform: rotate(335deg) !important;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
@@ -1715,7 +1714,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-4px) scale(0.92) rotate(335deg) !important;
+  transform: translateY(-4px) scale(0.92) !important;
 }
 
 /* Floating overlay for inner action buttons */
@@ -1885,7 +1884,7 @@ header svg[fill]:not([fill="none"]),
   left: calc(50% - 144px) !important;
   width: 130px !important;
   height: 130px !important;
-  transform: scale(0.2) rotate(3deg);
+  transform: scale(0.2) rotate(335deg);
   transform-origin: 65% 65%;
   z-index: 4 !important;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5)) !important;
@@ -1927,7 +1926,7 @@ header svg[fill]:not([fill="none"]),
   .card:hover .card-hover-elem.hover-elem-bl,
   .card-wrapper:hover .card-hover-elem.hover-elem-bl {
     opacity: 1 !important;
-    transform: translate(-4px, 2px) scale(1) rotate(3deg) !important;
+    transform: translate(-4px, 2px) scale(1) rotate(335deg) !important;
   }
   .card:hover .card-hover-elem.hover-elem-estate,
   .card-wrapper:hover .card-hover-elem.hover-elem-estate {

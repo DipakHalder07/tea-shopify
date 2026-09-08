@@ -31,9 +31,9 @@ function initNidhiCardHoverGsap() {
 
     // Set initial GSAP positions on desktop
     if (window.innerWidth >= 769) {
-      if (bottle) gsap.set(bottle, { rotation: -25, scale: 1, y: 0 });
+      if (bottle) gsap.set(bottle, { rotation: 0, scale: 1, y: 0 });
       if (elemTL) gsap.set(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, transformOrigin: '75% 75%' });
-      if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 3, transformOrigin: '65% 65%' });
+      if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, transformOrigin: '65% 65%' });
       // Estate is always visible, don't hide
       if (elemEstate) gsap.set(elemEstate, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, transformOrigin: '25% 50%' });
       if (elemTR) gsap.set(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 8, transformOrigin: '25% 75%' });
@@ -44,10 +44,10 @@ function initNidhiCardHoverGsap() {
       if (window.innerWidth >= 769) {
         gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
         if (title) gsap.to(title, { scale: 0.88, duration: 0.4, ease: 'power2.out' });
-        // Scale product slightly down on hover (thore sa chota kar dena) while keeping tilt (rotate(335deg) = -25deg)
-        if (bottle) gsap.to(bottle, { y: -4, scale: 0.92, rotation: -25, duration: 0.45, ease: 'power2.out' });
+        // Scale product slightly down on hover (thore sa chota kar dena)
+        if (bottle) gsap.to(bottle, { y: -4, scale: 0.92, rotation: 0, duration: 0.45, ease: 'power2.out' });
         if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1, x: -10, y: -4, rotation: -10, duration: 0.55, ease: 'back.out(1.8)' });
-        if (elemBL) gsap.to(elemBL, { opacity: 1, scale: 1, x: -4, y: 2, rotation: 3, duration: 0.55, delay: 0.03, ease: 'back.out(1.8)' });
+        if (elemBL) gsap.to(elemBL, { opacity: 1, scale: 1, x: -4, y: 2, rotation: -25, duration: 0.55, delay: 0.03, ease: 'back.out(1.8)' });
         if (elemEstate) gsap.to(elemEstate, { opacity: 1, scale: 1.04, x: 6, y: -2, rotation: 0, duration: 0.55, delay: 0.05, ease: 'power2.out' });
         if (elemTR) gsap.to(elemTR, { opacity: 1, scale: 1, x: 10, y: -4, rotation: 8, duration: 0.55, delay: 0.07, ease: 'back.out(1.8)' });
         if (quickAdd) gsap.to(quickAdd, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.38, ease: 'power2.out' });
@@ -59,10 +59,10 @@ function initNidhiCardHoverGsap() {
       if (window.innerWidth >= 769) {
         gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
         if (title) gsap.to(title, { scale: 1, duration: 0.35, ease: 'power2.inOut' });
-        // Return bottle to full size (scale: 1) with tilt (-25deg = 335deg)
-        if (bottle) gsap.to(bottle, { y: 0, scale: 1, rotation: -25, duration: 0.35, ease: 'power2.inOut' });
+        // Return bottle to full size (scale: 1, rotation: 0)
+        if (bottle) gsap.to(bottle, { y: 0, scale: 1, rotation: 0, duration: 0.35, ease: 'power2.inOut' });
         if (elemTL) gsap.to(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, duration: 0.3, ease: 'power2.in' });
-        if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 3, duration: 0.3, ease: 'power2.in' });
+        if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, duration: 0.3, ease: 'power2.in' });
         // Estate stays visible on leave
         if (elemEstate) gsap.to(elemEstate, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: 'power2.inOut' });
         if (elemTR) gsap.to(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 8, duration: 0.3, ease: 'power2.in' });
