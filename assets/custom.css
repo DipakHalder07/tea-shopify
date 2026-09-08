@@ -1927,6 +1927,24 @@ header svg[fill]:not([fill="none"]),
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)) !important;
 }
 
+@keyframes float-card-companion-bl {
+  0%, 100% {
+    transform: translate(-4px, 2px) scale(1) rotate(335deg);
+  }
+  50% {
+    transform: translate(-4px, -8px) scale(1) rotate(331deg);
+  }
+}
+
+@keyframes float-card-companion-estate {
+  0%, 100% {
+    transform: translate(6px, -2px) scale(1.04) rotate(0deg);
+  }
+  50% {
+    transform: translate(6px, 8px) scale(1.04) rotate(3.5deg);
+  }
+}
+
 /* Fallback CSS Hover for Botanical Elements */
 @media screen and (min-width: 769px) {
   .card:hover .card-hover-elem.hover-elem-tl,
@@ -1938,11 +1956,13 @@ header svg[fill]:not([fill="none"]),
   .card-wrapper:hover .card-hover-elem.hover-elem-bl {
     opacity: 1 !important;
     transform: translate(-4px, 2px) scale(1) rotate(335deg) !important;
+    animation: float-card-companion-bl 4.4s ease-in-out infinite 0.5s;
   }
   .card:hover .card-hover-elem.hover-elem-estate,
   .card-wrapper:hover .card-hover-elem.hover-elem-estate {
     opacity: 1 !important;
     transform: translate(6px, -2px) scale(1.04) rotate(0deg) !important;
+    animation: float-card-companion-estate 4.8s ease-in-out infinite 0.5s;
   }
   .card:hover .card-hover-elem.hover-elem-tr,
   .card-wrapper:hover .card-hover-elem.hover-elem-tr {
