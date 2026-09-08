@@ -2094,18 +2094,13 @@ header svg[fill]:not([fill="none"]),
 }
 
 @media screen and (max-width: 768px) {
-  .card__content.for-arrow-alignment .quick-add.button-quick-add {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 8px !important;
-    margin-bottom: 2px !important;
-    z-index: 10 !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
+  .card__content.for-arrow-alignment .quick-add.button-quick-add,
+  .card__content .quick-add,
+  .card .quick-add,
+  .card-wrapper .quick-add,
+  .product-tab-wrapper .quick-add,
+  .collection .quick-add {
+    display: none !important;
   }
 
   .product-tab-wrapper .card__content.for-arrow-alignment,
