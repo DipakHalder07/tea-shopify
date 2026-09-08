@@ -1640,8 +1640,19 @@ header svg[fill]:not([fill="none"]),
   background-color: transparent !important;
   width: 100% !important;
   position: relative !important;
-  min-height: 300px !important;
+  min-height: 360px !important;
   margin: 0 auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .product-tab-wrapper .card__inner,
+  .collection .card__inner,
+  .product-recommendations .card__inner,
+  .main-search .card__inner,
+  .card-wrapper .card__inner,
+  .card--card .card__inner {
+    min-height: 220px !important;
+  }
 }
 
 .product-tab-wrapper .card .card__inner .card__media,
@@ -1697,11 +1708,10 @@ header svg[fill]:not([fill="none"]),
 .main-search .card__media .media img,
 .card__inner .media img {
   position: relative !important;
-  width: auto !important;
-  max-width: 295px !important;
+  width: 270px !important;
+  max-width: 285px !important;
   height: auto !important;
-  max-height: 380px !important;
-  object-fit: contain !important;
+  max-height: 370px !important;
   margin: 0 auto !important;
   display: block !important;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45)) !important;
@@ -1714,7 +1724,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-4px) scale(0.86) !important;
+  transform: translateY(-8px) scale(0.84) !important;
 }
 
 /* Floating overlay for inner action buttons */
