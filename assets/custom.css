@@ -1698,9 +1698,9 @@ header svg[fill]:not([fill="none"]),
 .card__inner .media img {
   position: relative !important;
   width: auto !important;
-  max-width: 215px !important;
+  max-width: 245px !important;
   height: auto !important;
-  max-height: 295px !important;
+  max-height: 320px !important;
   object-fit: contain !important;
   margin: 0 auto !important;
   display: block !important;
@@ -1714,7 +1714,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-8px) scale(1.04) !important;
+  transform: translateY(-4px) scale(0.92) !important;
 }
 
 /* Floating overlay for inner action buttons */
@@ -1869,10 +1869,10 @@ header svg[fill]:not([fill="none"]),
 
 /* 1. Top-Left: Dried black tea leaves pile (tucked behind left shoulder) */
 .card-hover-elem.hover-elem-tl {
-  top: 10% !important;
-  left: calc(50% - 102px) !important;
-  width: 95px !important;
-  height: 95px !important;
+  top: 25% !important;
+  left: calc(50% - 115px) !important;
+  width: 105px !important;
+  height: 105px !important;
   transform: scale(0.2) rotate(-10deg);
   transform-origin: 75% 75%;
   z-index: 1 !important;
@@ -1881,35 +1881,36 @@ header svg[fill]:not([fill="none"]),
 
 /* 2. Left-Mid / Lower: Traditional terracotta clay cup with steaming chai (hugging left hip) */
 .card-hover-elem.hover-elem-bl {
-  top: 46% !important;
-  left: calc(50% - 94px) !important;
-  width: 90px !important;
-  height: 90px !important;
+  top: 41% !important;
+  left: calc(50% - 144px) !important;
+  width: 130px !important;
+  height: 130px !important;
   transform: scale(0.2) rotate(3deg);
   transform-origin: 65% 65%;
   z-index: 4 !important;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5)) !important;
 }
 
-/* 3. Right-Center: Scenic rolling green tea estate medallion (behind right waist) */
+/* 3. Right-Center: Scenic rolling green tea estate medallion (Always show, don't hide) */
 .card-hover-elem.hover-elem-estate {
-  top: 24% !important;
-  left: calc(50% - 6px) !important;
-  width: 145px !important;
-  height: 145px !important;
-  transform: scale(0.2) rotate(0deg);
+  top: 17% !important;
+  left: calc(50% - 68px) !important;
+  width: 200px !important;
+  height: 200px !important;
+  transform: scale(1) rotate(0deg) !important;
   transform-origin: 25% 50%;
   z-index: 1 !important;
   border-radius: 50% !important;
+  opacity: 1 !important;
   filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.4)) !important;
 }
 
 /* 4. Top-Right: Fresh green tea leaves sprig (sprouting from right shoulder) */
 .card-hover-elem.hover-elem-tr {
-  top: 5% !important;
-  left: calc(50% + 14px) !important;
-  width: 105px !important;
-  height: 105px !important;
+  top: 4% !important;
+  left: calc(50% + 24px) !important;
+  width: 110px !important;
+  height: 110px !important;
   transform: scale(0.2) rotate(8deg);
   transform-origin: 25% 75%;
   z-index: 2 !important;
@@ -1931,7 +1932,7 @@ header svg[fill]:not([fill="none"]),
   .card:hover .card-hover-elem.hover-elem-estate,
   .card-wrapper:hover .card-hover-elem.hover-elem-estate {
     opacity: 1 !important;
-    transform: translate(12px, 0) scale(1) rotate(0deg) !important;
+    transform: translate(6px, -2px) scale(1.04) rotate(0deg) !important;
   }
   .card:hover .card-hover-elem.hover-elem-tr,
   .card-wrapper:hover .card-hover-elem.hover-elem-tr {
