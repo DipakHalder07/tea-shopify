@@ -1447,16 +1447,257 @@ header svg[fill]:not([fill="none"]),
   color: #f5e4c7 !important;
 }
 
-.product-tab-wrapper .card__heading,
-.product-tab-wrapper .card__heading a,
-.product-tab-wrapper .card__information .card__heading,
-.product-tab-wrapper .card__information .card__heading a {
+/* ==========================================================================
+   PRODUCT CARDS - LUXURY DARK DESIGN & CORNER BLEED FIX
+   ========================================================================== */
+
+/* 1. Eliminate White Background Bleed from Carousel & Slides */
+.product-tab-wrapper .swiper-slide,
+.product-tab-wrapper .swiper-wrapper,
+.product-tab-wrapper .tabs_container,
+.product-tab-wrapper .grid dt-sc-column > li,
+.swiper-slide.color-background-1,
+.swiper-slide.card_style-card_with_icons,
+.card-wrapper,
+.collection .card-wrapper,
+.product-tab-wrapper .card-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Unified Premium Card Container */
+.product-tab-wrapper .card--card,
+.product-tab-wrapper .card,
+.collection .product-grid .card--card,
+.collection .product-grid .card,
+.product-recommendations .card--card,
+.main-search .card--card {
+  background: #140E08 !important;
+  background-color: #140E08 !important;
+  border: 1px solid rgba(245, 228, 199, 0.12) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  padding: 12px 12px 16px 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  height: 100% !important;
+}
+
+.product-tab-wrapper .card--card:hover,
+.collection .product-grid .card--card:hover,
+.product-recommendations .card--card:hover,
+.main-search .card--card:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(245, 228, 199, 0.35) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 51, 102, 0.15) !important;
+}
+
+/* Disable pseudo-elements that create white bleed or offset borders */
+.card--card:after,
+.card--standard:after,
+.card--standard .card__inner:after {
+  display: none !important;
+}
+
+/* 3. Card Inner & Media Area */
+.product-tab-wrapper .card__inner,
+.collection .card__inner,
+.product-recommendations .card__inner,
+.main-search .card__inner {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background: #1A130C !important;
+  background-color: #1A130C !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.product-tab-wrapper .card .card__inner .card__media,
+.collection .card .card__inner .card__media,
+.product-recommendations .card .card__inner .card__media,
+.main-search .card .card__inner .card__media {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.product-tab-wrapper .card__media .media,
+.collection .card__media .media,
+.product-recommendations .card__media .media,
+.main-search .card__media .media {
+  background-color: #1A130C !important;
+  background-image: radial-gradient(circle at center, rgba(245, 228, 199, 0.04) 0%, rgba(18, 12, 7, 0.95) 100%) !important;
+  border-radius: 14px !important;
+}
+
+.product-tab-wrapper .card__media .media img,
+.collection .card__media .media img,
+.product-recommendations .card__media .media img,
+.main-search .card__media .media img {
+  object-fit: contain !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.product-tab-wrapper .card:hover .card__media .media img,
+.collection .card:hover .card__media .media img,
+.product-recommendations .card:hover .card__media .media img,
+.main-search .card:hover .card__media .media img {
+  transform: scale(1.06) !important;
+}
+
+/* 4. Action Buttons (Wishlist, Quickview, Compare) */
+.card__inner .product-icons a,
+.card__inner .product-icons button {
+  background: rgba(20, 14, 8, 0.85) !important;
+  border: 1px solid rgba(245, 228, 199, 0.3) !important;
+  color: #f5e4c7 !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.25s ease !important;
+}
+
+.card__inner .product-icons a:hover,
+.card__inner .product-icons button:hover {
+  background: #FF3366 !important;
+  border-color: #FF3366 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.5) !important;
+  transform: scale(1.1) !important;
+}
+
+/* 5. Card Content (Title, Price, Vendor) */
+.product-tab-wrapper .card__content.for-arrow-alignment,
+.collection .card__content.for-arrow-alignment,
+.card--card.card--media > .card__content,
+.product-recommendations .card__content.for-arrow-alignment,
+.main-search .card__content.for-arrow-alignment {
+  padding: 14px 6px 4px 6px !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.card__heading,
+.card__heading a,
+.card__information .card__heading,
+.card__information .card__heading a {
+  color: #f5e4c7 !important;
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.35 !important;
+  margin: 0 0 6px 0 !important;
+  transition: color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.card__heading a:hover,
+.card__information .card__heading a:hover {
+  color: #FF3366 !important;
+}
+
+.price,
+.price-item,
+.price-item--regular,
+.price-item--sale {
+  color: #FF3366 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.price .price-item--regular s,
+.price-item--regular {
+  color: #FF3366 !important;
+}
+
+.price--on-sale .price-item--regular {
+  color: rgba(245, 228, 199, 0.45) !important;
+  font-size: 1.3rem !important;
+  text-decoration: line-through !important;
+}
+
+.card__information .caption-with-letter-spacing {
+  color: rgba(245, 228, 199, 0.6) !important;
+  font-size: 1.2rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 4px !important;
+}
+
+/* 6. Collection Page Filter & Count Typography */
+.facets__heading,
+.facets__summary,
+.facets__disclosure,
+.facet-checkbox,
+.product-count,
+.product-count__text,
+.product-count-vertical,
+.facet-filters__label,
+.facet-filters__sort,
+.collection .product-count__text,
+.collection .facets-vertical .facets__heading,
+.collection .facets-vertical .facets__summary {
   color: #f5e4c7 !important;
 }
 
-.product-tab-wrapper .card__heading a:hover {
-  color: #FF3366 !important;
+/* 7. Mobile Screen Adjustments */
+@media screen and (max-width: 768px) {
+  .product-tab-wrapper .card--card,
+  .product-tab-wrapper .card,
+  .collection .product-grid .card--card,
+  .collection .product-grid .card {
+    border-radius: 16px !important;
+    padding: 10px 10px 14px 10px !important;
+  }
+
+  .product-tab-wrapper .card__inner,
+  .collection .card__inner,
+  .product-tab-wrapper .card .card__inner .card__media,
+  .collection .card .card__inner .card__media,
+  .product-tab-wrapper .card__media .media,
+  .collection .card__media .media {
+    border-radius: 12px !important;
+  }
+
+  .product-tab-wrapper .card__media .media img,
+  .collection .card__media .media img {
+    padding: 8px !important;
+  }
+
+  .product-tab-wrapper .card__content.for-arrow-alignment,
+  .collection .card__content.for-arrow-alignment,
+  .card--card.card--media > .card__content {
+    padding: 10px 4px 2px 4px !important;
+  }
+
+  .card__heading,
+  .card__heading a,
+  .card__information .card__heading,
+  .card__information .card__heading a {
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .price,
+  .price-item,
+  .price-item--regular,
+  .price-item--sale {
+    font-size: 1.35rem !important;
+  }
 }
+
 
 /* Desktop tabs */
 .product-tab-wrapper .collection .tabs .tablinks {

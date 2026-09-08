@@ -181,10 +181,10 @@
           </div>
          {%- endunless -%}
             <div class="swiper swiper-container" data-tab-carousel="swiper-tab-carousel-{{ section.id }}" data-items="{{ section.settings.products_per_row }}" data-section-id="swiper-tab-{{ forloop.index }}-{{ block.id }}" id="swiper-{{ forloop.index }}-{{ block.id }}-carousel">
-             <div class="swiper-wrapper color-{{ section.settings.color_scheme }} gradient " role="list">
+             <div class="swiper-wrapper" role="list">
            
               {%- for product in collections[block.settings.collection].products limit: section.settings.products_to_show -%}
-              <div data-blog-index="{{ forloop.index }}" class="swiper-slide color-{{ section.settings.color_scheme }} card_style-{{ settings.card_style }}">
+              <div data-blog-index="{{ forloop.index }}" class="swiper-slide card_style-{{ settings.card_style }}">
                {%  case settings.card_style %}
           {%  when 'standard' %}  
             {% render 'card-product',
@@ -338,7 +338,7 @@
           {% for block in section.blocks %}                   
           <ul data-blog-index="{{ forloop.index }}" class="grid dt-sc-column {{ column }} dt-sc-tabs-content-Details" data-tab="dT_tab-{{ block.id }}">
             {% for product in collections[block.settings.collection].products limit: section.settings.products_to_show %}
-            <li class="color-{{ section.settings.color_scheme }} card_style-{{ settings.card_style }}">
+            <li class="card_style-{{ settings.card_style }}">
              {%  case settings.card_style %}
           {%  when 'standard' %}  
             {% render 'card-product',
