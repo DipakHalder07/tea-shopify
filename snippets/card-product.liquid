@@ -40,13 +40,22 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div class="card__top-header desktop-only-title">
-        <h3 class="card__heading">
+        <h3 class="card__heading" data-title="true">
           <a href="{{ card_product.url | within: collection }}" class="full-unstyled-link">
-            {{ card_product.title | escape }}
+            {%- assign title_words = card_product.title | split: ' ' -%}
+            {%- for word in title_words -%}
+              <span class="card__title-line">{{ word | escape }}</span>
+            {%- endfor -%}
           </a>
         </h3>
       </div>
       <div class="card__inner {% if card_product.featured_media %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
+        <!-- Companion Hover Elements (Behind product image) -->
+        <div class="card__hover-companions" aria-hidden="true">
+          <img src="{{ 'hover-tea-leaves-tl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tl" loading="lazy" width="90" height="90">
+          <img src="{{ 'hover-clay-cup-bl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-bl" loading="lazy" width="85" height="85">
+          <img src="{{ 'hover-green-sprig-tr.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tr" loading="lazy" width="95" height="95">
+        </div>
         {%- if card_product.featured_media -%}
           <div class="card__media">
           <a href="{{ card_product.url }}">
@@ -209,7 +218,14 @@
                 aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                 data-product-url="{{ card_product.url }}"
               >               
-                {{ 'products.product.quick_buy' | t }}
+                <div class="quick-add-btn-split">
+                  <span class="btn-text-left">
+                    {{ 'products.product.add_to_cart' | t }}
+                  </span>
+                  <span class="btn-price-right">
+                    {{ card_product.price | money }}
+                  </span>
+                </div>
                 <div class="loading-overlay__spinner hidden">    
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background:transparent; display: block; shape-rendering: auto; animation-play-state: running; animation-delay: 0s;" width="40px" height="40px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
                     <circle cx="50" cy="50" fill="none" stroke="currentColor" stroke-width="13" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" style="animation-play-state: running; animation-delay: 0s;">
@@ -255,13 +271,18 @@
                   data-sold-out-message="true"
                   {% if card_product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                 >
-                  <span>
-                    {%- if card_product.selected_or_first_available_variant.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {%- else -%}
-                      {{ 'products.product.sold_out' | t }}
-                    {%- endif -%}
-                  </span>
+                  <div class="quick-add-btn-split">
+                    <span class="btn-text-left">
+                      {%- if card_product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                    <span class="btn-price-right">
+                      {{ card_product.price | money }}
+                    </span>
+                  </div>
                   <span class="sold-out-message hidden">
                     {{ 'products.product.sold_out' | t }}
                   </span>
