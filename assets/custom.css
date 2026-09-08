@@ -1500,8 +1500,9 @@ header svg[fill]:not([fill="none"]),
 .collection .grid__item .card:hover,
 .product-recommendations .card--card:hover,
 .main-search .card--card:hover,
-.card-wrapper .card:hover {
-  transform: translateY(-6px) !important;
+.card-wrapper .card:hover,
+.card--card:hover {
+  transform: none !important;
   border: none !important;
   outline: none !important;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65) !important;
@@ -1662,8 +1663,77 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .card:hover .card__media .media img,
 .collection .card:hover .card__media .media img,
 .product-recommendations .card:hover .card__media .media img,
-.main-search .card:hover .card__media .media img {
-  transform: scale(1.06) !important;
+.main-search .card:hover .card__media .media img,
+.card-wrapper:hover .card__media .media img,
+.card--card:hover .card__media .media img {
+  transform: scale(1.1) !important;
+}
+
+/* Desktop Top Header Title */
+.card__top-header {
+  display: none;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 10px 14px 4px 14px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 7 !important;
+}
+
+@media screen and (min-width: 769px) {
+  .card__top-header.desktop-only-title {
+    display: block !important;
+  }
+  .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
+  .collection .card__content.for-arrow-alignment .card__heading,
+  .card-wrapper .card__content.for-arrow-alignment .card__heading,
+  .card--card .card__content.for-arrow-alignment .card__heading {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card__top-header.desktop-only-title {
+    display: none !important;
+  }
+  .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
+  .collection .card__content.for-arrow-alignment .card__heading,
+  .card-wrapper .card__content.for-arrow-alignment .card__heading,
+  .card--card .card__content.for-arrow-alignment .card__heading {
+    display: block !important;
+    text-align: center !important;
+  }
+}
+
+.card__top-header .card__heading {
+  font-family: var(--font-heading-family), "Fraunces", Georgia, serif !important;
+  font-size: 1.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  line-height: 1.15 !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transform: scale(1) !important;
+  transform-origin: center top !important;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+}
+
+.card__top-header .card__heading a {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+/* On hover card: only img scale and title a little small */
+.product-tab-wrapper .card:hover .card__top-header .card__heading,
+.collection .card:hover .card__top-header .card__heading,
+.card-wrapper:hover .card__top-header .card__heading,
+.card--card:hover .card__top-header .card__heading {
+  transform: scale(0.92) !important;
 }
 
 /* 4. Action Buttons (Wishlist, Quickview, Compare) */
@@ -1685,39 +1755,314 @@ header svg[fill]:not([fill="none"]),
   transform: scale(1.1) !important;
 }
 
-/* Quick Add / Quick Buy Button in Standard Card Style */
-.card-wrapper .card__inner .quick-add.button-quick-add {
-  z-index: 10 !important;
+/* Quick Add / Quick Buy Button at bottom side */
+.card__content.for-arrow-alignment .quick-add.button-quick-add {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 8px !important;
+  margin-bottom: 2px !important;
+  z-index: 8 !important;
 }
 
-.card-wrapper .card__inner .quick-add.button-quick-add .button,
-.card-wrapper .card__inner .quick-add.button-quick-add .quick-add__submit {
-  background: #100B06 !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+.card__content.for-arrow-alignment .quick-add.button-quick-add modal-opener,
+.card__content.for-arrow-alignment .quick-add.button-quick-add product-form {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.card__content.for-arrow-alignment .quick-add.button-quick-add .button,
+.card__content.for-arrow-alignment .quick-add.button-quick-add .quick-add__submit {
+  min-width: 140px !important;
+  width: 85% !important;
+  max-width: 220px !important;
+  padding: 10px 20px !important;
   border-radius: 30px !important;
+  font-size: 1.25rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.08em !important;
-  font-size: 1.3rem !important;
-  padding: 10px 20px !important;
   text-transform: uppercase !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
   transition: all 0.25s ease !important;
 }
 
-.card-wrapper .card__inner .quick-add.button-quick-add .button:hover,
-.card-wrapper .card__inner .quick-add.button-quick-add .quick-add__submit:hover {
-  background: #ffffff !important;
-  color: #100B06 !important;
-  border-color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+/* Button Background Colors matching card flavor */
+/* 1. Mustard Button (#BE8D3F) */
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="0"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="0"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="4"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="4"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="8"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="8"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="1"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="1"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="5"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="5"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.collection .product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.collection .product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.collection .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.collection .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.product-recommendations .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.product-recommendations .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.main-search .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.main-search .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit,
+.card-wrapper:nth-child(4n + 1) .quick-add.button-quick-add .button,
+.card-wrapper:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit {
+  background: #BE8D3F !important;
+  background-color: #BE8D3F !important;
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
 }
 
-.card-wrapper:hover .card__inner .quick-add.button-quick-add,
-.card:hover .card__inner .quick-add.button-quick-add {
-  bottom: 20px !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="0"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="0"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="4"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="4"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="8"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="8"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="1"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="1"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="5"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="5"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.collection .product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.collection .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.product-grid .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-recommendations .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.product-recommendations .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.main-search .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.main-search .grid__item:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover,
+.card-wrapper:nth-child(4n + 1) .quick-add.button-quick-add .button:hover,
+.card-wrapper:nth-child(4n + 1) .quick-add.button-quick-add .quick-add__submit:hover {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #BE8D3F !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 2. Cayenne Orange Button (#F15726) */
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="1"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="1"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="5"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="5"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="9"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="9"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="2"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="2"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="6"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="6"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.collection .product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.collection .product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.collection .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.collection .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.product-recommendations .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.product-recommendations .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.main-search .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.main-search .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit,
+.card-wrapper:nth-child(4n + 2) .quick-add.button-quick-add .button,
+.card-wrapper:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit {
+  background: #F15726 !important;
+  background-color: #F15726 !important;
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="1"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="1"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="5"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="5"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="9"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="9"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="2"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="2"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="6"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="6"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.collection .product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.collection .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.product-grid .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-recommendations .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.product-recommendations .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.main-search .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.main-search .grid__item:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover,
+.card-wrapper:nth-child(4n + 2) .quick-add.button-quick-add .button:hover,
+.card-wrapper:nth-child(4n + 2) .quick-add.button-quick-add .quick-add__submit:hover {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #F15726 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 3. Cherry Red Button (#DA1F27) */
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="2"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="2"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="6"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="6"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="10"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="10"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="3"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="3"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="7"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="7"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.collection .product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.collection .product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.collection .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.collection .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.product-recommendations .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.product-recommendations .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.main-search .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.main-search .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit,
+.card-wrapper:nth-child(4n + 3) .quick-add.button-quick-add .button,
+.card-wrapper:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit {
+  background: #DA1F27 !important;
+  background-color: #DA1F27 !important;
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="2"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="2"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="6"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="6"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="10"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="10"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="3"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="3"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="7"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="7"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.collection .product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.collection .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.product-grid .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-recommendations .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.product-recommendations .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.main-search .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.main-search .grid__item:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover,
+.card-wrapper:nth-child(4n + 3) .quick-add.button-quick-add .button:hover,
+.card-wrapper:nth-child(4n + 3) .quick-add.button-quick-add .quick-add__submit:hover {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #DA1F27 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 4. Peach Coral Button (#EF8F4A) */
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="3"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="3"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="7"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="7"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="11"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="11"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="4"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="4"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper .swiper-slide[data-blog-index="8"] .quick-add.button-quick-add .button,
+.product-tab-wrapper .swiper-slide[data-blog-index="8"] .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.collection .product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.collection .product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.collection .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.collection .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.product-recommendations .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.product-recommendations .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.main-search .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.main-search .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit,
+.card-wrapper:nth-child(4n + 4) .quick-add.button-quick-add .button,
+.card-wrapper:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit {
+  background: #EF8F4A !important;
+  background-color: #EF8F4A !important;
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="3"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="3"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="7"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="7"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="11"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="11"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="4"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="4"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="8"] .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper .swiper-slide[data-blog-index="8"] .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.collection .product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.collection .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.collection .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.product-grid .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.product-recommendations .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.product-recommendations .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.main-search .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.main-search .grid__item:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover,
+.card-wrapper:nth-child(4n + 4) .quick-add.button-quick-add .button:hover,
+.card-wrapper:nth-child(4n + 4) .quick-add.button-quick-add .quick-add__submit:hover {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #EF8F4A !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45) !important;
 }
 
 /* 5. Card Content (Title, Price, Vendor) - High Contrast Typography */
@@ -1726,13 +2071,15 @@ header svg[fill]:not([fill="none"]),
 .card--card.card--media > .card__content,
 .product-recommendations .card__content.for-arrow-alignment,
 .main-search .card__content.for-arrow-alignment {
-  padding: 14px 6px 4px 6px !important;
+  padding: 8px 10px 14px 10px !important;
   background: transparent !important;
   border-radius: 0 !important;
   flex-grow: 1 !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
 .card__heading,

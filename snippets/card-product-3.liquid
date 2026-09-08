@@ -39,6 +39,13 @@
       {% if card_product.featured_media == nil  %} ratio{% endif %}"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+      <div class="card__top-header desktop-only-title">
+        <h3 class="card__heading">
+          <a href="{{ card_product.url | within: collection }}" class="full-unstyled-link">
+            {{ card_product.title | escape }}
+          </a>
+        </h3>
+      </div>
       <div class="card__inner {% if card_product.featured_media %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
         {%- if card_product.featured_media -%}
           <div class="card__media">
