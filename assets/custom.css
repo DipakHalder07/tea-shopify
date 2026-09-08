@@ -1457,7 +1457,9 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .tabs_container,
 .product-tab-wrapper .grid dt-sc-column > li,
 .swiper-slide.color-background-1,
+.swiper-slide.card_style-standard,
 .swiper-slide.card_style-card_with_icons,
+.swiper-slide[class*="card_style-"],
 .card-wrapper,
 .collection .card-wrapper,
 .product-tab-wrapper .card-wrapper {
@@ -1681,6 +1683,41 @@ header svg[fill]:not([fill="none"]),
   color: #ffffff !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
   transform: scale(1.1) !important;
+}
+
+/* Quick Add / Quick Buy Button in Standard Card Style */
+.card-wrapper .card__inner .quick-add.button-quick-add {
+  z-index: 10 !important;
+}
+
+.card-wrapper .card__inner .quick-add.button-quick-add .button,
+.card-wrapper .card__inner .quick-add.button-quick-add .quick-add__submit {
+  background: #100B06 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  font-size: 1.3rem !important;
+  padding: 10px 20px !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.25s ease !important;
+}
+
+.card-wrapper .card__inner .quick-add.button-quick-add .button:hover,
+.card-wrapper .card__inner .quick-add.button-quick-add .quick-add__submit:hover {
+  background: #ffffff !important;
+  color: #100B06 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.card-wrapper:hover .card__inner .quick-add.button-quick-add,
+.card:hover .card__inner .quick-add.button-quick-add {
+  bottom: 20px !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 /* 5. Card Content (Title, Price, Vendor) - High Contrast Typography */
