@@ -1607,57 +1607,105 @@ header svg[fill]:not([fill="none"]),
   background-color: #EF8F4A !important;
 }
 
-/* Disable pseudo-elements that create white bleed or offset borders */
+/* Disable pseudo-elements that create white bleed, offset borders, or vertical displacement */
 .card--card:after,
 .card--standard:after,
-.card--standard .card__inner:after {
+.card--standard .card__inner:after,
+.card__inner:before,
+.card__inner::before,
+.card--card .card__inner:before,
+.card--card .card__inner::before {
   display: none !important;
+  content: none !important;
+  padding-bottom: 0 !important;
+  height: 0 !important;
 }
 
+/* 3. Card Inner & Media Area (Transparent to showcase vibrant card backgrounds) */
 /* 3. Card Inner & Media Area (Transparent to showcase vibrant card backgrounds) */
 .product-tab-wrapper .card__inner,
 .collection .card__inner,
 .product-recommendations .card__inner,
-.main-search .card__inner {
+.main-search .card__inner,
+.card-wrapper .card__inner,
+.card--card .card__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex: 1 1 auto !important;
   border-radius: 14px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   background: transparent !important;
   background-color: transparent !important;
   width: 100% !important;
   position: relative !important;
+  min-height: 300px !important;
+  margin: 0 auto !important;
 }
 
 .product-tab-wrapper .card .card__inner .card__media,
 .collection .card .card__inner .card__media,
 .product-recommendations .card .card__inner .card__media,
-.main-search .card .card__inner .card__media {
+.main-search .card .card__inner .card__media,
+.card-wrapper .card__inner .card__media,
+.card--card .card__inner .card__media {
   border-radius: 14px !important;
-  overflow: hidden !important;
-  margin: 0 !important;
+  overflow: visible !important;
+  margin: 0 auto !important;
   width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   background: transparent !important;
   background-color: transparent !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.card__inner .card__media a {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-decoration: none !important;
 }
 
 .product-tab-wrapper .card__media .media,
 .collection .card__media .media,
 .product-recommendations .card__media .media,
-.main-search .card__media .media {
+.main-search .card__media .media,
+.card__inner .media {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
   border-radius: 14px !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 .product-tab-wrapper .card__media .media img,
 .collection .card__media .media img,
 .product-recommendations .card__media .media img,
-.main-search .card__media .media img {
+.main-search .card__media .media img,
+.card__inner .media img {
+  position: relative !important;
+  width: auto !important;
+  max-width: 215px !important;
+  height: auto !important;
+  max-height: 295px !important;
   object-fit: contain !important;
-  padding: 10px !important;
-  box-sizing: border-box !important;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.3)) !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45)) !important;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 .product-tab-wrapper .card:hover .card__media .media img,
@@ -1666,7 +1714,40 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: scale(1.1) !important;
+  transform: translateY(-8px) scale(1.04) !important;
+}
+
+/* Floating overlay for inner action buttons */
+.card__inner > .card__content {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 6 !important;
+}
+
+.card__inner > .card__content .card__information {
+  display: none !important;
+}
+
+.card__inner .product-icons {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  pointer-events: auto !important;
+  z-index: 9 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
 }
 
 /* Desktop Top Header Title */
@@ -1684,11 +1765,12 @@ header svg[fill]:not([fill="none"]),
   .card__top-header.desktop-only-title,
   .card__top-header {
     width: 100% !important;
-    padding: 16px 10px 4px !important;
+    padding: 12px 10px 2px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
+    flex-shrink: 0 !important;
     z-index: 5 !important;
   }
   .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
@@ -1738,7 +1820,7 @@ header svg[fill]:not([fill="none"]),
 .card__top-header .card__heading .card__title-line {
   display: block !important;
   font-family: var(--font-heading-family), "Fraunces", Georgia, serif !important;
-  font-size: clamp(2.3rem, 2.7vw, 3.3rem) !important;
+  font-size: clamp(2.2rem, 2.6vw, 3.1rem) !important;
   font-weight: 900 !important;
   letter-spacing: -0.01em !important;
   line-height: 0.92 !important;
@@ -1767,25 +1849,13 @@ header svg[fill]:not([fill="none"]),
   width: 100% !important;
   height: 100% !important;
   pointer-events: none !important;
-  z-index: 4 !important;
+  z-index: 1 !important;
   overflow: visible !important;
 }
 
 .card__inner .card__media {
   position: relative !important;
-  z-index: 2 !important;
-}
-
-.card__inner .media img {
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
-  will-change: transform !important;
-}
-
-@media screen and (min-width: 769px) {
-  .card:hover .card__inner .media img,
-  .card-wrapper:hover .card__inner .media img {
-    transform: translateY(-16px) scale(1.08) !important;
-  }
+  z-index: 3 !important;
 }
 
 .card-hover-elem {
@@ -1793,37 +1863,57 @@ header svg[fill]:not([fill="none"]),
   object-fit: contain !important;
   pointer-events: none !important;
   opacity: 0;
-  transform: scale(0.2);
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
   will-change: transform, opacity;
   transition: opacity 0.35s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* 1. Top-Left: Dried black tea leaves pile */
+/* 1. Top-Left: Dried black tea leaves pile (tucked behind left shoulder) */
 .card-hover-elem.hover-elem-tl {
-  top: 6% !important;
-  left: -8px !important;
+  top: 10% !important;
+  left: calc(50% - 102px) !important;
   width: 95px !important;
   height: 95px !important;
-  transform-origin: center center;
+  transform: scale(0.2) rotate(-10deg);
+  transform-origin: 75% 75%;
+  z-index: 1 !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)) !important;
 }
 
-/* 2. Bottom-Left: Traditional terracotta clay cup */
+/* 2. Left-Mid / Lower: Traditional terracotta clay cup with steaming chai (hugging left hip) */
 .card-hover-elem.hover-elem-bl {
-  bottom: 6% !important;
-  left: -8px !important;
+  top: 46% !important;
+  left: calc(50% - 94px) !important;
   width: 90px !important;
   height: 90px !important;
-  transform-origin: center center;
+  transform: scale(0.2) rotate(3deg);
+  transform-origin: 65% 65%;
+  z-index: 4 !important;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5)) !important;
 }
 
-/* 3. Right-Side Top: Fresh green tea leaves sprig */
+/* 3. Right-Center: Scenic rolling green tea estate medallion (behind right waist) */
+.card-hover-elem.hover-elem-estate {
+  top: 24% !important;
+  left: calc(50% - 6px) !important;
+  width: 145px !important;
+  height: 145px !important;
+  transform: scale(0.2) rotate(0deg);
+  transform-origin: 25% 50%;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.4)) !important;
+}
+
+/* 4. Top-Right: Fresh green tea leaves sprig (sprouting from right shoulder) */
 .card-hover-elem.hover-elem-tr {
-  top: 4% !important;
-  right: -8px !important;
-  width: 98px !important;
-  height: 98px !important;
-  transform-origin: center center;
+  top: 5% !important;
+  left: calc(50% + 14px) !important;
+  width: 105px !important;
+  height: 105px !important;
+  transform: scale(0.2) rotate(8deg);
+  transform-origin: 25% 75%;
+  z-index: 2 !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)) !important;
 }
 
 /* Fallback CSS Hover for Botanical Elements */
@@ -1831,59 +1921,99 @@ header svg[fill]:not([fill="none"]),
   .card:hover .card-hover-elem.hover-elem-tl,
   .card-wrapper:hover .card-hover-elem.hover-elem-tl {
     opacity: 1 !important;
-    transform: translate(-18px, -14px) rotate(-16deg) scale(1.08) !important;
+    transform: translate(-10px, -4px) scale(1) rotate(-10deg) !important;
   }
   .card:hover .card-hover-elem.hover-elem-bl,
   .card-wrapper:hover .card-hover-elem.hover-elem-bl {
     opacity: 1 !important;
-    transform: translate(-14px, 14px) rotate(10deg) scale(1.06) !important;
+    transform: translate(-4px, 2px) scale(1) rotate(3deg) !important;
+  }
+  .card:hover .card-hover-elem.hover-elem-estate,
+  .card-wrapper:hover .card-hover-elem.hover-elem-estate {
+    opacity: 1 !important;
+    transform: translate(12px, 0) scale(1) rotate(0deg) !important;
   }
   .card:hover .card-hover-elem.hover-elem-tr,
   .card-wrapper:hover .card-hover-elem.hover-elem-tr {
     opacity: 1 !important;
-    transform: translate(18px, -12px) rotate(18deg) scale(1.1) !important;
+    transform: translate(10px, -4px) scale(1) rotate(8deg) !important;
   }
 }
 
-/* 4. Action Buttons (Wishlist, Quickview, Compare) */
+/* 4. Action Buttons (Wishlist, Quickview, Compare) - Image 2 Style */
 .card__inner .product-icons a,
 .card__inner .product-icons button {
-  background: rgba(20, 14, 8, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  color: #ffffff !important;
-  backdrop-filter: blur(8px) !important;
+  background: #FFFFFF !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+}
+
+/* 1st icon: Wishlist (Glowing Pink Halo matching Image 2) */
+.card__inner .product-icons li:first-child a,
+.card__inner .product-icons li:first-child button,
+.card__inner .product-icons dtx-wishlist a {
+  border: 1.5px solid #FF2D73 !important;
+  color: #FF2D73 !important;
+  box-shadow: 0 0 18px rgba(255, 45, 115, 0.7), 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card__inner .product-icons li:first-child a svg,
+.card__inner .product-icons li:first-child button svg,
+.card__inner .product-icons dtx-wishlist a svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: #FF2D73 !important;
+  color: #FF2D73 !important;
+}
+
+/* Other icons: Compare & Quickview (Clean circular style matching Image 2) */
+.card__inner .product-icons li:not(:first-child) a,
+.card__inner .product-icons li:not(:first-child) button,
+.card__inner .product-icons dtx-compare a,
+.card__inner .product-icons modal-opener button {
+  border: 1.5px solid #222222 !important;
+  color: #222222 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card__inner .product-icons li:not(:first-child) a svg,
+.card__inner .product-icons li:not(:first-child) button svg,
+.card__inner .product-icons dtx-compare a svg,
+.card__inner .product-icons modal-opener button svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: #222222 !important;
+  color: #222222 !important;
 }
 
 .card__inner .product-icons a:hover,
 .card__inner .product-icons button:hover {
-  background: #100B06 !important;
-  border-color: #ffffff !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
-  transform: scale(1.1) !important;
+  transform: scale(1.12) !important;
 }
 
-/* Quick Add / Quick Buy Button at bottom side matching media_1788850246334.png */
-.card__content.for-arrow-alignment .quick-add.button-quick-add {
-  position: relative !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  margin-top: 8px !important;
-  margin-bottom: 2px !important;
-  z-index: 10 !important;
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
-}
-
+/* Quick Add / Quick Buy Button at bottom side matching Image 1 & 2 */
 @media screen and (min-width: 769px) {
   .card__content.for-arrow-alignment .quick-add.button-quick-add {
+    position: absolute !important;
+    inset: 4px 10px 10px 10px !important;
+    width: auto !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    z-index: 10 !important;
     opacity: 0 !important;
-    transform: translateY(22px) !important;
+    transform: translateY(18px) !important;
     pointer-events: none !important;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
   }
 
   .card:hover .card__content.for-arrow-alignment .quick-add.button-quick-add,
@@ -1896,9 +2026,27 @@ header svg[fill]:not([fill="none"]),
 
 @media screen and (max-width: 768px) {
   .card__content.for-arrow-alignment .quick-add.button-quick-add {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 8px !important;
+    margin-bottom: 2px !important;
+    z-index: 10 !important;
     opacity: 1 !important;
     transform: translateY(0) !important;
     pointer-events: auto !important;
+  }
+
+  .product-tab-wrapper .card__content.for-arrow-alignment,
+  .collection .card__content.for-arrow-alignment,
+  .card--card.card--media > .card__content,
+  .product-recommendations .card__content.for-arrow-alignment,
+  .main-search .card__content.for-arrow-alignment {
+    min-height: auto !important;
+    padding: 6px 10px 12px 10px !important;
+    position: relative !important;
   }
 }
 
@@ -1986,21 +2134,35 @@ header svg[fill]:not([fill="none"]),
   }
 }
 
-/* 5. Card Content (Title, Price, Vendor) - High Contrast Typography */
+/* 5. Card Content (Bottom Slot for Price & Quick Buy Button) */
 .product-tab-wrapper .card__content.for-arrow-alignment,
 .collection .card__content.for-arrow-alignment,
 .card--card.card--media > .card__content,
 .product-recommendations .card__content.for-arrow-alignment,
 .main-search .card__content.for-arrow-alignment {
-  padding: 8px 10px 14px 10px !important;
+  padding: 2px 10px 8px 10px !important;
   background: transparent !important;
   border-radius: 0 !important;
-  flex-grow: 1 !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  min-height: 52px !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-end !important;
+  justify-content: center !important;
   align-items: center !important;
   text-align: center !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.card__content.for-arrow-alignment .price {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .card__heading,

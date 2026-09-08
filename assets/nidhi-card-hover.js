@@ -24,26 +24,29 @@ function initNidhiCardHoverGsap() {
     const bottle = card.querySelector('.card__media .media img') || card.querySelector('.card__media img');
     const elemTL = card.querySelector('.hover-elem-tl');
     const elemBL = card.querySelector('.hover-elem-bl');
+    const elemEstate = card.querySelector('.hover-elem-estate');
     const elemTR = card.querySelector('.hover-elem-tr');
     const quickAdd = card.querySelector('.card__content.for-arrow-alignment .quick-add.button-quick-add');
     const idlePrice = card.querySelector('.card__content.for-arrow-alignment .price');
 
     // Set initial GSAP positions on desktop
     if (window.innerWidth >= 769) {
-      if (elemTL) gsap.set(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: 'center center' });
-      if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: 'center center' });
-      if (elemTR) gsap.set(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: 'center center' });
-      if (quickAdd) gsap.set(quickAdd, { opacity: 0, y: 22, pointerEvents: 'none' });
+      if (elemTL) gsap.set(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, transformOrigin: '75% 75%' });
+      if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 3, transformOrigin: '65% 65%' });
+      if (elemEstate) gsap.set(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: '25% 50%' });
+      if (elemTR) gsap.set(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 8, transformOrigin: '25% 75%' });
+      if (quickAdd) gsap.set(quickAdd, { opacity: 0, y: 18, pointerEvents: 'none' });
     }
 
     card.addEventListener('mouseenter', () => {
       if (window.innerWidth >= 769) {
-        gsap.killTweensOf([title, bottle, elemTL, elemBL, elemTR, quickAdd, idlePrice].filter(Boolean));
+        gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
         if (title) gsap.to(title, { scale: 0.88, duration: 0.4, ease: 'power2.out' });
-        if (bottle) gsap.to(bottle, { y: -16, scale: 1.08, duration: 0.45, ease: 'power2.out' });
-        if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1.08, x: -18, y: -14, rotation: -16, duration: 0.55, ease: 'back.out(1.8)' });
-        if (elemBL) gsap.to(elemBL, { opacity: 1, scale: 1.06, x: -14, y: 14, rotation: 10, duration: 0.55, delay: 0.04, ease: 'back.out(1.8)' });
-        if (elemTR) gsap.to(elemTR, { opacity: 1, scale: 1.1, x: 18, y: -12, rotation: 18, duration: 0.55, delay: 0.08, ease: 'back.out(1.8)' });
+        if (bottle) gsap.to(bottle, { y: -8, scale: 1.04, duration: 0.45, ease: 'power2.out' });
+        if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1, x: -10, y: -4, rotation: -10, duration: 0.55, ease: 'back.out(1.8)' });
+        if (elemBL) gsap.to(elemBL, { opacity: 1, scale: 1, x: -4, y: 2, rotation: 3, duration: 0.55, delay: 0.03, ease: 'back.out(1.8)' });
+        if (elemEstate) gsap.to(elemEstate, { opacity: 1, scale: 1, x: 12, y: 0, rotation: 0, duration: 0.55, delay: 0.05, ease: 'back.out(1.6)' });
+        if (elemTR) gsap.to(elemTR, { opacity: 1, scale: 1, x: 10, y: -4, rotation: 8, duration: 0.55, delay: 0.07, ease: 'back.out(1.8)' });
         if (quickAdd) gsap.to(quickAdd, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.38, ease: 'power2.out' });
         if (idlePrice) gsap.to(idlePrice, { opacity: 0, y: -6, duration: 0.25, ease: 'power2.out' });
       }
@@ -51,13 +54,14 @@ function initNidhiCardHoverGsap() {
 
     card.addEventListener('mouseleave', () => {
       if (window.innerWidth >= 769) {
-        gsap.killTweensOf([title, bottle, elemTL, elemBL, elemTR, quickAdd, idlePrice].filter(Boolean));
+        gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
         if (title) gsap.to(title, { scale: 1, duration: 0.35, ease: 'power2.inOut' });
         if (bottle) gsap.to(bottle, { y: 0, scale: 1, duration: 0.35, ease: 'power2.inOut' });
-        if (elemTL) gsap.to(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
-        if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
-        if (elemTR) gsap.to(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
-        if (quickAdd) gsap.to(quickAdd, { opacity: 0, y: 22, pointerEvents: 'none', duration: 0.25, ease: 'power2.in' });
+        if (elemTL) gsap.to(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, duration: 0.3, ease: 'power2.in' });
+        if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 3, duration: 0.3, ease: 'power2.in' });
+        if (elemEstate) gsap.to(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
+        if (elemTR) gsap.to(elemTR, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 8, duration: 0.3, ease: 'power2.in' });
+        if (quickAdd) gsap.to(quickAdd, { opacity: 0, y: 18, pointerEvents: 'none', duration: 0.25, ease: 'power2.in' });
         if (idlePrice) gsap.to(idlePrice, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
       }
     });

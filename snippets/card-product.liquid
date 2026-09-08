@@ -54,6 +54,7 @@
         <div class="card__hover-companions" aria-hidden="true">
           <img src="{{ 'hover-tea-leaves-tl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tl" loading="lazy" width="90" height="90">
           <img src="{{ 'hover-clay-cup-bl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-bl" loading="lazy" width="85" height="85">
+          <img src="{{ 'hover-tea-estate-rc.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-estate" loading="lazy" width="130" height="130">
           <img src="{{ 'hover-green-sprig-tr.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tr" loading="lazy" width="95" height="95">
         </div>
         {%- if card_product.featured_media -%}
@@ -123,19 +124,17 @@
             {%- endif -%}
           </div>
            <ul class="product-icons right-aligned">          
+        {%- if settings.enable_wishlist -%}
+        <li><dtx-wishlist><a href="javascript:void(0);" class="add-wishlist" data-product_handle="{{ card_product.handle }}"> </a></dtx-wishlist>
+            <tooltip class="tooltip">{{ 'products.wishlist.addToWishList' | t }}</tooltip>
+          </li>        
+        {%- endif -%} 
+
         {%- if settings.enable_compare -%}
         <li><dtx-compare><a href="javascript:void(0);" class="add-compare" data-product_handle="{{ card_product.handle }}"></a></dtx-compare>
           <tooltip class="tooltip">{{ 'products.compare.add_to_compare' | t }}</tooltip>
           </li>
         {%- endif -%}
-
-           
-        
-        {%- if settings.enable_wishlist -%}
-        <li><dtx-wishlist><a href="javascript:void(0);" class="add-wishlist" data-product_handle="{{ card_product.handle }}"> </a></dtx-wishlist>
-            <tooltip class="tooltip">{{ 'products.wishlist.addToWishList' | t }}</tooltip>
-          </li>        
-       {%- endif -%} 
         </ul> 
         </div>
   {%  render 'deal-snippet', product: card_product %}
