@@ -1,0 +1,1041 @@
+{% comment %}
+  Nidhi Why Tea Section - Arched Intro & Scroll-Scrubbed Pinned Orbital Slides
+  Faithfully ported from Nidhi Tea index.html with GSAP ScrollTrigger
+{% endcomment %}
+
+<div class="nidhi-why-tea-component" id="nidhiWhyTeaComponent">
+  <!-- ============ WHY NIDHI TEA (STANDALONE INTRO HEADING SECTION) ============ -->
+  <section id="whyIntroSection" class="why-intro-section">
+    <!-- Background Ambient Glow -->
+    <div id="whyIntroGlow" class="why-intro-glow"></div>
+
+    <!-- Ambient Botanical Tea Leaf Branch Silhouettes -->
+    <img
+      src="{{ 'botanical-tea-branch.svg' | asset_url }}"
+      alt=""
+      aria-hidden="true"
+      class="why-branch why-branch-left"
+    />
+    <img
+      src="{{ 'botanical-tea-branch.svg' | asset_url }}"
+      alt=""
+      aria-hidden="true"
+      class="why-branch why-branch-right"
+    />
+
+    <!-- Top: Giant Curved Arched Heading & Subtitle (Full-Width Edge-to-Edge) -->
+    <div class="why-intro-content">
+      <!-- Giant Arched SVG Headline -->
+      <div class="why-arc-headline-box">
+        <svg
+          viewBox="0 0 1600 320"
+          class="why-arc-svg"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <path id="whyArcPath" d="M 40,300 Q 800,-40 1560,300" fill="none" stroke="none"></path>
+          <text fill="#f5e4c7" class="why-arc-text">
+            <textPath href="#whyArcPath" startOffset="50%" text-anchor="middle">
+              {{ section.settings.heading | default: 'WHY NIDHI TEA' }}
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <!-- Centered Subtitle Paragraph -->
+      <p class="why-intro-subtitle">
+        {{ section.settings.subtitle | default: "WE CRAFT SMALL-BATCH MOUNTAIN<br>TEAS BECAUSE MASS-PRODUCED<br>TEA TASTES LIKE DUST. WE'RE<br><strong class='why-highlight'>BREWING BETTER DAYS.</strong>" }}
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ WHY NIDHI TEA (SCROLL-SCRUBBED PINNED SLIDES) ============ -->
+  <section id="whySection" class="why-section">
+    <div id="whyStickyContainer" class="why-sticky-container">
+      <!-- Ambient Repeating Tea Leaf Pattern Background -->
+      <div
+        class="why-bg-pattern"
+        style="background-image: url('{{ 'tea-leaf-pattern.svg' | asset_url }}');"
+      ></div>
+
+      <!-- Ambient Botanical Tea Leaf Branch Silhouettes in Background -->
+      <img
+        src="{{ 'botanical-tea-branch.svg' | asset_url }}"
+        alt=""
+        aria-hidden="true"
+        class="why-branch why-branch-top-left"
+      />
+      <img
+        src="{{ 'botanical-tea-branch.svg' | asset_url }}"
+        alt=""
+        aria-hidden="true"
+        class="why-branch why-branch-bottom-right"
+      />
+
+      <!-- Arched Dotted Orbital Track Line (Curved across the screen passing through slides) -->
+      <div class="why-line-wrapper">
+        <svg
+          viewBox="0 0 2400 900"
+          class="why-track-svg"
+          preserveAspectRatio="none"
+        >
+          <path id="whyArcLine" class="why-line" d="M -300, 780 Q 1200, 310 2700, 780" />
+        </svg>
+      </div>
+
+      <!-- Center Slides Stack -->
+      <div class="why-slides-stack">
+        <!-- Slide 1 -->
+        <div class="why-slide slide-1">
+          <div class="why-num-wrapper">
+            <span class="why-number">{{ section.settings.slide_1_number | default: '01' }}</span>
+          </div>
+          <div class="why-pill-wrapper">
+            <div class="why-pill-badge">
+              <span class="why-pill-dot"></span>
+              <h3 class="why-pill-title">{{ section.settings.slide_1_title | default: 'ESTATE SOURCED' }}</h3>
+              <span class="why-pill-dot"></span>
+            </div>
+            <img
+              src="{{ section.settings.slide_1_image | default: 'isolated_rustic_clay_tea_pot_yixing_style_side_view_transparent_background.png' | asset_url }}"
+              alt="{{ section.settings.slide_1_title | default: 'Estate Clay Teapot' }}"
+              class="why-mascot"
+              style="--float-duration: 7s;"
+            />
+          </div>
+          <p class="why-desc-text">
+            {{ section.settings.slide_1_desc | default: 'Direct partnerships with heritage tea gardens across Assam, Darjeeling and the Nilgiris. Pure whole leaves, harvested at peak freshness.' }}
+          </p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="why-slide slide-2">
+          <div class="why-num-wrapper">
+            <span class="why-number">{{ section.settings.slide_2_number | default: '02' }}</span>
+          </div>
+          <div class="why-pill-wrapper">
+            <div class="why-pill-badge">
+              <span class="why-pill-dot"></span>
+              <h3 class="why-pill-title">{{ section.settings.slide_2_title | default: '100% BOTANICALS' }}</h3>
+              <span class="why-pill-dot"></span>
+            </div>
+            <img
+              src="{{ section.settings.slide_2_image | default: 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}"
+              alt="{{ section.settings.slide_2_title | default: 'Botanical Spices' }}"
+              class="why-mascot"
+              style="--float-duration: 8s;"
+            />
+          </div>
+          <p class="why-desc-text">
+            {{ section.settings.slide_2_desc | default: 'Fresh crushed mountain spices, sun-dried herbs and raw ginger roots. No powders, no artificial flavours, no synthetic additives.' }}
+          </p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="why-slide slide-3">
+          <div class="why-num-wrapper">
+            <span class="why-number">{{ section.settings.slide_3_number | default: '03' }}</span>
+          </div>
+          <div class="why-pill-wrapper">
+            <div class="why-pill-badge">
+              <span class="why-pill-dot"></span>
+              <h3 class="why-pill-title">{{ section.settings.slide_3_title | default: 'ARTISAN FRESH' }}</h3>
+              <span class="why-pill-dot"></span>
+            </div>
+            <img
+              src="{{ section.settings.slide_3_image | default: 'isolated_glass_teapot_filled_with_blooming_jasmine_tea_side_view_professional.png' | asset_url }}"
+              alt="{{ section.settings.slide_3_title | default: 'Artisan Blooming Tea' }}"
+              class="why-mascot"
+              style="--float-duration: 7.5s;"
+            />
+          </div>
+          <p class="why-desc-text">
+            {{ section.settings.slide_3_desc | default: 'Slow-blended in small batches and vacuum-sealed to preserve natural essential oils for a fragrant, soothing cup every single time.' }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Mobile Slider Left Arrow Button -->
+      <button id="whyMobilePrev" class="why-mobile-btn why-mobile-prev" aria-label="Previous Slide">
+        <svg class="why-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Slider Right Arrow Button -->
+      <button id="whyMobileNext" class="why-mobile-btn why-mobile-next" aria-label="Next Slide">
+        <svg class="why-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+</div>
+
+<style>
+  .nidhi-why-tea-component {
+    position: relative;
+    width: 100%;
+    background-color: var(--background, #100b06);
+    color: var(--cream, #f5e4c7);
+    overflow: visible;
+  }
+
+  /* ============ WHY INTRO SECTION ============ */
+  .why-intro-section {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    padding: 30px 14px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--background, #100b06);
+    overflow: hidden;
+  }
+  @media (min-width: 640px) {
+    .why-intro-section {
+      min-height: 50vh;
+      padding: 60px 24px 60px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-intro-section {
+      min-height: 65vh;
+      padding: 80px 32px 70px;
+    }
+  }
+
+  .why-intro-glow {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    max-width: 1200px;
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(245, 228, 199, 0.18) 0%, rgba(247, 198, 101, 0.12) 35%, transparent 70%);
+    filter: blur(120px);
+    -webkit-filter: blur(120px);
+    z-index: 0;
+    transition: transform 1000ms ease;
+  }
+
+  /* Ambient Branches */
+  .why-branch {
+    pointer-events: none;
+    position: absolute;
+    height: auto;
+    opacity: 0.15;
+    user-select: none;
+    z-index: 0;
+  }
+  .why-branch-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateX(-25%) rotate(25deg);
+    width: 320px;
+  }
+  .why-branch-right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(25%) rotate(-155deg);
+    width: 320px;
+  }
+  @media (min-width: 768px) {
+    .why-branch-left,
+    .why-branch-right {
+      width: 580px;
+    }
+  }
+
+  .why-branch-top-left {
+    top: -4rem;
+    left: -5rem;
+    width: 380px;
+    transform: rotate(-45deg);
+  }
+  .why-branch-bottom-right {
+    bottom: -5rem;
+    right: -6rem;
+    width: 420px;
+    transform: rotate(135deg);
+  }
+  @media (min-width: 768px) {
+    .why-branch-top-left {
+      width: 620px;
+    }
+    .why-branch-bottom-right {
+      width: 680px;
+    }
+  }
+
+  /* Arched Headline */
+  .why-intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    user-select: none;
+  }
+  .why-arc-headline-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1600 / 320;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 640px) {
+    .why-arc-headline-box {
+      min-height: 180px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-arc-headline-box {
+      min-height: 280px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .why-arc-headline-box {
+      min-height: 330px;
+    }
+  }
+
+  .why-arc-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .why-arc-text {
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-size: 195px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
+    user-select: none;
+  }
+
+  .why-intro-subtitle {
+    text-align: center;
+    font-family: 'Inter Tight', 'Poppins', system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--cream, #f5e4c7);
+    font-size: 14px;
+    max-width: 360px;
+    line-height: 1.55;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+  @media (min-width: 640px) {
+    .why-intro-subtitle {
+      letter-spacing: 0.18em;
+      font-size: 18px;
+      max-width: 540px;
+      margin-top: 24px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-intro-subtitle {
+      font-size: 20px;
+      max-width: 640px;
+      margin-top: 36px;
+    }
+  }
+
+  .why-highlight {
+    font-weight: 700;
+    color: #ff3366;
+    text-decoration: underline;
+    text-decoration-color: #c4321c;
+    text-underline-offset: 4px;
+  }
+
+  /* ============ WHY PINNED SCROLL SECTION ============ */
+  .why-section {
+    position: relative;
+    width: 100%;
+    height: 300vh;
+    background-color: var(--background, #100b06);
+    overflow: visible;
+  }
+
+  .why-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    background-color: var(--background, #100b06);
+    z-index: 10;
+  }
+  @media (min-width: 768px) {
+    .why-sticky-container {
+      padding: 0 40px;
+    }
+  }
+
+  .why-bg-pattern {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-repeat: repeat;
+    background-size: 260px 260px;
+    opacity: 0.6;
+    user-select: none;
+  }
+
+  /* Arched Orbital Track Line */
+  .why-line-wrapper {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 0;
+    user-select: none;
+  }
+  .why-track-svg {
+    width: 180vw;
+    min-width: 2000px;
+    height: 100%;
+    overflow: visible;
+    user-select: none;
+    pointer-events: none;
+  }
+  path.why-line {
+    width: auto;
+    height: auto;
+    background: none;
+    stroke-dasharray: 8 14;
+    stroke: rgba(245, 228, 199, 0.42);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    will-change: stroke-dashoffset;
+  }
+
+  /* Slides Stack */
+  .why-slides-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .why-slide {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    width: 94%;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    will-change: transform;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Outlined Big Number */
+  .why-num-wrapper {
+    position: relative;
+    z-index: 25;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  .why-number {
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif;
+    font-size: clamp(7.5rem, 30vw, 20rem);
+    line-height: 0.82;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    user-select: none;
+    color: transparent;
+    -webkit-text-stroke: 2.5px rgba(245, 228, 199, 0.7);
+  }
+  @media (min-width: 768px) {
+    .why-number {
+      -webkit-text-stroke: 3px rgba(245, 228, 199, 0.85);
+      font-size: clamp(14rem, 20vw, 22rem);
+    }
+  }
+
+  /* Pill Badge with Mascot Behind Text */
+  .why-pill-wrapper {
+    position: relative;
+    margin-top: 8px;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 640px) {
+    .why-pill-wrapper {
+      margin-top: 10px;
+    }
+  }
+
+  .why-pill-badge {
+    position: relative;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    background-color: var(--cream, #f5e4c7);
+    padding: 8px 24px;
+    color: #100b06;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  }
+  @media (min-width: 640px) {
+    .why-pill-badge {
+      gap: 16px;
+      padding: 12px 42px;
+      border-radius: 9999px;
+    }
+  }
+
+  .why-pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background-color: #c4321c;
+    flex-shrink: 0;
+  }
+  @media (min-width: 640px) {
+    .why-pill-dot {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .why-pill-title {
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #100b06;
+    margin: 0;
+    line-height: 1;
+  }
+  @media (min-width: 640px) {
+    .why-pill-title {
+      font-size: 26px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-pill-title {
+      font-size: 34px;
+    }
+  }
+
+  /* Mascot Float (Strictly Behind Text) */
+  @keyframes bucks-float {
+    0%, 100% {
+      transform: translateY(0) rotate(var(--rot, 0deg));
+    }
+    50% {
+      transform: translateY(-18px) rotate(calc(var(--rot, 0deg) + 6deg));
+    }
+  }
+
+  .why-mascot {
+    position: absolute;
+    right: -24px;
+    bottom: -16px;
+    height: 96px;
+    width: auto;
+    pointer-events: none;
+    z-index: -10 !important;
+    animation: bucks-float var(--float-duration, 7.5s) ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  }
+  @media (min-width: 640px) {
+    .why-mascot {
+      right: -56px;
+      bottom: -40px;
+      height: 160px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-mascot {
+      right: -80px;
+      bottom: -56px;
+      height: 208px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .why-mascot {
+      right: -90px;
+      bottom: -64px;
+      height: 240px;
+    }
+  }
+
+  /* Description Text (Positioned on top of mascot) */
+  .why-desc-text {
+    position: relative;
+    z-index: 25;
+    margin-top: 14px;
+    font-size: 14px;
+    font-family: 'Inter Tight', 'Poppins', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--cream, #f5e4c7);
+    max-width: 290px;
+  }
+  @media (min-width: 640px) {
+    .why-desc-text {
+      margin-top: 26px;
+      font-size: 22px;
+      line-height: 1.4;
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .why-desc-text {
+      margin-top: 36px;
+      font-size: 26px;
+      max-width: 660px;
+    }
+  }
+
+  /* Mobile Navigation Buttons */
+  .why-mobile-btn {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 30;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    background-color: rgba(26, 19, 12, 0.9);
+    color: var(--cream, #f5e4c7);
+    border: 1px solid rgba(245, 228, 199, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .why-mobile-btn:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+  .why-mobile-prev {
+    left: 10px;
+    opacity: 0.4;
+  }
+  .why-mobile-next {
+    right: 10px;
+    opacity: 1;
+  }
+  .why-btn-icon {
+    width: 20px;
+    height: 20px;
+  }
+  @media (min-width: 768px) {
+    .why-mobile-btn {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    function initWhyNidhi() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(initWhyNidhi, 60);
+        return;
+      }
+      gsap.registerPlugin(ScrollTrigger);
+
+      const root = document.getElementById('nidhiWhyTeaComponent');
+      if (!root || root.dataset.whyInitialized) return;
+      root.dataset.whyInitialized = 'true';
+
+      /* ---------- 1. STANDALONE ARCHED HEADING REVEAL ---------- */
+      const introSection = root.querySelector('#whyIntroSection');
+      if (introSection) {
+        gsap.from(introSection.querySelector('.why-arc-headline-box'), {
+          scrollTrigger: {
+            trigger: introSection,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          y: 60,
+          scale: 0.92,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+        });
+
+        const sub = introSection.querySelector('.why-intro-subtitle');
+        if (sub) {
+          gsap.from(sub, {
+            scrollTrigger: {
+              trigger: introSection,
+              start: 'top 75%',
+              toggleActions: 'play none none reverse',
+            },
+            y: 35,
+            opacity: 0,
+            duration: 1,
+            delay: 0.25,
+            ease: 'power3.out',
+          });
+        }
+
+        const glow = introSection.querySelector('#whyIntroGlow');
+        if (glow) {
+          gsap.to(glow, {
+            scale: 1.18,
+            opacity: 0.9,
+            duration: 3.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+        }
+      }
+
+      /* ---------- 2. ROUND ORBITAL ARC ON-SCROLL SCRUB ---------- */
+      const whySec = root.querySelector('#whySection');
+      if (!whySec) return;
+
+      function getXDist() {
+        return window.innerWidth < 768 ? window.innerWidth * 0.96 : window.innerWidth * 0.72;
+      }
+      function getYDrop() {
+        return window.innerWidth < 768 ? 130 : 210;
+      }
+      function getRot() {
+        return window.innerWidth < 768 ? 10 : 14;
+      }
+
+      // Base placement: all slides centered horizontally & vertically on orbital peak
+      gsap.set(whySec.querySelectorAll('.why-slide'), {
+        left: '50%',
+        top: '46%',
+        xPercent: -50,
+        yPercent: -50,
+        opacity: 1,
+        transformOrigin: 'center center',
+      });
+
+      // Initial positions along the arc
+      gsap.set(whySec.querySelector('.slide-1'), {
+        x: 0,
+        y: 0,
+        rotation: 0,
+      });
+
+      gsap.set(whySec.querySelector('.slide-2'), {
+        x: () => getXDist(),
+        y: () => getYDrop(),
+        rotation: () => getRot(),
+      });
+
+      gsap.set(whySec.querySelector('.slide-3'), {
+        x: () => getXDist() * 1.85,
+        y: () => getYDrop() * 2.2,
+        rotation: () => getRot() * 1.85,
+      });
+
+      // Scroll-scrubbed GSAP Timeline along the round orbital arc
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: whySec,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            updateWhyMobile(self.progress);
+          },
+        },
+        defaults: { ease: 'none' },
+      });
+
+      // Phase 1 (0 -> 1): Slide 1 descends left along arc; Slide 2 crests to center
+      tl.to(
+        whySec.querySelector('.slide-1'),
+        {
+          x: () => -getXDist(),
+          y: () => getYDrop(),
+          rotation: () => -getRot(),
+          duration: 1,
+        },
+        0
+      );
+
+      tl.to(
+        whySec.querySelector('.slide-2'),
+        {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          duration: 1,
+        },
+        0
+      );
+
+      tl.to(
+        whySec.querySelector('.slide-3'),
+        {
+          x: () => getXDist(),
+          y: () => getYDrop(),
+          rotation: () => getRot(),
+          duration: 1,
+        },
+        0
+      );
+
+      // Phase 2 (1 -> 2): Slide 2 descends left along arc; Slide 3 crests to center
+      tl.to(
+        whySec.querySelector('.slide-1'),
+        {
+          x: () => -getXDist() * 1.85,
+          y: () => getYDrop() * 2.2,
+          rotation: () => -getRot() * 1.85,
+          duration: 1,
+        },
+        1
+      );
+
+      tl.to(
+        whySec.querySelector('.slide-2'),
+        {
+          x: () => -getXDist(),
+          y: () => getYDrop(),
+          rotation: () => -getRot(),
+          duration: 1,
+        },
+        1
+      );
+
+      tl.to(
+        whySec.querySelector('.slide-3'),
+        {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          duration: 1,
+        },
+        1
+      );
+
+      // Dotted orbital arc line scrubbing smoothly along the curve
+      tl.fromTo(
+        whySec.querySelector('.why-line'),
+        { strokeDashoffset: 0 },
+        { strokeDashoffset: -1600, duration: 2, ease: 'none' },
+        0
+      );
+
+      // Mobile Slider Controls & Touch Swiping Engine
+      let currentWhySlide = 0;
+      function updateWhyMobile(progress) {
+        const idx = Math.min(2, Math.max(0, Math.round(progress * 2)));
+        if (idx === currentWhySlide) return;
+        currentWhySlide = idx;
+
+        const prevBtn = whySec.querySelector('#whyMobilePrev');
+        const nextBtn = whySec.querySelector('#whyMobileNext');
+        if (prevBtn) prevBtn.style.opacity = idx === 0 ? '0.35' : '1';
+        if (nextBtn) nextBtn.style.opacity = idx === 2 ? '0.35' : '1';
+      }
+
+      function goToWhySlide(targetIndex) {
+        targetIndex = Math.max(0, Math.min(2, targetIndex));
+        const st = tl.scrollTrigger;
+        if (!st) return;
+        const targetProgress = targetIndex / 2;
+        const targetY = st.start + targetProgress * (st.end - st.start);
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+
+      const prevBtn = whySec.querySelector('#whyMobilePrev');
+      const nextBtn = whySec.querySelector('#whyMobileNext');
+      if (prevBtn) prevBtn.addEventListener('click', () => goToWhySlide(currentWhySlide - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goToWhySlide(currentWhySlide + 1));
+
+      // Touch swipe handler for mobile screen
+      const stickyBox = whySec.querySelector('#whyStickyContainer');
+      if (stickyBox) {
+        let touchStartX = 0,
+          touchStartY = 0;
+        stickyBox.addEventListener(
+          'touchstart',
+          (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+          },
+          { passive: true }
+        );
+
+        stickyBox.addEventListener(
+          'touchend',
+          (e) => {
+            const diffX = e.changedTouches[0].clientX - touchStartX;
+            const diffY = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.2) {
+              if (diffX < 0) {
+                goToWhySlide(currentWhySlide + 1);
+              } else {
+                goToWhySlide(currentWhySlide - 1);
+              }
+            }
+          },
+          { passive: true }
+        );
+      }
+
+      // Refresh ScrollTrigger after layout settles
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 500);
+      window.addEventListener('nidhi:loaderDone', () => {
+        setTimeout(() => ScrollTrigger.refresh(), 300);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhyNidhi);
+    } else {
+      initWhyNidhi();
+    }
+
+    document.addEventListener('shopify:section:load', (e) => {
+      if (e.target && e.target.querySelector('#nidhiWhyTeaComponent')) {
+        initWhyNidhi();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Why Nidhi Tea",
+  "tag": "section",
+  "class": "section-nidhi-why-tea",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Arched Heading",
+      "default": "WHY NIDHI TEA"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "WE CRAFT SMALL-BATCH MOUNTAIN<br>TEAS BECAUSE MASS-PRODUCED<br>TEA TASTES LIKE DUST. WE'RE<br><strong class='why-highlight'>BREWING BETTER DAYS.</strong>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 1"
+    },
+    {
+      "type": "text",
+      "id": "slide_1_number",
+      "label": "Slide 1 Number",
+      "default": "01"
+    },
+    {
+      "type": "text",
+      "id": "slide_1_title",
+      "label": "Slide 1 Title",
+      "default": "ESTATE SOURCED"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_1_desc",
+      "label": "Slide 1 Description",
+      "default": "Direct partnerships with heritage tea gardens across Assam, Darjeeling and the Nilgiris. Pure whole leaves, harvested at peak freshness."
+    },
+    {
+      "type": "header",
+      "content": "Slide 2"
+    },
+    {
+      "type": "text",
+      "id": "slide_2_number",
+      "label": "Slide 2 Number",
+      "default": "02"
+    },
+    {
+      "type": "text",
+      "id": "slide_2_title",
+      "label": "Slide 2 Title",
+      "default": "100% BOTANICALS"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_2_desc",
+      "label": "Slide 2 Description",
+      "default": "Fresh crushed mountain spices, sun-dried herbs and raw ginger roots. No powders, no artificial flavours, no synthetic additives."
+    },
+    {
+      "type": "header",
+      "content": "Slide 3"
+    },
+    {
+      "type": "text",
+      "id": "slide_3_number",
+      "label": "Slide 3 Number",
+      "default": "03"
+    },
+    {
+      "type": "text",
+      "id": "slide_3_title",
+      "label": "Slide 3 Title",
+      "default": "ARTISAN FRESH"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_3_desc",
+      "label": "Slide 3 Description",
+      "default": "Slow-blended in small batches and vacuum-sealed to preserve natural essential oils for a fragrant, soothing cup every single time."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Nidhi Tea"
+    }
+  ]
+}
+{% endschema %}

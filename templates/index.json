@@ -850,11 +850,25 @@
         "button_text": "Shop New",
         "button_link": "/collections/all"
       }
+    },
+    "nidhi-benefits-scroll": {
+      "type": "nidhi-benefits-scroll",
+      "settings": {
+        "intro_text": "Premium handcrafted teas sourced from the finest estates. ★ No artificial additives — just pure leaves, pure water, and a moment of peace in every single cup.",
+        "show_floating_elements": true,
+        "show_end_icon": true
+      }
+    },
+    "nidhi-why-tea": {
+      "type": "nidhi-why-tea",
+      "settings": {}
     }
   },
   "order": [
     "nidhi-hero-slider",
+    "nidhi-benefits-scroll",
     "1cdd4e50-f0cc-48e6-bf45-16ec0a5db255",
+    "nidhi-why-tea",
     "480a5c64-fd68-4018-8db2-a9f9e1f3b315",
     "a8c50c2e-2eeb-46ec-8f40-fda922a43e82",
     "d3d37f2e-af77-4011-b9d4-6d4d102e1a17",

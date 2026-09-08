@@ -18,7 +18,13 @@
     <div class="row">
       <div class="nidhi-heading-wrap">
         <h1 id="heroTitle" class="nidhi-hero-title">
-          <span class="text-outline block">{{ section.settings.heading_line_1 | default: section.settings.heading_outline | default: 'Sip Wellness.' }}</span>
+          <span class="text-outline block">
+            {{-
+              section.settings.heading_line_1
+              | default: section.settings.heading_outline
+              | default: 'Sip Wellness.'
+            -}}
+          </span>
           <span class="text-cream block">{{ section.settings.heading_line_2 | default: 'Taste Purity.' }}</span>
           <span class="text-cream block">{{ section.settings.heading_line_3 | default: 'Love Every Cup.' }}</span>
         </h1>
@@ -55,26 +61,32 @@
           <!-- Center Active Blend Presentation Stage -->
           <div class="nidhi-stage">
             <!-- Wrapper for transition & parallax -->
-            <div id="heroTintWrap"
+            <div
+              id="heroTintWrap"
               class="absolute flex items-center justify-center pointer-events-none transition-transform duration-500 will-change-transform"
-              style="transform: scale(1);">
-              
+              style="transform: scale(1);"
+            >
               <!-- The Animated Pulsating Background Circle -->
-              <div id="heroTint"
-                class="h-64 w-64 rounded-full transition-colors duration-700 sm:h-80 sm:w-80 md:h-[460px] md:w-[460px] lg:h-[540px] lg:w-[540px] xl:h-[620px] xl:w-[620px] animate-hero-bg"
-                style="background: var(--pink)">
-              </div>
-
+              <div
+                id="heroTint"
+                class="h-56 w-56 rounded-full transition-colors duration-700 sm:h-72 sm:w-72 md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[560px] xl:w-[560px] animate-hero-bg shadow-2xl overflow-hidden border border-cream/20 bg-fixed"
+                style="display: block !important; background-image: url('{{ 'gemini-hero-bg.png' | asset_url }}'); background-attachment: fixed; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: transparent;"
+              >&zwnj;</div>
             </div>
 
             <!-- Top-Left Floating Botanical Companion (Behind Product Pack: z-index 15) -->
             <div class="nidhi-companion-container nidhi-companion-container--behind">
               <div id="heroTopWrap" style="transform: scale(1);">
-                <div class="animate-float-companion-top" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
-                  <img id="heroTopImg"
+                <div
+                  class="animate-float-companion-top"
+                  style="pointer-events: none; display: flex; align-items: center; justify-content: center;"
+                >
+                  <img
+                    id="heroTopImg"
                     src="{{ 'regenerate_the_fresh_green_tea_leaves_sprig_from_the_reference_image_data_image-removebg-preview.png' | asset_url }}"
                     alt="Green Tea Sprig"
-                    class="nidhi-companion-img nidhi-companion-img--top" />
+                    class="nidhi-companion-img nidhi-companion-img--top"
+                  />
                 </div>
               </div>
             </div>
@@ -85,11 +97,16 @@
             <!-- Bottom-Right Floating Botanical Companion (In Front / Closer: z-index 30) -->
             <div class="nidhi-companion-container nidhi-companion-container--front">
               <div id="heroBottomWrap" style="transform: scale(1);">
-                <div class="animate-float-companion-bottom" style="pointer-events: none; display: flex; align-items: center; justify-content: center;">
-                  <img id="heroBottomImg"
+                <div
+                  class="animate-float-companion-bottom"
+                  style="pointer-events: none; display: flex; align-items: center; justify-content: center;"
+                >
+                  <img
+                    id="heroBottomImg"
                     src="{{ 'isolate_and_generate_a_single_separate_asset_a_traditional_terracotta_clay_cup-removebg-preview.png' | asset_url }}"
                     alt="Clay Cup"
-                    class="nidhi-companion-img nidhi-companion-img--bottom" />
+                    class="nidhi-companion-img nidhi-companion-img--bottom"
+                  />
                 </div>
               </div>
             </div>
@@ -108,7 +125,10 @@
   <div class="nidhi-cta-row">
     <div class="dotted-rule" aria-hidden="true">&zwnj;</div>
     <div class="nidhi-cta-pill-box">
-      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}" class="button button--primary">
+      <a
+        href="{{ section.settings.button_link | default: routes.all_products_collection_url | default: '/collections/all' }}"
+        class="button button--primary"
+      >
         {{ section.settings.button_text | default: 'Shop New' }}
       </a>
     </div>
@@ -121,7 +141,7 @@
     overflow: hidden;
     padding-top: 30px;
     padding-bottom: 35px;
-    background-color: var(--background, #100B06);
+    background-color: var(--background, #100b06);
     color: var(--cream, #f5e4c7);
   }
   @media (min-width: 768px) {
@@ -156,12 +176,22 @@
     z-index: 0;
   }
   @media (min-width: 640px) {
-    .nidhi-branch-tl { width: 560px; opacity: 0.16; }
-    .nidhi-branch-br { width: 600px; opacity: 0.16; }
+    .nidhi-branch-tl {
+      width: 560px;
+      opacity: 0.16;
+    }
+    .nidhi-branch-br {
+      width: 600px;
+      opacity: 0.16;
+    }
   }
   @media (min-width: 1024px) {
-    .nidhi-branch-tl { width: 800px; }
-    .nidhi-branch-br { width: 850px; }
+    .nidhi-branch-tl {
+      width: 800px;
+    }
+    .nidhi-branch-br {
+      width: 850px;
+    }
   }
 
   /* Container inner elements aligned with Shopify header container */
@@ -180,7 +210,7 @@
     }
   }
   .nidhi-hero-title {
-    font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif !important;
     font-optical-sizing: auto;
     text-transform: uppercase;
     line-height: 0.86 !important;
@@ -266,7 +296,7 @@
   }
 
   #heroNo {
-    background-color: var(--background, #100B06);
+    background-color: var(--background, #100b06);
     padding-right: 1.25rem;
     position: relative;
     z-index: 2;
@@ -274,7 +304,7 @@
   }
 
   #heroName {
-    background-color: var(--background, #100B06);
+    background-color: var(--background, #100b06);
     padding-left: 1.25rem;
     position: relative;
     z-index: 2;
@@ -303,7 +333,7 @@
     z-index: 10;
     display: inline-flex;
     align-items: center;
-    background-color: var(--background, #100B06);
+    background-color: var(--background, #100b06);
     padding: 0 1.25rem;
   }
 
@@ -328,7 +358,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: var(--font-display-family), "Fraunces", Georgia, serif;
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -390,8 +420,8 @@
     height: 48px;
     flex-shrink: 0;
     border-radius: 9999px;
-    border: 2px solid #FF3366 !important;
-    background-color: #FF3366 !important;
+    border: 2px solid #ff3366 !important;
+    background-color: #ff3366 !important;
     color: #f5e4c7 !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
@@ -419,8 +449,8 @@
   }
   .nidhi-nav-btn:hover {
     transform: scale(1.1);
-    background-color: #E63946 !important;
-    border-color: #E63946 !important;
+    background-color: #e63946 !important;
+    border-color: #e63946 !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
   }
@@ -492,43 +522,52 @@
     z-index: 5;
   }
   #heroTint {
-    width: 17rem;
-    height: 17rem;
+    display: block !important;
+    width: 14rem;
+    height: 14rem;
     border-radius: 9999px;
-    background: var(--pink, #FF3366);
+    background-image: url('{{ "gemini-hero-bg.png" | asset_url }}');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 1px solid rgba(245, 228, 199, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    overflow: hidden;
     flex-shrink: 0;
     transition: background-color 700ms ease, background 700ms ease;
-    box-shadow: none !important;
     will-change: transform;
   }
   @media (min-width: 640px) {
     #heroTint {
-      width: 22rem;
-      height: 22rem;
+      width: 18rem;
+      height: 18rem;
     }
   }
   @media (min-width: 768px) {
     #heroTint {
-      width: 460px;
-      height: 460px;
+      width: 400px;
+      height: 400px;
     }
   }
   @media (min-width: 1024px) {
     #heroTint {
-      width: 540px;
-      height: 540px;
+      width: 480px;
+      height: 480px;
     }
   }
   @media (min-width: 1280px) {
     #heroTint {
-      width: 620px;
-      height: 620px;
+      width: 560px;
+      height: 560px;
     }
   }
 
   /* Animation Name: hero-bg-pulse */
   @keyframes hero-bg-pulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(0.96);
     }
     50% {
@@ -544,7 +583,8 @@
 
   /* Floating Idle Animation on Product Pack (Tilt 5deg + Float) */
   @keyframes hero-pack-float {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(4deg) translateY(0px);
     }
     50% {
@@ -568,10 +608,26 @@
     max-width: 320px;
     pointer-events: none;
   }
-  @media (min-width: 640px) { .nidhi-companion-container { max-width: 420px; } }
-  @media (min-width: 768px) { .nidhi-companion-container { max-width: 500px; } }
-  @media (min-width: 1024px) { .nidhi-companion-container { max-width: 580px; } }
-  @media (min-width: 1280px) { .nidhi-companion-container { max-width: 660px; } }
+  @media (min-width: 640px) {
+    .nidhi-companion-container {
+      max-width: 420px;
+    }
+  }
+  @media (min-width: 768px) {
+    .nidhi-companion-container {
+      max-width: 500px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .nidhi-companion-container {
+      max-width: 580px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .nidhi-companion-container {
+      max-width: 660px;
+    }
+  }
 
   .nidhi-companion-container--behind {
     z-index: 15;
@@ -630,7 +686,8 @@
 
   /* Floating Keyframes for Companions */
   @keyframes companion-float-tl {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) rotate(-3deg);
     }
     50% {
@@ -647,7 +704,8 @@
   }
 
   @keyframes companion-float-br {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) rotate(3deg);
     }
     50% {
@@ -767,10 +825,10 @@
     justify-content: center;
     overflow: hidden;
     border-radius: 14px;
-    border: 2px solid #FF3366 !important;
-    background-color: #FF3366 !important;
+    border: 2px solid #ff3366 !important;
+    background-color: #ff3366 !important;
     padding: 16px 44px;
-    font-family: var(--font-display-family), "Fraunces", Georgia, serif !important;
+    font-family: var(--font-display-family), 'Fraunces', Georgia, serif !important;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
@@ -782,18 +840,18 @@
   }
   .nidhi-cta-btn:hover {
     transform: scale(1.05);
-    border-color: #E63946 !important;
+    border-color: #e63946 !important;
     box-shadow: none !important;
   }
   .nidhi-cta-btn-bg {
     position: absolute;
     inset: 0;
-    background-color: #FF3366;
+    background-color: #ff3366;
     transition: background-color 0.3s;
     pointer-events: none;
   }
   .nidhi-cta-btn:hover .nidhi-cta-btn-bg {
-    background-color: #E63946;
+    background-color: #e63946;
   }
   .nidhi-cta-text-wrap {
     position: relative;
@@ -841,100 +899,109 @@
 <script>
   (function () {
     /* ---------- SPLIT TEXT PLUGIN POLYFILL (FROM hero.html) ---------- */
-    const SplitTextPlugin = window.SplitText || class {
-      constructor(target, options = {}) {
-        const elements = typeof target === "string" ? Array.from(document.querySelectorAll(target)) : (Array.isArray(target) ? target : [target]);
-        this.chars = [];
-        this.words = [];
-        this.lines = [];
+    const SplitTextPlugin =
+      window.SplitText ||
+      class {
+        constructor(target, options = {}) {
+          const elements =
+            typeof target === 'string'
+              ? Array.from(document.querySelectorAll(target))
+              : Array.isArray(target)
+              ? target
+              : [target];
+          this.chars = [];
+          this.words = [];
+          this.lines = [];
 
-        elements.forEach((el) => {
-          const wordsClass = options.wordsClass || "word";
-          const charsClass = options.charsClass || "char";
-          const includeChars = options.type && options.type.includes("chars");
+          elements.forEach((el) => {
+            const wordsClass = options.wordsClass || 'word';
+            const charsClass = options.charsClass || 'char';
+            const includeChars = options.type && options.type.includes('chars');
 
-          const processNode = (node, extraClasses = []) => {
-            const fragment = document.createDocumentFragment();
+            const processNode = (node, extraClasses = []) => {
+              const fragment = document.createDocumentFragment();
 
-            if (node.nodeType === 3) {
-              const text = node.textContent;
-              const wordsArr = text.split(/(\s+)/);
+              if (node.nodeType === 3) {
+                const text = node.textContent;
+                const wordsArr = text.split(/(\s+)/);
 
-              wordsArr.forEach((part) => {
-                if (/\s+/.test(part)) {
-                  fragment.appendChild(document.createTextNode(part));
-                  return;
-                }
-                if (!part) return;
+                wordsArr.forEach((part) => {
+                  if (/\s+/.test(part)) {
+                    fragment.appendChild(document.createTextNode(part));
+                    return;
+                  }
+                  if (!part) return;
 
-                const wordSpan = document.createElement("span");
-                wordSpan.className = [wordsClass, ...extraClasses].filter(Boolean).join(" ");
-                wordSpan.style.display = "inline-block";
+                  const wordSpan = document.createElement('span');
+                  wordSpan.className = [wordsClass, ...extraClasses].filter(Boolean).join(' ');
+                  wordSpan.style.display = 'inline-block';
 
-                if (includeChars) {
-                  part.split("").forEach((char) => {
-                    const charSpan = document.createElement("span");
-                    charSpan.className = [charsClass, ...extraClasses].filter(Boolean).join(" ");
-                    charSpan.style.display = "inline-block";
-                    charSpan.textContent = char;
-                    wordSpan.appendChild(charSpan);
-                    this.chars.push(charSpan);
-                  });
-                } else {
-                  wordSpan.textContent = part;
-                }
+                  if (includeChars) {
+                    part.split('').forEach((char) => {
+                      const charSpan = document.createElement('span');
+                      charSpan.className = [charsClass, ...extraClasses].filter(Boolean).join(' ');
+                      charSpan.style.display = 'inline-block';
+                      charSpan.textContent = char;
+                      wordSpan.appendChild(charSpan);
+                      this.chars.push(charSpan);
+                    });
+                  } else {
+                    wordSpan.textContent = part;
+                  }
 
-                fragment.appendChild(wordSpan);
-                this.words.push(wordSpan);
-              });
-            } else if (node.nodeType === 1) {
-              if (node.tagName === "BR") {
-                fragment.appendChild(node.cloneNode(true));
-              } else {
-                const elementClasses = Array.from(node.classList).filter(c => !["block", "flex", "grid", "hidden", "inline"].includes(c));
-                const combinedClasses = [...extraClasses, ...elementClasses];
-                Array.from(node.childNodes).forEach((child) => {
-                  fragment.appendChild(processNode(child, combinedClasses));
+                  fragment.appendChild(wordSpan);
+                  this.words.push(wordSpan);
                 });
-                if (node.classList.contains("block")) {
-                  fragment.appendChild(document.createElement("br"));
+              } else if (node.nodeType === 1) {
+                if (node.tagName === 'BR') {
+                  fragment.appendChild(node.cloneNode(true));
+                } else {
+                  const elementClasses = Array.from(node.classList).filter(
+                    (c) => !['block', 'flex', 'grid', 'hidden', 'inline'].includes(c)
+                  );
+                  const combinedClasses = [...extraClasses, ...elementClasses];
+                  Array.from(node.childNodes).forEach((child) => {
+                    fragment.appendChild(processNode(child, combinedClasses));
+                  });
+                  if (node.classList.contains('block')) {
+                    fragment.appendChild(document.createElement('br'));
+                  }
                 }
               }
-            }
 
-            return fragment;
-          };
+              return fragment;
+            };
 
-          const childNodes = Array.from(el.childNodes);
-          el.innerHTML = "";
-          childNodes.forEach((child) => {
-            el.appendChild(processNode(child));
+            const childNodes = Array.from(el.childNodes);
+            el.innerHTML = '';
+            childNodes.forEach((child) => {
+              el.appendChild(processNode(child));
+            });
+
+            this.lines.push(el);
           });
+        }
 
-          this.lines.push(el);
-        });
-      }
-
-      static create(target, options) {
-        return new SplitTextPlugin(target, options);
-      }
-    };
+        static create(target, options) {
+          return new SplitTextPlugin(target, options);
+        }
+      };
 
     /* ---------- HERO HEADING ENTRANCE ANIMATION (FROM hero.html) ---------- */
     function initHeroHeadingGsap() {
-      if (typeof gsap === "undefined") {
+      if (typeof gsap === 'undefined') {
         setTimeout(initHeroHeadingGsap, 50);
         return;
       }
-      const titleEl = document.getElementById("heroTitle");
+      const titleEl = document.getElementById('heroTitle');
       if (!titleEl || titleEl.dataset.gsapInitialized) return;
-      titleEl.dataset.gsapInitialized = "true";
+      titleEl.dataset.gsapInitialized = 'true';
 
       // Split heading into chars and set bouncy elastic pop on page load
-      const heading = SplitTextPlugin.create("#heroTitle", {
-        type: "lines, words, chars",
-        charsClass: "char",
-        wordsClass: "word",
+      const heading = SplitTextPlugin.create('#heroTitle', {
+        type: 'lines, words, chars',
+        charsClass: 'char',
+        wordsClass: 'word',
       });
 
       gsap.fromTo(
@@ -946,83 +1013,104 @@
           scale: 1,
           duration: 1.2,
           stagger: 0.015,
-          ease: "elastic.out(0.75, 0.25)",
+          ease: 'elastic.out(0.75, 0.25)',
           delay: 0.1,
         }
       );
 
       gsap.fromTo(
-        ["#heroNo", "#heroName"],
+        ['#heroNo', '#heroName'],
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: "power3.out", delay: 0.4, clearProps: "transform,opacity" }
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: 0.4,
+          clearProps: 'transform,opacity',
+        }
       );
 
       gsap.fromTo(
-        "[data-hero]",
+        '[data-hero]',
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, stagger: 0.12, duration: 0.7, ease: "back.out(1.8)", delay: 0.5 }
+        { scale: 1, opacity: 1, stagger: 0.12, duration: 0.7, ease: 'back.out(1.8)', delay: 0.5 }
       );
 
       gsap.fromTo(
-        [".nidhi-cta-row .button", ".nidhi-cta-btn"],
+        ['.nidhi-cta-row .button', '.nidhi-cta-btn'],
         { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.55 }
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.55 }
       );
     }
 
+    const HERO_BG_IMG = "{{ 'gemini-hero-bg.png' | asset_url }}";
+
     const SLIDES = [
       {
-        name: "Classic Masala Chai",
+        name: 'Classic Masala Chai',
         img: "{{ 'hero.png' | asset_url }}",
-        tint: "var(--pink)",
-        topIngredient: "{{ 'regenerate_the_fresh_green_tea_leaves_sprig_from_the_reference_image_data_image-removebg-preview.png' | asset_url }}",
-        bottomIngredient: "{{ 'isolate_and_generate_a_single_separate_asset_a_traditional_terracotta_clay_cup-removebg-preview.png' | asset_url }}"
+        bgImg: HERO_BG_IMG,
+        tint: 'var(--pink)',
+        topIngredient:
+          "{{ 'regenerate_the_fresh_green_tea_leaves_sprig_from_the_reference_image_data_image-removebg-preview.png' | asset_url }}",
+        bottomIngredient:
+          "{{ 'isolate_and_generate_a_single_separate_asset_a_traditional_terracotta_clay_cup-removebg-preview.png' | asset_url }}",
       },
       {
-        name: "Honey Lemon Green Tea",
+        name: 'Honey Lemon Green Tea',
         img: "{{ 'product-2.png' | asset_url }}",
-        tint: "#2E6941",
+        bgImg: HERO_BG_IMG,
+        tint: '#2E6941',
         topIngredient: "{{ 'honey.webp' | asset_url }}",
-        bottomIngredient: "{{ 'lemon.webp' | asset_url }}"
+        bottomIngredient: "{{ 'lemon.webp' | asset_url }}",
       },
       {
-        name: "Rose Cardamom Black Tea",
+        name: 'Rose Cardamom Black Tea',
         img: "{{ 'product-3.png' | asset_url }}",
-        tint: "var(--red)",
+        bgImg: HERO_BG_IMG,
+        tint: 'var(--red)',
         topIngredient: "{{ 'tea-leaf.webp' | asset_url }}",
-        bottomIngredient: "{{ 'crisp_culinary_macro_photography_of_exactly_one_solitary_dehydrated_dried-removebg-preview.png' | asset_url }}"
-      }
+        bottomIngredient:
+          "{{ 'crisp_culinary_macro_photography_of_exactly_one_solitary_dehydrated_dried-removebg-preview.png' | asset_url }}",
+      },
     ];
 
     function initHeroCarousel() {
-      const wrap = document.getElementById("heroSlides");
+      const wrap = document.getElementById('heroSlides');
       if (!wrap) return;
 
-      const tint = document.getElementById("heroTint");
-      const tintWrap = document.getElementById("heroTintWrap");
-      const topWrap = document.getElementById("heroTopWrap");
-      const bottomWrap = document.getElementById("heroBottomWrap");
-      const topImg = document.getElementById("heroTopImg");
-      const bottomImg = document.getElementById("heroBottomImg");
-      const nameEl = document.getElementById("heroName");
-      const noEl = document.getElementById("heroNo");
-      const heroBtns = document.querySelectorAll("[data-hero]");
-      const heroSection = document.getElementById("hero");
-      let index = 0, autoplayTimer = null, btnPopupTimer = null, isTransitioning = false;
+      const tint = document.getElementById('heroTint');
+      const tintWrap = document.getElementById('heroTintWrap');
+      const topWrap = document.getElementById('heroTopWrap');
+      const bottomWrap = document.getElementById('heroBottomWrap');
+      const topImg = document.getElementById('heroTopImg');
+      const bottomImg = document.getElementById('heroBottomImg');
+      const nameEl = document.getElementById('heroName');
+      const noEl = document.getElementById('heroNo');
+      const heroBtns = document.querySelectorAll('[data-hero]');
+      const heroSection = document.getElementById('hero');
+      let index = 0,
+        autoplayTimer = null,
+        btnPopupTimer = null,
+        isTransitioning = false;
 
-      wrap.innerHTML = SLIDES.map((s, i) => `
+      wrap.innerHTML = SLIDES.map(
+        (s, i) => `
         <div class="hero-slide-item pointer-events-none absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform opacity-0" data-hero-slide="${i}">
           <img src="${s.img}" alt="${s.name}" class="hero-floating-pack pointer-events-none">
         </div>
-      `).join("");
-      const slides = [...wrap.querySelectorAll(".hero-slide-item")];
+      `
+      ).join('');
+      const slides = [...wrap.querySelectorAll('.hero-slide-item')];
 
       function hideHeroBtns() {
         heroBtns.forEach((b) => {
-          b.style.transition = "transform 220ms ease-out, opacity 220ms ease-out";
-          b.style.transform = "scale(0)";
-          b.style.opacity = "0";
-          b.style.pointerEvents = "none";
+          b.style.transition = 'transform 220ms ease-out, opacity 220ms ease-out';
+          b.style.transform = 'scale(0)';
+          b.style.opacity = '0';
+          b.style.pointerEvents = 'none';
         });
       }
 
@@ -1030,10 +1118,10 @@
         clearTimeout(btnPopupTimer);
         btnPopupTimer = setTimeout(() => {
           heroBtns.forEach((b) => {
-            b.style.transition = "transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease";
-            b.style.transform = "scale(1)";
-            b.style.opacity = "1";
-            b.style.pointerEvents = "auto";
+            b.style.transition = 'transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease';
+            b.style.transform = 'scale(1)';
+            b.style.opacity = '1';
+            b.style.pointerEvents = 'auto';
           });
           isTransitioning = false;
         }, 620);
@@ -1049,31 +1137,37 @@
 
           // Step 1: Shrink & Dip down on slide exit (260ms)
           if (tintWrap) {
-            tintWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1)";
-            tintWrap.style.transform = "scale(0.85)";
+            tintWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1)';
+            tintWrap.style.transform = 'scale(0.85)';
           }
 
           if (topWrap) {
-            topWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease";
-            topWrap.style.transform = "scale(0) rotate(-35deg)";
-            topWrap.style.opacity = "0";
+            topWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease';
+            topWrap.style.transform = 'scale(0) rotate(-35deg)';
+            topWrap.style.opacity = '0';
           }
           if (bottomWrap) {
-            bottomWrap.style.transition = "transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease";
-            bottomWrap.style.transform = "scale(0) rotate(35deg)";
-            bottomWrap.style.opacity = "0";
+            bottomWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease';
+            bottomWrap.style.transform = 'scale(0) rotate(35deg)';
+            bottomWrap.style.opacity = '0';
           }
 
           // Step 2: Swap color and spring back up to full size (550ms spring easing)
           setTimeout(() => {
             if (tint) {
-              tint.style.background = SLIDES[index].tint;
-              tint.style.boxShadow = "none";
+              tint.style.display = 'block';
+              tint.style.backgroundImage = `url('${SLIDES[index].bgImg || HERO_BG_IMG}')`;
+              tint.style.backgroundAttachment = 'fixed';
+              tint.style.backgroundSize = 'cover';
+              tint.style.backgroundPosition = 'center';
+              tint.style.backgroundRepeat = 'no-repeat';
+              tint.style.backgroundColor = 'transparent';
+              tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
             }
 
             if (tintWrap) {
-              tintWrap.style.transition = "transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1)";
-              tintWrap.style.transform = "scale(1)";
+              tintWrap.style.transition = 'transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+              tintWrap.style.transform = 'scale(1)';
             }
 
             if (topImg && bottomImg) {
@@ -1082,24 +1176,36 @@
             }
 
             if (topWrap) {
-              topWrap.style.transition = "transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease";
-              topWrap.style.transform = "scale(1) rotate(0deg)";
-              topWrap.style.opacity = "1";
+              topWrap.style.transition = 'transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease';
+              topWrap.style.transform = 'scale(1) rotate(0deg)';
+              topWrap.style.opacity = '1';
             }
             if (bottomWrap) {
-              bottomWrap.style.transition = "transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease";
-              bottomWrap.style.transform = "scale(1) rotate(0deg)";
-              bottomWrap.style.opacity = "1";
+              bottomWrap.style.transition = 'transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease';
+              bottomWrap.style.transform = 'scale(1) rotate(0deg)';
+              bottomWrap.style.opacity = '1';
             }
           }, 260);
         } else {
           if (tint) {
-            tint.style.background = SLIDES[index].tint;
-            tint.style.boxShadow = "none";
+            tint.style.display = 'block';
+            tint.style.backgroundImage = `url('${SLIDES[index].bgImg || HERO_BG_IMG}')`;
+            tint.style.backgroundAttachment = 'fixed';
+            tint.style.backgroundSize = 'cover';
+            tint.style.backgroundPosition = 'center';
+            tint.style.backgroundRepeat = 'no-repeat';
+            tint.style.backgroundColor = 'transparent';
+            tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
           }
-          if (tintWrap) tintWrap.style.transform = "scale(1)";
-          if (topWrap) { topWrap.style.transform = "scale(1)"; topWrap.style.opacity = "1"; }
-          if (bottomWrap) { bottomWrap.style.transform = "scale(1)"; bottomWrap.style.opacity = "1"; }
+          if (tintWrap) tintWrap.style.transform = 'scale(1)';
+          if (topWrap) {
+            topWrap.style.transform = 'scale(1)';
+            topWrap.style.opacity = '1';
+          }
+          if (bottomWrap) {
+            bottomWrap.style.transform = 'scale(1)';
+            bottomWrap.style.opacity = '1';
+          }
           if (topImg) topImg.src = SLIDES[index].topIngredient;
           if (bottomImg) bottomImg.src = SLIDES[index].bottomIngredient;
         }
@@ -1111,32 +1217,32 @@
 
           const isActive = off === 0;
           if (isActive) {
-            sl.style.opacity = "1";
-            sl.style.zIndex = "20";
-            sl.style.pointerEvents = "none";
-            sl.style.transform = "translate3d(0, 0, 0) scale(1) rotate(0deg)";
+            sl.style.opacity = '1';
+            sl.style.zIndex = '20';
+            sl.style.pointerEvents = 'none';
+            sl.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
           } else if (off < 0) {
-            sl.style.opacity = "0";
-            sl.style.zIndex = "10";
-            sl.style.pointerEvents = "none";
-            sl.style.transform = "translate3d(-180%, 0, 0) scale(0.7) rotate(-10deg)";
+            sl.style.opacity = '0';
+            sl.style.zIndex = '10';
+            sl.style.pointerEvents = 'none';
+            sl.style.transform = 'translate3d(-180%, 0, 0) scale(0.7) rotate(-10deg)';
           } else {
-            sl.style.opacity = "0";
-            sl.style.zIndex = "10";
-            sl.style.pointerEvents = "none";
-            sl.style.transform = "translate3d(180%, 0, 0) scale(0.7) rotate(10deg)";
+            sl.style.opacity = '0';
+            sl.style.zIndex = '10';
+            sl.style.pointerEvents = 'none';
+            sl.style.transform = 'translate3d(180%, 0, 0) scale(0.7) rotate(10deg)';
           }
         });
 
         if (nameEl) {
           // Update text and replay the fade-in animation
           nameEl.textContent = SLIDES[index].name;
-          nameEl.classList.remove("animate-fade-in");
+          nameEl.classList.remove('animate-fade-in');
           void nameEl.offsetWidth; // Forces DOM reflow so animation restarts
-          nameEl.classList.add("animate-fade-in");
+          nameEl.classList.add('animate-fade-in');
         }
         if (noEl) {
-          noEl.textContent = "Blend N0.0" + (index + 1);
+          noEl.textContent = 'Blend N0.0' + (index + 1);
         }
       }
 
@@ -1156,7 +1262,7 @@
       }
 
       heroBtns.forEach((b) => {
-        b.addEventListener("click", (e) => {
+        b.addEventListener('click', (e) => {
           e.stopPropagation();
           go(+b.dataset.hero);
         });
@@ -1166,61 +1272,70 @@
       resetAutoplay();
 
       // Mobile Touch Swipe Navigation
-      let touchStartX = 0, touchStartY = 0;
+      let touchStartX = 0,
+        touchStartY = 0;
       const carouselContainer = wrap.parentElement;
       if (carouselContainer) {
-        carouselContainer.addEventListener("touchstart", (e) => {
-          if (e.touches && e.touches[0]) {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-          }
-        }, { passive: true });
+        carouselContainer.addEventListener(
+          'touchstart',
+          (e) => {
+            if (e.touches && e.touches[0]) {
+              touchStartX = e.touches[0].clientX;
+              touchStartY = e.touches[0].clientY;
+            }
+          },
+          { passive: true }
+        );
 
-        carouselContainer.addEventListener("touchend", (e) => {
-          if (!touchStartX) return;
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          const diffX = touchEndX - touchStartX;
-          const diffY = touchEndY - touchStartY;
-          if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX < 0) go(1);
-            else go(-1);
-          }
-          touchStartX = 0;
-          touchStartY = 0;
-        }, { passive: true });
+        carouselContainer.addEventListener(
+          'touchend',
+          (e) => {
+            if (!touchStartX) return;
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+              if (diffX < 0) go(1);
+              else go(-1);
+            }
+            touchStartX = 0;
+            touchStartY = 0;
+          },
+          { passive: true }
+        );
       }
 
       // Mouse Parallax on Hero Section
-      if (heroSection && typeof gsap !== "undefined") {
-        heroSection.addEventListener("mousemove", (e) => {
+      if (heroSection && typeof gsap !== 'undefined') {
+        heroSection.addEventListener('mousemove', (e) => {
           const rect = heroSection.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
           const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-          gsap.to(tintWrap, { x: x * 20, y: y * 20, duration: 0.8, ease: "power2.out" });
-          gsap.to(wrap, { x: x * 12, y: y * 12, duration: 0.8, ease: "power2.out" });
+          gsap.to(tintWrap, { x: x * 20, y: y * 20, duration: 0.8, ease: 'power2.out' });
+          gsap.to(wrap, { x: x * 12, y: y * 12, duration: 0.8, ease: 'power2.out' });
         });
 
-        heroSection.addEventListener("mouseleave", () => {
-          gsap.to([tintWrap, wrap], { x: 0, y: 0, duration: 1, ease: "power2.out" });
+        heroSection.addEventListener('mouseleave', () => {
+          gsap.to([tintWrap, wrap], { x: 0, y: 0, duration: 1, ease: 'power2.out' });
         });
       }
     }
 
     function startInit() {
       initHeroCarousel();
-      const loader = document.getElementById("loader");
+      const loader = document.getElementById('loader');
       if (!loader) {
         initHeroHeadingGsap();
       } else {
-        window.addEventListener("nidhi:loaderDone", initHeroHeadingGsap);
+        window.addEventListener('nidhi:loaderDone', initHeroHeadingGsap);
         setTimeout(initHeroHeadingGsap, 2600);
       }
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", startInit);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startInit);
     } else {
       startInit();
     }
