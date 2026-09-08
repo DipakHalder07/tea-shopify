@@ -1046,7 +1046,7 @@ li.color-values-plus a {
       color: var(--gradient-base-background-1);
 }
 .card-wrapper .quick-add__submit.button {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 /* .grid--5-col-desktop .card-wrapper .quick-add__submit.button{padding:0 20px;} 

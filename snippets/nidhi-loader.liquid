@@ -4,286 +4,331 @@
 {% endcomment %}
 
 {% if template.name == 'index' or template == 'index' %}
-<style>
-  #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999999;
-    overflow: hidden;
-    pointer-events: auto;
-    background-color: #F7C665 !important;
-  }
-  .pl-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #F7C665 !important;
-    z-index: 1;
-  }
-  .pl-revealer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    clip-path: circle(0% at 50% 50%);
-    -webkit-clip-path: circle(0% at 50% 50%);
-    will-change: clip-path, -webkit-clip-path;
-  }
-  .pl-revealer.rev-gold {
-    background-color: #F7C665 !important;
-    z-index: 2;
-  }
-  .pl-revealer.rev-flame {
-    background-color: #F15726 !important;
-    z-index: 3;
-  }
-  .pl-revealer.rev-cherry {
-    background-color: #C4321C !important;
-    z-index: 4;
-  }
-  .pl-revealer.rev-background {
-    background-color: #100B06 !important;
-    z-index: 5;
-  }
-  .pl-item {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 26vw;
-    aspect-ratio: 1 / 1;
-    transform: translate(-50%, -50%) scale(0);
-    will-change: transform;
-    pointer-events: none;
-    z-index: 20;
-  }
-  @media (min-width: 640px) {
-    .pl-item {
-      width: 18vw;
+  <style>
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999999;
+      overflow: hidden;
+      pointer-events: auto;
+      background-color: #f7c665 !important;
     }
-  }
-  @media (min-width: 1024px) {
-    .pl-item {
-      width: 13vw;
+    .pl-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f7c665 !important;
+      z-index: 1;
     }
-  }
-  .pl-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
-  }
-  .pl-logo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 52vw;
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-    will-change: transform, opacity;
-    pointer-events: none;
-    z-index: 30;
-  }
-  @media (min-width: 768px) {
-    .pl-logo {
+    .pl-revealer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      clip-path: circle(0% at 50% 50%);
+      -webkit-clip-path: circle(0% at 50% 50%);
+      will-change: clip-path, -webkit-clip-path;
+    }
+    .pl-revealer.rev-gold {
+      background-color: #f7c665 !important;
+      z-index: 2;
+    }
+    .pl-revealer.rev-flame {
+      background-color: #f15726 !important;
+      z-index: 3;
+    }
+    .pl-revealer.rev-cherry {
+      background-color: #c4321c !important;
+      z-index: 4;
+    }
+    .pl-revealer.rev-background {
+      background-color: #100b06 !important;
+      z-index: 5;
+    }
+    .pl-item {
+      position: absolute;
+      left: 50%;
+      top: 50%;
       width: 26vw;
+      aspect-ratio: 1 / 1;
+      transform: translate(-50%, -50%) scale(0);
+      will-change: transform;
+      pointer-events: none;
+      z-index: 20;
     }
-  }
-  .pl-logo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
-  }
-</style>
+    @media (min-width: 640px) {
+      .pl-item {
+        width: 18vw;
+      }
+    }
+    @media (min-width: 1024px) {
+      .pl-item {
+        width: 13vw;
+      }
+    }
+    .pl-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+    }
+    .pl-logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 52vw;
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+      will-change: transform, opacity;
+      pointer-events: none;
+      z-index: 30;
+    }
+    @media (min-width: 768px) {
+      .pl-logo {
+        width: 26vw;
+      }
+    }
+    .pl-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+    }
+  </style>
 
-<div id="loader">
-  <div class="pl-bg"></div>
-  <div class="pl-revealer rev-gold"></div>
-  <div class="pl-revealer rev-flame"></div>
-  <div class="pl-revealer rev-cherry"></div>
-  <div class="pl-revealer rev-background pl-last"></div>
+  <div id="loader">
+    <div class="pl-bg"></div>
+    <div class="pl-revealer rev-gold"></div>
+    <div class="pl-revealer rev-flame"></div>
+    <div class="pl-revealer rev-cherry"></div>
+    <div class="pl-revealer rev-background pl-last"></div>
 
-  <div class="pl-item">
-    <img src="{{ 'crisp_isolated_studio_macro_photography_of_exactly_one_single_ceylon_cinnamon-removebg-preview.png' | asset_url }}"
-      alt="Cinnamon Stick" />
+    <div class="pl-item">
+      <img
+        src="{{ 'crisp_isolated_studio_macro_photography_of_exactly_one_single_ceylon_cinnamon-removebg-preview.png' | asset_url }}"
+        alt="Cinnamon Stick"
+      />
+    </div>
+    <div class="pl-item">
+      <img src="{{ 'honey.webp' | asset_url }}" alt="Honey Dipper" />
+    </div>
+    <div class="pl-item">
+      <img
+        src="{{ 'tea-leaf.webp' | asset_url }}"
+        alt="Fresh Tea Leaves"
+      />
+    </div>
+    <div class="pl-item">
+      <img
+        src="{{ 'lemon.webp' | asset_url }}"
+        alt="Lemon Slice"
+      />
+    </div>
+
+    <div class="pl-logo">
+      <img src="{{ 'logo.webp' | asset_url }}" alt="Nidhi Tea Logo" />
+    </div>
   </div>
-  <div class="pl-item">
-    <img src="{{ 'honey.webp' | asset_url }}" alt="Honey Dipper" />
-  </div>
-  <div class="pl-item">
-    <img src="{{ 'tea-leaf.webp' | asset_url }}"
-      alt="Fresh Tea Leaves" />
-  </div>
-  <div class="pl-item">
-    <img src="{{ 'lemon.webp' | asset_url }}"
-      alt="Lemon Slice" />
-  </div>
 
-  <div class="pl-logo">
-    <img src="{{ 'logo.webp' | asset_url }}" alt="Nidhi Tea Logo" />
-  </div>
-</div>
+  <script>
+    (function () {
+      /* ---------- SPLIT TEXT PLUGIN ---------- */
+      window.SplitTextPlugin =
+        window.SplitTextPlugin ||
+        class {
+          constructor(target, options = {}) {
+            const elements =
+              typeof target === 'string'
+                ? Array.from(document.querySelectorAll(target))
+                : Array.isArray(target)
+                ? target
+                : [target];
+            this.chars = [];
+            this.words = [];
+            this.lines = [];
 
-<script>
-  (function () {
-    /* ---------- SPLIT TEXT PLUGIN ---------- */
-    window.SplitTextPlugin = window.SplitTextPlugin || class {
-      constructor(target, options = {}) {
-        const elements = typeof target === "string" ? Array.from(document.querySelectorAll(target)) : (Array.isArray(target) ? target : [target]);
-        this.chars = [];
-        this.words = [];
-        this.lines = [];
+            elements.forEach((el) => {
+              const wordsClass = options.wordsClass || 'word';
+              const charsClass = options.charsClass || 'char';
+              const includeChars = options.type && options.type.includes('chars');
 
-        elements.forEach((el) => {
-          const wordsClass = options.wordsClass || "word";
-          const charsClass = options.charsClass || "char";
-          const includeChars = options.type && options.type.includes("chars");
+              const processNode = (node, extraClasses = []) => {
+                const fragment = document.createDocumentFragment();
 
-          const processNode = (node, extraClasses = []) => {
-            const fragment = document.createDocumentFragment();
+                if (node.nodeType === 3) {
+                  const text = node.textContent;
+                  const wordsArr = text.split(/(\s+)/);
 
-            if (node.nodeType === 3) {
-              const text = node.textContent;
-              const wordsArr = text.split(/(\s+)/);
+                  wordsArr.forEach((part) => {
+                    if (/\s+/.test(part)) {
+                      fragment.appendChild(document.createTextNode(part));
+                      return;
+                    }
+                    if (!part) return;
 
-              wordsArr.forEach((part) => {
-                if (/\s+/.test(part)) {
-                  fragment.appendChild(document.createTextNode(part));
-                  return;
-                }
-                if (!part) return;
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = [wordsClass, ...extraClasses].filter(Boolean).join(' ');
+                    wordSpan.style.display = 'inline-block';
 
-                const wordSpan = document.createElement("span");
-                wordSpan.className = [wordsClass, ...extraClasses].filter(Boolean).join(" ");
-                wordSpan.style.display = "inline-block";
+                    if (includeChars) {
+                      part.split('').forEach((char) => {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = [charsClass, ...extraClasses].filter(Boolean).join(' ');
+                        charSpan.style.display = 'inline-block';
+                        charSpan.textContent = char;
+                        wordSpan.appendChild(charSpan);
+                        this.chars.push(charSpan);
+                      });
+                    } else {
+                      wordSpan.textContent = part;
+                    }
 
-                if (includeChars) {
-                  part.split("").forEach((char) => {
-                    const charSpan = document.createElement("span");
-                    charSpan.className = [charsClass, ...extraClasses].filter(Boolean).join(" ");
-                    charSpan.style.display = "inline-block";
-                    charSpan.textContent = char;
-                    wordSpan.appendChild(charSpan);
-                    this.chars.push(charSpan);
+                    fragment.appendChild(wordSpan);
+                    this.words.push(wordSpan);
                   });
-                } else {
-                  wordSpan.textContent = part;
+                } else if (node.nodeType === 1) {
+                  if (node.tagName === 'BR') {
+                    fragment.appendChild(node.cloneNode(true));
+                  } else {
+                    const elementClasses = Array.from(node.classList).filter(
+                      (c) => !['block', 'flex', 'grid', 'hidden', 'inline'].includes(c)
+                    );
+                    const combinedClasses = [...extraClasses, ...elementClasses];
+                    Array.from(node.childNodes).forEach((child) => {
+                      fragment.appendChild(processNode(child, combinedClasses));
+                    });
+                    if (node.classList.contains('block')) {
+                      fragment.appendChild(document.createElement('br'));
+                    }
+                  }
                 }
 
-                fragment.appendChild(wordSpan);
-                this.words.push(wordSpan);
+                return fragment;
+              };
+
+              const childNodes = Array.from(el.childNodes);
+              el.innerHTML = '';
+              childNodes.forEach((child) => {
+                el.appendChild(processNode(child));
               });
-            } else if (node.nodeType === 1) {
-              if (node.tagName === "BR") {
-                fragment.appendChild(node.cloneNode(true));
-              } else {
-                const elementClasses = Array.from(node.classList).filter(c => !["block", "flex", "grid", "hidden", "inline"].includes(c));
-                const combinedClasses = [...extraClasses, ...elementClasses];
-                Array.from(node.childNodes).forEach((child) => {
-                  fragment.appendChild(processNode(child, combinedClasses));
-                });
-                if (node.classList.contains("block")) {
-                  fragment.appendChild(document.createElement("br"));
-                }
-              }
-            }
 
-            return fragment;
-          };
-
-          const childNodes = Array.from(el.childNodes);
-          el.innerHTML = "";
-          childNodes.forEach((child) => {
-            el.appendChild(processNode(child));
-          });
-
-          this.lines.push(el);
-        });
-      }
-
-      static create(target, options) {
-        return new window.SplitTextPlugin(target, options);
-      }
-    };
-
-    function startLoaderAnimation() {
-      const el = document.getElementById("loader");
-      if (!el) return;
-
-      if (typeof gsap === "undefined") {
-        setTimeout(startLoaderAnimation, 30);
-        return;
-      }
-
-      document.body.style.overflow = "hidden";
-
-      const T = [
-        { x: "-20vw", y: "-30vh", rotation: -20 },
-        { x: "25vw", y: "-20vh", rotation: 15 },
-        { x: "-32vw", y: "30vh", rotation: 12 },
-        { x: "15vw", y: "25vh", rotation: -15 },
-      ];
-      const EXIT = 3.5, items = gsap.utils.toArray(".pl-item"), floats = [];
-      const tl = gsap.timeline({
-        delay: 0.1,
-        onComplete: () => {
-          el.remove();
-          document.body.style.overflow = "";
-          if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
-          window.dispatchEvent(new Event("loaderComplete"));
-        }
-      });
-
-      // 1. Circle reveal stagger expansion
-      tl.to(".pl-revealer", {
-        clipPath: "circle(150% at 50% 50%)",
-        webkitClipPath: "circle(150% at 50% 50%)",
-        duration: 0.9,
-        stagger: 0.2,
-        ease: "power2.inOut"
-      });
-      tl.set(".pl-revealer:not(.pl-last)", { display: "none" });
-
-      // 2. Preloader items float to 4 corners over solid dark background
-      items.forEach((item, i) => {
-        const t = T[i], img = item.querySelector("img");
-        tl.to(item, {
-          x: t.x, y: t.y, scale: 1, rotation: t.rotation, duration: 0.9, ease: "power3.out",
-          onStart: () => {
-            floats[i] = gsap.to(img, { y: gsap.utils.random(-15, -25), duration: gsap.utils.random(1.5, 2.5), ease: "sine.inOut", yoyo: true, repeat: -1, delay: gsap.utils.random(0, 0.5) });
+              this.lines.push(el);
+            });
           }
-        }, i === 0 ? "-=0.5" : "<0.075");
-      });
 
-      tl.to(".pl-logo", { scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, "<");
-      tl.set(".pl-bg", { display: "none" });
-      tl.to({}, { duration: 0.5 });
-      tl.add(() => floats.forEach(f => f && f.kill()));
+          static create(target, options) {
+            return new window.SplitTextPlugin(target, options);
+          }
+        };
 
-      // 3. EXIT: Food items explode out, Logo shoots up, Loader background fades out
-      items.forEach((item, i) => {
-        const t = T[i];
-        tl.to(item, { x: parseFloat(t.x) * EXIT + "vw", y: parseFloat(t.y) * EXIT + "vh", rotation: t.rotation * 2.5, scale: 2.5, duration: 0.75, ease: "power2.in" }, i === 0 ? ">" : "<0.075");
-      });
-      tl.to(".pl-logo", { y: "-120vh", scale: 2.5, duration: 0.75, ease: "power2.in" }, "<");
+      function startLoaderAnimation() {
+        const el = document.getElementById('loader');
+        if (!el) return;
 
-      // Fade loader background smoothly from 1 to 0 at exit
-      tl.to("#loader", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, "<0.1");
-      tl.add(() => {
-        window.dispatchEvent(new Event("nidhi:loaderDone"));
-      }, "<");
-    }
+        if (typeof gsap === 'undefined') {
+          setTimeout(startLoaderAnimation, 30);
+          return;
+        }
 
-    startLoaderAnimation();
-  })();
-</script>
+        document.body.style.overflow = 'hidden';
+
+        const T = [
+          { x: '-20vw', y: '-30vh', rotation: -20 },
+          { x: '25vw', y: '-20vh', rotation: 15 },
+          { x: '-32vw', y: '30vh', rotation: 12 },
+          { x: '15vw', y: '25vh', rotation: -15 },
+        ];
+        const EXIT = 3.5,
+          items = gsap.utils.toArray('.pl-item'),
+          floats = [];
+        const tl = gsap.timeline({
+          delay: 0.1,
+          onComplete: () => {
+            el.remove();
+            document.body.style.overflow = '';
+            if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            window.dispatchEvent(new Event('loaderComplete'));
+          },
+        });
+
+        // 1. Circle reveal stagger expansion
+        tl.to('.pl-revealer', {
+          clipPath: 'circle(150% at 50% 50%)',
+          webkitClipPath: 'circle(150% at 50% 50%)',
+          duration: 0.9,
+          stagger: 0.2,
+          ease: 'power2.inOut',
+        });
+        tl.set('.pl-revealer:not(.pl-last)', { display: 'none' });
+
+        // 2. Preloader items float to 4 corners over solid dark background
+        items.forEach((item, i) => {
+          const t = T[i],
+            img = item.querySelector('img');
+          tl.to(
+            item,
+            {
+              x: t.x,
+              y: t.y,
+              scale: 1,
+              rotation: t.rotation,
+              duration: 0.9,
+              ease: 'power3.out',
+              onStart: () => {
+                floats[i] = gsap.to(img, {
+                  y: gsap.utils.random(-15, -25),
+                  duration: gsap.utils.random(1.5, 2.5),
+                  ease: 'sine.inOut',
+                  yoyo: true,
+                  repeat: -1,
+                  delay: gsap.utils.random(0, 0.5),
+                });
+              },
+            },
+            i === 0 ? '-=0.5' : '<0.075'
+          );
+        });
+
+        tl.to('.pl-logo', { scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' }, '<');
+        tl.set('.pl-bg', { display: 'none' });
+        tl.to({}, { duration: 0.5 });
+        tl.add(() => floats.forEach((f) => f && f.kill()));
+
+        // 3. EXIT: Food items explode out, Logo shoots up, Loader background fades out
+        items.forEach((item, i) => {
+          const t = T[i];
+          tl.to(
+            item,
+            {
+              x: parseFloat(t.x) * EXIT + 'vw',
+              y: parseFloat(t.y) * EXIT + 'vh',
+              rotation: t.rotation * 2.5,
+              scale: 2.5,
+              duration: 0.75,
+              ease: 'power2.in',
+            },
+            i === 0 ? '>' : '<0.075'
+          );
+        });
+        tl.to('.pl-logo', { y: '-120vh', scale: 2.5, duration: 0.75, ease: 'power2.in' }, '<');
+
+        // Fade loader background smoothly from 1 to 0 at exit
+        tl.to('#loader', { autoAlpha: 0, duration: 0.5, ease: 'power2.out' }, '<0.1');
+        tl.add(() => {
+          window.dispatchEvent(new Event('nidhi:loaderDone'));
+        }, '<');
+      }
+
+      startLoaderAnimation();
+    })();
+  </script>
 {% endif %}
