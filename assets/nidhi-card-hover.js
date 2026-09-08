@@ -44,8 +44,8 @@ function initNidhiCardHoverGsap() {
       if (window.innerWidth >= 769) {
         gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
         if (title) gsap.to(title, { scale: 0.88, duration: 0.4, ease: 'power2.out' });
-        // Scale product slightly down on hover (thore sa chota kar dena)
-        if (bottle) gsap.to(bottle, { y: -4, scale: 0.92, rotation: 0, duration: 0.45, ease: 'power2.out' });
+        // Scale product down on hover (make small on hover to bloom botanical companions)
+        if (bottle) gsap.to(bottle, { y: -4, scale: 0.86, rotation: 0, duration: 0.45, ease: 'power2.out' });
         if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1, x: -10, y: -4, rotation: -10, duration: 0.55, ease: 'back.out(1.8)' });
         if (elemBL) gsap.to(elemBL, { opacity: 1, scale: 1, x: -4, y: 2, rotation: -25, duration: 0.55, delay: 0.03, ease: 'back.out(1.8)' });
         if (elemEstate) gsap.to(elemEstate, { opacity: 1, scale: 1.04, x: 6, y: -2, rotation: 0, duration: 0.55, delay: 0.05, ease: 'power2.out' });

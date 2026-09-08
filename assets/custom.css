@@ -1698,9 +1698,9 @@ header svg[fill]:not([fill="none"]),
 .card__inner .media img {
   position: relative !important;
   width: auto !important;
-  max-width: 245px !important;
+  max-width: 295px !important;
   height: auto !important;
-  max-height: 320px !important;
+  max-height: 380px !important;
   object-fit: contain !important;
   margin: 0 auto !important;
   display: block !important;
@@ -1714,7 +1714,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-4px) scale(0.92) !important;
+  transform: translateY(-4px) scale(0.86) !important;
 }
 
 /* Floating overlay for inner action buttons */
