@@ -1,13 +1,42 @@
 /**
  * Nidhi Tea - Dynamic Product Card Hover GSAP Animation Controller
- * Smoothly scales the card title down to 0.88
- * Lifts and gently scales the product pouch
- * Sprays/reveals the 3 companion hover elements from behind:
- *  - Top-Left: Dried Black Tea Leaves
- *  - Bottom-Left: Terracotta Clay Cup
- *  - Right-Side Top: Fresh Green Tea Leaves Sprig
- * Smoothly slides up the split Quick Buy button (Add to Cart + Price)
+ * 
+ * Order of loading:
+ * 1. Product pouch / bottle image loads first.
+ * 2. ONLY AFTER the product image finishes loading (or on immediate cache hit),
+ *    the companion elements (tea leaves, clay cup, tea estate, green sprig) load their image sources.
+ * 3. Smoothly animates cards on hover (title scaling, pouch elevation, companion bloom & organic floating loops).
  */
+
+function loadCardCompanionElements(card) {
+  if (!card) return;
+  const companionContainer = card.querySelector('.card__hover-companions');
+  if (!companionContainer || companionContainer.dataset.loaded === 'true') return;
+  companionContainer.dataset.loaded = 'true';
+
+  const companionImgs = companionContainer.querySelectorAll('.card-hover-elem[data-src]');
+  companionImgs.forEach((img) => {
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    }
+  });
+
+  companionContainer.classList.add('is-loaded');
+
+  const elemTR = card.querySelector('.hover-elem-tr');
+  if (elemTR && window.innerWidth >= 769 && typeof gsap !== 'undefined') {
+    gsap.to(elemTR, {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      y: 0,
+      rotation: 8,
+      duration: 0.55,
+      ease: 'back.out(1.5)'
+    });
+  }
+}
 
 function initNidhiCardHoverGsap() {
   if (typeof gsap === 'undefined') {
@@ -38,14 +67,32 @@ function initNidhiCardHoverGsap() {
       if (bottle) gsap.set(bottle, { rotation: 0, scale: 1.14, y: 0 });
       if (elemTL) gsap.set(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, transformOrigin: '75% 75%' });
       if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, transformOrigin: '65% 65%' });
-      // Estate is normal (hidden initially, blooms on hover)
       if (elemEstate) gsap.set(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: '25% 50%' });
-      // Green tea leaves sprig is FIXED ONLY (always visible)
-      if (elemTR) gsap.set(elemTR, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 8, transformOrigin: '25% 75%' });
+
+      const isCompanionsLoaded = card.querySelector('.card__hover-companions.is-loaded');
+      if (elemTR) gsap.set(elemTR, { opacity: isCompanionsLoaded ? 1 : 0, scale: isCompanionsLoaded ? 1 : 0.7, x: 0, y: 0, rotation: 8, transformOrigin: '25% 75%' });
       if (quickAdd) gsap.set(quickAdd, { opacity: 0, y: 18, pointerEvents: 'none' });
     }
 
+    // Load companion elements ONLY after product image finishes loading
+    if (bottle) {
+      if (bottle.complete && bottle.naturalWidth > 0) {
+        loadCardCompanionElements(card);
+      } else {
+        bottle.addEventListener('load', () => loadCardCompanionElements(card), { once: true });
+        bottle.addEventListener('error', () => loadCardCompanionElements(card), { once: true });
+        card.addEventListener('product-img-loaded', () => loadCardCompanionElements(card), { once: true });
+        // Fallback timer so companions always load even if image stalls
+        setTimeout(() => loadCardCompanionElements(card), 2500);
+      }
+    } else {
+      loadCardCompanionElements(card);
+    }
+
     card.addEventListener('mouseenter', () => {
+      // Ensure companion elements are loaded upon user interaction
+      loadCardCompanionElements(card);
+
       if (window.innerWidth >= 769) {
         isHovered = true;
         if (floatTweenBL) { floatTweenBL.kill(); floatTweenBL = null; }
@@ -53,7 +100,7 @@ function initNidhiCardHoverGsap() {
         gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
 
         if (title) gsap.to(title, { scale: 0.88, duration: 0.4, ease: 'power2.out' });
-        // Product hover is more big (scale: 1.0, y: -6)
+        // Product hover scale: 1.0, y: -6
         if (bottle) gsap.to(bottle, { y: -6, scale: 1.0, rotation: 0, duration: 0.45, ease: 'power2.out' });
         if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1, x: -10, y: -4, rotation: -10, duration: 0.55, ease: 'back.out(1.8)' });
 
@@ -126,10 +173,11 @@ function initNidhiCardHoverGsap() {
         if (bottle) gsap.to(bottle, { y: 0, scale: 1.14, rotation: 0, duration: 0.35, ease: 'power2.inOut' });
         if (elemTL) gsap.to(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, duration: 0.3, ease: 'power2.in' });
         if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, duration: 0.3, ease: 'power2.in' });
-        // Estate returns to hidden state
         if (elemEstate) gsap.to(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
-        // Green sprig returns to fixed idle visible state
-        if (elemTR) gsap.to(elemTR, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 8, duration: 0.35, ease: 'power2.inOut' });
+
+        // Green sprig returns to fixed idle visible state if companions loaded
+        const isCompanionsLoaded = card.querySelector('.card__hover-companions.is-loaded');
+        if (elemTR) gsap.to(elemTR, { opacity: isCompanionsLoaded ? 1 : 0, scale: 1, x: 0, y: 0, rotation: 8, duration: 0.35, ease: 'power2.inOut' });
         if (quickAdd) gsap.to(quickAdd, { opacity: 0, y: 18, pointerEvents: 'none', duration: 0.25, ease: 'power2.in' });
         if (idlePrice) gsap.to(idlePrice, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
       }

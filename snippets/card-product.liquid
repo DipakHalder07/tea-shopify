@@ -47,12 +47,12 @@
         </h3>
       </div>
       <div class="card__inner {% if card_product.featured_media %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
-        <!-- Companion Hover Elements (Behind product image) -->
+        <!-- Companion Hover Elements (Loaded strictly after product image loads) -->
         <div class="card__hover-companions" aria-hidden="true">
-          <img src="{{ 'hover-tea-leaves-tl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tl" loading="lazy" width="90" height="90">
-          <img src="{{ 'hover-clay-cup-bl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-bl" loading="lazy" width="85" height="85">
-          <img src="{{ 'hover-tea-estate-rc.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-estate" loading="lazy" width="130" height="130">
-          <img src="{{ 'hover-green-sprig-tr.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tr" loading="lazy" width="95" height="95">
+          <img data-src="{{ 'hover-tea-leaves-tl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tl" width="90" height="90">
+          <img data-src="{{ 'hover-clay-cup-bl.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-bl" width="85" height="85">
+          <img data-src="{{ 'hover-tea-estate-rc.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-estate" width="130" height="130">
+          <img data-src="{{ 'hover-green-sprig-tr.png' | asset_url }}" alt="" class="card-hover-elem hover-elem-tr" width="95" height="95">
         </div>
         {%- if card_product.featured_media -%}
           <div class="card__media">
@@ -75,6 +75,7 @@
                 {% unless lazy_load == false %}loading="lazy"{% endunless %}
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
+                onload="this.dataset.loaded = 'true'; this.closest('.card')?.dispatchEvent(new CustomEvent('product-img-loaded'));"
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 

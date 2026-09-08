@@ -1947,7 +1947,7 @@ header svg[fill]:not([fill="none"]),
   filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.4)) !important;
 }
 
-/* 4. Top-Right: Fresh green tea leaves sprig (Fixed only - always show, don't hide) */
+/* 4. Top-Right: Fresh green tea leaves sprig (Fixed only - reveals after product img loads) */
 .card-hover-elem.hover-elem-tr {
   top: 4% !important;
   left: calc(50% + 24px) !important;
@@ -1956,8 +1956,13 @@ header svg[fill]:not([fill="none"]),
   transform: scale(1) rotate(8deg) !important;
   transform-origin: 25% 75%;
   z-index: 2 !important;
-  opacity: 1 !important;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)) !important;
+}
+
+.card__hover-companions.is-loaded .card-hover-elem.hover-elem-tr {
+  opacity: 1 !important;
 }
 
 @keyframes float-card-companion-bl {
