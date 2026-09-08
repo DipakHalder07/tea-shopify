@@ -216,7 +216,7 @@
               >               
                 <div class="quick-add-btn-split">
                   <span class="btn-text-left">
-                    {{ 'products.product.add_to_cart' | t }}
+                    {{ 'products.product.quick_buy' | t | default: 'Quick buy' }}
                   </span>
                   <span class="btn-price-right">
                     {{ card_product.price | money }}
@@ -270,7 +270,7 @@
                   <div class="quick-add-btn-split">
                     <span class="btn-text-left">
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{ 'products.product.add_to_cart' | t }}
+                        {{ 'products.product.quick_buy' | t | default: 'Quick buy' }}
                       {%- else -%}
                         {{ 'products.product.sold_out' | t }}
                       {%- endif -%}
@@ -290,7 +290,7 @@
                 </button>
               {%- endform -%}
             </product-form>                         
-            <tooltip class="tooltip">{{ 'products.product.add_to_cart' | t }}</tooltip>
+            <tooltip class="tooltip">{{ 'products.product.quick_buy' | t | default: 'Quick buy' }}</tooltip>
           {%- endif -%}
         </div>
   

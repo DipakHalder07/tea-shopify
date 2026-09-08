@@ -1469,6 +1469,37 @@ header svg[fill]:not([fill="none"]),
   box-shadow: none !important;
 }
 
+/* Equal Height Product Cards Layout across Homepage & Collections */
+.product-tab-wrapper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.product-tab-wrapper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.product-tab-wrapper .card-wrapper,
+.collection .product-grid .grid__item .card-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
+.product-tab-wrapper .card,
+.product-tab-wrapper .card--card,
+.collection .card,
+.collection .card--card {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+}
+
 /* 2. Unified Premium Card Container - No Outline Border, Inset Dotted Border & Vibrant Flavor Backgrounds */
 .product-tab-wrapper .card--card,
 .product-tab-wrapper .card,
@@ -1775,13 +1806,15 @@ header svg[fill]:not([fill="none"]),
   .card__top-header.desktop-only-title,
   .card__top-header {
     width: 100% !important;
-    padding: 12px 10px 2px !important;
+    min-height: 76px !important;
+    padding: 8px 10px 4px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
     flex-shrink: 0 !important;
     z-index: 5 !important;
+    box-sizing: border-box !important;
   }
   .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
   .collection .card__content.for-arrow-alignment .card__heading,
