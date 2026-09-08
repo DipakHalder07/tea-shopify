@@ -1724,7 +1724,7 @@ header svg[fill]:not([fill="none"]),
 .main-search .card:hover .card__media .media img,
 .card-wrapper:hover .card__media .media img,
 .card--card:hover .card__media .media img {
-  transform: translateY(-8px) scale(0.84) !important;
+  transform: translateY(-6px) scale(1.0) !important;
 }
 
 /* Floating overlay for inner action buttons */
@@ -1900,29 +1900,30 @@ header svg[fill]:not([fill="none"]),
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5)) !important;
 }
 
-/* 3. Right-Center: Scenic rolling green tea estate medallion (Always show, don't hide) */
+/* 3. Right-Center: Scenic rolling green tea estate medallion (Normal hover element) */
 .card-hover-elem.hover-elem-estate {
   top: 17% !important;
   left: calc(50% - 68px) !important;
   width: 200px !important;
   height: 200px !important;
-  transform: scale(1) rotate(0deg) !important;
+  transform: scale(0.2) rotate(0deg);
   transform-origin: 25% 50%;
   z-index: 1 !important;
   border-radius: 50% !important;
-  opacity: 1 !important;
+  opacity: 0;
   filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.4)) !important;
 }
 
-/* 4. Top-Right: Fresh green tea leaves sprig (sprouting from right shoulder) */
+/* 4. Top-Right: Fresh green tea leaves sprig (Fixed only - always show, don't hide) */
 .card-hover-elem.hover-elem-tr {
   top: 4% !important;
   left: calc(50% + 24px) !important;
   width: 110px !important;
   height: 110px !important;
-  transform: scale(0.2) rotate(8deg);
+  transform: scale(1) rotate(8deg) !important;
   transform-origin: 25% 75%;
   z-index: 2 !important;
+  opacity: 1 !important;
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)) !important;
 }
 
@@ -1946,7 +1947,7 @@ header svg[fill]:not([fill="none"]),
   .card:hover .card-hover-elem.hover-elem-tr,
   .card-wrapper:hover .card-hover-elem.hover-elem-tr {
     opacity: 1 !important;
-    transform: translate(10px, -4px) scale(1) rotate(8deg) !important;
+    transform: translate(8px, -4px) scale(1.06) rotate(12deg) !important;
   }
 }
 
