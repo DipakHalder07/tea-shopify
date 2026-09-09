@@ -1580,16 +1580,49 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="0"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="4"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="8"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="12"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="16"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="20"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="24"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="28"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="1"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="5"] .card,
 .product-tab-wrapper ul.grid > li:nth-child(4n + 1) .card,
 .product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .card,
-.collection .product-grid .grid__item:nth-child(4n + 1) .card,
-.collection .grid__item:nth-child(4n + 1) .card,
-.product-grid .grid__item:nth-child(4n + 1) .card,
-.product-recommendations .grid__item:nth-child(4n + 1) .card,
-.main-search .grid__item:nth-child(4n + 1) .card,
-.card-wrapper:nth-child(4n + 1) > .card {
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="0"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="4"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="8"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="12"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="16"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="20"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="24"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="28"] .card,
+featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 1) .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="0"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="4"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="8"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="12"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="16"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="20"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="24"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="28"] .card,
+.section-featured-collection .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 1) .card,
+.swiper-slide[data-swiper-slide-index="0"] .card,
+.swiper-slide[data-swiper-slide-index="4"] .card,
+.swiper-slide[data-swiper-slide-index="8"] .card,
+.swiper-slide[data-swiper-slide-index="12"] .card,
+.swiper-slide[data-swiper-slide-index="16"] .card,
+.swiper-slide[data-swiper-slide-index="20"] .card,
+.swiper-slide[data-swiper-slide-index="24"] .card,
+.swiper-slide[data-swiper-slide-index="28"] .card,
+.collection .product-grid > li:nth-child(4n + 1) .card,
+.collection ul.grid > li:nth-child(4n + 1) .card,
+ul.product-grid > li:nth-child(4n + 1) .card,
+.product-grid > .grid__item:nth-child(4n + 1) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 1) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 1) .card,
+.main-search ul.grid > li:nth-child(4n + 1) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 1) .card {
   background: #BE8D3F !important;
   background-color: #BE8D3F !important;
 }
@@ -1598,16 +1631,49 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="1"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="5"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="9"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="13"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="17"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="21"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="25"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="29"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="2"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="6"] .card,
 .product-tab-wrapper ul.grid > li:nth-child(4n + 2) .card,
 .product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .card,
-.collection .product-grid .grid__item:nth-child(4n + 2) .card,
-.collection .grid__item:nth-child(4n + 2) .card,
-.product-grid .grid__item:nth-child(4n + 2) .card,
-.product-recommendations .grid__item:nth-child(4n + 2) .card,
-.main-search .grid__item:nth-child(4n + 2) .card,
-.card-wrapper:nth-child(4n + 2) > .card {
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="1"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="5"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="9"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="13"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="17"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="21"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="25"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="29"] .card,
+featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 2) .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="1"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="5"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="9"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="13"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="17"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="21"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="25"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="29"] .card,
+.section-featured-collection .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 2) .card,
+.swiper-slide[data-swiper-slide-index="1"] .card,
+.swiper-slide[data-swiper-slide-index="5"] .card,
+.swiper-slide[data-swiper-slide-index="9"] .card,
+.swiper-slide[data-swiper-slide-index="13"] .card,
+.swiper-slide[data-swiper-slide-index="17"] .card,
+.swiper-slide[data-swiper-slide-index="21"] .card,
+.swiper-slide[data-swiper-slide-index="25"] .card,
+.swiper-slide[data-swiper-slide-index="29"] .card,
+.collection .product-grid > li:nth-child(4n + 2) .card,
+.collection ul.grid > li:nth-child(4n + 2) .card,
+ul.product-grid > li:nth-child(4n + 2) .card,
+.product-grid > .grid__item:nth-child(4n + 2) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 2) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 2) .card,
+.main-search ul.grid > li:nth-child(4n + 2) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 2) .card {
   background: #F15726 !important;
   background-color: #F15726 !important;
 }
@@ -1616,16 +1682,49 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="2"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="6"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="10"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="14"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="18"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="22"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="26"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="30"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="3"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="7"] .card,
 .product-tab-wrapper ul.grid > li:nth-child(4n + 3) .card,
 .product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .card,
-.collection .product-grid .grid__item:nth-child(4n + 3) .card,
-.collection .grid__item:nth-child(4n + 3) .card,
-.product-grid .grid__item:nth-child(4n + 3) .card,
-.product-recommendations .grid__item:nth-child(4n + 3) .card,
-.main-search .grid__item:nth-child(4n + 3) .card,
-.card-wrapper:nth-child(4n + 3) > .card {
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="2"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="6"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="10"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="14"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="18"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="22"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="26"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="30"] .card,
+featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 3) .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="2"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="6"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="10"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="14"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="18"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="22"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="26"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="30"] .card,
+.section-featured-collection .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 3) .card,
+.swiper-slide[data-swiper-slide-index="2"] .card,
+.swiper-slide[data-swiper-slide-index="6"] .card,
+.swiper-slide[data-swiper-slide-index="10"] .card,
+.swiper-slide[data-swiper-slide-index="14"] .card,
+.swiper-slide[data-swiper-slide-index="18"] .card,
+.swiper-slide[data-swiper-slide-index="22"] .card,
+.swiper-slide[data-swiper-slide-index="26"] .card,
+.swiper-slide[data-swiper-slide-index="30"] .card,
+.collection .product-grid > li:nth-child(4n + 3) .card,
+.collection ul.grid > li:nth-child(4n + 3) .card,
+ul.product-grid > li:nth-child(4n + 3) .card,
+.product-grid > .grid__item:nth-child(4n + 3) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 3) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 3) .card,
+.main-search ul.grid > li:nth-child(4n + 3) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 3) .card {
   background: #DA1F27 !important;
   background-color: #DA1F27 !important;
 }
@@ -1634,16 +1733,51 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="3"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="7"] .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="11"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="15"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="19"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="23"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="27"] .card,
+.product-tab-wrapper .swiper-slide[data-swiper-slide-index="31"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="4"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="8"] .card,
 .product-tab-wrapper ul.grid > li:nth-child(4n + 4) .card,
 .product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .card,
-.collection .product-grid .grid__item:nth-child(4n + 4) .card,
-.collection .grid__item:nth-child(4n + 4) .card,
-.product-grid .grid__item:nth-child(4n + 4) .card,
-.product-recommendations .grid__item:nth-child(4n + 4) .card,
-.main-search .grid__item:nth-child(4n + 4) .card,
-.card-wrapper:nth-child(4n + 4) > .card {
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="3"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="7"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="11"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="15"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="19"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="23"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="27"] .card,
+featured-swiper-slider .swiper-slide[data-swiper-slide-index="31"] .card,
+featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 4) .card,
+featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n) .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="3"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="7"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="11"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="15"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="19"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="23"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="27"] .card,
+.section-featured-collection .swiper-slide[data-swiper-slide-index="31"] .card,
+.section-featured-collection .swiper-slide:not([data-swiper-slide-index]):nth-child(4n + 4) .card,
+.section-featured-collection .swiper-slide:not([data-swiper-slide-index]):nth-child(4n) .card,
+.swiper-slide[data-swiper-slide-index="3"] .card,
+.swiper-slide[data-swiper-slide-index="7"] .card,
+.swiper-slide[data-swiper-slide-index="11"] .card,
+.swiper-slide[data-swiper-slide-index="15"] .card,
+.swiper-slide[data-swiper-slide-index="19"] .card,
+.swiper-slide[data-swiper-slide-index="23"] .card,
+.swiper-slide[data-swiper-slide-index="27"] .card,
+.swiper-slide[data-swiper-slide-index="31"] .card,
+.collection .product-grid > li:nth-child(4n + 4) .card,
+.collection ul.grid > li:nth-child(4n + 4) .card,
+ul.product-grid > li:nth-child(4n + 4) .card,
+.product-grid > .grid__item:nth-child(4n + 4) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 4) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 4) .card,
+.main-search ul.grid > li:nth-child(4n + 4) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 4) .card {
   background: #EF8F4A !important;
   background-color: #EF8F4A !important;
 }
@@ -2643,6 +2777,24 @@ details-overlay-modal .search-modal__content .predictive-heading,
   color: #f5e4c7 !important;
   font-family: var(--font-heading-family) !important;
   text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+.predictive-heading .icon-tea-leaf {
+  width: 34px !important;
+  height: 34px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+  filter: drop-shadow(0 2px 8px rgba(78, 159, 61, 0.4)) !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.predictive-heading:hover .icon-tea-leaf {
+  transform: rotate(-12deg) scale(1.15) !important;
 }
 
 /* Search Input Field */
@@ -2720,38 +2872,119 @@ input.search__input::placeholder,
   -webkit-box-shadow: none !important;
 }
 
-/* Predictive Search Results */
-.predictive-search,
-.predictive-search--header,
+/* ==========================================================================
+   PREDICTIVE SEARCH DROPDOWN - LUXURY DARK THEME & SPACING
+   ========================================================================== */
+
+/* Outer wrapper: centered with balanced max-width */
+.header__search .predictive-search,
+.search-modal .predictive-search {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 920px !important;
+  margin: 24px auto 0 !important;
+  overflow: visible !important;
+}
+
+/* Card Container */
 #predictive-search-results {
   background-color: #1A130C !important;
   background: #1A130C !important;
-  border: 1px solid rgba(245, 228, 199, 0.2) !important;
-  border-radius: 16px !important;
-  color: #f5e4c7 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 28px 36px 32px !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.8), 0 0 1px rgba(245, 228, 199, 0.25) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
+/* Two-column layout for Suggestions & Products */
+.predictive-search .predictive-search__results-groups-wrapper {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 36px !important;
+  width: 100% !important;
+  align-items: start !important;
+}
+
+@media screen and (max-width: 768px) {
+  #predictive-search-results {
+    padding: 20px 18px 24px !important;
+  }
+  .predictive-search .predictive-search__results-groups-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Vertical divider between left column (suggestions) and right column */
+@media screen and (min-width: 769px) {
+  .predictive-search .predictive-search__result-group:first-child {
+    border-right: 1px solid rgba(245, 228, 199, 0.1) !important;
+    padding-right: 36px !important;
+    flex: none !important;
+  }
+  .predictive-search .predictive-search__result-group:last-child {
+    flex: none !important;
+  }
+}
+
+/* Headings (SUGGESTIONS / PRODUCTS) */
 .predictive-search__heading {
+  font-family: var(--font-heading-family) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
   color: #f5e4c7 !important;
-  border-bottom: 1px solid rgba(245, 228, 199, 0.12) !important;
+  margin: 0 0 14px 0 !important;
+  padding: 0 0 10px 0 !important;
+  width: 100% !important;
+  border-bottom: 1px solid rgba(245, 228, 199, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
-.predictive-search__item,
-.predictive-search__item--link,
-.predictive-search__item-heading,
-.predictive-search__item-query-result {
-  color: #f5e4c7 !important;
+/* Fix browser default yellow highlighting */
+.predictive-search mark,
+.predictive-search__item mark,
+#predictive-search-results mark {
+  background: transparent !important;
+  color: #FF0085 !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
 }
 
-.predictive-search__item-vendor {
-  color: rgba(245, 228, 199, 0.6) !important;
+/* Suggestions List & Items */
+.predictive-search__results-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.predictive-search__item .price,
-.predictive-search .price {
-  color: #FF3366 !important;
+.predictive-search__list-item {
+  margin-bottom: 4px !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.predictive-search__list-item a.predictive-search__item {
+  padding: 8px 12px !important;
+  border-radius: 10px !important;
+  color: rgba(245, 228, 199, 0.85) !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .predictive-search__list-item:hover,
@@ -2759,8 +2992,76 @@ input.search__input::placeholder,
   background-color: rgba(245, 228, 199, 0.08) !important;
 }
 
-.predictive-search__list-item:hover .predictive-search__item-heading {
-  color: #FF3366 !important;
+.predictive-search__list-item:hover a.predictive-search__item,
+.predictive-search__list-item[aria-selected="true"] a.predictive-search__item {
+  color: #f5e4c7 !important;
+  transform: translateX(4px) !important;
+}
+
+.predictive-search__list-item:hover .predictive-search__item-heading,
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading {
+  color: #f5e4c7 !important;
+}
+
+.predictive-search__item-heading {
+  font-family: var(--font-body-family) !important;
+  font-size: 15px !important;
+  color: rgba(245, 228, 199, 0.85) !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+/* Products List Item in Results */
+.predictive-search__item--link-with-thumbnail {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 8px 12px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.predictive-search__item--link-with-thumbnail:hover {
+  background: rgba(245, 228, 199, 0.08) !important;
+}
+
+.predictive-search__image {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(245, 228, 199, 0.15) !important;
+  background: #221A13 !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  padding: 4px !important;
+}
+
+.predictive-search__item-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  text-align: left !important;
+}
+
+.predictive-search__item--link-with-thumbnail .predictive-search__item-heading {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #f5e4c7 !important;
+  margin: 0 !important;
+}
+
+.predictive-search .price,
+.predictive-search__item .price {
+  color: #F7C665 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+.predictive-search .price-item--regular {
+  color: #F7C665 !important;
 }
 
 /* Recently purchased in search modal */
@@ -4159,6 +4460,290 @@ footer.footer-style4,
 .product-form__input input[type="radio"] + label:hover {
   border-color: #FF0085 !important;
   color: #FF0085 !important;
+}
+
+/* 9. Quick Buy (Quick Add Modal) Design & Color Unification */
+.quick-add-modal {
+  background: rgba(0, 0, 0, 0.78) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.quick-add-modal__content,
+.quick-add-modal[open] .quick-add-modal__content {
+  background: #100B06 !important;
+  background-color: #100B06 !important;
+  border-radius: 24px !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.22) !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9) !important;
+  overflow: hidden !important;
+}
+
+.quick-add-modal .quick-add-modal__content-info,
+.quick-add-modal .main-product_info,
+.quick-add-modal .product,
+.quick-add-modal .product__info-wrapper,
+.quick-add-modal .product__info-wrapper.grid__item,
+.quick-add-modal .product__info-container,
+.quick-add-modal .product__info-wrapper.grid__item .product__info-container,
+.quick-add-modal .product__media-wrapper,
+.quick-add-modal .product__media-wrapper media-gallery,
+.quick-add-modal .product__media-gallery,
+.quick-add-modal .product__media-list,
+.quick-add-modal .product__media.media,
+.quick-add-modal .slider-mobile-gutter {
+  background: #100B06 !important;
+  background-color: #100B06 !important;
+}
+
+/* Close Button */
+.quick-add-modal .quick-add-modal__toggle {
+  color: #f5e4c7 !important;
+  background: rgba(245, 228, 199, 0.08) !important;
+  border: 1px solid rgba(245, 228, 199, 0.25) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  top: 18px !important;
+  right: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  z-index: 10 !important;
+  cursor: pointer !important;
+}
+
+.quick-add-modal .quick-add-modal__toggle:hover {
+  color: #FF0085 !important;
+  border-color: #FF0085 !important;
+  background: rgba(255, 0, 133, 0.15) !important;
+  transform: rotate(90deg) !important;
+}
+
+.quick-add-modal .quick-add-modal__toggle svg {
+  fill: currentColor !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Product Info Container Padding */
+@media screen and (min-width: 750px) {
+  .quick-add-modal .product__info-wrapper.grid__item .product__info-container {
+    padding: 35px 40px 35px 30px !important;
+  }
+}
+
+/* Title & Subtitle */
+.quick-add-modal .product__title h1,
+.quick-add-modal .product__title h2,
+.quick-add-modal .product__title a {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: color 0.25s ease !important;
+}
+
+.quick-add-modal .product__title a:hover h2,
+.quick-add-modal .product__title:hover a {
+  color: #F7C665 !important;
+}
+
+.quick-add-modal p.product__text,
+.quick-add-modal .product__text {
+  color: rgba(245, 228, 199, 0.8) !important;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  margin-top: 8px !important;
+}
+
+/* Price & Tax */
+.quick-add-modal .price,
+.quick-add-modal .price-item,
+.quick-add-modal .price-item--regular,
+.quick-add-modal .price-item--sale {
+  color: #F7C665 !important;
+  font-weight: 700 !important;
+}
+
+.quick-add-modal .price-item--regular,
+.quick-add-modal .price-item--sale {
+  font-size: 22px !important;
+}
+
+.quick-add-modal .product__tax {
+  color: rgba(245, 228, 199, 0.55) !important;
+  font-size: 13px !important;
+}
+
+/* Quantity Selector */
+.quick-add-modal .quantity {
+  background: #221A13 !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.25) !important;
+  border-radius: 30px !important;
+  color: #f5e4c7 !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  width: 140px !important;
+}
+
+.quick-add-modal .quantity__input {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+.quick-add-modal .quantity__button {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+  transition: color 0.2s ease, background 0.2s ease !important;
+}
+
+.quick-add-modal .quantity__button:hover {
+  color: #FF0085 !important;
+}
+
+.quick-add-modal .quantity__button svg {
+  fill: currentColor !important;
+}
+
+/* Add to Cart Button */
+.quick-add-modal .product-form__submit,
+.quick-add-modal button.product-form__submit {
+  background: #FF0085 !important;
+  background-color: #FF0085 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  box-shadow: 0 4px 15px rgba(255, 0, 133, 0.4) !important;
+  transition: all 0.25s ease !important;
+  flex: 1 1 auto !important;
+}
+
+.quick-add-modal .product-form__submit:hover,
+.quick-add-modal button.product-form__submit:hover {
+  background: #e00075 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 22px rgba(255, 0, 133, 0.55) !important;
+}
+
+/* Wishlist & Compare Buttons */
+.quick-add-modal .product__info-wrapper a.add-compare.button--secondary,
+.quick-add-modal .product__info-wrapper a.add-wishlist.button--secondary {
+  background: #221A13 !important;
+  background-color: #221A13 !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.25) !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  color: #f5e4c7 !important;
+  transition: all 0.25s ease !important;
+}
+
+.quick-add-modal .product__info-wrapper a.add-compare.button--secondary:hover,
+.quick-add-modal .product__info-wrapper a.add-wishlist.button--secondary:hover {
+  border-color: #FF0085 !important;
+  color: #FF0085 !important;
+  background: rgba(255, 0, 133, 0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+.quick-add-modal .product__info-wrapper a.add-compare.button--secondary svg,
+.quick-add-modal .product__info-wrapper a.add-wishlist.button--secondary svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* BUY IT NOW Button */
+.quick-add-modal .shopify-payment-button {
+  margin-top: 14px !important;
+  width: 100% !important;
+}
+
+.quick-add-modal .shopify-payment-button__button--unbranded,
+.quick-add-modal .shopify-payment-button [role="button"],
+.quick-add-modal shopify-buy-it-now-button button {
+  background: #221A13 !important;
+  background-color: #221A13 !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.5) !important;
+  border-radius: 30px !important;
+  color: #f5e4c7 !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  width: 100% !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.quick-add-modal .shopify-payment-button__button--unbranded:hover,
+.quick-add-modal .shopify-payment-button [role="button"]:hover,
+.quick-add-modal shopify-buy-it-now-button button:hover {
+  background: #BE8D3F !important;
+  background-color: #BE8D3F !important;
+  color: #100B06 !important;
+  border-color: #BE8D3F !important;
+  box-shadow: 0 4px 18px rgba(190, 141, 63, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* View Full Details Link */
+.quick-add-modal .product__view-details {
+  color: #F7C665 !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  margin-top: 14px !important;
+  transition: all 0.25s ease !important;
+}
+
+.quick-add-modal .product__view-details:hover {
+  color: #FF0085 !important;
+  transform: translateX(4px) !important;
+}
+
+.quick-add-modal .product__view-details svg {
+  fill: currentColor !important;
+  transition: transform 0.25s ease !important;
+}
+
+.quick-add-modal .product__view-details:hover svg {
+  transform: translateX(4px) !important;
+}
+
+/* Scrollbar on Info Container */
+.quick-add-modal .product__info-wrapper.grid__item .product__info-container::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.quick-add-modal .product__info-wrapper.grid__item .product__info-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.quick-add-modal .product__info-wrapper.grid__item .product__info-container::-webkit-scrollbar-thumb {
+  background: rgba(245, 228, 199, 0.25) !important;
+  border-radius: 4px !important;
+}
+
+.quick-add-modal .product__info-wrapper.grid__item .product__info-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 228, 199, 0.45) !important;
 }
 
 
