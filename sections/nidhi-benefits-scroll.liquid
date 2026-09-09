@@ -17,54 +17,95 @@
   <!-- ============ BENEFITS STICKY STACK SECTION ============ -->
   <section class="nidhi-benefits-stack-section" id="nidhiBenefitsSection">
     {% if section.settings.show_floating_elements %}
-      <!-- Ambient Floating Food / Ingredient Items -->
-      <div class="nidhi-floating-food pointer-events-none" aria-hidden="true">
-        <div class="floating-food-item item-1" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:-12deg; --float-duration:8s; animation-delay:0s;" />
-        </div>
-        <div class="floating-food-item item-2" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_honey_dipper_with_dripping_golden_honey_transparent_background.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:14deg; --float-duration:10s; animation-delay:0.4s;" />
-        </div>
-        <div class="floating-food-item item-3" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:-16deg; --float-duration:9s; animation-delay:0.8s;" />
-        </div>
-        <div class="floating-food-item item-4" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_ceramic_bowl_of_dark_loose_leaf_oolong_tea_top_down_view_transparent.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:10deg; --float-duration:11s; animation-delay:0.2s;" />
-        </div>
-        <div class="floating-food-item item-5" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_vintage_silver_tea_strainer_with_loose_black_tea_leaves_transparent.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:-14deg; --float-duration:8.5s; animation-delay:0.6s;" />
-        </div>
-        <div class="floating-food-item item-6" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_glass_teapot_filled_with_blooming_jasmine_tea_side_view_professional.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:18deg; --float-duration:9.5s; animation-delay:1s;" />
-        </div>
-        <div class="floating-food-item item-7" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_steaming_cup_of_green_tea_in_a_porcelain_cup_top_down_view.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:-10deg; --float-duration:8s; animation-delay:0.3s;" />
-        </div>
-        <div class="floating-food-item item-8" style="transform: scale(0); opacity: 0;">
-          <img src="{{ 'isolated_rustic_clay_tea_pot_yixing_style_side_view_transparent_background.png' | asset_url }}" alt="" loading="lazy" class="animate-float" style="--rot:12deg; --float-duration:10.5s; animation-delay:0.7s;" />
+      <!-- Ambient Floating Food / Ingredient Items Backdrop (Fixed in viewport, 0 flow height) -->
+      <div class="nidhi-benefits-fixed-bg-wrapper" aria-hidden="true">
+        <div class="nidhi-floating-food pointer-events-none">
+          <!-- 6 Botanical Floating Elements matching user reference -->
+          <div class="floating-food-item item-chamomile" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_chamomile_anise.png' | asset_url }}" alt="Dried chamomile flowers and star anise" loading="lazy" class="float-item-chamomile" />
+            </div>
+          </div>
+          <div class="floating-food-item item-cinnamon" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_cinnamon_tea.png' | asset_url }}" alt="Cinnamon sticks bundle and loose black tea" loading="lazy" class="float-item-cinnamon" />
+            </div>
+          </div>
+          <div class="floating-food-item item-teacup" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_glass_teacup.webp' | asset_url }}" alt="Steaming amber tea in glass cup" loading="lazy" class="float-item-teacup" />
+            </div>
+          </div>
+          <div class="floating-food-item item-tea-sprig" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_green_tea_sprig.png' | asset_url }}" alt="Fresh green tea leaves sprig" loading="lazy" class="float-item-sprig" />
+            </div>
+          </div>
+          <div class="floating-food-item item-citrus" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_dried_citrus.png' | asset_url }}" alt="Dried citrus slices and lemon wheel" loading="lazy" class="float-item-citrus" />
+            </div>
+          </div>
+          <div class="floating-food-item item-cardamom" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_cardamom_cloves.png' | asset_url }}" alt="Green cardamom pods and whole cloves" loading="lazy" class="float-item-cardamom" />
+            </div>
+          </div>
+          <div class="floating-sparkle-star" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 6.627 12 0 Z"/>
+            </svg>
+          </div>
         </div>
       </div>
     {% endif %}
 
     <!-- Centered Stack Container -->
     <div id="benefits" class="nidhi-benefits-cards-wrap">
-      {% comment %} Card 1: 100% Natural {% endcomment %}
+      {% comment %} Card 1: WHOLE LEAF ASSAM {% endcomment %}
       <div class="bene-wrap" style="z-index: 1;">
         <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">•</span>
-            <h3 class="bene-header-title">100% Natural</h3>
+            <h3 class="bene-header-title">WHOLE LEAF ASSAM</h3>
             <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
-            <img src="{{ 'tea_card_bg.jpg' | asset_url }}" alt="100% Natural Tea" class="bene-bg-img" />
-            <div class="bene-overlay"></div>
             <span class="bene-icon-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
-                <path d="M5.05857 11.7421C6.97712 11.9781 8.73113 10.5535 8.97628 8.56018C9.22142 6.56689 6.93885 4.64584 7.76802 2C3.66477 2.59449 2.25056 5.90113 2.02862 7.70572C1.78348 9.69901 3.14003 11.5062 5.05857 11.7421Z"></path>
-                <path d="M7 20C5.07536 15.3242 4.76992 11.1941 5.13275 8" stroke-linecap="round"></path>
-                <path d="M9.50786 17.6681C10.6828 20.0602 13.5206 20.7199 15.8463 19.1415C18.172 17.5631 18.5378 13.1898 22 11.6651C18.3054 7.57247 13.6971 9.04998 11.5916 10.4789C9.26587 12.0573 8.33296 15.276 9.50786 17.6681Z"></path>
-                <path d="M6 22C8.37778 17.9044 11.2644 15.43 14 14" stroke-linecap="round"></path>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 38V23"></path>
+                <path d="M24 8C20.5 13.5 21.5 20.5 24 24C26.5 20.5 27.5 13.5 24 8Z"></path>
+                <path d="M24 11V23"></path>
+                <path d="M23 28C16 26.5 12.5 19.5 14 13C19 13.5 23 18.5 23.5 25"></path>
+                <path d="M15.5 17C18.5 19.5 21 22.5 22.5 26"></path>
+                <path d="M25 28C32 26.5 35.5 19.5 34 13C29 13.5 25 18.5 24.5 25"></path>
+                <path d="M32.5 17C29.5 19.5 27 22.5 25.5 26"></path>
+              </svg>
+            </span>
+            <p class="bene-text">Handcrafted orthodox whole leaves from the misty estates of Upper Assam. Rich, malty, and brisk with deep amber liquor in every steep.</p>
+            <div class="bene-dim"></div>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} Card 2: ZERO ARTIFICIAL FLAVORS {% endcomment %}
+      <div class="bene-wrap" style="z-index: 2;">
+        <div class="bene-card">
+          <div class="bene-header">
+            <span class="bene-header-star">•</span>
+            <h3 class="bene-header-title">ZERO ARTIFICIAL FLAVORS</h3>
+            <span class="bene-header-star">•</span>
+          </div>
+          <div class="bene-body">
+            <span class="bene-icon-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 38V23"></path>
+                <path d="M24 8C20.5 13.5 21.5 20.5 24 24C26.5 20.5 27.5 13.5 24 8Z"></path>
+                <path d="M24 11V23"></path>
+                <path d="M23 28C16 26.5 12.5 19.5 14 13C19 13.5 23 18.5 23.5 25"></path>
+                <path d="M15.5 17C18.5 19.5 21 22.5 22.5 26"></path>
+                <path d="M25 28C32 26.5 35.5 19.5 34 13C29 13.5 25 18.5 24.5 25"></path>
+                <path d="M32.5 17C29.5 19.5 27 22.5 25.5 26"></path>
               </svg>
             </span>
             <p class="bene-text">No artificial flavours. No synthetic colours. Every blend is made with leaves, herbs, and botanicals exactly as nature intended — nothing more, nothing less.</p>
@@ -73,24 +114,24 @@
         </div>
       </div>
 
-      {% comment %} Card 2: Ethically Sourced {% endcomment %}
-      <div class="bene-wrap" style="z-index: 2;">
+      {% comment %} Card 3: ETHICALLY SOURCED {% endcomment %}
+      <div class="bene-wrap" style="z-index: 3;">
         <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">•</span>
-            <h3 class="bene-header-title">Ethically Sourced</h3>
+            <h3 class="bene-header-title">ETHICALLY SOURCED</h3>
             <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
-            <img src="{{ 'tea_mountain_bg.jpg' | asset_url }}" alt="Ethically Sourced Tea" class="bene-bg-img" />
-            <div class="bene-overlay"></div>
             <span class="bene-icon-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 13V6"></path>
-                <path d="M12 6C12 3.5 14 1.5 16.8 1.5C16.8 4 14.8 6 12 6Z"></path>
-                <path d="M12 8.5C12 6.5 10.2 4.8 7.8 4.8C7.8 6.8 9.6 8.5 12 8.5Z"></path>
-                <path d="M2.5 14C4.2 13 6.5 13.2 8 14.5L9.5 16C11 17.3 13 17.3 14.5 16L16 14.5C17.5 13.2 19.8 13 21.5 14"></path>
-                <path d="M4.5 18.5C7.2 20.8 10 21.8 12 21.8C14 21.8 16.8 20.8 19.5 18.5"></path>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 38V23"></path>
+                <path d="M24 8C20.5 13.5 21.5 20.5 24 24C26.5 20.5 27.5 13.5 24 8Z"></path>
+                <path d="M24 11V23"></path>
+                <path d="M23 28C16 26.5 12.5 19.5 14 13C19 13.5 23 18.5 23.5 25"></path>
+                <path d="M15.5 17C18.5 19.5 21 22.5 22.5 26"></path>
+                <path d="M25 28C32 26.5 35.5 19.5 34 13C29 13.5 25 18.5 24.5 25"></path>
+                <path d="M32.5 17C29.5 19.5 27 22.5 25.5 26"></path>
               </svg>
             </span>
             <p class="bene-text">We partner directly with small-estate farmers across Darjeeling, Assam, and the Nilgiris. Fresh harvests, fair wages, and full traceability from garden to cup.</p>
@@ -99,52 +140,27 @@
         </div>
       </div>
 
-      {% comment %} Card 3: No Preservatives {% endcomment %}
-      <div class="bene-wrap" style="z-index: 3;">
-        <div class="bene-card">
-          <div class="bene-header">
-            <span class="bene-header-star">•</span>
-            <h3 class="bene-header-title">No Preservatives</h3>
-            <span class="bene-header-star">•</span>
-          </div>
-          <div class="bene-body">
-            <img src="{{ 'tea_harvest_bg.jpg' | asset_url }}" alt="No Preservatives Tea" class="bene-bg-img" />
-            <div class="bene-overlay"></div>
-            <span class="bene-icon-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22S20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"></path>
-                <path d="M12 7.5C12 7.5 15.5 9 15.5 12.5C15.5 15 13.5 16.5 12 16.5C10.5 16.5 8.5 15 8.5 12.5C8.5 9 12 7.5 12 7.5Z"></path>
-                <path d="M12 7.5V16.5"></path>
-                <path d="M12 12C13.2 11 14.2 11.2 14.8 11.5"></path>
-                <path d="M12 13.5C10.8 12.8 10 13 9.4 13.3"></path>
-              </svg>
-            </span>
-            <p class="bene-text">Every pack is sealed at peak freshness without chemicals or preservatives. What you steep is what nature grew — authentic, clean, and alive with flavour.</p>
-            <div class="bene-dim"></div>
-          </div>
-        </div>
-      </div>
-
-      {% comment %} Card 4: Wellness First {% endcomment %}
+      {% comment %} Card 4: SINGLE-ESTATE MATCHA {% endcomment %}
       <div class="bene-wrap" style="z-index: 4;">
         <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">•</span>
-            <h3 class="bene-header-title">Wellness First</h3>
+            <h3 class="bene-header-title">SINGLE-ESTATE MATCHA</h3>
             <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
-            <img src="{{ 'tea_wellness_bg.jpg' | asset_url }}" alt="Wellness First Tea" class="bene-bg-img" />
-            <div class="bene-overlay"></div>
             <span class="bene-icon-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19.5 13.572L12 21L4.5 13.572C2.5 11.572 2.5 8.2 4.5 6.2C6.5 4.2 9.8 4.2 11.8 6.2L12 6.4L12.2 6.2C14.2 4.2 17.5 4.2 19.5 6.2C21.5 8.2 21.5 11.572 19.5 13.572Z"></path>
-                <path d="M12 9V16"></path>
-                <path d="M12 11.5C13.5 10.2 15 10.5 16 11"></path>
-                <path d="M12 13.5C10.5 12.5 9.5 12.8 8.8 13.2"></path>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="bene-svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 38V23"></path>
+                <path d="M24 8C20.5 13.5 21.5 20.5 24 24C26.5 20.5 27.5 13.5 24 8Z"></path>
+                <path d="M24 11V23"></path>
+                <path d="M23 28C16 26.5 12.5 19.5 14 13C19 13.5 23 18.5 23.5 25"></path>
+                <path d="M15.5 17C18.5 19.5 21 22.5 22.5 26"></path>
+                <path d="M25 28C32 26.5 35.5 19.5 34 13C29 13.5 25 18.5 24.5 25"></path>
+                <path d="M32.5 17C29.5 19.5 27 22.5 25.5 26"></path>
               </svg>
             </span>
-            <p class="bene-text">Nidhi Tea blends are crafted with your well-being in mind — rich in antioxidants, calming adaptogens, and natural goodness that nourishes from the inside out.</p>
+            <p class="bene-text">Pure hand-plucked matcha from the Uji region. Sifted for smoothness, not bulk. The finest quality, straight to your cup.</p>
             <div class="bene-dim"></div>
           </div>
         </div>
@@ -246,27 +262,34 @@
   /* ============ BENEFITS STACK SECTION ============ */
   .nidhi-benefits-stack-section {
     position: relative;
-    padding-bottom: 4rem;
+    padding-bottom: 2.5rem;
     overflow: visible; /* CRITICAL: overflow must be visible for position: sticky to work! */
-  }
-  @media (min-width: 640px) {
-    .nidhi-benefits-stack-section {
-      padding-bottom: 6rem;
-    }
   }
   @media (min-width: 768px) {
     .nidhi-benefits-stack-section {
-      padding-bottom: 8rem;
+      padding-bottom: 3.5rem;
     }
   }
 
-  /* Floating ingredients backdrop */
-  .nidhi-floating-food {
-    pointer-events: none;
+  /* Fixed Ambient Floating Food Backdrop - Stays FIXED in viewport while cards scroll */
+  .nidhi-benefits-fixed-bg-wrapper {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    pointer-events: none;
+    overflow: clip;
     z-index: 0;
+  }
+
+  .nidhi-floating-food {
+    pointer-events: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 50%, rgba(30, 20, 13, 0.45) 0%, rgba(16, 11, 6, 0.85) 70%, #100b06 100%);
   }
 
   .floating-food-item {
@@ -276,46 +299,100 @@
     user-select: none;
   }
 
-  /* Positioning of 8 floating ingredient items matching index.html */
-  .floating-food-item.item-1 {
-    left: 1%;
-    top: 3%;
-    width: clamp(110px, 16vw, 240px);
+  .food-drift-wrap {
+    width: 100%;
+    height: 100%;
+    transform: translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0);
+    will-change: transform;
+    pointer-events: none;
   }
-  .floating-food-item.item-2 {
-    right: 1%;
-    top: 10%;
-    width: clamp(120px, 18vw, 270px);
+
+  /* Positioning of 6 Botanical Floating Items + Sparkle Star */
+  .floating-food-item.item-chamomile {
+    left: 6%;
+    top: 5%;
+    width: clamp(160px, 18vw, 270px);
   }
-  .floating-food-item.item-3 {
-    left: 1%;
+  .floating-food-item.item-cinnamon {
+    left: 13.5%;
+    top: 38%;
+    width: clamp(155px, 17vw, 255px);
+  }
+  .floating-food-item.item-teacup {
+    left: 3%;
+    bottom: 6%;
+    width: clamp(150px, 16vw, 245px);
+  }
+  .floating-food-item.item-tea-sprig {
+    right: 17%;
+    top: 5%;
+    width: clamp(165px, 18.5vw, 275px);
+  }
+  .floating-food-item.item-citrus {
+    right: 5%;
     top: 25%;
-    width: clamp(100px, 14vw, 210px);
+    width: clamp(155px, 17vw, 260px);
   }
-  .floating-food-item.item-4 {
-    right: 2%;
-    top: 36%;
-    width: clamp(110px, 16vw, 240px);
+  .floating-food-item.item-cardamom {
+    right: 14%;
+    bottom: 7%;
+    width: clamp(160px, 18vw, 265px);
   }
-  .floating-food-item.item-5 {
-    left: 1%;
-    top: 48%;
-    width: clamp(120px, 18vw, 260px);
+
+  .floating-sparkle-star {
+    position: absolute;
+    right: 6%;
+    bottom: 13%;
+    width: 32px;
+    height: 32px;
+    color: rgba(245, 228, 199, 0.35);
+    pointer-events: none;
+    user-select: none;
+    animation: sparkle-float 5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
   }
-  .floating-food-item.item-6 {
-    right: 1%;
-    top: 62%;
-    width: clamp(120px, 18vw, 260px);
+  @keyframes sparkle-float {
+    0% {
+      opacity: 0.22;
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(0.95);
+    }
+    35% {
+      opacity: 0.7;
+      transform: translate3d(-6px, -10px, 0) rotate(20deg) scale(1.15);
+    }
+    70% {
+      opacity: 0.4;
+      transform: translate3d(6px, -6px, 0) rotate(-10deg) scale(1.02);
+    }
+    100% {
+      opacity: 0.22;
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(0.95);
+    }
   }
-  .floating-food-item.item-7 {
-    left: 2%;
-    top: 74%;
-    width: clamp(110px, 16vw, 240px);
+
+  @media (max-width: 1400px) {
+    .floating-food-item.item-chamomile { left: 4%; width: clamp(140px, 16vw, 220px); }
+    .floating-food-item.item-cinnamon { left: 9%; width: clamp(135px, 15vw, 210px); }
+    .floating-food-item.item-teacup { left: 2%; width: clamp(130px, 14.5vw, 200px); }
+    .floating-food-item.item-tea-sprig { right: 14%; width: clamp(150px, 17vw, 240px); }
+    .floating-food-item.item-citrus { right: 3.5%; width: clamp(135px, 15vw, 215px); }
+    .floating-food-item.item-cardamom { right: 9%; width: clamp(140px, 16vw, 220px); }
+    .floating-sparkle-star { right: 3%; }
   }
-  .floating-food-item.item-8 {
-    right: 3%;
-    top: 86%;
-    width: clamp(110px, 16vw, 240px);
+
+  @media (max-width: 1024px) {
+    .floating-food-item.item-chamomile { left: 2%; top: 3%; width: clamp(100px, 12vw, 150px); }
+    .floating-food-item.item-cinnamon { left: 2%; top: 38%; width: clamp(95px, 11vw, 140px); }
+    .floating-food-item.item-teacup { left: 2%; bottom: 3%; width: clamp(95px, 11vw, 140px); }
+    .floating-food-item.item-tea-sprig { right: 2%; top: 3%; width: clamp(110px, 13vw, 160px); }
+    .floating-food-item.item-citrus { right: 2%; top: 32%; width: clamp(95px, 11vw, 140px); }
+    .floating-food-item.item-cardamom { right: 2%; bottom: 3%; width: clamp(100px, 12vw, 150px); }
+    .floating-sparkle-star { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .floating-food-item {
+      opacity: 0.32 !important;
+    }
   }
 
   .floating-food-item img {
@@ -324,60 +401,189 @@
     height: auto;
     user-select: none;
     pointer-events: none;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
+    will-change: transform;
+    transform-origin: 50% 50%;
   }
 
-  /* Bucks Float Keyframes */
-  @keyframes bucks-float {
-    0%, 100% {
-      transform: translateY(0) rotate(var(--rot, 0deg));
+  /* Ultra-smooth continuous closed-loop floating animations */
+
+  /* 1. Green Tea Sprig - Seamless organic breeze wave */
+  .float-item-sprig {
+    animation: sprig-float 8.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes sprig-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(6deg) scale(1);
+    }
+    25% {
+      transform: translate3d(-18px, -24px, 0) rotate(12deg) scale(1.02);
     }
     50% {
-      transform: translateY(-18px) rotate(calc(var(--rot, 0deg) + 6deg));
+      transform: translate3d(12px, -38px, 0) rotate(3deg) scale(0.98);
+    }
+    75% {
+      transform: translate3d(16px, -16px, 0) rotate(-2deg) scale(1.01);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(6deg) scale(1);
     }
   }
 
-  .animate-float {
-    animation: bucks-float var(--float-duration, 9s) ease-in-out infinite;
+  /* 2. Dried Citrus - Seamless buoyant bobbing & drift */
+  .float-item-citrus {
+    animation: citrus-float 8.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes citrus-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-5deg) scale(1);
+    }
+    25% {
+      transform: translate3d(-20px, -26px, 0) rotate(6deg) scale(1.03);
+    }
+    50% {
+      transform: translate3d(10px, -36px, 0) rotate(-10deg) scale(0.97);
+    }
+    75% {
+      transform: translate3d(15px, -14px, 0) rotate(2deg) scale(1.01);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(-5deg) scale(1);
+    }
   }
 
-  /* Cards wrapper */
+  /* 3. Chamomile & Star Anise - Seamless fluid drift */
+  .float-item-chamomile {
+    animation: chamomile-float 9s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes chamomile-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-6deg);
+    }
+    25% {
+      transform: translate3d(16px, -22px, 0) rotate(-12deg);
+    }
+    50% {
+      transform: translate3d(-10px, -36px, 0) rotate(2deg);
+    }
+    75% {
+      transform: translate3d(-14px, -15px, 0) rotate(5deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(-6deg);
+    }
+  }
+
+  /* 4. Cinnamon Bundle & Tea - Seamless rolling buoyant drift */
+  .float-item-cinnamon {
+    animation: cinnamon-float 9.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes cinnamon-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(4deg);
+    }
+    25% {
+      transform: translate3d(14px, -20px, 0) rotate(10deg);
+    }
+    50% {
+      transform: translate3d(-8px, -32px, 0) rotate(0deg);
+    }
+    75% {
+      transform: translate3d(-12px, -12px, 0) rotate(-4deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(4deg);
+    }
+  }
+
+  /* 5. Glass Teacup - Seamless smooth levitation wave */
+  .float-item-teacup {
+    animation: teacup-float 9.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes teacup-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-3deg);
+    }
+    25% {
+      transform: translate3d(10px, -18px, 0) rotate(3deg);
+    }
+    50% {
+      transform: translate3d(-6px, -28px, 0) rotate(0deg);
+    }
+    75% {
+      transform: translate3d(-8px, -12px, 0) rotate(-5deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(-3deg);
+    }
+  }
+
+  /* 6. Cardamom & Cloves - Seamless natural dance */
+  .float-item-cardamom {
+    animation: cardamom-float 8.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes cardamom-float {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(5deg);
+    }
+    25% {
+      transform: translate3d(-15px, -24px, 0) rotate(-4deg);
+    }
+    50% {
+      transform: translate3d(12px, -34px, 0) rotate(10deg);
+    }
+    75% {
+      transform: translate3d(14px, -14px, 0) rotate(2deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(5deg);
+    }
+  }
+
+  /* Cards wrapper - Refined tab stack matching reference image */
   .nidhi-benefits-cards-wrap {
     position: relative;
     z-index: 10;
-    max-width: 490px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.25rem 2rem 1.25rem;
     box-sizing: border-box;
+  }
+  @media (min-width: 768px) {
+    .nidhi-benefits-cards-wrap {
+      max-width: 760px;
+      padding: 0 1.5rem 2.5rem 1.5rem;
+    }
   }
 
   /* Sticky Card Wrap */
   .bene-wrap {
     position: -webkit-sticky;
     position: sticky;
-    top: 84px;
+    top: 48px;
     width: 100%;
-    margin-bottom: 30vh;
+    margin-bottom: 35vh;
     will-change: top;
   }
   @media (min-width: 640px) {
     .bene-wrap {
-      margin-bottom: 50vh;
+      margin-bottom: 40vh;
     }
   }
   @media (min-width: 768px) {
     .bene-wrap {
-      margin-bottom: 60vh;
+      margin-bottom: 45vh;
     }
   }
   .bene-wrap:last-child {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   /* Keyframes: 1 card bottom-left corner come and stack */
   @keyframes cardComeBottomLeft {
     from {
-      transform: translate3d(-28vw, 220px, 0) rotate(-7deg);
-      opacity: 0.2;
+      transform: translate3d(-36vw, 240px, 0) rotate(-3deg);
+      opacity: 0.15;
     }
     to {
       transform: translate3d(0, 0, 0) rotate(0deg);
@@ -388,8 +594,8 @@
   /* Keyframes: 2 right-bottom corner come and stack */
   @keyframes cardComeBottomRight {
     from {
-      transform: translate3d(28vw, 220px, 0) rotate(7deg);
-      opacity: 0.2;
+      transform: translate3d(36vw, 240px, 0) rotate(3deg);
+      opacity: 0.15;
     }
     to {
       transform: translate3d(0, 0, 0) rotate(0deg);
@@ -403,21 +609,16 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box;
     transform-origin: 50% 50%;
     will-change: transform, opacity;
-    filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.65));
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-  }
-  @media (min-width: 640px) {
-    .bene-card {
-      gap: 12px;
-    }
   }
 
   .bene-card:hover {
@@ -427,32 +628,36 @@
     outline: none !important;
   }
 
-  /* Card Pill Header */
+  /* Card Pill Header - Snug, compact tab style matching Image 2 */
   .bene-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #f5e4c7;
     border-radius: 16px;
-    padding: 1.1rem 1.6rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.48);
     box-sizing: border-box;
     transition: background-color 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 56px;
   }
   @media (min-width: 640px) {
     .bene-header {
-      padding: 1.35rem 2rem;
-      border-radius: 20px;
+      padding: 1.15rem 2.4rem;
+      border-radius: 18px;
+      min-height: 64px;
     }
   }
   @media (min-width: 768px) {
     .bene-header {
-      padding: 1.5rem 2.25rem;
+      padding: 1.25rem 2.8rem;
+      border-radius: 20px;
+      min-height: 72px;
     }
   }
 
   .bene-header-star {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     line-height: 1;
     color: #100b06;
     font-weight: 900;
@@ -460,17 +665,22 @@
   }
   @media (min-width: 640px) {
     .bene-header-star {
-      font-size: 1.35rem;
+      font-size: 1.6rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-header-star {
+      font-size: 1.9rem;
     }
   }
 
   .bene-header-title {
-    font-family: var(--font-display-family, "Fraunces", Georgia, serif) !important;
-    font-size: 1.4rem !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 1.45rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     color: #100b06 !important;
-    font-weight: 900 !important;
+    font-weight: 800 !important;
     margin: 0 !important;
     line-height: 1.1 !important;
     text-align: center;
@@ -486,68 +696,42 @@
     }
   }
 
-  /* Card Content Body */
+  /* Card Content Body - Clean solid matte surface matching reference image */
   .bene-body {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
-    padding: 2rem 1.5rem;
+    gap: 1.8rem;
+    padding: 2.5rem 2rem;
     text-align: center;
-    height: 270px;
+    height: 380px;
     overflow: hidden;
-    border-radius: 18px;
-    background-color: #0c0805;
-    border: 1px solid rgba(245, 228, 199, 0.28);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+    border-radius: 16px;
+    background-color: #0b0704;
+    border: 1px solid rgba(245, 228, 199, 0.22);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
   }
   @media (min-width: 640px) {
     .bene-body {
-      height: 310px;
-      gap: 1.5rem;
-      padding: 2.25rem 2rem;
-      border-radius: 22px;
+      height: 425px;
+      gap: 2.2rem;
+      padding: 3rem 2.5rem;
+      border-radius: 18px;
     }
   }
   @media (min-width: 768px) {
     .bene-body {
-      height: 340px;
-      gap: 1.75rem;
-      padding: 2.5rem 2.25rem;
-      border-radius: 24px;
+      height: 460px;
+      gap: 2.5rem;
+      padding: 3.5rem 3rem;
+      border-radius: 20px;
     }
   }
 
-  /* Background image inside card */
-  .bene-bg-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-    pointer-events: none;
-    opacity: 0.18;
-    transform: scale(1.05);
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .bene-card:hover .bene-bg-img {
-    transform: scale(1.08);
-  }
-
-  /* Gradient overlay */
-  .bene-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, #100b06 0%, rgba(16, 11, 6, 0.4) 55%, transparent 100%);
-    pointer-events: none;
-  }
-
-  /* Center circular badge */
+  /* Center circular badge with 3-leaf sprout botanical icon */
   .bene-icon-badge {
     position: relative;
     z-index: 10;
@@ -556,50 +740,70 @@
     justify-content: center;
     border-radius: 9999px;
     border: 1.5px solid rgba(245, 228, 199, 0.45);
-    background-color: rgba(16, 11, 6, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    width: 4.25rem;
-    height: 4.25rem;
+    background-color: transparent;
+    width: 6.2rem;
+    height: 6.2rem;
     color: #f5e4c7;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
   }
   @media (min-width: 640px) {
     .bene-icon-badge {
-      width: 5.25rem;
-      height: 5.25rem;
+      width: 7.2rem;
+      height: 7.2rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-icon-badge {
+      width: 7.8rem;
+      height: 7.8rem;
     }
   }
 
   .bene-svg {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 4.4rem;
+    height: 4.4rem;
     color: #f5e4c7;
     stroke: currentColor;
+    stroke-width: 1.75;
   }
   @media (min-width: 640px) {
     .bene-svg {
-      width: 2.75rem;
-      height: 2.75rem;
+      width: 5.0rem;
+      height: 5.0rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-svg {
+      width: 5.6rem;
+      height: 5.6rem;
     }
   }
 
+  /* Card descriptive text */
   .bene-text {
     position: relative;
     z-index: 10;
-    font-family: var(--font-sans-family, "Inter Tight", "Poppins", sans-serif) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-    color: #f5e4c7 !important;
-    max-width: 28rem;
+    font-family: var(--font-sans-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+    font-size: 1.25rem !important;
+    line-height: 1.65 !important;
+    color: #ede2d1 !important;
+    max-width: 32rem !important;
     margin: 0 !important;
-    font-weight: 500 !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+    font-weight: 400 !important;
+    letter-spacing: -0.01em;
   }
   @media (min-width: 640px) {
     .bene-text {
-      font-size: 1.05rem !important;
+      font-size: 1.45rem !important;
+      line-height: 1.68 !important;
+      max-width: 36rem !important;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-text {
+      font-size: 1.6rem !important;
+      line-height: 1.72 !important;
+      max-width: 40rem !important;
     }
   }
 
@@ -630,13 +834,13 @@
   }
   @media (min-width: 640px) {
     .nidhi-benefits-end-icon {
-      margin-top: 3.5rem;
-      margin-bottom: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
   }
   @media (min-width: 768px) {
     .nidhi-benefits-end-icon {
-      margin-top: 5rem;
+      margin-top: 2.5rem;
     }
   }
 
@@ -737,7 +941,7 @@
 
       if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
-        foodItems.forEach((el) => {
+        foodItems.forEach((el, index) => {
           gsap.fromTo(
             el,
             { scale: 0, opacity: 0, rotate: -20 },
@@ -746,10 +950,11 @@
               opacity: 1,
               rotate: 0,
               duration: 1.1,
-              ease: "elastic.out(1, 0.35)",
+              delay: index * 0.05,
+              ease: "elastic.out(1, 0.4)",
               scrollTrigger: {
-                trigger: el,
-                start: "top 92%",
+                trigger: sectionContainer.querySelector("#nidhiBenefitsSection") || sectionContainer,
+                start: "top 85%",
                 toggleActions: "play none none reverse",
               },
             }
@@ -763,6 +968,61 @@
       }
     }
 
+    /* ---------- INTERACTIVE SMOOTH MOUSE PARALLAX ON FLOATING BOTANICALS ---------- */
+    function initMouseParallax() {
+      if (window.innerWidth < 768) return;
+
+      const items = [
+        { el: sectionContainer.querySelector(".item-tea-sprig"), fx: -26, fy: -30 },
+        { el: sectionContainer.querySelector(".item-citrus"), fx: 24, fy: -26 },
+        { el: sectionContainer.querySelector(".item-chamomile"), fx: -22, fy: 24 },
+        { el: sectionContainer.querySelector(".item-cinnamon"), fx: 20, fy: 22 },
+        { el: sectionContainer.querySelector(".item-teacup"), fx: -18, fy: -20 },
+        { el: sectionContainer.querySelector(".item-cardamom"), fx: 22, fy: 26 },
+        { el: sectionContainer.querySelector(".floating-sparkle-star"), fx: 14, fy: 16 },
+      ].filter((item) => item.el);
+
+      if (!items.length) return;
+
+      let targetX = 0;
+      let targetY = 0;
+      let curX = 0;
+      let curY = 0;
+      let rafId = null;
+
+      window.addEventListener("mousemove", (e) => {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        targetX = (e.clientX / w - 0.5) * 2;
+        targetY = (e.clientY / h - 0.5) * 2;
+        if (!rafId) {
+          rafId = requestAnimationFrame(updateMouse);
+        }
+      }, { passive: true });
+
+      function updateMouse() {
+        const dx = targetX - curX;
+        const dy = targetY - curY;
+        if (Math.abs(dx) > 0.005 || Math.abs(dy) > 0.005) {
+          curX += dx * 0.06;
+          curY += dy * 0.06;
+          items.forEach(({ el, fx, fy }) => {
+            el.style.setProperty("--mouse-x", `${(curX * fx).toFixed(1)}px`);
+            el.style.setProperty("--mouse-y", `${(curY * fy).toFixed(1)}px`);
+          });
+          rafId = requestAnimationFrame(updateMouse);
+        } else {
+          curX = targetX;
+          curY = targetY;
+          items.forEach(({ el, fx, fy }) => {
+            el.style.setProperty("--mouse-x", `${(curX * fx).toFixed(1)}px`);
+            el.style.setProperty("--mouse-y", `${(curY * fy).toFixed(1)}px`);
+          });
+          rafId = null;
+        }
+      }
+    }
+
     /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN (SUBTLE TILT & ULTRA-SMOOTH LERP) ---------- */
     function initBenefitsStack() {
       const root = sectionContainer.querySelector("#benefits");
@@ -772,26 +1032,26 @@
       if (!wraps.length) return;
 
       const DOCKED_HEADER_COLORS = [
-        "#f5e4c7",
-        "#9d8d7b",
-        "#857563",
-        "#6e5f4e"
+        "#faebd7", // front active card (warm creamy ivory)
+        "#e5d7c3", // 1 behind (soft tan cream)
+        "#d6c8b2", // 2 behind (warm sand beige)
+        "#c4b49c"  // 3 behind (rich parchment taupe)
       ];
 
       function getMetrics() {
         const isSmall = window.innerWidth < 640;
         const firstHeader = root.querySelector(".bene-header");
-        const headerH = firstHeader ? firstHeader.offsetHeight : (isSmall ? 60 : 72);
-        const BASE = isSmall ? 70 : 88;
-        const gap = isSmall ? 10 : 12;
+        const headerH = firstHeader ? firstHeader.offsetHeight : (isSmall ? 56 : 72);
+        const BASE = isSmall ? 40 : 48;
+        const gap = isSmall ? 6 : 8;
         const naturalStep = headerH + gap;
 
         const vh = window.innerHeight;
-        const bodyH = isSmall ? 270 : (vh < 800 ? 300 : 340);
+        const bodyH = isSmall ? 380 : 460;
         const availableForHeaders = vh - BASE - bodyH - 24;
         let stackStep = naturalStep;
-        if (availableForHeaders > 120 && naturalStep * (wraps.length - 1) > availableForHeaders) {
-          stackStep = Math.max(isSmall ? 48 : 56, Math.floor(availableForHeaders / (wraps.length - 1)));
+        if (availableForHeaders > 100 && naturalStep * (wraps.length - 1) > availableForHeaders) {
+          stackStep = Math.max(isSmall ? 48 : 58, Math.floor(availableForHeaders / (wraps.length - 1)));
         }
         return { BASE, STACK_STEP: stackStep, isSmall };
       }
@@ -813,37 +1073,38 @@
         const vh = window.innerHeight;
         const vw = window.innerWidth;
 
-        // Subtle, classy corner offsets and gentle tilt (never excessive)
+        // Subtle, classy corner offsets and gentle, lower tilt (further from corner of window, lower tilt angle)
         const cornerX = isSmall
-          ? Math.min(130, Math.round(vw * 0.25))
-          : Math.min(380, Math.round(vw * 0.28));
-        const cornerY = isSmall ? 120 : 200;
-        const cornerRot = isSmall ? 4.5 : 7.0; // gentle, elegant tilt
-        const tiltRange = vh * 0.75;
+          ? Math.min(180, Math.round(vw * 0.32))
+          : Math.min(520, Math.round(vw * 0.38));
+        const cornerY = isSmall ? 150 : 240;
+        const cornerRot = isSmall ? 2.0 : 3.0; // gentle, elegant, lower tilt angle
+        const tiltRange = vh * 0.85;
 
-        // Alternating entries:
-        // Card 1: bottom-left
-        // Card 2: right-bottom
-        // Card 3: bottom-left
-        // Card 4: right-bottom
+        // Card 1 stays in the same place (standard centered position, no corner fly-in)
+        // Subsequent cards fly in from alternating corners:
+        // Card 2: right-bottom corner come and stack
+        // Card 3: bottom-left corner come and stack
+        // Card 4: right-bottom corner come and stack
         const keyframeEntries = [
-          { x: -cornerX, y: cornerY, rot: -cornerRot },
+          { x: 0, y: 0, rot: 0 },
           { x: cornerX, y: cornerY, rot: cornerRot },
           { x: -cornerX, y: cornerY, rot: -cornerRot },
           { x: cornerX, y: cornerY, rot: cornerRot }
         ];
 
-        // 1. Set sticky top for each wrap
+        // 1. Set sticky top and z-index for each wrap
         wraps.forEach((w, i) => {
           w.style.top = (BASE + i * STACK_STEP) + "px";
+          w.style.zIndex = (i + 1) * 10;
         });
 
-        // 2. Identify highest docked card
+        // 2. Identify highest docked card (with generous 8px tolerance for subpixel renderers)
         let highestDockedIndex = -1;
         wraps.forEach((w, i) => {
           const targetTop = BASE + i * STACK_STEP;
           const rect = w.getBoundingClientRect();
-          if (rect.top <= targetTop + 2) {
+          if (rect.top <= targetTop + 8) {
             highestDockedIndex = i;
           }
         });
@@ -853,13 +1114,21 @@
           const targetTop = BASE + i * STACK_STEP;
           const rect = w.getBoundingClientRect();
           const dist = rect.top - targetTop;
-          const entry = keyframeEntries[i] || { x: -cornerX, y: cornerY, rot: -cornerRot };
+          const entry = keyframeEntries[i] || { x: 0, y: 0, rot: 0 };
           const st = cardStates[i];
           const header = w.querySelector(".bene-header");
 
           if (!st) return;
 
-          if (dist <= 0) {
+          // 1st card stays in the same place without flying in
+          if (i === 0) {
+            st.targetX = 0;
+            st.targetY = 0;
+            st.targetRot = 0;
+            st.targetOpacity = 1;
+            w.classList.add("is-docked");
+          } else if (dist <= 8) {
+            // Docking condition: <= 8px handles subpixel scrolling and guarantees Card 4 locks flush
             st.targetX = 0;
             st.targetY = 0;
             st.targetRot = 0;
@@ -873,9 +1142,9 @@
               st.targetRot = entry.rot;
               st.targetOpacity = 0.25;
             } else {
-              // Ultra-smooth sine ease-out
+              // Ultra-smooth sine in-out easing for seamless docking
               const rawProgress = Math.max(0, Math.min(1, 1 - (dist / tiltRange)));
-              const eased = Math.sin((rawProgress * Math.PI) / 2);
+              const eased = 0.5 * (1 - Math.cos(rawProgress * Math.PI));
 
               st.targetX = entry.x * (1 - eased);
               st.targetY = entry.y * (1 - eased);
@@ -901,7 +1170,7 @@
       let animId = null;
       function tick() {
         let needsUpdate = false;
-        const lerpFactor = 0.16; // buttery damping factor
+        const lerpFactor = 0.13; // buttery soft damping factor
 
         wraps.forEach((w, i) => {
           const card = w.querySelector(".bene-card");
@@ -972,11 +1241,13 @@
       document.addEventListener("DOMContentLoaded", () => {
         initIntroAnimation();
         initFloatingIngredients();
+        initMouseParallax();
         initBenefitsStack();
       });
     } else {
       initIntroAnimation();
       initFloatingIngredients();
+      initMouseParallax();
       initBenefitsStack();
     }
 
@@ -985,6 +1256,7 @@
       if (e.target && e.target.contains(sectionContainer)) {
         initIntroAnimation();
         initFloatingIngredients();
+        initMouseParallax();
         initBenefitsStack();
       }
     });
