@@ -755,9 +755,9 @@
           "type": "column",
           "settings": {
             "icon_class": "",
-            "svg_icons": "",
+            "svg_icons": "<svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F7C665\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"4\" width=\"22\" height=\"16\" rx=\"3\"/><line x1=\"1\" y1=\"10\" x2=\"23\" y2=\"10\"/><line x1=\"5\" y1=\"15\" x2=\"9\" y2=\"15\"/></svg>",
             "title": "Flexible Payment",
-            "text": "<p>Egestas quis ipsum suspendisse.</p>",
+            "text": "<p>Secure UPI, Cards & Net Banking</p>",
             "link_label": "",
             "link": "",
             "block_color_scheme": "background-2"
@@ -767,9 +767,9 @@
           "type": "column",
           "settings": {
             "icon_class": "",
-            "svg_icons": "",
+            "svg_icons": "<svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F7C665\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\" rx=\"1\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg>",
             "title": "Free Shipping",
-            "text": "<p>Mauris cursus mattis molestie.</p>",
+            "text": "<p>Fresh garden tea delivered across India</p>",
             "link_label": "",
             "link": "",
             "block_color_scheme": "background-2"
@@ -779,9 +779,9 @@
           "type": "column",
           "settings": {
             "icon_class": "",
-            "svg_icons": "",
+            "svg_icons": "<svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F7C665\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 18v-6a9 9 0 0 1 18 0v6\"/><path d=\"M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z\"/></svg>",
             "title": "Online Support",
-            "text": "<p>Pretium vulputate sapien.</p>",
+            "text": "<p>Dedicated Siliguri tea sommeliers</p>",
             "link_label": "",
             "link": "",
             "block_color_scheme": "background-2"
@@ -791,9 +791,9 @@
           "type": "column",
           "settings": {
             "icon_class": "",
-            "svg_icons": "",
+            "svg_icons": "<svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F7C665\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>",
             "title": "In-Store Pickup",
-            "text": "<p>Fringilla phasellus faucibus.</p>",
+            "text": "<p>Siliguri boutique experience centre</p>",
             "link_label": "",
             "link": "",
             "block_color_scheme": "background-2"
@@ -862,6 +862,66 @@
     "nidhi-why-tea": {
       "type": "nidhi-why-tea",
       "settings": {}
+    },
+    "nidhi-reels": {
+      "type": "nidhi-reels",
+      "blocks": {
+        "reel-1": {
+          "type": "reel_item",
+          "settings": {
+            "display_name": "@CHAISTORIES",
+            "preset_video": "reel-1.mp4",
+            "instagram_link": "https://www.instagram.com/"
+          }
+        },
+        "reel-2": {
+          "type": "reel_item",
+          "settings": {
+            "display_name": "@RAJANKFIT",
+            "preset_video": "reel-2.mp4",
+            "instagram_link": "https://www.instagram.com/"
+          }
+        },
+        "reel-3": {
+          "type": "reel_item",
+          "settings": {
+            "display_name": "@NIDHITEAOFFICIAL",
+            "preset_video": "reel-3.mp4",
+            "instagram_link": "https://www.instagram.com/"
+          }
+        },
+        "reel-4": {
+          "type": "reel_item",
+          "settings": {
+            "display_name": "@TEA_CONNOISSEUR",
+            "preset_video": "reel-4.mp4",
+            "instagram_link": "https://www.instagram.com/"
+          }
+        },
+        "reel-5": {
+          "type": "reel_item",
+          "settings": {
+            "display_name": "@SIP_WELLNESS",
+            "preset_video": "reel-5.mp4",
+            "instagram_link": "https://www.instagram.com/"
+          }
+        }
+      },
+      "block_order": [
+        "reel-1",
+        "reel-2",
+        "reel-3",
+        "reel-4",
+        "reel-5"
+      ],
+      "settings": {
+        "heading": "Loved By All",
+        "subheading": "REAL MOMENTS • REAL BREWS • INSTAGRAM STORIES",
+        "speed": 0.8,
+        "pause_on_hover": true,
+        "padding_top": 70,
+        "padding_bottom": 90
+      }
     }
   },
   "order": [
@@ -869,6 +929,7 @@
     "nidhi-benefits-scroll",
     "1cdd4e50-f0cc-48e6-bf45-16ec0a5db255",
     "nidhi-why-tea",
+    "nidhi-reels",
     "480a5c64-fd68-4018-8db2-a9f9e1f3b315",
     "a8c50c2e-2eeb-46ec-8f40-fda922a43e82",
     "d3d37f2e-af77-4011-b9d4-6d4d102e1a17",

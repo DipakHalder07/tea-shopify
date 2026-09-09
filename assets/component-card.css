@@ -431,28 +431,36 @@ ul.product-icons.top-aligned {
 }
 
 
+  /* Product card primary image hover transition */
+  .card .media.media--hover-effect > img:first-child,
+  .card-wrapper .media.media--hover-effect > img:first-child,
   .card .media.media--hover-effect > img:only-child,
   .card-wrapper .media.media--hover-effect > img:only-child {
-    transition: transform var(--duration-long) ease;
+    transition: transform var(--duration-long) ease, opacity var(--duration-long) ease;
   }
 
+  .card:hover .media.media--hover-effect > img:first-child,
+  .card-wrapper:hover .media.media--hover-effect > img:first-child,
   .card:hover .media.media--hover-effect > img:first-child:only-child,
-  .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.1);
+  .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child,
+  .card:hover .media.media--hover-effect > img:first-child:not(:only-child),
+  .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+    transform: scale(1.08);
+    opacity: 1 !important;
   }
 
- .card-wrapper:hover
-    .media.media--hover-effect
-    > img:first-child:not(:only-child) {
-       opacity: 0;
-    transform: scale(1.12);
-    transition: transform .5s ease,opacity .5s ease;
-  }
-
-  .card-wrapper:hover .media.media--hover-effect > img + img {
-    opacity: 1;
-    transform: scale(1.1);
-    transition: transform .5s ease,opacity .5s ease;
+  /* Completely hide 2nd / secondary product card image */
+  .card .media.media--hover-effect > img + img,
+  .card-wrapper .media.media--hover-effect > img + img,
+  .card .media.media--hover-effect > img.secondary-image,
+  .card-wrapper .media.media--hover-effect > img.secondary-image,
+  .card .secondary-image,
+  .card-wrapper .secondary-image,
+  .product-grid .secondary-image {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 
   .underline-links-hover a {

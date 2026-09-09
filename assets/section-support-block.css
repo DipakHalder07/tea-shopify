@@ -301,15 +301,67 @@ support-slider { cursor: grab;}
 
 
 
-/*fashionsupport*/
+/*fashionsupport - Premium Dark Tea Card Style (#272119 & Off-White Typography) */
+.support-block.fashionsupport .support-block-list__item {
+  background-color: #272119 !important;
+  background-image: none !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(245, 228, 199, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+  overflow: hidden;
+}
 
+.support-block.fashionsupport .support-block-list__item:hover {
+  background-color: #312a20 !important;
+  border-color: rgba(247, 198, 101, 0.35) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38), 0 0 16px rgba(247, 198, 101, 0.08) !important;
+}
 
-.support-block.fashionsupport .support-block-list__item.list__item .support-block-card .support-block-card__info{padding: 0 0px 0 24px;}
-.support-block.fashionsupport .support-block-list__item .support-block-card { padding: 43px;}
-.support-block.fashionsupport .support-block-list p { line-height: 26px;}
-.support-block.fashionsupport  .support-block-list__item.list__item .support-title{ line-height: 31px;}
-.support-block.fashionsupport .support-block-list__item.list__item .support-block-card{ justify-content: center;}
-.support-block.fashionsupport  .support-block-list__item{border-radius:20px;}
+.support-block.fashionsupport .support-block-list__item .support-block-card {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  padding: 24px 22px !important;
+  height: 100% !important;
+}
+
+.support-block.fashionsupport .support-block-card__image-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.support-block.fashionsupport .support-block-list__item.list__item .support-block-card .support-block-card__info {
+  padding: 0 0 0 18px !important;
+}
+
+.support-block.fashionsupport .support-block-list__item.list__item .support-title,
+.support-block.fashionsupport .support-title {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.25 !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.support-block.fashionsupport .support-block-list p,
+.support-block.fashionsupport .support-block-card__info .rte,
+.support-block.fashionsupport .support-block-card__info p {
+  color: rgba(245, 228, 199, 0.78) !important;
+  font-family: var(--font-body-family), 'Inter Tight', system-ui, sans-serif !important;
+  font-size: 1.35rem !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+.support-block.fashionsupport .support-block-list__item.list__item .support-block-card {
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
 
 
 
@@ -333,11 +385,31 @@ support-slider { cursor: grab;}
   width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
 }
 }
-@media screen and (max-width: 1650px){
-.support-block.fashionsupport .support-block-list__item .support-block-card { padding: 30px;}
+@media screen and (max-width: 1650px) {
+  .support-block.fashionsupport .support-block-list__item .support-block-card {
+    padding: 22px 18px !important;
+  }
 }
-@media screen and (max-width: 1160px){
-.support-block.fashionsupport .support-block-list__item .support-block-card { padding: 20px;}
+
+@media screen and (max-width: 1160px) {
+  .support-block.fashionsupport .support-block-list__item .support-block-card {
+    padding: 18px 16px !important;
+  }
+  .support-block.fashionsupport .support-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .support-block.fashionsupport .support-block-list__item .support-block-card {
+    padding: 16px 14px !important;
+  }
+  .support-block.fashionsupport .support-block-list__item.list__item .support-block-card .support-block-card__info {
+    padding: 0 0 0 14px !important;
+  }
+  .support-block.fashionsupport .support-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 /* aboutsupport */

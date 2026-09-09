@@ -25,7 +25,7 @@
 
     <!-- Top: Giant Curved Arched Heading & Subtitle (Full-Width Edge-to-Edge) -->
     <div class="why-intro-content">
-      <!-- Giant Arched SVG Headline -->
+      <!-- Giant Arched SVG Headline (Round style like old, with Hero Outline & Sized like Hero) -->
       <div class="why-arc-headline-box">
         <svg
           viewBox="0 0 1600 320"
@@ -34,7 +34,7 @@
           aria-hidden="true"
         >
           <path id="whyArcPath" d="M 40,300 Q 800,-40 1560,300" fill="none" stroke="none"></path>
-          <text fill="#f5e4c7" class="why-arc-text">
+          <text class="why-arc-text">
             <textPath href="#whyArcPath" startOffset="50%" text-anchor="middle">
               {{ section.settings.heading | default: 'WHY NIDHI TEA' }}
             </textPath>
@@ -286,6 +286,7 @@
     z-index: 10;
     user-select: none;
   }
+  /* Round Arched Headline (Round Style Like Old, with Hero Outline & Sized like Hero) */
   .why-arc-headline-box {
     position: relative;
     width: 100%;
@@ -297,17 +298,17 @@
   }
   @media (min-width: 640px) {
     .why-arc-headline-box {
-      min-height: 180px;
+      min-height: 160px;
     }
   }
   @media (min-width: 768px) {
     .why-arc-headline-box {
-      min-height: 280px;
+      min-height: 240px;
     }
   }
   @media (min-width: 1024px) {
     .why-arc-headline-box {
-      min-height: 330px;
+      min-height: 300px;
     }
   }
 
@@ -316,14 +317,31 @@
     height: 100%;
     overflow: visible;
   }
+
   .why-arc-text {
     font-family: var(--font-display-family), 'Fraunces', Georgia, serif;
     font-optical-sizing: auto;
-    font-size: 195px;
-    letter-spacing: 0.05em;
+    font-size: 165px;
+    letter-spacing: 0.035em;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     user-select: none;
+    fill: transparent !important;
+    stroke: #f5e4c7 !important;
+    stroke-width: 7px;
+    paint-order: stroke fill;
+  }
+  @media (min-width: 640px) {
+    .why-arc-text {
+      font-size: 170px;
+      stroke-width: 5.5px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .why-arc-text {
+      font-size: 175px;
+      stroke-width: 4.5px;
+    }
   }
 
   .why-intro-subtitle {
@@ -956,7 +974,7 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Arched Heading",
+      "label": "Main Heading",
       "default": "WHY NIDHI TEA"
     },
     {

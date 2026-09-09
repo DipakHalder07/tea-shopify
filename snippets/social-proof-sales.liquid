@@ -4,7 +4,9 @@
   <!-- <div class="flash_in_hour"></div> -->
 </div>
 <script type="text/javascript">
-  flashSoldBar();
+  document.addEventListener('DOMContentLoaded', function() {
+    flashSoldBar();
+  });
   function flashSoldBar() {  
     var minQty = {{- block.settings.minqty | escape -}};
     var maxQty = {{- block.settings.maxqty | escape -}};

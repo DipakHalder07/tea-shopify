@@ -55,7 +55,9 @@
         <div class="nidhi-carousel-inner">
           <!-- Previous Slide Button -->
           <button data-hero="-1" type="button" aria-label="Previous blend" class="nidhi-nav-btn">
-            <span>&larr;</span>
+            <span class="nidhi-nav-icon nidhi-nav-icon--prev">
+              {% render 'icon-arrow' %}
+            </span>
           </button>
 
           <!-- Center Active Blend Presentation Stage -->
@@ -69,8 +71,8 @@
               <!-- The Animated Pulsating Background Circle -->
               <div
                 id="heroTint"
-                class="h-56 w-56 rounded-full transition-colors duration-700 sm:h-72 sm:w-72 md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[560px] xl:w-[560px] animate-hero-bg shadow-2xl overflow-hidden border border-cream/20 bg-fixed"
-                style="display: block !important; background-image: url('{{ 'gemini-hero-bg.png' | asset_url }}'); background-attachment: fixed; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: transparent;"
+                class="h-56 w-56 rounded-full transition-colors duration-700 sm:h-72 sm:w-72 md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[560px] xl:w-[560px] animate-hero-bg shadow-2xl"
+                style="background: var(--pink, #FF3366);"
               >&zwnj;</div>
             </div>
 
@@ -114,7 +116,9 @@
 
           <!-- Next Slide Button -->
           <button data-hero="1" type="button" aria-label="Next blend" class="nidhi-nav-btn">
-            <span>&rarr;</span>
+            <span class="nidhi-nav-icon nidhi-nav-icon--next">
+              {% render 'icon-arrow' %}
+            </span>
           </button>
         </div>
       </div>
@@ -454,16 +458,54 @@
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
   }
-  .nidhi-nav-btn span {
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1;
+  .nidhi-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nidhi-nav-icon--prev {
+    transform: scaleX(-1);
+  }
+  .nidhi-nav-icon svg,
+  .nidhi-nav-icon .icon-arrow,
+  .nidhi-nav-icon .icon-hero-arrow {
+    width: 20px;
+    height: 15px;
+    color: #f5e4c7 !important;
+    fill: currentColor !important;
+    display: block;
+  }
+  @media (min-width: 640px) {
+    .nidhi-nav-icon svg,
+    .nidhi-nav-icon .icon-arrow,
+    .nidhi-nav-icon .icon-hero-arrow {
+      width: 26px;
+      height: 19px;
+    }
   }
   @media (min-width: 768px) {
-    .nidhi-nav-btn span {
-      font-size: 1.7rem;
+    .nidhi-nav-icon svg,
+    .nidhi-nav-icon .icon-arrow,
+    .nidhi-nav-icon .icon-hero-arrow {
+      width: 32px;
+      height: 23px;
     }
+  }
+  @media (min-width: 1024px) {
+    .nidhi-nav-icon svg,
+    .nidhi-nav-icon .icon-arrow,
+    .nidhi-nav-icon .icon-hero-arrow {
+      width: 36px;
+      height: 26px;
+    }
+  }
+  .nidhi-nav-btn[data-hero="-1"]:hover .nidhi-nav-icon {
+    transform: scaleX(-1) translateX(5px);
+  }
+  .nidhi-nav-btn[data-hero="1"]:hover .nidhi-nav-icon {
+    transform: translateX(5px);
   }
 
   .nidhi-stage {
@@ -526,15 +568,9 @@
     width: 14rem;
     height: 14rem;
     border-radius: 9999px;
-    background-image: url('{{ "gemini-hero-bg.png" | asset_url }}');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: 1px solid rgba(245, 228, 199, 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-    overflow: hidden;
+    background-color: var(--pink, #FF3366);
+    background-image: none !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
     flex-shrink: 0;
     transition: background-color 700ms ease, background 700ms ease;
     will-change: transform;
@@ -1045,14 +1081,10 @@
       );
     }
 
-    const HERO_BG_IMG = "{{ 'gemini-hero-bg.png' | asset_url }}";
-
     const SLIDES = [
       {
         name: 'Classic Masala Chai',
-        img: "{{ 'hero.png' | asset_url }}",
-        bgImg: HERO_BG_IMG,
-        tint: 'var(--pink)',
+        img: "{{ 'hero.png' | asset_url }}", tint: 'var(--pink)',
         topIngredient:
           "{{ 'regenerate_the_fresh_green_tea_leaves_sprig_from_the_reference_image_data_image-removebg-preview.png' | asset_url }}",
         bottomIngredient:
@@ -1060,17 +1092,13 @@
       },
       {
         name: 'Honey Lemon Green Tea',
-        img: "{{ 'product-2.png' | asset_url }}",
-        bgImg: HERO_BG_IMG,
-        tint: '#2E6941',
+        img: "{{ 'product-2.png' | asset_url }}", tint: '#2E6941',
         topIngredient: "{{ 'honey.webp' | asset_url }}",
         bottomIngredient: "{{ 'lemon.webp' | asset_url }}",
       },
       {
         name: 'Rose Cardamom Black Tea',
-        img: "{{ 'product-3.png' | asset_url }}",
-        bgImg: HERO_BG_IMG,
-        tint: 'var(--red)',
+        img: "{{ 'product-3.png' | asset_url }}", tint: 'var(--red)',
         topIngredient: "{{ 'tea-leaf.webp' | asset_url }}",
         bottomIngredient:
           "{{ 'crisp_culinary_macro_photography_of_exactly_one_solitary_dehydrated_dried-removebg-preview.png' | asset_url }}",
@@ -1156,13 +1184,10 @@
           setTimeout(() => {
             if (tint) {
               tint.style.display = 'block';
-              tint.style.backgroundImage = `url('${SLIDES[index].bgImg || HERO_BG_IMG}')`;
-              tint.style.backgroundAttachment = 'fixed';
-              tint.style.backgroundSize = 'cover';
-              tint.style.backgroundPosition = 'center';
-              tint.style.backgroundRepeat = 'no-repeat';
-              tint.style.backgroundColor = 'transparent';
-              tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+              tint.style.backgroundImage = 'none';
+              tint.style.background = SLIDES[index].tint;
+              tint.style.backgroundColor = SLIDES[index].tint;
+              tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.4)';
             }
 
             if (tintWrap) {
@@ -1189,13 +1214,10 @@
         } else {
           if (tint) {
             tint.style.display = 'block';
-            tint.style.backgroundImage = `url('${SLIDES[index].bgImg || HERO_BG_IMG}')`;
-            tint.style.backgroundAttachment = 'fixed';
-            tint.style.backgroundSize = 'cover';
-            tint.style.backgroundPosition = 'center';
-            tint.style.backgroundRepeat = 'no-repeat';
-            tint.style.backgroundColor = 'transparent';
-            tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+            tint.style.backgroundImage = 'none';
+            tint.style.background = SLIDES[index].tint;
+            tint.style.backgroundColor = SLIDES[index].tint;
+            tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.4)';
           }
           if (tintWrap) tintWrap.style.transform = 'scale(1)';
           if (topWrap) {

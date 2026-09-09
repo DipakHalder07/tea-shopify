@@ -18,6 +18,7 @@
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
     {%- assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id -%}  
+    {%- assign show_secondary_image = false -%}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 {{ 'custom.css' | asset_url | stylesheet_tag }}
 {%- if card_product and card_product != empty -%}
@@ -250,14 +251,11 @@
          {% assign product = card_product %}   
 
   {% if settings.display_color_variant %}
-{%- assign file_extension = 'png' -%}
-
 
 {% for option in product.options %}
 {% assign downcased_option = option | downcase %}    
 {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
-{% assign optionCount = 0 %}
-{% assign optionControl = 4 %}
+{% assign option_count = 0 %}
 {%- assign option_index = forloop.index0 -%}
 {%- assign values = '' -%}
 
@@ -268,7 +266,7 @@
   {%- assign values = values | join: ',' -%}
   {%- assign values = values | append: ',' | append: value -%}
   {%- assign values = values | split: ',' -%}  
-   {%- capture colorCODE -%}
+   {%- capture color_code -%}
     {%- if variant.image != null -%}
     {%- assign value =   value | replace: ' ' , '-'  -%}
     {%- if value contains '-' -%}                   
@@ -278,25 +276,25 @@
     {%- endif -%}
     {%- endif -%}
     {%- endcapture -%}
-  {% if optionCount < 4 %}  
+  {% if option_count < 4 %}  
   <li class="color-values">            
-    <a data-href="{{ variant.url | within: collection }}" class="swatch swatch-element color {{ colorCODE | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
+    <a data-href="{{ variant.url | within: collection }}" class="swatch swatch-element color {{ color_code | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
       <tooltip class="tooltip">{{value}}</tooltip>
-      <span {% if variant.image != null %} data-image="{{ variant.image.src  | product_img_url: '460x' }}"
+      <span {% if variant.image != null %} data-image="{{ variant.image.src  | image_url: width: 460 }}"
             {% else %}
-            data-image="{{ variant.featured_image | product_img_url: '460x' }}"{% endif %} 
+            data-image="{{ variant.featured_image | image_url: width: 460 }}"{% endif %} 
             style="background-size: cover;
                    {% if settings.show_mixed_swatch %}
                    {%- if variant.image != null -%}                  
                    {%- assign value =   value | replace: ' ' , '-'  -%}
                    {% if value contains '-' %}                   
-                   background-image: url('{{ variant.image.src  | product_img_url: '460x' }}');                  
+                   background-image: url('{{ variant.image.src  | image_url: width: 460 }}');                  
                    {%- endif -%}
                    {% endif %}                   
                    {%- endif -%}
                    {% unless settings.show_mixed_swatch %}
                    {% if variant.image != null %}                   
-                   background-image: url('{{ variant.image.src  | product_img_url: '460x' }}');  
+                   background-image: url('{{ variant.image.src  | image_url: width: 460 }}');  
                    {% else %}
                    background-color: {{ value | split: ' ' | last | handle }};
                    {% endif %}
@@ -305,11 +303,11 @@
             data-variant-title-id="color" data-variant-item="{{ value | replace: ' ', '-' | downcase }}"  data-variant-title="{{ variant.title }}"></span>
 
     </a>          
-    {% assign optionCount = optionCount | plus : 1 %}
+    {% assign option_count = option_count | plus : 1 %}
   </li>
   {% else %}    
   <li class="color-values show-on-click" style="display:none">
-    <a data-href="{{ variant.url | within: collection }}" class="swatch color {{ colorCODE | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
+    <a data-href="{{ variant.url | within: collection }}" class="swatch color {{ color_code | downcase -}}" data-swatch-meta="name-{{ downcased_option }}_{{ value | replace: ' ', '_' | downcase }}">
 {% comment %} <!--       <tooltip class="tooltip">{{value}}</tooltip> --> {% endcomment %}
       <span {% if variant.image != null %} data-image="{{ variant.image.src  | image_url: width: 460 }}"
             {% else %}
@@ -319,13 +317,13 @@
                    {%- if variant.image != null -%}                  
                    {%- assign value =   value | replace: ' ' , '-'  -%}
                    {% if value contains '-' %}                   
-                   background-image: url('{{ variant.image.src  | product_img_url: '460x' }}');                  
+                   background-image: url('{{ variant.image.src  | image_url: width: 460 }}');                  
                    {%- endif -%}
                    {% endif %}                   
                    {%- endif -%}
                    {% unless settings.show_mixed_swatch %}
                    {% if variant.image != null %}                   
-                   background-image: url('{{ variant.image.src  | product_img_url: '460x' }}');  
+                   background-image: url('{{ variant.image.src  | image_url: width: 460 }}');  
                    {% else %}
                    background-color: {{ value | split: ' ' | last | handle }};
                    {% endif %}
@@ -335,7 +333,7 @@
 
     </a>  
   </li>
-  {% assign optionCount = optionCount | plus : 1 %}
+  {% assign option_count = option_count | plus : 1 %}
   {% endif %}
 
   {% endunless %}
@@ -366,15 +364,17 @@
   </div>
 {%- else -%}
   <div class="card-wrapper underline-links-hover">
-    <div class="card
-      card--{{ settings.card_style }}
-      card--text
-      {% if extend_height %} card--extend-height{% endif %}
-      {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
-      {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}"
-      style="--ratio-percent: 100%;"
-    >
-      <div class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if settings.card_style == 'standard' %} ratio{% endif %}" style="--ratio-percent: 100%;">
+    {%- liquid
+      assign placeholder_card_class = 'card card--' | append: settings.card_style | append: ' card--text'
+      if extend_height
+        assign placeholder_card_class = placeholder_card_class | append: ' card--extend-height'
+      endif
+      if settings.card_style == 'card'
+        assign placeholder_card_class = placeholder_card_class | append: ' color-' | append: settings.card_color_scheme | append: ' gradient ratio'
+      endif
+    -%}
+    <div class="{{ placeholder_card_class }}" style="--ratio-percent: 100%;">
+      <div class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient ratio{% endif %}" style="--ratio-percent: 100%;">
         <div class="card__content">
           <div class="card__information">
             <h3 class="card__heading">

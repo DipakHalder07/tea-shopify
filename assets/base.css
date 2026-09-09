@@ -1845,8 +1845,12 @@ img {
   border-radius: 50%;
 }
 
-.media.media--hover-effect > img + img {
-  opacity: 0;
+.media.media--hover-effect > img + img,
+.media.media--hover-effect > .secondary-image {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 @media screen and (min-width: 990px) {

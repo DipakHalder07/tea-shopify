@@ -21,32 +21,32 @@
     <div class="sticky-bar" id="bar-active">
       <div class="product-title-sticky">
         <ul
-          id="Slider-Gallery-{{ section.id }}"
-          class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
+          id="Sticky-Slider-Gallery-{{ section.id }}"
+          class="product__media-list contains-media list-unstyled"
           role="list"
         >
           {%- liquid
-            assign featured_media = product.selected_or_first_available_variant.featured_media
-            assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
-            assign media_width = 0.75
+            assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media | default: product.featured_image | default: product.images.first
+            assign preview_image = featured_media.preview_image | default: featured_media
           -%}
-          {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          {%- if preview_image != blank -%}
             <li
-              id="Slide-{{ section.id }}-{{ featured_media.id }}"
-              class="product__media-item grid__item slider__slide is-active{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains featured_media.src %} product__media-item--variant{% endif %}"
+              id="StickySlide-{{ section.id }}-{{ featured_media.id }}"
+              class="product__media-item is-active"
               data-media-id="{{ section.id }}-{{ featured_media.id }}"
             >
               <img
                 srcset="
-                  {% if featured_media.preview_image.width >= 100 %}{{ featured_media.preview_image | image_url: width: 100 }} 100w,{% endif %}
-                  {% if featured_media.preview_image.width >= 200 %}{{ featured_media.preview_image | image_url: width: 200 }} 200w,{% endif %}
-                  {{ featured_media.preview_image | image_url }} 100w
+                  {% if preview_image.width >= 100 %}{{ preview_image | image_url: width: 100 }} 100w,{% endif %}
+                  {% if preview_image.width >= 200 %}{{ preview_image | image_url: width: 200 }} 200w,{% endif %}
+                  {{ preview_image | image_url }} 100w
                 "
-                src="{{ featured_media | image_url: width: 100 }}"
-                sizes="(min-width: {{ settings.page_width }}px) 200px, (min-width: 990px) calc(100vw), (min-width: 750px) calc(100vw), calc(100vw)"
-                width="100"
-                height="{{ 100 | divided_by: featured_media.preview_image.aspect_ratio | ceil }}"
-                alt="{{ featured_media.preview_image.alt | escape }}"
+                src="{{ preview_image | image_url: width: 150 }}"
+                sizes="80px"
+                width="64"
+                height="64"
+                alt="{{ preview_image.alt | default: product.title | escape }}"
+                loading="lazy"
               >
             </li>
           {%- endif -%}

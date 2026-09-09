@@ -870,6 +870,10 @@ class VariantSelects extends HTMLElement {
        const stickyDestination = document.getElementById(`sticky-price-${this.dataset.section}`);
        const stickySource = html.getElementById(`sticky-price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
          if (stickySource && stickyDestination) stickyDestination.innerHTML = stickySource.innerHTML;
+
+       const stickyImgDestination = document.getElementById(`Sticky-Slider-Gallery-${this.dataset.section}`);
+       const stickyImgSource = html.getElementById(`Sticky-Slider-Gallery-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+       if (stickyImgSource && stickyImgDestination) stickyImgDestination.innerHTML = stickyImgSource.innerHTML;
         
         const stickyPrice = document.getElementById(`sticky-price-${this.dataset.section}`); 
         if (stickyPrice) stickyPrice.classList.remove('visibility-hidden');
@@ -1953,16 +1957,17 @@ hiddenElements.forEach((el) => observer.observe(el));
 document.querySelectorAll('[id^="shopify-section-"]').forEach((card, index) => {
    if(card.classList.contains('section-featured-collection') || card.classList.contains('section-collection-list')) {     
     const topHeading = card.querySelectorAll('.for-arrow-alignment');           
+    if(!topHeading || topHeading.length === 0 || !topHeading[0]) return;
     const cardHeight = parseInt(topHeading[0].clientHeight);
     const topValue = cardHeight / 2 + 5;
     const cardTopCSS = "calc(50% - "+topValue+'px)';     
     const swiperContainer = card.querySelector('.swiper');    
+    if(!swiperContainer) return;
     const swiperPrevElement = swiperContainer.querySelector('.swiper-button-prev');    
     const swiperNextElement = swiperContainer.querySelector('.swiper-button-next');     
-    if(!swiperPrevElement || !swiperNextElement) return
+    if(!swiperPrevElement || !swiperNextElement) return;
     swiperPrevElement.setAttribute('style', 'top:'+cardTopCSS);    
     swiperNextElement.setAttribute('style', 'top:'+cardTopCSS);
-      
   }        
 });
 
@@ -2234,12 +2239,23 @@ class TestimonialSlider extends HTMLElement {
                         slidesPerColumn: 1
                     }
                 }
-            }, t.options),
-            n = this.slider.querySelector("[data-swiper-slider]"),
-            a = new Swiper(n, o);
-        a.on("init", (() => {
-            a.update()
-        })), a.init()
+            }, t.options);
+        const n = this.slider.querySelector("[data-swiper-slider]");
+        if (!n) return;
+        const slidesCount = n.querySelectorAll(".swiper-slide").length;
+        if (slidesCount === 0) return;
+        if (slidesCount <= (parseInt(t.desktop, 10) || 3)) {
+          o.loop = false;
+        }
+        try {
+          const a = new Swiper(n, o);
+          a.on("init", (() => {
+            a.update();
+          }));
+          a.init();
+        } catch (e) {
+          console.warn("Testimonial slider init:", e);
+        }
     }
 }
 customElements.define('testimonial-slider', TestimonialSlider);
@@ -2247,19 +2263,19 @@ customElements.define('testimonial-slider', TestimonialSlider);
 
 document.querySelectorAll('[id^="shopify-section-"]').forEach((card, index) => {  
    if(card.classList.contains('index-section--quotes')) {     
-      
     const topHeading = card.querySelectorAll('.for-arrow-alignment');           
+    if(!topHeading || topHeading.length === 0 || !topHeading[0]) return;
     const cardHeight = parseInt(topHeading[0].clientHeight);
     const topValue = cardHeight / 2 + 5;
     const cardTopCSS = "calc(50% - "+topValue+'px)';   
     
     const swiperContainer = card.querySelector('.carousel-arrow');    
+    if(!swiperContainer) return;
     const swiperPrevElement = swiperContainer.querySelector('.prev-arrow');    
     const swiperNextElement = swiperContainer.querySelector('.next-arrow');     
-    if(!swiperPrevElement || !swiperNextElement) return
+    if(!swiperPrevElement || !swiperNextElement) return;
     swiperPrevElement.setAttribute('style', 'top:'+cardTopCSS);    
     swiperNextElement.setAttribute('style', 'top:'+cardTopCSS);
-      
   }        
 }); 
  

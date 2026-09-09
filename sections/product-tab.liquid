@@ -503,17 +503,17 @@ document.addEventListener('shopify:block:deselect', function (event) {
 document.querySelectorAll('[id^="shopify-section-"]').forEach((card, index) => {
    if(card.classList.contains('product-tab-with-carousel')) {     
     const topHeading = card.querySelectorAll('.tab-carousel');  
-     console.log(topHeading);
+    if(!topHeading || topHeading.length === 0 || !topHeading[0]) return;
     const cardHeight = parseInt(topHeading[0].clientHeight);
     const topValue = cardHeight / 2 + 5;
     const cardTopCSS = "calc(50% - "+topValue+'px)';     
     const swiperContainer = card.querySelector('.swiper');    
+    if(!swiperContainer) return;
     const swiperPrevElement = swiperContainer.querySelector('.swiper-button-prev');    
     const swiperNextElement = swiperContainer.querySelector('.swiper-button-next');     
-    if(!swiperPrevElement || !swiperNextElement) return
+    if(!swiperPrevElement || !swiperNextElement) return;
     swiperPrevElement.setAttribute('style', 'top:'+cardTopCSS);    
     swiperNextElement.setAttribute('style', 'top:'+cardTopCSS);
-      
   }        
 });        
 </script>

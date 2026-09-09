@@ -123,7 +123,7 @@
         -%}
       
       
-        <div class="footer__blocks-wrapper   section-{{ section.id }}-padding">
+        <div class="footer__blocks-wrapper {{ footer_grid_class }} section-{{ section.id }}-padding">
           {%- for block in section.blocks -%}
             <div class="footer-block  footer__item--{{ block.id }} {% if block.type == 'text' %}footer-text{% endif %} {% if block.type == 'newsletter' %} footer-newsletter {% endif %} {% if block.type == 'address' %}footer_address {% endif %}{% if block.type == 'link_list' and block.settings.heading != blank %} footer-block--menu footer-links{% endif %} {{ block.settings.alignment }}" {{ block.shopify_attributes }}>
               {%- if block.settings.heading != blank -%}
@@ -395,7 +395,7 @@
      {
                 "type": "select",
                 "id": "alignment",
-                "label": "Alignment on large screen",
+                "label": "t:sections.footer.blocks.address.settings.alignment.label",
                 "options": [
                  {
                     "value": "left",
@@ -410,8 +410,7 @@
                     "label": "t:sections.footer.blocks.address.settings.alignment.options__3.label"
                   }
                 ],
-                "default": "center",
-                "label": "t:sections.footer.blocks.address.settings.alignment.label"
+                "default": "center"
               },
 {
                 "type": "select",
@@ -466,7 +465,7 @@
       {
                 "type": "select",
                 "id": "alignment",
-                "label": "Alignment on large screen",
+                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label",
                 "options": [
                  {
                     "value": "left",
@@ -481,13 +480,12 @@
                     "label": "t:sections.footer-style3.blocks.address.settings.alignment.options__3.label"
                   }
                 ],
-                "default": "center",
-                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label"
+                "default": "center"
               },
               {
               "type": "select",
               "id": "button_style",
-              "label": "t:sections.footer.blocks.newsletter.settings.button_style.labe",
+              "label": "t:sections.footer.blocks.newsletter.settings.button_style.label",
               "options": [
               {
               "value": "button",
@@ -498,8 +496,7 @@
               "label": "t:sections.footer.blocks.newsletter.settings.button_style.options__2.label"
               }
               ],
-              "default": "button",
-              "label": "t:sections.footer.blocks.newsletter.settings.button_style.label"
+              "default": "button"
               },
               {
               "type": "range",
@@ -527,7 +524,7 @@
        {
                 "type": "select",
                 "id": "alignment",
-                "label": "Alignment on large screen",
+                "label": "t:sections.footer.blocks.social_icons.settings.alignment.label",
                 "options": [
                  {
                     "value": "left",
@@ -542,8 +539,7 @@
                     "label": "t:sections.footer.blocks.social_icons.settings.alignment.options__3.label"
                   }
                 ],
-                "default": "center",
-                "label": "t:sections.footer.blocks.social_icons.settings.alignment.label"
+                "default": "center"
               },
               {
               "type": "range",
@@ -581,7 +577,7 @@
       {
                 "type": "select",
                 "id": "alignment",
-                "label": "Alignment on large screen",
+                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label",
                 "options": [
                  {
                     "value": "left",
@@ -596,8 +592,7 @@
                     "label": "t:sections.footer-style3.blocks.address.settings.alignment.options__3.label"
                   }
                 ],
-                "default": "center",
-                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label"
+                "default": "center"
               },
              {
               "type": "range",
@@ -650,7 +645,7 @@
         
                 "type": "select",
                 "id": "alignment",
-                "label": "Alignment on large screen",
+                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label",
                 "options": [
                  {
                     "value": "left",
@@ -665,8 +660,7 @@
                     "label": "t:sections.footer-style3.blocks.address.settings.alignment.options__3.label"
                   }
                 ],
-                "default": "center",
-                "label": "t:sections.footer-style3.blocks.address.settings.alignment.label"
+                "default": "center"
               },
            {
               "type": "range",

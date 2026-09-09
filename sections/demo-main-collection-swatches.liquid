@@ -3,7 +3,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+{{ 'component-rte.css' | asset_url | stylesheet_tag: preload: true }}
 {%- if settings.enable_quickadd or settings.enable_quickview -%}
   <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
   <script src="{{ 'sticky-sidebar.js' | asset_url }}" defer="defer"></script>
@@ -129,8 +129,8 @@
                       {{ 'products.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
                     {%- endif -%}   -->
                     {%- paginate collection.products by section.settings.products_per_page -%}
-                    {%- assign productSize = collection.products.size -%}
-                    {{ 'products.facets.count_text' | t:current_count:productSize,total_count:collection.products_count}}
+                    {%- assign product_size = collection.products.size -%}
+                    {{ 'products.facets.count_text' | t:current_count:product_size,total_count:collection.products_count}}
                     {%- endpaginate -%}  
                   </span>
                 </h2>
@@ -277,8 +277,15 @@
                 {%- assign lazy_load = true -%}                
                <li class="grid__item">
                 
-  {%  assign card_product = product %}
+  {%- assign card_product = product -%}
+  {%- assign section_id = section.id -%}
+  {%- assign media_aspect_ratio = section.settings.image_ratio -%}
+  {%- assign extend_height = false -%}
+  {%- assign show_new_tag = section.settings.show_new_tag -%}
+  {%- assign show_vendor = section.settings.show_vendor -%}
+  {%- assign show_rating = section.settings.show_rating -%}
   {%- assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id -%}  
+  {%- assign show_secondary_image = false -%}
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -477,7 +484,7 @@
         </div>
   {%  render 'deal-snippet', product: card_product %}         
       </div>
-      <div class="card__content for-arrow-alignment {{ loop }} {%  if from_page != blank %}{%  if loop == 1 %}{{ from_page }} {% else %}other-pages{% endif -%}{% endif -%}">
+      <div class="card__content for-arrow-alignment {{ forloop.index }}">
         <div class="card__information">
           <div class="card-information new--tag">
            {%- if show_new_tag -%}                      
@@ -503,8 +510,7 @@
           </h3>
            {% render 'item-swatch-color', product: card_product %}
        
-        {% render 'price', product: card_product, price_class: '' %}      
-         <span class="caption-large light">{{ block.settings.description | escape }}</span>
+        {% render 'price', product: card_product, price_class: '' %}
        <div class="card-information review">
             {%- if show_rating -%}
               {% liquid
@@ -612,10 +618,10 @@
              {% unless section.settings.pagination == 'numbers' %}
             <div id="AjaxinatePagination" class="pagination-method-{{- section.settings.pagination -}}">
             <div class="custom-page-progress-bar" data-page-items-count='{{collection.products_count }}'>
-            {%- assign productSize = collection.products.size | plus: paginate.current_offset -%}
-            <p>{{ 'general.pagination.count_text' | t:current_count:productSize,total_count:collection.products_count}}</p>
+            {%- assign product_size = collection.products.size | plus: paginate.current_offset -%}
+            <p>{{ 'general.pagination.count_text' | t:current_count:product_size,total_count:collection.products_count}}</p>
             <div class="progress-bar">
-            <div class="active-bar" style="width: {{productSize | times:100.0 | divided_by: collection.products_count}}%"></div>
+            <div class="active-bar" style="width: {{product_size | times:100.0 | divided_by: collection.products_count}}%"></div>
             </div>
             </div>
             

@@ -14,7 +14,7 @@
       z-index: 9999999;
       overflow: hidden;
       pointer-events: auto;
-      background-color: #f7c665 !important;
+      background-color: var(--background, #100b06) !important;
     }
     .pl-bg {
       position: absolute;
@@ -22,7 +22,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #f7c665 !important;
+      background-color: var(--background, #100b06) !important;
       z-index: 1;
     }
     .pl-revealer {
@@ -230,16 +230,39 @@
           }
         };
 
+      let loaderAttempts = 0;
       function startLoaderAnimation() {
         const el = document.getElementById('loader');
         if (!el) return;
 
         if (typeof gsap === 'undefined') {
+          loaderAttempts++;
+          if (loaderAttempts > 50) {
+            el.remove();
+            document.body.style.overflow = '';
+            window.dispatchEvent(new Event('loaderComplete'));
+            return;
+          }
           setTimeout(startLoaderAnimation, 30);
           return;
         }
 
         document.body.style.overflow = 'hidden';
+
+        // Fail-safe safety timeout (6 seconds)
+        const emergencyTimer = setTimeout(() => {
+          if (el && el.parentNode) {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => {
+              if (el.parentNode) el.remove();
+              document.body.style.overflow = '';
+              if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+              window.dispatchEvent(new Event('loaderComplete'));
+              window.dispatchEvent(new Event('nidhi:loaderDone'));
+            }, 400);
+          }
+        }, 6000);
 
         const T = [
           { x: '-20vw', y: '-30vh', rotation: -20 },
@@ -250,13 +273,16 @@
         const EXIT = 3.5,
           items = gsap.utils.toArray('.pl-item'),
           floats = [];
+
         const tl = gsap.timeline({
           delay: 0.1,
           onComplete: () => {
+            clearTimeout(emergencyTimer);
             el.remove();
             document.body.style.overflow = '';
             if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             window.dispatchEvent(new Event('loaderComplete'));
+            window.dispatchEvent(new Event('nidhi:loaderDone'));
           },
         });
 
@@ -264,8 +290,8 @@
         tl.to('.pl-revealer', {
           clipPath: 'circle(150% at 50% 50%)',
           webkitClipPath: 'circle(150% at 50% 50%)',
-          duration: 0.9,
-          stagger: 0.2,
+          duration: 0.85,
+          stagger: 0.18,
           ease: 'power2.inOut',
         });
         tl.set('.pl-revealer:not(.pl-last)', { display: 'none' });
@@ -281,7 +307,7 @@
               y: t.y,
               scale: 1,
               rotation: t.rotation,
-              duration: 0.9,
+              duration: 0.85,
               ease: 'power3.out',
               onStart: () => {
                 floats[i] = gsap.to(img, {
@@ -294,11 +320,11 @@
                 });
               },
             },
-            i === 0 ? '-=0.5' : '<0.075'
+            i === 0 ? '-=0.45' : '<0.07'
           );
         });
 
-        tl.to('.pl-logo', { scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' }, '<');
+        tl.to('.pl-logo', { scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out' }, '<');
         tl.set('.pl-bg', { display: 'none' });
         tl.to({}, { duration: 0.5 });
         tl.add(() => floats.forEach((f) => f && f.kill()));
@@ -313,19 +339,16 @@
               y: parseFloat(t.y) * EXIT + 'vh',
               rotation: t.rotation * 2.5,
               scale: 2.5,
-              duration: 0.75,
+              duration: 0.7,
               ease: 'power2.in',
             },
-            i === 0 ? '>' : '<0.075'
+            i === 0 ? '>' : '<0.07'
           );
         });
-        tl.to('.pl-logo', { y: '-120vh', scale: 2.5, duration: 0.75, ease: 'power2.in' }, '<');
+        tl.to('.pl-logo', { y: '-120vh', scale: 2.5, duration: 0.7, ease: 'power2.in' }, '<');
 
         // Fade loader background smoothly from 1 to 0 at exit
-        tl.to('#loader', { autoAlpha: 0, duration: 0.5, ease: 'power2.out' }, '<0.1');
-        tl.add(() => {
-          window.dispatchEvent(new Event('nidhi:loaderDone'));
-        }, '<');
+        tl.to('#loader', { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, '<0.1');
       }
 
       startLoaderAnimation();
