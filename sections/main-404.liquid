@@ -39,6 +39,22 @@
 
 </style>
 
+<div id="wishlist-404-container" style="display: none;">
+  {% render 'wishlist-content' %}
+</div>
+
+<script>
+  (function() {
+    if (window.location.pathname.indexOf('/wishlist') !== -1) {
+      document.title = "Wishlist – Nidhi Tea";
+      var notFoundEl = document.querySelector('.template-404');
+      var wishlistEl = document.getElementById('wishlist-404-container');
+      if (notFoundEl) notFoundEl.style.setProperty('display', 'none', 'important');
+      if (wishlistEl) wishlistEl.style.setProperty('display', 'block', 'important');
+    }
+  })();
+</script>
+
 <div class="template-404 {% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %} center isolate color-{{ section.settings.color_scheme }} gradient">
   <div class="row">
     <div class="banner-template-wrapper section-{{ section.id }}-padding">

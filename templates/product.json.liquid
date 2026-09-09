@@ -24,10 +24,8 @@ assign money_price = price | money
 assign price = current_variant.price
 assign money_price = price | money
 
-assign product_image = ''
-
-assign product_image = product.selected_or_first_available_variant.featured_media | image_url: width: 500
-
+assign featured_media = current_variant.featured_media | default: product.featured_media | default: product.featured_image
+assign product_image = featured_media | image_url: width: 500
 -%}
 
 {% assign a_variants     = product.variants[0] %}

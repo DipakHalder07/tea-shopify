@@ -33,36 +33,33 @@ class dT_WhistList {
               let recordsObj = [];
 
               if (Array.isArray(a_wishlistRecords) && a_wishlistRecords.length) {
-                  var index = 0;
                   a_wishlistRecords.forEach(record => {
+                      if (!record || typeof record !== 'string' || !record.includes("~~")) return;
                       var a_record = record.split("~~");
+                      if (a_record.length < 3 || !a_record[2]) return;
 
                       var recordObj = {
                               id:             a_record[0],
                               product_title:  a_record[1],
                               product_handle: a_record[2],
-                              product_image:  a_record[3],
-                              vendor:         a_record[4],
-                              type:           a_record[5],
-                              money_price:    a_record[6],
-                              price_min:      a_record[7],
-                              price_max:      a_record[8],
-                              available:      a_record[9],
-                              price_varies:   a_record[10],
-                              variant_id:     a_record[11],
-                              variant_title:  a_record[12],
-                              sku:            a_record[13],
-                              description:    a_record[14],
+                              product_image:  a_record[3] || '',
+                              vendor:         a_record[4] || '',
+                              type:           a_record[5] || '',
+                              money_price:    a_record[6] || '',
+                              price_min:      a_record[7] || '',
+                              price_max:      a_record[8] || '',
+                              available:      a_record[9] || 'true',
+                              price_varies:   a_record[10] || 'false',
+                              variant_id:     a_record[11] || '',
+                              variant_title:  a_record[12] || '',
+                              sku:            a_record[13] || '',
+                              description:    a_record[14] || '',
                               quantity:       "1",
                               product_url:    '/products/'+a_record[2]
                       };
 
-                      recordsObj[index] = recordObj;
-
-                      index = index + 1;
-
+                      recordsObj.push(recordObj);
                   });
-
               }
 
               return recordsObj;
@@ -262,29 +259,34 @@ class dTXWhishListGrid extends HTMLElement {
    }
   
    generateGrid(a_records) {
-      var data = this.gridTemplate.innerHTML;
+      if (!this.gridTemplate || !this.dtxTable || !this.dtxNoRecord) return;
       
-     
-     if (typeof a_records[0].product_handle !== 'undefined') {
-      if (a_records.length > 0 ) {
+      var validRecords = (Array.isArray(a_records) ? a_records : []).filter(function(r) {
+        return r && r.product_handle && r.id;
+      });
 
-          a_records.forEach(function(record) { 
+      if (validRecords.length > 0) {
+        while (this.dtxTable.rows.length > 1) {
+          this.dtxTable.deleteRow(1);
+        }
 
-              var newRow = this.dtxTable.insertRow(this.dtxTable.rows.length);
-              newRow.id = 'row_' + record.id;
-              newRow.innerHTML = this.buidRow(record);
-           
+        validRecords.forEach(function(record) { 
+          var newRow = this.dtxTable.insertRow(this.dtxTable.rows.length);
+          newRow.id = 'row_' + record.id;
+          newRow.innerHTML = this.buidRow(record);
+        }.bind(this));
 
-          }.bind(this));        
         this.dtxNoRecord.classList.add("dtx-grid-hide");
+        this.dtxNoRecord.classList.remove("dtx-grid-show");
+        this.dtxTable.classList.remove("dtx-grid-hide");
         this.dtxTable.classList.add("dtx-grid-show");        
+      } else {       
+        this.dtxTable.classList.add("dtx-grid-hide");
+        this.dtxTable.classList.remove("dtx-grid-show");
+        this.dtxNoRecord.classList.remove("dtx-grid-hide");
+        this.dtxNoRecord.classList.add("dtx-grid-show");
       }
-     }else {       
-       this.dtxTable.classList.add("dtx-grid-hide");
-       this.dtxNoRecord.classList.add("dtx-grid-show");
-     }
-
-  }
+   }
   
 buidRow(record) {
     var templateData = this.gridTemplate.innerHTML;    

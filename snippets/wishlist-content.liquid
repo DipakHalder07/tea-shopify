@@ -1,0 +1,55 @@
+{{ 'page-wishlist.css' | asset_url | stylesheet_tag }}
+
+<div class="wishlist-page-wrapper isolate">
+  <div class="wishlist-hero-banner">
+    <div class="page-width center">
+      <h1 class="wishlist-page-title">YOUR WISHLIST</h1>
+      <nav class="wishlist-breadcrumb" aria-label="breadcrumbs">
+        <a href="/" title="Home">Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">&rsaquo;</span>
+        <span class="breadcrumb-current" aria-current="page">Wishlist</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-width page-width_spacing wishlist section-wishlistTemplate-padding">
+    <div class="row">
+      <dtx-wishlist-grid grid_type="wishList">
+        <div class="dtx-grid-empty center show-slow">
+          <svg class="wishlist-empty-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <h2>{{ 'products.wishlist.no_records' | t }}</h2>
+          <p class="wishlist-empty-desc">Explore our exquisite tea collection and save your favorite blends.</p>
+          <a href="{{ routes.all_products_collection_url }}" class="button button--primary wishlist-continue-btn">
+            {{ 'general.continue_shopping' | t }}
+          </a>
+        </div>
+
+        <table class="dtx-table">      
+          <tbody class="slick-wrapper">
+            <tr id="row_{item.product_handle}" class="grid_template wishlist-wishlistTemplate" style="display: none;">         
+              <td class="product-thumbnail">
+                <div class="product-thumbnail-card">
+                  <a href="{item.product_url}" class="product-thumbnail-img">
+                    <img loading="lazy" src="{item.product_image}" alt="{item.product_title}" width="400" height="400">
+                  </a>
+                  <dtx-remove-wish-item grid_type="wishList">
+                    <a href="javascript:void(0);" data-product_handle="{item.product_handle}" class="remove-item product-cart" title="Remove from wishlist">
+                      {% render 'icon-close' %}
+                    </a>
+                  </dtx-remove-wish-item>
+                  <div class="product-info-wrap">
+                    <p class="product-vendor-cart">{item.product_vendor}</p>
+                    <a href="{item.product_url}" class="product-name">{item.product_title}</a>
+                    <p class="product-price-cart">{item.money_price}</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dtx-wishlist-grid>
+    </div>
+  </div>
+</div>
