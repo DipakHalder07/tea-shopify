@@ -3782,6 +3782,86 @@ footer.footer-style4,
   border-top: 1px solid rgba(245, 228, 199, 0.18) !important;
 }
 
+/* ==========================================================================
+   COLLECTION GRID SWITCHER & PRICE RANGE - OFF-WHITE BACKGROUND (#f5e4c7)
+   ========================================================================== */
+/* Grid view layout switcher buttons */
+.custom-product-grid li {
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  border-radius: 7px !important;
+  color: rgba(16, 11, 6, 0.55) !important;
+  transition: all 0.2s ease !important;
+}
+
+.custom-product-grid li svg,
+.custom-product-grid li svg rect,
+.custom-product-grid li svg path,
+.custom-product-grid li .icon-columns {
+  fill: currentColor !important;
+  color: inherit !important;
+}
+
+.custom-product-grid li:hover {
+  background-color: #e8d5b5 !important;
+  color: #100B06 !important;
+}
+
+.custom-product-grid li.active {
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  box-shadow: 0 0 0 2px #F7C665 !important;
+}
+
+.custom-product-grid li.active svg,
+.custom-product-grid li.active svg rect,
+.custom-product-grid li.active svg path,
+.custom-product-grid li.active .icon-columns {
+  fill: #100B06 !important;
+  color: #100B06 !important;
+}
+
+/* Price Range Filter Input Pills */
+.facets__price .field__input,
+.mobile-facets .facets__price .field__input,
+#FacetsWrapperDesktop .facets__price .field__input,
+.facets-vertical .facets__price .field__input {
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(245, 228, 199, 0.5) !important;
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  font-size: 1.4rem !important;
+  box-shadow: none !important;
+}
+
+.facets__price .field__input::placeholder,
+.mobile-facets .facets__price .field__input::placeholder {
+  color: rgba(16, 11, 6, 0.6) !important;
+  opacity: 1 !important;
+}
+
+.facets__price .field__label,
+.mobile-facets .facets__price .field__label {
+  color: rgba(16, 11, 6, 0.65) !important;
+}
+
+.facets__price .field__input:focus,
+.mobile-facets .facets__price .field__input:focus {
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px #F7C665 !important;
+  border-color: #F7C665 !important;
+}
+
+.facets__price .field-currency {
+  color: #f5e4c7 !important;
+  font-weight: 600 !important;
+}
+
+
 
 
 
