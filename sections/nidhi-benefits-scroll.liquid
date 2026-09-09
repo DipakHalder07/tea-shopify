@@ -112,7 +112,7 @@
       </div>
 
       {% comment %} Card 4: SINGLE-ESTATE MATCHA {% endcomment %}
-      <div class="bene-wrap" style="z-index: 4;">
+      <div class="bene-wrap is-last-card" style="z-index: 4;">
         <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">•</span>
@@ -136,6 +136,9 @@
           </div>
         </div>
       </div>
+
+      {% comment %} Dedicated Stack Hold: Allows Card 4 and the entire stack to rest fully organized before section ends {% endcomment %}
+      <div class="bene-stack-end-hold"></div>
     </div>
 
     {% if section.settings.show_floating_elements %}
@@ -585,7 +588,7 @@
     top: 48px;
     width: 100%;
     margin-bottom: 35vh;
-    will-change: top;
+    will-change: top, transform;
   }
   @media (min-width: 640px) {
     .bene-wrap {
@@ -597,8 +600,25 @@
       margin-bottom: 45vh;
     }
   }
-  .bene-wrap:last-child {
-    margin-bottom: 2rem;
+  .bene-wrap.is-last-card {
+    margin-bottom: 0 !important;
+  }
+  .bene-stack-end-hold {
+    display: block !important;
+    width: 100%;
+    height: 35vh;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  @media (min-width: 640px) {
+    .bene-stack-end-hold {
+      height: 40vh;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-stack-end-hold {
+      height: 45vh;
+    }
   }
 
   /* Keyframes: 1 card bottom-left corner come and stack */
@@ -1121,12 +1141,13 @@
           w.style.zIndex = (i + 1) * 10;
         });
 
-        // 2. Identify highest docked card (with generous 8px tolerance for subpixel renderers)
+        // 2. Identify highest docked card (with 40px docking buffer)
+        const dockBuffer = 40;
         let highestDockedIndex = -1;
         wraps.forEach((w, i) => {
           const targetTop = BASE + i * STACK_STEP;
           const rect = w.getBoundingClientRect();
-          if (rect.top <= targetTop + 8) {
+          if (rect.top <= targetTop + dockBuffer) {
             highestDockedIndex = i;
           }
         });
@@ -1143,14 +1164,8 @@
           if (!st) return;
 
           // 1st card stays in the same place without flying in
-          if (i === 0) {
-            st.targetX = 0;
-            st.targetY = 0;
-            st.targetRot = 0;
-            st.targetOpacity = 1;
-            w.classList.add("is-docked");
-          } else if (dist <= 8) {
-            // Docking condition: <= 8px handles subpixel scrolling and guarantees Card 4 locks flush
+          if (i === 0 || dist <= dockBuffer) {
+            // Card locks completely flush, organized and straight once within docking buffer or docked
             st.targetX = 0;
             st.targetY = 0;
             st.targetRot = 0;
@@ -1165,7 +1180,7 @@
               st.targetOpacity = 0.25;
             } else {
               // Ultra-smooth sine in-out easing for seamless docking
-              const rawProgress = Math.max(0, Math.min(1, 1 - (dist / tiltRange)));
+              const rawProgress = Math.max(0, Math.min(1, (tiltRange - dist) / (tiltRange - dockBuffer)));
               const eased = 0.5 * (1 - Math.cos(rawProgress * Math.PI));
 
               st.targetX = entry.x * (1 - eased);
@@ -1186,6 +1201,32 @@
             }
           }
         });
+
+        // 4. Synchronized stack exit: when section scroll ends and pushes Card 4 up,
+        // keep all 4 cards in their exact stacked positions so the deck exits organized
+        const lastIdx = wraps.length - 1;
+        const wLast = wraps[lastIdx];
+        if (wLast) {
+          const rectLast = wLast.getBoundingClientRect().top;
+
+          wraps.forEach((w, i) => {
+            if (i === lastIdx) return;
+            const targetTop = BASE + i * STACK_STEP;
+            const desiredTop = Math.min(targetTop, rectLast - (lastIdx - i) * STACK_STEP);
+            const currentVisual = w.getBoundingClientRect().top;
+            const prevShift = parseFloat(w.dataset.stackShift || 0);
+            const currentNatural = currentVisual - prevShift;
+            const neededShift = desiredTop - currentNatural;
+
+            if (currentNatural <= targetTop || neededShift > 0.5) {
+              w.dataset.stackShift = neededShift;
+              w.style.transform = Math.abs(neededShift) > 0.5 ? `translate3d(0, ${neededShift.toFixed(1)}px, 0)` : "";
+            } else {
+              w.dataset.stackShift = 0;
+              w.style.transform = "";
+            }
+          });
+        }
       }
 
       // Physics lerp loop for silky 60fps/120fps motion
