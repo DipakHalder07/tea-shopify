@@ -16,6 +16,8 @@
 
   <!-- ============ BENEFITS STICKY STACK SECTION ============ -->
   <section class="nidhi-benefits-stack-section" id="nidhiBenefitsSection">
+    <div class="nidhi-benefits-backdrop-gradient" aria-hidden="true"></div>
+
     {% if section.settings.show_floating_elements %}
       <!-- Ambient Floating Food / Ingredient Items Backdrop (Fixed in viewport, 0 flow height) -->
       <div class="nidhi-benefits-fixed-bg-wrapper" aria-hidden="true">
@@ -272,12 +274,20 @@
   }
 
   /* Fixed Ambient Floating Food Backdrop - Stays FIXED in viewport while cards scroll */
+  .nidhi-benefits-backdrop-gradient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(30, 20, 13, 0.45) 0%, rgba(16, 11, 6, 0.85) 70%, #100b06 100%);
+  }
+
   .nidhi-benefits-fixed-bg-wrapper {
     position: absolute;
     inset: 0;
     pointer-events: none;
     overflow: clip;
-    z-index: 0;
+    z-index: 15;
   }
 
   .nidhi-floating-food {
@@ -289,7 +299,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: radial-gradient(ellipse at 50% 50%, rgba(30, 20, 13, 0.45) 0%, rgba(16, 11, 6, 0.85) 70%, #100b06 100%);
+    background: transparent;
   }
 
   .floating-food-item {
@@ -314,9 +324,9 @@
     width: clamp(160px, 18vw, 270px);
   }
   .floating-food-item.item-cinnamon {
-    left: 13.5%;
-    top: 38%;
-    width: clamp(155px, 17vw, 255px);
+    left: 12.5%;
+    top: 36%;
+    width: clamp(210px, 23vw, 340px);
   }
   .floating-food-item.item-teacup {
     left: 3%;
@@ -371,7 +381,7 @@
 
   @media (max-width: 1400px) {
     .floating-food-item.item-chamomile { left: 4%; width: clamp(140px, 16vw, 220px); }
-    .floating-food-item.item-cinnamon { left: 9%; width: clamp(135px, 15vw, 210px); }
+    .floating-food-item.item-cinnamon { left: 10%; width: clamp(185px, 21vw, 300px); }
     .floating-food-item.item-teacup { left: 2%; width: clamp(130px, 14.5vw, 200px); }
     .floating-food-item.item-tea-sprig { right: 14%; width: clamp(150px, 17vw, 240px); }
     .floating-food-item.item-citrus { right: 3.5%; width: clamp(135px, 15vw, 215px); }
@@ -381,7 +391,7 @@
 
   @media (max-width: 1024px) {
     .floating-food-item.item-chamomile { left: 2%; top: 3%; width: clamp(100px, 12vw, 150px); }
-    .floating-food-item.item-cinnamon { left: 2%; top: 38%; width: clamp(95px, 11vw, 140px); }
+    .floating-food-item.item-cinnamon { left: 3.5%; top: 37%; width: clamp(130px, 15vw, 185px); }
     .floating-food-item.item-teacup { left: 2%; bottom: 3%; width: clamp(95px, 11vw, 140px); }
     .floating-food-item.item-tea-sprig { right: 2%; top: 3%; width: clamp(110px, 13vw, 160px); }
     .floating-food-item.item-citrus { right: 2%; top: 32%; width: clamp(95px, 11vw, 140px); }
@@ -544,14 +554,14 @@
   .nidhi-benefits-cards-wrap {
     position: relative;
     z-index: 10;
-    max-width: 720px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 0 1.25rem 2rem 1.25rem;
     box-sizing: border-box;
   }
   @media (min-width: 768px) {
     .nidhi-benefits-cards-wrap {
-      max-width: 760px;
+      max-width: 700px;
       padding: 0 1.5rem 2.5rem 1.5rem;
     }
   }
