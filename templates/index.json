@@ -430,7 +430,7 @@
                                                                   "settings":  {
                                                                                    "page_full_width":  true,
                                                                                    "page_full_width_spacing":  true,
-                                                                                   "title":  "Clientâ€™s Feedback",
+                                                                                   "title":  "Client's Feedback",
                                                                                    "heading_size":  "h1",
                                                                                    "sub_heading":  "",
                                                                                    "description":  "",
@@ -785,7 +785,7 @@
                      "nidhi-benefits-scroll":  {
                                                    "type":  "nidhi-benefits-scroll",
                                                    "settings":  {
-                                                                    "intro_text":  "Premium handcrafted teas sourced from the finest estates. â˜… No artificial additives â€” just pure leaves, pure water, and a moment of peace in every single cup.",
+                                                                    "intro_text":  "Premium handcrafted teas sourced from the finest estates. ★ No artificial additives — just pure leaves, pure water, and a moment of peace in every single cup.",
                                                                     "show_floating_elements":  true,
                                                                     "show_end_icon":  true
                                                                 }
@@ -849,7 +849,7 @@
                                                          ],
                                          "settings":  {
                                                           "heading":  "Loved By All",
-                                                          "subheading":  "REAL MOMENTS â€¢ REAL BREWS â€¢ INSTAGRAM STORIES",
+                                                          "subheading":  "REAL MOMENTS • REAL BREWS • INSTAGRAM STORIES",
                                                           "speed":  0.8,
                                                           "pause_on_hover":  true,
                                                           "padding_top":  70,

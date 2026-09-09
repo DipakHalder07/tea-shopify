@@ -9,7 +9,7 @@
   <section class="nidhi-intro-section" id="nidhiIntro">
     <div class="nidhi-intro-inner">
       <p id="introText" class="nidhi-intro-text">
-        {{ section.settings.intro_text | default: "Premium handcrafted teas sourced from the finest estates. ★ No artificial additives — just pure leaves, pure water, and a moment of peace in every single cup." }}
+        {{ section.settings.intro_text | default: "Premium handcrafted teas sourced from the finest estates. ★ No artificial additives — just pure leaves, pure water, and a moment of peace in every single cup." | replace: 'â˜…', '★' | replace: 'â€”', '—' | replace: 'â˜...', '★' | replace: 'â€“', '–' | replace: 'â€™', '’' }}
       </p>
     </div>
   </section>
@@ -182,23 +182,23 @@
   .nidhi-intro-section {
     position: relative;
     z-index: 10;
-    padding: 2.5rem 1.25rem;
+    padding: 3.5rem 1.5rem 2.5rem 1.5rem;
     overflow: hidden;
     text-align: center;
   }
   @media (min-width: 640px) {
     .nidhi-intro-section {
-      padding: 3.5rem 1.5rem;
+      padding: 5rem 2rem 4rem 2rem;
     }
   }
   @media (min-width: 768px) {
     .nidhi-intro-section {
-      padding: 5rem 2rem 4rem 2rem;
+      padding: 7rem 2.5rem 6rem 2.5rem;
     }
   }
 
   .nidhi-intro-inner {
-    max-width: 56rem; /* 896px */
+    max-width: 72rem; /* 1152px */
     margin: 0 auto;
     position: relative;
     z-index: 10;
@@ -206,13 +206,13 @@
 
   .nidhi-intro-text {
     font-family: var(--font-display-family, "Fraunces", Georgia, serif) !important;
-    font-size: clamp(1.85rem, 5vw, 3rem) !important;
-    line-height: 1.18 !important;
-    font-weight: 600 !important;
+    font-size: clamp(2.35rem, 5.8vw, 4.35rem) !important;
+    line-height: 1.22 !important;
+    font-weight: 700 !important;
     color: #f5e4c7 !important;
     margin: 0 auto !important;
     text-align: center !important;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   /* Split text styles */
@@ -237,6 +237,9 @@
 
   .nidhi-intro-text .intro-char.text-gold {
     color: #f7c665 !important;
+    display: inline-block;
+    margin: 0 0.18em;
+    transform: scale(1.15) translateY(-0.06em);
   }
 
   /* ============ BENEFITS STACK SECTION ============ */
@@ -634,16 +637,25 @@
       if (!p || p.dataset.introInit === "true") return;
       p.dataset.introInit = "true";
 
-      const originalText = p.textContent.trim().replace(/\s+/g, " ");
+      let originalText = p.textContent.trim().replace(/\s+/g, " ");
       if (!originalText) return;
+
+      originalText = originalText
+        .replace(/â˜\.\.\./g, "★")
+        .replace(/â˜…/g, "★")
+        .replace(/â€”/g, "—")
+        .replace(/â€“/g, "–")
+        .replace(/â€™/g, "’");
 
       const words = originalText.split(" ");
       p.innerHTML = words
         .map((w) => {
-          const isStar = w.includes("★");
           const charsHtml = w
             .split("")
-            .map((ch) => `<span class="intro-char ${ch === "★" ? "text-gold" : ""}">${ch}</span>`)
+            .map((ch) => {
+              const isStar = ch === "★" || ch === "✦";
+              return `<span class="intro-char ${isStar ? "text-gold" : ""}">${ch}</span>`;
+            })
             .join("");
           return `<span class="intro-word">${charsHtml}</span>`;
         })
