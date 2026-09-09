@@ -3715,6 +3715,55 @@ a.cart-item__name:hover {
   color: rgba(245, 228, 199, 0.8) !important;
 }
 
+/* Newsletter Section Email Input - Brand Off-White (#f5e4c7) Background */
+.fashion2newsletter .newletter_wrapper-block .field__input,
+.fashionnewsletter .newletter_wrapper-block .field__input,
+.newsletter .newletter_wrapper-block .field__input {
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(245, 228, 199, 0.6) !important;
+  font-family: var(--font-body-family), sans-serif !important;
+}
+
+.fashion2newsletter .newletter_wrapper-block .field__input::placeholder,
+.fashionnewsletter .newletter_wrapper-block .field__input::placeholder,
+.newsletter .newletter_wrapper-block .field__input::placeholder {
+  color: rgba(16, 11, 6, 0.65) !important;
+  font-family: var(--font-body-family), sans-serif !important;
+}
+
+.fashion2newsletter .newletter_wrapper-block .field__input:focus,
+.fashionnewsletter .newletter_wrapper-block .field__input:focus,
+.newsletter .newletter_wrapper-block .field__input:focus {
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px #FF0085 !important;
+}
+
+.fashion2newsletter .newletter_wrapper-block .field__input:-webkit-autofill,
+.fashion2newsletter .newletter_wrapper-block .field__input:-webkit-autofill:hover,
+.fashion2newsletter .newletter_wrapper-block .field__input:-webkit-autofill:focus,
+.newsletter .newletter_wrapper-block .field__input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f5e4c7 inset !important;
+  -webkit-text-fill-color: #100B06 !important;
+}
+
+.fashion2newsletter .newletter_wrapper-block .field__button,
+.fashionnewsletter .newletter_wrapper-block .field__button,
+.newsletter .newletter_wrapper-block .field__button {
+  background-color: #FF0085 !important;
+  color: #ffffff !important;
+  transition: background-color 0.25s ease, transform 0.15s ease !important;
+}
+
+.fashion2newsletter .newletter_wrapper-block .field__button:hover,
+.fashionnewsletter .newletter_wrapper-block .field__button:hover,
+.newsletter .newletter_wrapper-block .field__button:hover {
+  background-color: #d6006e !important;
+  color: #ffffff !important;
+}
+
 
 
 
