@@ -515,35 +515,43 @@
     flex: 1;
     align-items: center;
     justify-content: center;
-    height: 56vh;
-    min-height: 480px;
-    max-height: 760px;
+    height: 52vh;
+    min-height: 420px;
+    max-height: 620px;
+    max-width: 520px;
+    margin: 0 auto;
     overflow: visible;
   }
   @media (min-width: 640px) {
     .nidhi-stage {
-      height: 62vh;
-      min-height: 540px;
+      height: 56vh;
+      min-height: 460px;
+      max-height: 660px;
+      max-width: 600px;
     }
   }
   @media (min-width: 768px) {
     .nidhi-stage {
-      height: 68vh;
-      min-height: 600px;
+      height: 60vh;
+      min-height: 500px;
+      max-height: 700px;
+      max-width: 660px;
     }
   }
   @media (min-width: 1024px) {
     .nidhi-stage {
-      height: 74vh;
-      min-height: 660px;
-      max-height: 840px;
+      height: 64vh;
+      min-height: 540px;
+      max-height: 740px;
+      max-width: 720px;
     }
   }
   @media (min-width: 1280px) {
     .nidhi-stage {
-      height: 78vh;
-      min-height: 720px;
-      max-height: 900px;
+      height: 66vh;
+      min-height: 580px;
+      max-height: 780px;
+      max-width: 760px;
     }
   }
 
@@ -565,38 +573,38 @@
   }
   #heroTint {
     display: block !important;
-    width: 14rem;
-    height: 14rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 9999px;
     background-color: var(--pink, #FF3366);
     background-image: none !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4) !important;
     flex-shrink: 0;
-    transition: background-color 700ms ease, background 700ms ease;
+    transition: background-color 900ms ease, background 900ms ease;
     will-change: transform;
   }
   @media (min-width: 640px) {
     #heroTint {
-      width: 18rem;
-      height: 18rem;
+      width: 15rem;
+      height: 15rem;
     }
   }
   @media (min-width: 768px) {
     #heroTint {
-      width: 400px;
-      height: 400px;
+      width: 320px;
+      height: 320px;
     }
   }
   @media (min-width: 1024px) {
     #heroTint {
-      width: 480px;
-      height: 480px;
+      width: 380px;
+      height: 380px;
     }
   }
   @media (min-width: 1280px) {
     #heroTint {
-      width: 560px;
-      height: 560px;
+      width: 440px;
+      height: 440px;
     }
   }
 
@@ -604,31 +612,31 @@
   @keyframes hero-bg-pulse {
     0%,
     100% {
-      transform: scale(0.96);
+      transform: scale(0.97);
     }
     50% {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
   }
 
   /* Class applied to the background circle */
   .animate-hero-bg {
-    animation: hero-bg-pulse 6s ease-in-out infinite !important;
+    animation: hero-bg-pulse 8.5s ease-in-out infinite !important;
     will-change: transform;
   }
 
-  /* Floating Idle Animation on Product Pack (Tilt 5deg + Float) */
+  /* Floating Idle Animation on Product Pack - Slower and Gentler */
   @keyframes hero-pack-float {
     0%,
     100% {
-      transform: rotate(4deg) translateY(0px);
+      transform: rotate(3deg) translateY(0px);
     }
     50% {
-      transform: rotate(6.5deg) translateY(-20px);
+      transform: rotate(4.8deg) translateY(-14px);
     }
   }
   .hero-floating-pack {
-    animation: hero-pack-float 4.5s ease-in-out infinite !important;
+    animation: hero-pack-float 7.5s ease-in-out infinite !important;
     will-change: transform;
     transform-origin: center center;
   }
@@ -641,27 +649,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 320px;
+    max-width: 260px;
     pointer-events: none;
   }
   @media (min-width: 640px) {
     .nidhi-companion-container {
-      max-width: 420px;
+      max-width: 340px;
     }
   }
   @media (min-width: 768px) {
     .nidhi-companion-container {
-      max-width: 500px;
+      max-width: 400px;
     }
   }
   @media (min-width: 1024px) {
     .nidhi-companion-container {
-      max-width: 580px;
+      max-width: 460px;
     }
   }
   @media (min-width: 1280px) {
     .nidhi-companion-container {
-      max-width: 660px;
+      max-width: 520px;
     }
   }
 
@@ -749,7 +757,7 @@
     }
   }
   .animate-float-companion-bottom {
-    animation: companion-float-br 4.6s ease-in-out infinite 0.7s;
+    animation: companion-float-br 7.5s ease-in-out infinite 1s;
     will-change: transform;
     display: flex;
     align-items: center;
@@ -759,34 +767,34 @@
 
   .nidhi-companion-img {
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
     filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.65));
     pointer-events: none;
   }
   @media (min-width: 640px) {
     .nidhi-companion-img {
-      width: 125px;
-      height: 125px;
+      width: 105px;
+      height: 105px;
     }
   }
   @media (min-width: 768px) {
+    .nidhi-companion-img {
+      width: 130px;
+      height: 130px;
+    }
+  }
+  @media (min-width: 1024px) {
     .nidhi-companion-img {
       width: 155px;
       height: 155px;
     }
   }
-  @media (min-width: 1024px) {
-    .nidhi-companion-img {
-      width: 185px;
-      height: 185px;
-    }
-  }
   @media (min-width: 1280px) {
     .nidhi-companion-img {
-      width: 215px;
-      height: 215px;
+      width: 175px;
+      height: 175px;
     }
   }
 
@@ -807,40 +815,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: all 1200ms cubic-bezier(0.25, 1, 0.35, 1);
     will-change: transform, opacity;
   }
   .hero-slide-item img {
-    height: 125%;
-    max-height: 600px;
+    height: 102%;
+    max-height: 440px;
     width: auto;
-    max-width: 90vw;
+    max-width: min(380px, 80vw);
     object-fit: contain;
-    filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.72));
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.68));
     pointer-events: none;
   }
   @media (min-width: 640px) {
     .hero-slide-item img {
-      height: 132%;
-      max-height: 680px;
+      height: 105%;
+      max-height: 500px;
+      max-width: min(440px, 75vw);
     }
   }
   @media (min-width: 768px) {
     .hero-slide-item img {
-      height: 140%;
-      max-height: 760px;
+      height: 108%;
+      max-height: 560px;
+      max-width: min(490px, 70vw);
     }
   }
   @media (min-width: 1024px) {
     .hero-slide-item img {
-      height: 148%;
-      max-height: 840px;
+      height: 110%;
+      max-height: 620px;
+      max-width: min(540px, 65vw);
     }
   }
   @media (min-width: 1280px) {
     .hero-slide-item img {
-      height: 152%;
-      max-height: 920px;
+      height: 112%;
+      max-height: 660px;
+      max-width: min(580px, 60vw);
     }
   }
 
@@ -1126,7 +1138,7 @@
 
       wrap.innerHTML = SLIDES.map(
         (s, i) => `
-        <div class="hero-slide-item pointer-events-none absolute inset-0 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform opacity-0" data-hero-slide="${i}">
+        <div class="hero-slide-item pointer-events-none absolute inset-0 flex items-center justify-center transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.35,1)] will-change-transform opacity-0" data-hero-slide="${i}">
           <img src="${s.img}" alt="${s.name}" class="hero-floating-pack pointer-events-none">
         </div>
       `
@@ -1135,7 +1147,7 @@
 
       function hideHeroBtns() {
         heroBtns.forEach((b) => {
-          b.style.transition = 'transform 220ms ease-out, opacity 220ms ease-out';
+          b.style.transition = 'transform 260ms ease-out, opacity 260ms ease-out';
           b.style.transform = 'scale(0)';
           b.style.opacity = '0';
           b.style.pointerEvents = 'none';
@@ -1146,13 +1158,13 @@
         clearTimeout(btnPopupTimer);
         btnPopupTimer = setTimeout(() => {
           heroBtns.forEach((b) => {
-            b.style.transition = 'transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease';
+            b.style.transition = 'transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 380ms ease';
             b.style.transform = 'scale(1)';
             b.style.opacity = '1';
             b.style.pointerEvents = 'auto';
           });
           isTransitioning = false;
-        }, 620);
+        }, 1150);
       }
 
       function render(animateEffects = false) {
@@ -1163,35 +1175,35 @@
           hideHeroBtns();
           popupHeroBtns();
 
-          // Step 1: Shrink & Dip down on slide exit (260ms)
+          // Step 1: Smooth shrink & dip down on slide exit (420ms)
           if (tintWrap) {
-            tintWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1)';
-            tintWrap.style.transform = 'scale(0.85)';
+            tintWrap.style.transition = 'transform 420ms cubic-bezier(0.4, 0, 0.2, 1)';
+            tintWrap.style.transform = 'scale(0.88)';
           }
 
           if (topWrap) {
-            topWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease';
-            topWrap.style.transform = 'scale(0) rotate(-35deg)';
+            topWrap.style.transition = 'transform 420ms cubic-bezier(0.4, 0, 0.2, 1), opacity 320ms ease';
+            topWrap.style.transform = 'scale(0) rotate(-25deg)';
             topWrap.style.opacity = '0';
           }
           if (bottomWrap) {
-            bottomWrap.style.transition = 'transform 260ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease';
-            bottomWrap.style.transform = 'scale(0) rotate(35deg)';
+            bottomWrap.style.transition = 'transform 420ms cubic-bezier(0.4, 0, 0.2, 1), opacity 320ms ease';
+            bottomWrap.style.transform = 'scale(0) rotate(25deg)';
             bottomWrap.style.opacity = '0';
           }
 
-          // Step 2: Swap color and spring back up to full size (550ms spring easing)
+          // Step 2: Swap color and spring back up smoothly (850ms)
           setTimeout(() => {
             if (tint) {
               tint.style.display = 'block';
               tint.style.backgroundImage = 'none';
               tint.style.background = SLIDES[index].tint;
               tint.style.backgroundColor = SLIDES[index].tint;
-              tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.4)';
+              tint.style.boxShadow = '0 20px 40px -10px rgba(0, 0, 0, 0.4)';
             }
 
             if (tintWrap) {
-              tintWrap.style.transition = 'transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+              tintWrap.style.transition = 'transform 850ms cubic-bezier(0.34, 1.4, 0.64, 1)';
               tintWrap.style.transform = 'scale(1)';
             }
 
@@ -1201,23 +1213,23 @@
             }
 
             if (topWrap) {
-              topWrap.style.transition = 'transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease';
+              topWrap.style.transition = 'transform 800ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 450ms ease';
               topWrap.style.transform = 'scale(1) rotate(0deg)';
               topWrap.style.opacity = '1';
             }
             if (bottomWrap) {
-              bottomWrap.style.transition = 'transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease';
+              bottomWrap.style.transition = 'transform 800ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 450ms ease';
               bottomWrap.style.transform = 'scale(1) rotate(0deg)';
               bottomWrap.style.opacity = '1';
             }
-          }, 260);
+          }, 420);
         } else {
           if (tint) {
             tint.style.display = 'block';
             tint.style.backgroundImage = 'none';
             tint.style.background = SLIDES[index].tint;
             tint.style.backgroundColor = SLIDES[index].tint;
-            tint.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.4)';
+            tint.style.boxShadow = '0 20px 40px -10px rgba(0, 0, 0, 0.4)';
           }
           if (tintWrap) tintWrap.style.transform = 'scale(1)';
           if (topWrap) {
@@ -1247,12 +1259,12 @@
             sl.style.opacity = '0';
             sl.style.zIndex = '10';
             sl.style.pointerEvents = 'none';
-            sl.style.transform = 'translate3d(-180%, 0, 0) scale(0.7) rotate(-10deg)';
+            sl.style.transform = 'translate3d(-140%, 0, 0) scale(0.68) rotate(-6deg)';
           } else {
             sl.style.opacity = '0';
             sl.style.zIndex = '10';
             sl.style.pointerEvents = 'none';
-            sl.style.transform = 'translate3d(180%, 0, 0) scale(0.7) rotate(10deg)';
+            sl.style.transform = 'translate3d(140%, 0, 0) scale(0.68) rotate(6deg)';
           }
         });
 
@@ -1280,7 +1292,7 @@
         autoplayTimer = setInterval(() => {
           index = (index + 1) % SLIDES.length;
           render(true);
-        }, 6000);
+        }, 8500);
       }
 
       heroBtns.forEach((b) => {
