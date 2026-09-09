@@ -1,9 +1,8 @@
 .footer-style3 {
+    border-top: 1px solid rgba(245, 228, 199, 0.18);
+    border-top: 1px solid rgba(var(--color-foreground), 0.15);
     position: relative;
     z-index: 0; 
-}
-.footer-style3:not(.color-background-1) {
-    border-top: none;
 }
 .footer__content-top {
   padding-bottom: 0rem;

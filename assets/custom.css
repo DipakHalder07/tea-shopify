@@ -3764,6 +3764,25 @@ a.cart-item__name:hover {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   FOOTER TOP BORDER
+   ========================================================================== */
+footer.footer,
+footer.footer-style1,
+footer.footer-style2,
+footer.footer-style3,
+footer.footer-style4,
+.footer,
+.footer-style1,
+.footer-style2,
+.footer-style3,
+.footer-style4,
+#shopify-section-footer footer,
+.shopify-section-footer footer {
+  border-top: 1px solid rgba(245, 228, 199, 0.18) !important;
+}
+
+
 
 
 

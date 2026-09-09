@@ -12,66 +12,60 @@ class dT_WhistList {
         this.LOCAL_STORAGE_DELIMITER = LOCAL_STORAGE_DELIMITER;
     }
 
-    setupGrid(listType) {
+    async setupGrid(listType) {
         var wishlist = this.getWishlist();
+        if (!wishlist.length) {
+            this.wishListData = [];
+            return [];
+        }
 
-        var requests = wishlist.map(function (handle) {
-            var productTileTemplateUrl = '/products/' + handle + '?view=json';
+        var responses = [];
+        for (var i = 0; i < wishlist.length; i++) {
+            var handle = wishlist[i];
+            var productTileTemplateUrl = '/products/' + encodeURIComponent(handle) + '?view=json';
+            var getProductsList = await this.getProductResponse(productTileTemplateUrl);
+            if (getProductsList) {
+                responses.push(getProductsList);
+            }
+        }
 
-            var getProductsList =  this.getProductResponse(productTileTemplateUrl);
+        var wishlistProductCards = responses.join('%$$%');
+        var a_wishlistRecords = wishlistProductCards.split("%$$%");
 
-            return getProductsList;
-        }.bind(this));
-      
+        let recordsObj = [];
 
-       return Promise.all(requests).then(function (responses) {
-              var wishlistProductCards = responses.join('%$$%');
-              var wishlistProductCards = wishlistProductCards;
+        if (Array.isArray(a_wishlistRecords) && a_wishlistRecords.length) {
+            a_wishlistRecords.forEach(record => {
+                if (!record || typeof record !== 'string' || !record.includes("~~")) return;
+                var a_record = record.split("~~");
+                if (a_record.length < 3 || !a_record[2]) return;
 
-              var a_wishlistRecords = wishlistProductCards.split("%$$%");
+                var recordObj = {
+                        id:             a_record[0],
+                        product_title:  a_record[1],
+                        product_handle: a_record[2],
+                        product_image:  a_record[3] || '',
+                        vendor:         a_record[4] || '',
+                        type:           a_record[5] || '',
+                        money_price:    a_record[6] || '',
+                        price_min:      a_record[7] || '',
+                        price_max:      a_record[8] || '',
+                        available:      a_record[9] || 'true',
+                        price_varies:   a_record[10] || 'false',
+                        variant_id:     a_record[11] || '',
+                        variant_title:  a_record[12] || '',
+                        sku:            a_record[13] || '',
+                        description:    a_record[14] || '',
+                        quantity:       "1",
+                        product_url:    '/products/'+a_record[2]
+                };
 
-              let recordsObj = [];
+                recordsObj.push(recordObj);
+            });
+        }
 
-              if (Array.isArray(a_wishlistRecords) && a_wishlistRecords.length) {
-                  a_wishlistRecords.forEach(record => {
-                      if (!record || typeof record !== 'string' || !record.includes("~~")) return;
-                      var a_record = record.split("~~");
-                      if (a_record.length < 3 || !a_record[2]) return;
-
-                      var recordObj = {
-                              id:             a_record[0],
-                              product_title:  a_record[1],
-                              product_handle: a_record[2],
-                              product_image:  a_record[3] || '',
-                              vendor:         a_record[4] || '',
-                              type:           a_record[5] || '',
-                              money_price:    a_record[6] || '',
-                              price_min:      a_record[7] || '',
-                              price_max:      a_record[8] || '',
-                              available:      a_record[9] || 'true',
-                              price_varies:   a_record[10] || 'false',
-                              variant_id:     a_record[11] || '',
-                              variant_title:  a_record[12] || '',
-                              sku:            a_record[13] || '',
-                              description:    a_record[14] || '',
-                              quantity:       "1",
-                              product_url:    '/products/'+a_record[2]
-                      };
-
-                      recordsObj.push(recordObj);
-                  });
-              }
-
-              return recordsObj;
-
-         }).then(function(data) {
-         
-             this.wishListData = data;  
-         
-             return data;
-
-         }.bind(this));
-
+        this.wishListData = recordsObj;
+        return recordsObj;
     }
 
     getWishListRecords()
@@ -85,17 +79,23 @@ class dT_WhistList {
     // }
 
     getProductResponse(url) {
-            
       var responseResult = fetch(url)
       	.then((response) => { 
-          //console.log(response); 
-          return response.text(); })
+          if (!response.ok) return '';
+          return response.text(); 
+        })
       	.then((data) => { 
-          //console.log(data); 
-          return data.replace(/^\s*[\r\n]/gm, ''); });
+          if (!data || data.includes('Failed to render storefront') || data.includes('502 (Bad Gateway)')) {
+            return '';
+          }
+          return data.replace(/^\s*[\r\n]/gm, ''); 
+        })
+        .catch((err) => {
+          console.warn('Error fetching product tile:', url, err);
+          return '';
+        });
      
       return responseResult;
-      
     }
 
     getTotalCount() {
@@ -104,7 +104,12 @@ class dT_WhistList {
   
     getWishlist() {
         var wishlist = localStorage.getItem(this.LOCAL_STORAGE_WISHLIST_KEY) || false;
-        if (wishlist) return wishlist.split(this.LOCAL_STORAGE_DELIMITER);
+        if (wishlist) {
+            return wishlist
+                .split(this.LOCAL_STORAGE_DELIMITER)
+                .map(function(item) { return (item || '').trim(); })
+                .filter(function(item) { return item.length > 0; });
+        }
         return [];
     }
 
