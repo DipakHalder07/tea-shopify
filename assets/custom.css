@@ -3861,6 +3861,47 @@ footer.footer-style4,
   font-weight: 600 !important;
 }
 
+/* ==========================================================================
+   LOGIN MODAL - OFF-WHITE BACKGROUND (#f5e4c7) & PINK TITLE (#FF0085)
+   ========================================================================== */
+.details-modal {
+  z-index: 9999999 !important;
+}
+
+.detial-login {
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  border-radius: 24px !important;
+  z-index: 10000000 !important;
+}
+
+.detial-login h1#customer--login {
+  color: #FF0085 !important;
+}
+
+.detial-login .heading-wrapper p {
+  color: rgba(16, 11, 6, 0.75) !important;
+}
+
+.detial-login .field input {
+  background: #ffffff !important;
+  border: 1.5px solid rgba(16, 11, 6, 0.12) !important;
+  color: #100B06 !important;
+}
+
+.detial-login .field input:focus {
+  border-color: #FF0085 !important;
+  box-shadow: 0 0 0 2px rgba(255, 0, 133, 0.25) !important;
+}
+
+.detial-login button.button,
+.detial-login button.button--primary,
+.detial-login .button {
+  background-color: #FF0085 !important;
+  color: #ffffff !important;
+}
+
+
 
 
 
