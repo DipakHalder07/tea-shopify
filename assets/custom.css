@@ -1078,6 +1078,7 @@ button,
 /* Headings Typography - Elegant Fraunces Serif */
 h1, .h1 {
   font-family: var(--font-heading-family) !important;
+  color: #f5e4c7;
   font-optical-sizing: auto;
   letter-spacing: -0.02em !important;
   font-size: clamp(2.75rem, 5vw, 5rem) !important;
@@ -1087,6 +1088,7 @@ h1, .h1 {
 
 h2, .h2, .section-title, .title {
   font-family: var(--font-heading-family) !important;
+  color: #f5e4c7;
   font-optical-sizing: auto;
   letter-spacing: -0.015em !important;
   font-size: clamp(2.2rem, 3.5vw, 3.8rem) !important;
@@ -1096,6 +1098,7 @@ h2, .h2, .section-title, .title {
 
 h3, .h3 {
   font-family: var(--font-heading-family) !important;
+  color: #f5e4c7;
   font-optical-sizing: auto;
   letter-spacing: -0.01em !important;
   font-size: 2.4rem !important;
@@ -1105,6 +1108,7 @@ h3, .h3 {
 
 h4, .h4 {
   font-family: var(--font-heading-family) !important;
+  color: #f5e4c7;
   font-optical-sizing: auto;
   letter-spacing: -0.005em !important;
   font-size: 2rem !important;
@@ -1114,6 +1118,7 @@ h4, .h4 {
 
 h5, .h5, h6, .h6 {
   font-family: var(--font-heading-family) !important;
+  color: #f5e4c7;
   font-optical-sizing: auto;
   font-weight: 600 !important;
   line-height: 1.35 !important;
@@ -3412,6 +3417,304 @@ cart-drawer .drawer__inner {
   background-color: #FF0085 !important;
   border-radius: 5px !important;
 }
+
+/* ==========================================================================
+   CART PAGE (/cart) DARK THEME & TYPOGRAPHY VISIBILITY
+   ========================================================================== */
+.main-cart-wrapper,
+.cart-template,
+cart-items {
+  background-color: #100B06 !important;
+  color: #f5e4c7 !important;
+}
+
+/* Headings & Empty Cart on Cart Page */
+.main-cart-wrapper .title,
+cart-items .title,
+.cart-template .title,
+.cart__empty-text,
+.cart__login-title,
+.main-cart-wrapper h1,
+.main-cart-wrapper h2,
+.main-cart-wrapper h3,
+.cart-template h1,
+.cart-template h2,
+.cart-template h3 {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+}
+
+.cart__login-paragraph,
+.cart__login-paragraph a {
+  color: #f5e4c7 !important;
+}
+
+.cart__login-paragraph a {
+  text-decoration: underline !important;
+}
+
+/* Cart Table Headers */
+.cart-items th,
+.cart-items thead th,
+.main-cart-wrapper th {
+  color: #f5e4c7 !important;
+  font-family: var(--font-body-family), sans-serif !important;
+  border-bottom: 1px solid rgba(245, 228, 199, 0.15) !important;
+  background: transparent !important;
+}
+
+.cart-items tr.cart-item {
+  border-bottom: 1px solid rgba(245, 228, 199, 0.12) !important;
+}
+
+/* Product Titles & Details */
+.cart-item__name,
+a.cart-item__name,
+.main-cart-wrapper .cart-item__name,
+.main-cart-wrapper a.cart-item__name {
+  color: #f5e4c7 !important;
+  font-family: var(--font-body-family), sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+}
+
+.cart-item__name:hover,
+a.cart-item__name:hover {
+  color: #FF0085 !important;
+}
+
+.cart-item__details,
+.cart-item__details p,
+.cart-item__details span,
+.cart-item__details dd,
+.cart-item .product-option,
+.cart-item .caption-with-letter-spacing {
+  color: rgba(245, 228, 199, 0.8) !important;
+}
+
+/* Prices */
+.cart-item__price,
+.cart-item__price-wrapper,
+.cart-item__totals,
+.cart-price,
+.cart-item .price,
+.cart-item .price-item,
+.cart-item .price--end,
+.cart-item__final-price {
+  color: #F7C665 !important;
+}
+
+.cart-item__old-price {
+  color: rgba(245, 228, 199, 0.5) !important;
+}
+
+/* Quantity Selector on Cart Page */
+.cart-template .quantity,
+.main-cart-wrapper .quantity {
+  background: #1a130c !important;
+  border: 1px solid rgba(245, 228, 199, 0.25) !important;
+  color: #f5e4c7 !important;
+  border-radius: 4px !important;
+}
+
+.cart-template .quantity__input,
+.main-cart-wrapper .quantity__input {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+}
+
+.cart-template .quantity__button,
+.main-cart-wrapper .quantity__button {
+  color: #f5e4c7 !important;
+}
+
+.cart-template .quantity__button:hover,
+.main-cart-wrapper .quantity__button:hover {
+  color: #FF0085 !important;
+}
+
+/* Remove / Trash Button */
+.main-cart-wrapper cart-remove-button .button,
+.cart-template cart-remove-button .button {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+}
+
+.main-cart-wrapper cart-remove-button .button svg,
+.cart-template cart-remove-button .button svg {
+  color: #f5e4c7 !important;
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+.main-cart-wrapper cart-remove-button .button:hover,
+.cart-template cart-remove-button .button:hover,
+.main-cart-wrapper cart-remove-button .button:hover svg,
+.cart-template cart-remove-button .button:hover svg {
+  color: #FF0085 !important;
+  stroke: #FF0085 !important;
+  fill: #FF0085 !important;
+}
+
+/* Continue Shopping Buttons */
+.continue-shopping a,
+.cart__warnings a.button {
+  background-color: #FF0085 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+
+.continue-shopping a:hover,
+.cart__warnings a.button:hover {
+  background-color: #d6006e !important;
+  color: #ffffff !important;
+}
+
+/* Order Special Instructions Note */
+.main-cart-wrapper .cart-note-content,
+.main-cart-wrapper .cart__note label,
+.cart-template .cart-note-content,
+.cart-template .cart__note label {
+  color: #f5e4c7 !important;
+}
+
+.main-cart-wrapper .cart__note .field__input,
+.main-cart-wrapper .cart__note textarea,
+.cart-template .cart__note .field__input,
+.cart-template .cart__note textarea {
+  background: #272119 !important;
+  color: #f5e4c7 !important;
+  border: 1px solid rgba(245, 228, 199, 0.2) !important;
+  border-radius: 8px !important;
+}
+
+.main-cart-wrapper .cart__note textarea::placeholder,
+.cart-template .cart__note textarea::placeholder {
+  color: rgba(245, 228, 199, 0.5) !important;
+}
+
+/* ==========================================================================
+   CART FOOTER & SHIPPING CALCULATOR (DARK CARD)
+   ========================================================================== */
+.cart-template .cart__footer,
+.main-cart-wrapper .cart__footer,
+#main-cart-footer .cart__footer {
+  background: #272119 !important;
+  border: 1px solid rgba(245, 228, 199, 0.15) !important;
+  border-radius: 12px !important;
+  color: #f5e4c7 !important;
+  padding: 3rem !important;
+}
+
+.cart-template .cart__footer h3,
+.main-cart-wrapper .cart__footer h3,
+#main-cart-footer .cart__footer h3 {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+}
+
+.cart-template .totals__subtotal,
+.main-cart-wrapper .totals__subtotal,
+#main-cart-footer .totals__subtotal {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+}
+
+.cart-template .totals__subtotal-value,
+.main-cart-wrapper .totals__subtotal-value,
+#main-cart-footer .totals__subtotal-value {
+  color: #F7C665 !important;
+}
+
+.cart-template .tax-note,
+.main-cart-wrapper .tax-note,
+#main-cart-footer .tax-note {
+  color: rgba(245, 228, 199, 0.75) !important;
+}
+
+/* Shipping Calculator Inputs & Labels */
+#shipping-calculator .field label,
+.cart__footer #shipping-calculator label {
+  color: #f5e4c7 !important;
+}
+
+#shipping-calculator .dt-sc-btn,
+#shipping-calculator select,
+#shipping-calculator input[type="text"],
+.cart__footer input.discount-code {
+  background-color: rgba(245, 228, 199, 0.08) !important;
+  color: #f5e4c7 !important;
+  border: 1px solid rgba(245, 228, 199, 0.2) !important;
+  border-radius: 6px !important;
+}
+
+#shipping-calculator select option {
+  background-color: #272119 !important;
+  color: #f5e4c7 !important;
+}
+
+.cart__footer input.discount-code::placeholder {
+  color: rgba(245, 228, 199, 0.5) !important;
+}
+
+#shipping-rates-feedback {
+  color: #f5e4c7 !important;
+}
+
+/* Buttons in Cart Footer */
+.cart-template .cart__footer .button,
+.main-cart-wrapper .cart__footer .button,
+#shipping-calculator .button,
+#shipping-calculator .get-rates,
+.cart__footer button#apply-coupon,
+.cart-template .cart__checkout-button,
+.main-cart-wrapper .cart__checkout-button {
+  background: #FF0085 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+
+.cart-template .cart__footer .button:hover,
+.main-cart-wrapper .cart__footer .button:hover,
+#shipping-calculator .button:hover,
+#shipping-calculator .get-rates:hover,
+.cart__footer button#apply-coupon:hover,
+.cart-template .cart__checkout-button:hover,
+.main-cart-wrapper .cart__checkout-button:hover {
+  background: #d6006e !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   CART PAGE EXTRA SECTIONS (SUPPORT BLOCK & NEWSLETTER)
+   ========================================================================== */
+.fashion2support h5,
+.fashion2support h4,
+.fashion2support h3,
+.fashion2support h2,
+.fashion2support .support-block-title,
+.support-block .support-block-title {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+}
+
+.fashion2support p {
+  color: rgba(245, 228, 199, 0.8) !important;
+}
+
+.fashion2newsletter h1,
+.fashion2newsletter h2,
+.fashion2newsletter .title {
+  color: #f5e4c7 !important;
+  font-family: var(--font-heading-family), 'Fraunces', Georgia, serif !important;
+}
+
+.fashion2newsletter p {
+  color: rgba(245, 228, 199, 0.8) !important;
+}
+
 
 
 
