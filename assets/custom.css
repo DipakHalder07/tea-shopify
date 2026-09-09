@@ -3908,6 +3908,260 @@ footer.footer-style4,
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   PRODUCT PAGE - CONTRAST & VISIBILITY ENHANCEMENTS
+   ========================================================================== */
+
+/* 1. Quantity Selector: Visible cream outline, dark pill background, crisp text and icons */
+.product__info-wrapper .quantity,
+.product-form__quantity .quantity,
+.product-form__input .quantity {
+  background: rgba(245, 228, 199, 0.06) !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.3) !important;
+  border-radius: 30px !important;
+  color: #f5e4c7 !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.product__info-wrapper .quantity:hover,
+.product-form__quantity .quantity:hover,
+.product-form__input .quantity:hover {
+  border-color: rgba(245, 228, 199, 0.6) !important;
+  background: rgba(245, 228, 199, 0.1) !important;
+}
+
+.product__info-wrapper .quantity__input,
+.product-form__quantity .quantity__input,
+.product-form__input .quantity__input {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  border: none !important;
+}
+
+.product__info-wrapper .quantity__button,
+.product-form__quantity .quantity__button,
+.product-form__input .quantity__button {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.product__info-wrapper .quantity__button svg,
+.product-form__quantity .quantity__button svg,
+.product-form__input .quantity__button svg,
+.product__info-wrapper .quantity__button svg path,
+.product-form__quantity .quantity__button svg path,
+.product-form__input .quantity__button svg path {
+  fill: #f5e4c7 !important;
+  color: #f5e4c7 !important;
+  transition: fill 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+.product__info-wrapper .quantity__button:hover svg,
+.product-form__quantity .quantity__button:hover svg,
+.product-form__input .quantity__button:hover svg,
+.product__info-wrapper .quantity__button:hover svg path,
+.product-form__quantity .quantity__button:hover svg path,
+.product-form__input .quantity__button:hover svg path {
+  fill: #FF0085 !important;
+  color: #FF0085 !important;
+  transform: scale(1.15) !important;
+}
+
+/* 2. Wishlist & Compare Buttons */
+.product__info-wrapper a.add-wishlist.button--secondary,
+.product__info-wrapper a.add-compare.button--secondary,
+.product-form__buttons a.add-wishlist,
+.product-form__buttons a.add-compare {
+  width: 50px !important;
+  height: 50px !important;
+  background: rgba(245, 228, 199, 0.07) !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.3) !important;
+  border-radius: 50% !important;
+  color: #f5e4c7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.25s ease !important;
+}
+
+.product__info-wrapper a.add-wishlist.button--secondary:hover,
+.product__info-wrapper a.add-compare.button--secondary:hover,
+.product-form__buttons a.add-wishlist:hover,
+.product-form__buttons a.add-compare:hover {
+  background: rgba(255, 0, 133, 0.15) !important;
+  border-color: #FF0085 !important;
+  color: #FF0085 !important;
+  transform: translateY(-2px) !important;
+}
+
+.product__info-wrapper .dT_VProdWishList a:not(.adding).add-wishlist:before,
+.product__info-wrapper .dT_VProdCompareList a:not(.adding).add-compare:before {
+  background-color: #f5e4c7 !important;
+  transition: background-color 0.25s ease !important;
+}
+
+.product__info-wrapper .dT_VProdWishList a:not(.adding).add-wishlist:hover:before,
+.product__info-wrapper .dT_VProdCompareList a:not(.adding).add-compare:hover:before {
+  background-color: #FF0085 !important;
+}
+
+.product__info-wrapper .dT_VProdWishList a:not(.adding).added.add-wishlist:before,
+.product__info-wrapper .dT_VProdCompareList a:not(.adding).added.add-compare:before {
+  background-color: #FF0085 !important;
+}
+
+/* 3. BUY IT NOW Button */
+.product__info-wrapper .shopify-payment-button,
+.product__info-container .shopify-payment-button {
+  margin-top: 15px !important;
+}
+
+.product__info-wrapper .product-form button.shopify-payment-button__button--unbranded,
+.shopify-payment-button .shopify-payment-button__button--unbranded,
+.shopify-payment-button [role="button"] {
+  background: rgba(245, 228, 199, 0.1) !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.6) !important;
+  border-radius: 30px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  min-height: 50px !important;
+  height: 50px !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+
+.product__info-wrapper .product-form button.shopify-payment-button__button--unbranded:hover,
+.shopify-payment-button .shopify-payment-button__button--unbranded:hover,
+.shopify-payment-button [role="button"]:hover {
+  background: #f5e4c7 !important;
+  color: #100B06 !important;
+  border-color: #f5e4c7 !important;
+  box-shadow: 0 4px 18px rgba(245, 228, 199, 0.3) !important;
+}
+
+/* 4. Estimated Delivery & Return Details */
+.product__info-container p.delivery,
+.product__info-container p.shipping {
+  color: rgba(245, 228, 199, 0.85) !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 14px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.product__info-container p.delivery svg,
+.product__info-container p.shipping svg {
+  stroke: #f5e4c7 !important;
+  color: #f5e4c7 !important;
+  flex-shrink: 0 !important;
+}
+
+.product__info-container p.delivery span,
+.product__info-container p.shipping span,
+.product__info-container .delivery-desc {
+  color: rgba(245, 228, 199, 0.85) !important;
+}
+
+.product__info-container p.delivery strong,
+.product__info-container p.shipping strong,
+.product__info-container .delivery-desc strong {
+  color: #F7C665 !important;
+  font-weight: 700 !important;
+}
+
+/* 5. Safe & Secure Checkout Heading */
+.main-product-template .product__payment {
+  border-bottom: 1px solid rgba(245, 228, 199, 0.12) !important;
+  position: relative !important;
+  margin-top: 3.5rem !important;
+  padding-bottom: 25px !important;
+}
+
+.main-product-template .product__payment p.product_payment_text {
+  background: #100B06 !important;
+  color: rgba(245, 228, 199, 0.85) !important;
+  border: 1px solid rgba(245, 228, 199, 0.25) !important;
+  border-radius: 20px !important;
+  font-size: 13px !important;
+  padding: 5px 18px !important;
+  max-width: max-content !important;
+  width: auto !important;
+  letter-spacing: 0.04em !important;
+  top: -15px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 6. Product Subtitle & Text Visibility */
+.product__info-container .product__text,
+.product__info-wrapper .product__text,
+.main-product-template .product__text {
+  color: rgba(245, 228, 199, 0.85) !important;
+  line-height: 1.6 !important;
+}
+
+/* 7. Product Accordion & Description Content */
+.product__accordion .summary__title,
+.main-product-template .summary__title {
+  color: #f5e4c7 !important;
+}
+
+.product__accordion .icon-accordion,
+.main-product-template .icon-accordion {
+  fill: #f5e4c7 !important;
+  stroke: #f5e4c7 !important;
+  color: #f5e4c7 !important;
+}
+
+.main-product-template .accordion details summary {
+  border-color: rgba(245, 228, 199, 0.25) !important;
+  transition: border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.main-product-template .accordion details summary:hover {
+  border-color: rgba(245, 228, 199, 0.55) !important;
+}
+
+.product__accordion .accordion__content,
+.product__accordion .accordion__content *,
+.product__accordion .accordion__content p,
+.product__info-as-bottom-tabs .dt-sc-tabs-content,
+.product__info-as-bottom-tabs .dt-sc-tabs-content * {
+  color: rgba(245, 228, 199, 0.85) !important;
+}
+
+/* 8. Product Variant Pickers (Buttons / Pills) */
+.product-form__input input[type="radio"] + label {
+  background: rgba(245, 228, 199, 0.06) !important;
+  color: #f5e4c7 !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.3) !important;
+  border-radius: 25px !important;
+  transition: all 0.25s ease !important;
+}
+
+.product-form__input input[type="radio"]:checked + label {
+  background: #FF0085 !important;
+  border-color: #FF0085 !important;
+  color: #ffffff !important;
+}
+
+.product-form__input input[type="radio"] + label:hover {
+  border-color: #FF0085 !important;
+  color: #FF0085 !important;
+}
+
+
 
 
 

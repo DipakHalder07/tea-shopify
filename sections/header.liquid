@@ -752,7 +752,7 @@ ul.dt-nav>li>.megamenu_megamenu a.dt-sc-nav-link:hover span:not(.dt-sc-caret) {
         {%  render 'header-search' %}      
         {%  endunless %}
               {%- if section.settings.show_header_wishlist -%}        
-              <a href="/pages/wishlist" class="header__icon header__icon--wishlist link small-hide">
+              <a href="/pages/contact?view=wishlist" class="header__icon header__icon--wishlist link small-hide">
                 {% render 'icon-wishlist' %}
                 <span class="icon__fallback-text {% if section.settings.header_icon_type =="icon"  %} hidden {% endif %}">{{ 'products.product.wishlist' | t }}</span>
                 <dtx-wish-count class="dtxc-wishlist-count cart-count-bubble" grid_type="wishList" count="0">

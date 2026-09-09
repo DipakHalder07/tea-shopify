@@ -1,5 +1,26 @@
 {{ 'page-wishlist.css' | asset_url | stylesheet_tag }}
 
+<script>
+  if (window.location.search.indexOf('view=wishlist') !== -1 || window.location.pathname.indexOf('/wishlist') !== -1) {
+    document.title = "Wishlist – Nidhi Tea";
+    try {
+      window.history.replaceState(null, 'Wishlist – Nidhi Tea', '/pages/wishlist');
+    } catch (e) {}
+  }
+</script>
+
+<style>
+  .breadcrumb-section,
+  #shopify-section-breadcrumb,
+  .shopify-section-breadcrumb,
+  [id*="breadcrumb"] {
+    display: none !important;
+  }
+  .wishlist-hero-banner .wishlist-breadcrumb {
+    display: flex !important;
+  }
+</style>
+
 <div class="wishlist-page-wrapper isolate">
   <div class="wishlist-hero-banner">
     <div class="page-width center">

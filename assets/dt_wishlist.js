@@ -198,7 +198,7 @@ class dTXWhishList extends HTMLElement {
         event.preventDefault();
 
         if (this.dTWhistList.isAddedIntoList(this.productHandle)) {
-            window.location = "/pages/wishlist";
+            window.location = "/pages/contact?view=wishlist";
         } else {
             this.addWishList.classList.add("adding");
 
@@ -512,5 +512,10 @@ var swiper = new Swiper("#swiper-sidebar-carousel", {
   },
 });
 
-
-
+document.addEventListener('click', function(e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[href$="/pages/wishlist"], a[href$="/pages/wishlist/"]') : null;
+  if (a) {
+    e.preventDefault();
+    window.location.href = '/pages/contact?view=wishlist';
+  }
+});

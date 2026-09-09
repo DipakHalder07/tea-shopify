@@ -767,7 +767,7 @@ a.product__text {
   .product__media-list .product__media-item--full {
     width: 100%;
     max-width: 100%;
-      background:var(--gradient-background); 
+    background: transparent; 
   }
 
   .product__modal-opener .product__media-icon {
@@ -2649,7 +2649,8 @@ label.swatch-variant-image {
     top: -14px;
     margin: 0 auto;
     left: 0;
-    background: var(--gradient-base-background-1);
+    background: #100B06;
+    color: #f5e4c7;
     right: 0;
     width: max-content;
     padding: 0 15px;
