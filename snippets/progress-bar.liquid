@@ -1,8 +1,8 @@
 
 {% unless settings.goal == blank %}
+{% assign goal = settings.goal | times:100 %}
 <div class="cart-progress">
 <p style="text-align:center" id="main-cart-progress" data-id="{{ section.id }}" class="free-shipping {% if cart.total_price >= goal %}success{% endif %}">  
-  {% assign goal = settings.goal | times:100 %}
   {% if cart.items.size == 0 %}
             {{ 'templates.cart.free_shipping_spend' | t }} {{ goal | money }}
   {% endif %}
@@ -31,12 +31,15 @@ progress[value] {
 	position: relative;
 	margin: 0 0 ; 
     height: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: rgba(245, 228, 199, 0.15);
     transition: all 0.3s linear;
   width:100%;
 }
  .cart-progress-bar{
    position: relative;
-    background: rgba(117, 82, 164, 0.2);
+    background: rgba(245, 228, 199, 0.15);
     height: 7px;
     border-radius: 5px;
     margin-top: 15px;
@@ -82,19 +85,21 @@ progress[value] {
 } 
 
 progress[value]::-webkit-progress-bar {
-	background-color: whiteSmoke;
+	background-color: transparent;
+    border-radius: 5px;
+    overflow: hidden;
 }
  
 progress[value]::-webkit-progress-value {
 	position: relative;
 	border-radius:5px;
-  background-color:  rgba(var(--color-base-outline-button-labels));
+  background-color:  #FF0085;
 }
 
 progress[value]::-moz-progress-bar {
 
 	border-radius:5px;
-  	background-color: rgba(var(--color-base-outline-button-labels));
+  	background-color: #FF0085;
 }
 @-webkit-keyframes blinkers {
   0% {
@@ -142,7 +147,7 @@ progress:after {
   }
 
 .cart-template cart-items .cart-progress .free-shipping  .cart-progress-bar{display:none;}
-.cart-progress .free-shipping  strong{    font-weight: 400;color: rgba(var(--color-base-outline-button-labels));}
-.cart-progress .free-shipping{margin:0 0 36px;}  
+.cart-progress .free-shipping  strong{    font-weight: 400;color: #FF0085;}
+.cart-progress .free-shipping{margin:0 0 36px; color: #f5e4c7;}  
 </style>
 {% endunless %}
