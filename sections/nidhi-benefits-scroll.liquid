@@ -361,29 +361,37 @@
   }
   @media (min-width: 640px) {
     .bene-wrap {
-      margin-bottom: 35vh;
+      margin-bottom: 50vh;
     }
   }
   @media (min-width: 768px) {
     .bene-wrap {
-      margin-bottom: 40vh;
+      margin-bottom: 60vh;
     }
   }
   .bene-wrap:last-child {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 
-  /* Keyframes: Card enters from -left (negative X) with tilt, then centers and straightens */
-  @keyframes cardComeFromLeft {
-    0% {
-      transform: translate3d(-84px, 28px, 0) rotate(-3.5deg);
-      opacity: 0.85;
+  /* Keyframes: 1 card bottom-left corner come and stack */
+  @keyframes cardComeBottomLeft {
+    from {
+      transform: translate3d(-28vw, 220px, 0) rotate(-7deg);
+      opacity: 0.2;
     }
-    60% {
-      transform: translate3d(-24px, 8px, 0) rotate(-1.2deg);
-      opacity: 0.95;
+    to {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      opacity: 1;
     }
-    100% {
+  }
+
+  /* Keyframes: 2 right-bottom corner come and stack */
+  @keyframes cardComeBottomRight {
+    from {
+      transform: translate3d(28vw, 220px, 0) rotate(7deg);
+      opacity: 0.2;
+    }
+    to {
       transform: translate3d(0, 0, 0) rotate(0deg);
       opacity: 1;
     }
@@ -400,11 +408,11 @@
     background: transparent !important;
     box-shadow: none !important;
     box-sizing: border-box;
-    transform-origin: 50% 25px;
-    will-change: transform;
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
     filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.65));
-    transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0) rotate(var(--rot, 0deg));
-    transition: transform 0.08s ease-out;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
   }
   @media (min-width: 640px) {
     .bene-card {
@@ -755,7 +763,7 @@
       }
     }
 
-    /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN (BUCKS SAUCE -LEFT KEYFRAME & STACK) ---------- */
+    /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN (SUBTLE TILT & ULTRA-SMOOTH LERP) ---------- */
     function initBenefitsStack() {
       const root = sectionContainer.querySelector("#benefits");
       if (!root) return;
@@ -763,11 +771,6 @@
       const wraps = [...root.querySelectorAll(".bene-wrap")];
       if (!wraps.length) return;
 
-      // Progressive header background colors based on depth in the stack:
-      // 0: Active / frontmost docked header (bright cream)
-      // 1: 1 step behind active (soft warm tan)
-      // 2: 2 steps behind active (medium muted tan)
-      // 3: 3 steps behind active (darkest muted tan)
       const DOCKED_HEADER_COLORS = [
         "#f5e4c7",
         "#9d8d7b",
@@ -783,7 +786,6 @@
         const gap = isSmall ? 10 : 12;
         const naturalStep = headerH + gap;
 
-        // Ensure headers and active card body fit comfortably on all viewport heights
         const vh = window.innerHeight;
         const bodyH = isSmall ? 270 : (vh < 800 ? 300 : 340);
         const availableForHeaders = vh - BASE - bodyH - 24;
@@ -794,25 +796,49 @@
         return { BASE, STACK_STEP: stackStep, isSmall };
       }
 
-      function update() {
+      // Smooth physics lerp state for each card
+      const cardStates = wraps.map(() => ({
+        curX: 0,
+        curY: 0,
+        curRot: 0,
+        curOpacity: 1,
+        targetX: 0,
+        targetY: 0,
+        targetRot: 0,
+        targetOpacity: 1
+      }));
+
+      function computeTargets() {
         const { BASE, STACK_STEP, isSmall } = getMetrics();
         const vh = window.innerHeight;
-        const tiltRange = vh * 0.55;
+        const vw = window.innerWidth;
 
-        // Keyframe entry settings: cards glide in from -left (negative X) with natural tilt
+        // Subtle, classy corner offsets and gentle tilt (never excessive)
+        const cornerX = isSmall
+          ? Math.min(130, Math.round(vw * 0.25))
+          : Math.min(380, Math.round(vw * 0.28));
+        const cornerY = isSmall ? 120 : 200;
+        const cornerRot = isSmall ? 4.5 : 7.0; // gentle, elegant tilt
+        const tiltRange = vh * 0.75;
+
+        // Alternating entries:
+        // Card 1: bottom-left
+        // Card 2: right-bottom
+        // Card 3: bottom-left
+        // Card 4: right-bottom
         const keyframeEntries = [
-          { x: 0, y: 0, rot: 0 },
-          { x: isSmall ? -52 : -86, y: isSmall ? 18 : 28, rot: -3.5 },
-          { x: isSmall ? -46 : -80, y: isSmall ? 16 : 24, rot: -3.0 },
-          { x: isSmall ? -54 : -90, y: isSmall ? 20 : 30, rot: -3.6 }
+          { x: -cornerX, y: cornerY, rot: -cornerRot },
+          { x: cornerX, y: cornerY, rot: cornerRot },
+          { x: -cornerX, y: cornerY, rot: -cornerRot },
+          { x: cornerX, y: cornerY, rot: cornerRot }
         ];
 
-        // 1. Set sticky top for each wrap with old design gap between stacked cards
+        // 1. Set sticky top for each wrap
         wraps.forEach((w, i) => {
           w.style.top = (BASE + i * STACK_STEP) + "px";
         });
 
-        // 2. Identify the highest currently docked card
+        // 2. Identify highest docked card
         let highestDockedIndex = -1;
         wraps.forEach((w, i) => {
           const targetTop = BASE + i * STACK_STEP;
@@ -822,54 +848,39 @@
           }
         });
 
-        // 3. Update each card: glide in from -left, tilt, straighten into center, and color headers
+        // 3. Compute target values for each card
         wraps.forEach((w, i) => {
-          const card = w.querySelector(".bene-card");
-          const header = w.querySelector(".bene-header");
           const targetTop = BASE + i * STACK_STEP;
           const rect = w.getBoundingClientRect();
           const dist = rect.top - targetTop;
+          const entry = keyframeEntries[i] || { x: -cornerX, y: cornerY, rot: -cornerRot };
+          const st = cardStates[i];
+          const header = w.querySelector(".bene-header");
 
-          if (!card) return;
+          if (!st) return;
 
-          const entry = keyframeEntries[i] || { x: -84, y: 28, rot: -3.5 };
-
-          // Keyframe motion: -left glide into center (0px, 0px) and straight (0deg)
           if (dist <= 0) {
-            // Docked at or above targetTop: perfectly straight & centered
-            card.style.setProperty("--tx", "0px");
-            card.style.setProperty("--ty", "0px");
-            card.style.setProperty("--rot", "0deg");
-            card.style.transform = "translate3d(0, 0, 0) rotate(0deg)";
+            st.targetX = 0;
+            st.targetY = 0;
+            st.targetRot = 0;
+            st.targetOpacity = 1;
             w.classList.add("is-docked");
           } else {
             w.classList.remove("is-docked");
-            if (i === 0) {
-              card.style.setProperty("--tx", "0px");
-              card.style.setProperty("--ty", "0px");
-              card.style.setProperty("--rot", "0deg");
-              card.style.transform = "translate3d(0, 0, 0) rotate(0deg)";
+            if (dist >= tiltRange) {
+              st.targetX = entry.x;
+              st.targetY = entry.y;
+              st.targetRot = entry.rot;
+              st.targetOpacity = 0.25;
             } else {
-              if (dist >= tiltRange) {
-                // Far below dock: full -left offset and tilt
-                card.style.setProperty("--tx", entry.x + "px");
-                card.style.setProperty("--ty", entry.y + "px");
-                card.style.setProperty("--rot", entry.rot + "deg");
-                card.style.transform = `translate3d(${entry.x}px, ${entry.y}px, 0) rotate(${entry.rot}deg)`;
-              } else {
-                // Smooth ease-out keyframe progression
-                const rawProgress = Math.max(0, Math.min(1, 1 - (dist / tiltRange)));
-                const eased = 1 - Math.pow(1 - rawProgress, 2.2);
+              // Ultra-smooth sine ease-out
+              const rawProgress = Math.max(0, Math.min(1, 1 - (dist / tiltRange)));
+              const eased = Math.sin((rawProgress * Math.PI) / 2);
 
-                const curX = (entry.x * (1 - eased)).toFixed(1);
-                const curY = (entry.y * (1 - eased)).toFixed(1);
-                const curRot = (entry.rot * (1 - eased)).toFixed(2);
-
-                card.style.setProperty("--tx", curX + "px");
-                card.style.setProperty("--ty", curY + "px");
-                card.style.setProperty("--rot", curRot + "deg");
-                card.style.transform = `translate3d(${curX}px, ${curY}px, 0) rotate(${curRot}deg)`;
-              }
+              st.targetX = entry.x * (1 - eased);
+              st.targetY = entry.y * (1 - eased);
+              st.targetRot = entry.rot * (1 - eased);
+              st.targetOpacity = 0.25 + 0.75 * eased;
             }
           }
 
@@ -886,25 +897,74 @@
         });
       }
 
-      let ticking = false;
-      function requestUpdate() {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            update();
-            ticking = false;
-          });
-          ticking = true;
+      // Physics lerp loop for silky 60fps/120fps motion
+      let animId = null;
+      function tick() {
+        let needsUpdate = false;
+        const lerpFactor = 0.16; // buttery damping factor
+
+        wraps.forEach((w, i) => {
+          const card = w.querySelector(".bene-card");
+          const st = cardStates[i];
+          if (!card || !st) return;
+
+          const dx = st.targetX - st.curX;
+          const dy = st.targetY - st.curY;
+          const drot = st.targetRot - st.curRot;
+          const dop = st.targetOpacity - st.curOpacity;
+
+          if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05 || Math.abs(drot) > 0.02 || Math.abs(dop) > 0.01) {
+            st.curX += dx * lerpFactor;
+            st.curY += dy * lerpFactor;
+            st.curRot += drot * lerpFactor;
+            st.curOpacity += dop * lerpFactor;
+            needsUpdate = true;
+          } else {
+            st.curX = st.targetX;
+            st.curY = st.targetY;
+            st.curRot = st.targetRot;
+            st.curOpacity = st.targetOpacity;
+          }
+
+          card.style.transform = `translate3d(${st.curX.toFixed(2)}px, ${st.curY.toFixed(2)}px, 0) rotate(${st.curRot.toFixed(2)}deg)`;
+          card.style.opacity = st.curOpacity.toFixed(2);
+        });
+
+        if (needsUpdate) {
+          animId = requestAnimationFrame(tick);
+        } else {
+          animId = null;
         }
       }
 
-      update();
-      window.addEventListener("scroll", requestUpdate, { passive: true });
-      window.addEventListener("resize", () => { update(); }, { passive: true });
-      window.addEventListener("load", update);
-      window.addEventListener("nidhi:loaderDone", update);
-      setTimeout(update, 200);
-      setTimeout(update, 600);
-      setTimeout(update, 1200);
+      function requestTick() {
+        computeTargets();
+        if (!animId) {
+          animId = requestAnimationFrame(tick);
+        }
+      }
+
+      // Initial immediate placement
+      computeTargets();
+      wraps.forEach((w, i) => {
+        const card = w.querySelector(".bene-card");
+        const st = cardStates[i];
+        if (!card || !st) return;
+        st.curX = st.targetX;
+        st.curY = st.targetY;
+        st.curRot = st.targetRot;
+        st.curOpacity = st.targetOpacity;
+        card.style.transform = `translate3d(${st.curX.toFixed(2)}px, ${st.curY.toFixed(2)}px, 0) rotate(${st.curRot.toFixed(2)}deg)`;
+        card.style.opacity = st.curOpacity.toFixed(2);
+      });
+
+      window.addEventListener("scroll", requestTick, { passive: true });
+      window.addEventListener("resize", () => { computeTargets(); requestTick(); }, { passive: true });
+      window.addEventListener("load", () => { computeTargets(); requestTick(); });
+      window.addEventListener("nidhi:loaderDone", () => { computeTargets(); requestTick(); });
+      setTimeout(requestTick, 200);
+      setTimeout(requestTick, 600);
+      setTimeout(requestTick, 1200);
     }
 
     // Initialize scripts once DOM is ready
