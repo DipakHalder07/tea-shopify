@@ -1238,6 +1238,13 @@
       });
 
       window.addEventListener("scroll", requestTick, { passive: true });
+      if (window.lenis) {
+        window.lenis.on("scroll", requestTick);
+      } else {
+        window.addEventListener("lenis:ready", () => {
+          if (window.lenis) window.lenis.on("scroll", requestTick);
+        });
+      }
       window.addEventListener("resize", () => { computeTargets(); requestTick(); }, { passive: true });
       window.addEventListener("load", () => { computeTargets(); requestTick(); });
       window.addEventListener("nidhi:loaderDone", () => { computeTargets(); requestTick(); });

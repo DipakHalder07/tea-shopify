@@ -37,10 +37,69 @@
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
     <script src="{{ 'jquery-cookie-min.js' | asset_url }}"></script>
     <script src="{{ 'wow.min.js' | asset_url }}"></script>
-    <script src="{{ 'slick.min.js' | asset_url }}"></script>    
+    <script src="{{ 'slick.min.js' | asset_url }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    {{ content_for_header }}   
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <style>
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+    <script>
+      (function() {
+        function initLenis() {
+          if (typeof Lenis === 'undefined' || window.lenis) return;
+          const lenis = new Lenis({
+            duration: 1.8,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 0.95,
+            touchMultiplier: 1.5,
+            infinite: false
+          });
+
+          window.lenis = lenis;
+
+          if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+              lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+          } else {
+            function raf(time) {
+              lenis.raf(time);
+              requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+          }
+
+          window.dispatchEvent(new Event('lenis:ready'));
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initLenis);
+        } else {
+          initLenis();
+        }
+      })();
+    </script>
+    {{ content_for_header }}
     {% style %}
       :root {
         --font-display-family: "Fraunces", Georgia, serif;
