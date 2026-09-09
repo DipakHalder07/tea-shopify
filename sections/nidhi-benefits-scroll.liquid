@@ -52,9 +52,9 @@
       <div class="bene-wrap" style="z-index: 1;">
         <div class="bene-card">
           <div class="bene-header">
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
             <h3 class="bene-header-title">100% Natural</h3>
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
             <img src="{{ 'tea_card_bg.jpg' | asset_url }}" alt="100% Natural Tea" class="bene-bg-img" />
@@ -77,9 +77,9 @@
       <div class="bene-wrap" style="z-index: 2;">
         <div class="bene-card">
           <div class="bene-header">
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
             <h3 class="bene-header-title">Ethically Sourced</h3>
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
             <img src="{{ 'tea_mountain_bg.jpg' | asset_url }}" alt="Ethically Sourced Tea" class="bene-bg-img" />
@@ -103,9 +103,9 @@
       <div class="bene-wrap" style="z-index: 3;">
         <div class="bene-card">
           <div class="bene-header">
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
             <h3 class="bene-header-title">No Preservatives</h3>
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
             <img src="{{ 'tea_harvest_bg.jpg' | asset_url }}" alt="No Preservatives Tea" class="bene-bg-img" />
@@ -129,9 +129,9 @@
       <div class="bene-wrap" style="z-index: 4;">
         <div class="bene-card">
           <div class="bene-header">
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
             <h3 class="bene-header-title">Wellness First</h3>
-            <span class="bene-header-star">✦</span>
+            <span class="bene-header-star">•</span>
           </div>
           <div class="bene-body">
             <img src="{{ 'tea_wellness_bg.jpg' | asset_url }}" alt="Wellness First Tea" class="bene-bg-img" />
@@ -171,7 +171,8 @@
     position: relative;
     background-color: transparent;
     color: #f5e4c7;
-    overflow: visible;
+    overflow-x: clip;
+    overflow-y: visible;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -343,7 +344,7 @@
   .nidhi-benefits-cards-wrap {
     position: relative;
     z-index: 10;
-    max-width: 544px;
+    max-width: 490px;
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
@@ -353,23 +354,39 @@
   .bene-wrap {
     position: -webkit-sticky;
     position: sticky;
-    top: 88px;
+    top: 84px;
     width: 100%;
-    margin-bottom: 22vh;
+    margin-bottom: 30vh;
     will-change: top;
   }
   @media (min-width: 640px) {
     .bene-wrap {
-      margin-bottom: 26vh;
+      margin-bottom: 35vh;
     }
   }
   @media (min-width: 768px) {
     .bene-wrap {
-      margin-bottom: 30vh;
+      margin-bottom: 40vh;
     }
   }
   .bene-wrap:last-child {
     margin-bottom: 2.5rem;
+  }
+
+  /* Keyframes: Card enters from -left (negative X) with tilt, then centers and straightens */
+  @keyframes cardComeFromLeft {
+    0% {
+      transform: translate3d(-84px, 28px, 0) rotate(-3.5deg);
+      opacity: 0.85;
+    }
+    60% {
+      transform: translate3d(-24px, 8px, 0) rotate(-1.2deg);
+      opacity: 0.95;
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      opacity: 1;
+    }
   }
 
   /* Card inner */
@@ -382,8 +399,12 @@
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
-    transform: none !important;
     box-sizing: border-box;
+    transform-origin: 50% 25px;
+    will-change: transform;
+    filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.65));
+    transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0) rotate(var(--rot, 0deg));
+    transition: transform 0.08s ease-out;
   }
   @media (min-width: 640px) {
     .bene-card {
@@ -405,54 +426,55 @@
     justify-content: space-between;
     background-color: #f5e4c7;
     border-radius: 16px;
-    padding: 1.25rem 1.6rem;
+    padding: 1.1rem 1.6rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   @media (min-width: 640px) {
     .bene-header {
-      padding: 1.45rem 2rem;
+      padding: 1.35rem 2rem;
       border-radius: 20px;
     }
   }
   @media (min-width: 768px) {
     .bene-header {
-      padding: 1.6rem 2.25rem;
+      padding: 1.5rem 2.25rem;
     }
   }
 
   .bene-header-star {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     line-height: 1;
-    color: #e63946;
-    font-weight: 700;
+    color: #100b06;
+    font-weight: 900;
+    opacity: 0.85;
   }
   @media (min-width: 640px) {
     .bene-header-star {
-      font-size: 1.65rem;
+      font-size: 1.35rem;
     }
   }
 
   .bene-header-title {
     font-family: var(--font-display-family, "Fraunces", Georgia, serif) !important;
-    font-size: 1.55rem !important;
+    font-size: 1.4rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     color: #100b06 !important;
-    font-weight: 800 !important;
+    font-weight: 900 !important;
     margin: 0 !important;
     line-height: 1.1 !important;
     text-align: center;
   }
   @media (min-width: 640px) {
     .bene-header-title {
-      font-size: 2.15rem !important;
+      font-size: 1.85rem !important;
     }
   }
   @media (min-width: 768px) {
     .bene-header-title {
-      font-size: 2.45rem !important;
+      font-size: 2.15rem !important;
     }
   }
 
@@ -469,13 +491,14 @@
     height: 270px;
     overflow: hidden;
     border-radius: 18px;
-    background-color: #100b06;
+    background-color: #0c0805;
+    border: 1px solid rgba(245, 228, 199, 0.28);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
     box-sizing: border-box;
   }
   @media (min-width: 640px) {
     .bene-body {
-      height: 320px;
+      height: 310px;
       gap: 1.5rem;
       padding: 2.25rem 2rem;
       border-radius: 22px;
@@ -483,7 +506,7 @@
   }
   @media (min-width: 768px) {
     .bene-body {
-      height: 350px;
+      height: 340px;
       gap: 1.75rem;
       padding: 2.5rem 2.25rem;
       border-radius: 24px;
@@ -499,7 +522,7 @@
     object-fit: cover;
     user-select: none;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.18;
     transform: scale(1.05);
     transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -524,33 +547,33 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    border: 1px solid rgba(245, 228, 199, 0.35);
-    background-color: rgba(16, 11, 6, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    width: 5rem;
-    height: 5rem;
+    border: 1.5px solid rgba(245, 228, 199, 0.45);
+    background-color: rgba(16, 11, 6, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 4.25rem;
+    height: 4.25rem;
     color: #f5e4c7;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
   }
   @media (min-width: 640px) {
     .bene-icon-badge {
-      width: 7rem;
-      height: 7rem;
+      width: 5.25rem;
+      height: 5.25rem;
     }
   }
 
   .bene-svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     color: #f5e4c7;
     stroke: currentColor;
   }
   @media (min-width: 640px) {
     .bene-svg {
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 2.75rem;
+      height: 2.75rem;
     }
   }
 
@@ -558,17 +581,17 @@
     position: relative;
     z-index: 10;
     font-family: var(--font-sans-family, "Inter Tight", "Poppins", sans-serif) !important;
-    font-size: 1rem !important;
-    line-height: 1.625 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
     color: #f5e4c7 !important;
-    max-width: 32rem;
+    max-width: 28rem;
     margin: 0 !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
   }
   @media (min-width: 640px) {
     .bene-text {
-      font-size: 1.125rem !important;
+      font-size: 1.05rem !important;
     }
   }
 
@@ -732,7 +755,7 @@
       }
     }
 
-    /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN ---------- */
+    /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN (BUCKS SAUCE -LEFT KEYFRAME & STACK) ---------- */
     function initBenefitsStack() {
       const root = sectionContainer.querySelector("#benefits");
       if (!root) return;
@@ -740,66 +763,148 @@
       const wraps = [...root.querySelectorAll(".bene-wrap")];
       if (!wraps.length) return;
 
-      function getStackMetrics() {
+      // Progressive header background colors based on depth in the stack:
+      // 0: Active / frontmost docked header (bright cream)
+      // 1: 1 step behind active (soft warm tan)
+      // 2: 2 steps behind active (medium muted tan)
+      // 3: 3 steps behind active (darkest muted tan)
+      const DOCKED_HEADER_COLORS = [
+        "#f5e4c7",
+        "#9d8d7b",
+        "#857563",
+        "#6e5f4e"
+      ];
+
+      function getMetrics() {
         const isSmall = window.innerWidth < 640;
         const firstHeader = root.querySelector(".bene-header");
-        const headerH = firstHeader ? firstHeader.offsetHeight : (isSmall ? 64 : 76);
+        const headerH = firstHeader ? firstHeader.offsetHeight : (isSmall ? 60 : 72);
         const BASE = isSmall ? 70 : 88;
-        const naturalStep = headerH + (isSmall ? 10 : 12);
+        const gap = isSmall ? 10 : 12;
+        const naturalStep = headerH + gap;
 
         // Ensure headers and active card body fit comfortably on all viewport heights
         const vh = window.innerHeight;
-        const bodyH = isSmall ? 270 : (vh < 800 ? 300 : 350);
+        const bodyH = isSmall ? 270 : (vh < 800 ? 300 : 340);
         const availableForHeaders = vh - BASE - bodyH - 24;
         let stackStep = naturalStep;
         if (availableForHeaders > 120 && naturalStep * (wraps.length - 1) > availableForHeaders) {
           stackStep = Math.max(isSmall ? 48 : 56, Math.floor(availableForHeaders / (wraps.length - 1)));
         }
-        return { BASE, STACK_STEP: stackStep };
+        return { BASE, STACK_STEP: stackStep, isSmall };
       }
 
-      function measure() {
-        const { BASE, STACK_STEP } = getStackMetrics();
+      function update() {
+        const { BASE, STACK_STEP, isSmall } = getMetrics();
+        const vh = window.innerHeight;
+        const tiltRange = vh * 0.55;
+
+        // Keyframe entry settings: cards glide in from -left (negative X) with natural tilt
+        const keyframeEntries = [
+          { x: 0, y: 0, rot: 0 },
+          { x: isSmall ? -52 : -86, y: isSmall ? 18 : 28, rot: -3.5 },
+          { x: isSmall ? -46 : -80, y: isSmall ? 16 : 24, rot: -3.0 },
+          { x: isSmall ? -54 : -90, y: isSmall ? 20 : 30, rot: -3.6 }
+        ];
+
+        // 1. Set sticky top for each wrap with old design gap between stacked cards
         wraps.forEach((w, i) => {
           w.style.top = (BASE + i * STACK_STEP) + "px";
         });
-        onScroll();
-      }
 
-      function onScroll() {
-        const { BASE, STACK_STEP } = getStackMetrics();
-
+        // 2. Identify the highest currently docked card
+        let highestDockedIndex = -1;
         wraps.forEach((w, i) => {
-          const dim = w.querySelector(".bene-dim");
-          const nextWrap = wraps[i + 1];
-          if (!dim) return;
+          const targetTop = BASE + i * STACK_STEP;
+          const rect = w.getBoundingClientRect();
+          if (rect.top <= targetTop + 2) {
+            highestDockedIndex = i;
+          }
+        });
 
-          if (nextWrap) {
-            const nextRect = nextWrap.getBoundingClientRect();
-            const targetTop = BASE + (i + 1) * STACK_STEP;
-            const distance = nextRect.top - targetTop;
-            const fadeRange = window.innerHeight * 0.35;
-            if (distance <= 0) {
-              dim.style.opacity = "0.55";
-            } else if (distance < fadeRange) {
-              const progress = 1 - distance / fadeRange;
-              dim.style.opacity = (progress * 0.55).toFixed(3);
-            } else {
-              dim.style.opacity = "0";
-            }
+        // 3. Update each card: glide in from -left, tilt, straighten into center, and color headers
+        wraps.forEach((w, i) => {
+          const card = w.querySelector(".bene-card");
+          const header = w.querySelector(".bene-header");
+          const targetTop = BASE + i * STACK_STEP;
+          const rect = w.getBoundingClientRect();
+          const dist = rect.top - targetTop;
+
+          if (!card) return;
+
+          const entry = keyframeEntries[i] || { x: -84, y: 28, rot: -3.5 };
+
+          // Keyframe motion: -left glide into center (0px, 0px) and straight (0deg)
+          if (dist <= 0) {
+            // Docked at or above targetTop: perfectly straight & centered
+            card.style.setProperty("--tx", "0px");
+            card.style.setProperty("--ty", "0px");
+            card.style.setProperty("--rot", "0deg");
+            card.style.transform = "translate3d(0, 0, 0) rotate(0deg)";
+            w.classList.add("is-docked");
           } else {
-            dim.style.opacity = "0";
+            w.classList.remove("is-docked");
+            if (i === 0) {
+              card.style.setProperty("--tx", "0px");
+              card.style.setProperty("--ty", "0px");
+              card.style.setProperty("--rot", "0deg");
+              card.style.transform = "translate3d(0, 0, 0) rotate(0deg)";
+            } else {
+              if (dist >= tiltRange) {
+                // Far below dock: full -left offset and tilt
+                card.style.setProperty("--tx", entry.x + "px");
+                card.style.setProperty("--ty", entry.y + "px");
+                card.style.setProperty("--rot", entry.rot + "deg");
+                card.style.transform = `translate3d(${entry.x}px, ${entry.y}px, 0) rotate(${entry.rot}deg)`;
+              } else {
+                // Smooth ease-out keyframe progression
+                const rawProgress = Math.max(0, Math.min(1, 1 - (dist / tiltRange)));
+                const eased = 1 - Math.pow(1 - rawProgress, 2.2);
+
+                const curX = (entry.x * (1 - eased)).toFixed(1);
+                const curY = (entry.y * (1 - eased)).toFixed(1);
+                const curRot = (entry.rot * (1 - eased)).toFixed(2);
+
+                card.style.setProperty("--tx", curX + "px");
+                card.style.setProperty("--ty", curY + "px");
+                card.style.setProperty("--rot", curRot + "deg");
+                card.style.transform = `translate3d(${curX}px, ${curY}px, 0) rotate(${curRot}deg)`;
+              }
+            }
+          }
+
+          // Header color based on depth in the docked stack
+          if (header) {
+            if (i > highestDockedIndex) {
+              header.style.backgroundColor = DOCKED_HEADER_COLORS[0];
+            } else {
+              const stepsBehind = highestDockedIndex - i;
+              const color = DOCKED_HEADER_COLORS[Math.min(stepsBehind, DOCKED_HEADER_COLORS.length - 1)];
+              header.style.backgroundColor = color;
+            }
           }
         });
       }
 
-      measure();
-      window.addEventListener("resize", measure, { passive: true });
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("load", measure);
-      window.addEventListener("nidhi:loaderDone", measure);
-      setTimeout(measure, 400);
-      setTimeout(measure, 1200);
+      let ticking = false;
+      function requestUpdate() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            update();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      update();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", () => { update(); }, { passive: true });
+      window.addEventListener("load", update);
+      window.addEventListener("nidhi:loaderDone", update);
+      setTimeout(update, 200);
+      setTimeout(update, 600);
+      setTimeout(update, 1200);
     }
 
     // Initialize scripts once DOM is ready
