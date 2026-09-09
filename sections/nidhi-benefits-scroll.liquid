@@ -19,44 +19,13 @@
     <div class="nidhi-benefits-backdrop-gradient" aria-hidden="true"></div>
 
     {% if section.settings.show_floating_elements %}
-      <!-- Ambient Floating Food / Botanical Elements (Behind Cards, z-index: 5) -->
-      <div class="nidhi-benefits-fixed-bg-wrapper" aria-hidden="true">
+      <!-- Ambient Floating Food Element Behind Cards (ONLY Cinnamon Sticks & Tea) -->
+      <div class="nidhi-benefits-fixed-bg-wrapper nidhi-layer-behind" aria-hidden="true">
         <div class="nidhi-floating-food pointer-events-none">
-          <!-- 6 Botanical Floating Elements matching user reference -->
-          <div class="floating-food-item item-chamomile" style="transform: scale(0); opacity: 0;">
-            <div class="food-drift-wrap">
-              <img src="{{ 'nidhi_element_chamomile_anise.png' | asset_url }}" alt="Dried chamomile flowers and star anise" loading="lazy" class="float-item-chamomile" />
-            </div>
-          </div>
           <div class="floating-food-item item-cinnamon" style="transform: scale(0); opacity: 0;">
             <div class="food-drift-wrap">
               <img src="{{ 'nidhi_element_cinnamon_tea.png' | asset_url }}" alt="Cinnamon sticks bundle and loose black tea" loading="lazy" class="float-item-cinnamon" />
             </div>
-          </div>
-          <div class="floating-food-item item-teacup" style="transform: scale(0); opacity: 0;">
-            <div class="food-drift-wrap">
-              <img src="{{ 'nidhi_element_glass_teacup.webp' | asset_url }}" alt="Steaming amber tea in glass cup" loading="lazy" class="float-item-teacup" />
-            </div>
-          </div>
-          <div class="floating-food-item item-tea-sprig" style="transform: scale(0); opacity: 0;">
-            <div class="food-drift-wrap">
-              <img src="{{ 'nidhi_element_green_tea_sprig.png' | asset_url }}" alt="Fresh green tea leaves sprig" loading="lazy" class="float-item-sprig" />
-            </div>
-          </div>
-          <div class="floating-food-item item-citrus" style="transform: scale(0); opacity: 0;">
-            <div class="food-drift-wrap">
-              <img src="{{ 'nidhi_element_dried_citrus.png' | asset_url }}" alt="Dried citrus slices and lemon wheel" loading="lazy" class="float-item-citrus" />
-            </div>
-          </div>
-          <div class="floating-food-item item-cardamom" style="transform: scale(0); opacity: 0;">
-            <div class="food-drift-wrap">
-              <img src="{{ 'nidhi_element_cardamom_cloves.png' | asset_url }}" alt="Green cardamom pods and whole cloves" loading="lazy" class="float-item-cardamom" />
-            </div>
-          </div>
-          <div class="floating-sparkle-star" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-              <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 6.627 12 0 Z"/>
-            </svg>
           </div>
         </div>
       </div>
@@ -168,6 +137,44 @@
         </div>
       </div>
     </div>
+
+    {% if section.settings.show_floating_elements %}
+      <!-- Ambient Floating Food Elements In Front of Cards (All Other Botanical Elements) -->
+      <div class="nidhi-benefits-fixed-bg-wrapper nidhi-layer-front" aria-hidden="true">
+        <div class="nidhi-floating-food pointer-events-none">
+          <div class="floating-food-item item-chamomile" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_chamomile_anise.png' | asset_url }}" alt="Dried chamomile flowers and star anise" loading="lazy" class="float-item-chamomile" />
+            </div>
+          </div>
+          <div class="floating-food-item item-teacup" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_glass_teacup.webp' | asset_url }}" alt="Steaming amber tea in glass cup" loading="lazy" class="float-item-teacup" />
+            </div>
+          </div>
+          <div class="floating-food-item item-tea-sprig" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_green_tea_sprig.png' | asset_url }}" alt="Fresh green tea leaves sprig" loading="lazy" class="float-item-sprig" />
+            </div>
+          </div>
+          <div class="floating-food-item item-citrus" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_dried_citrus.png' | asset_url }}" alt="Dried citrus slices and lemon wheel" loading="lazy" class="float-item-citrus" />
+            </div>
+          </div>
+          <div class="floating-food-item item-cardamom" style="transform: scale(0); opacity: 0;">
+            <div class="food-drift-wrap">
+              <img src="{{ 'nidhi_element_cardamom_cloves.png' | asset_url }}" alt="Green cardamom pods and whole cloves" loading="lazy" class="float-item-cardamom" />
+            </div>
+          </div>
+          <div class="floating-sparkle-star" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 6.627 12 0 Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    {% endif %}
 
     <!-- End Icon After Wellness First Card -->
     {% if section.settings.show_end_icon %}
@@ -287,7 +294,12 @@
     inset: 0;
     pointer-events: none;
     overflow: clip;
+  }
+  .nidhi-benefits-fixed-bg-wrapper.nidhi-layer-behind {
     z-index: 5;
+  }
+  .nidhi-benefits-fixed-bg-wrapper.nidhi-layer-front {
+    z-index: 15;
   }
 
   .nidhi-floating-food {
@@ -334,9 +346,9 @@
     width: clamp(150px, 16vw, 245px);
   }
   .floating-food-item.item-tea-sprig {
-    right: 17%;
-    top: 5%;
-    width: clamp(165px, 18.5vw, 275px);
+    right: 12%;
+    top: 4%;
+    width: clamp(160px, 17.5vw, 260px);
   }
   .floating-food-item.item-citrus {
     right: 5%;
