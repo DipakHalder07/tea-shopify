@@ -1545,17 +1545,19 @@ header svg[fill]:not([fill="none"]),
   -webkit-box-shadow: none !important;
 }
 
-/* Inset Dotted Border matching reference image */
+/* Inset Dashed Border matching user specification (2px dashed) */
 .product-tab-wrapper .card::before,
 .collection .card::before,
 .product-recommendations .card::before,
 .main-search .card::before,
 .card-wrapper .card::before,
-.card--card::before {
+.card--card::before,
+.product-card::before,
+.card-product::before {
   content: "" !important;
   position: absolute !important;
   inset: 10px !important;
-  border: 1.5px dotted rgba(255, 255, 255, 0.45) !important;
+  border: 2px dashed rgba(255, 255, 255, 0.6) !important;
   border-radius: 13px !important;
   pointer-events: none !important;
   z-index: 6 !important;
@@ -1567,8 +1569,10 @@ header svg[fill]:not([fill="none"]),
 .product-recommendations .card:hover::before,
 .main-search .card:hover::before,
 .card-wrapper .card:hover::before,
-.card--card:hover::before {
-  border-color: rgba(255, 255, 255, 0.8) !important;
+.card--card:hover::before,
+.product-card:hover::before,
+.card-product:hover::before {
+  border-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* 4 Flavor Card Background Colors Cycling (Mustard, Cayenne Orange, Cherry Red, Peach Coral) */
@@ -2361,10 +2365,13 @@ header svg[fill]:not([fill="none"]),
   .product-recommendations .card::before,
   .main-search .card::before,
   .card-wrapper .card::before,
-  .card--card::before {
+  .card--card::before,
+  .product-card::before,
+  .card-product::before {
     inset: 6px !important;
     border-radius: 10px !important;
-    border-width: 1.2px !important;
+    border: 2px dashed rgba(255, 255, 255, 0.6) !important;
+    border-width: 2px !important;
   }
 
   .product-tab-wrapper .card__inner,
