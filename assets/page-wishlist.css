@@ -2,6 +2,22 @@
    NIDHI TEA - WISHLIST PAGE STYLING (DARK ESPRESSO & CREAM THEME)
    ========================================================================== */
 
+/* Automatically hide 404 template when wishlist page is displayed */
+html.is-wishlist-page .template-404,
+html.is-wishlist-page #actual-404-content,
+html.is-wishlist-page .banner-template-wrapper,
+html.is-wishlist-page .not-found-wrapper,
+html.is-wishlist-page [class*="404-wrapper"],
+#wishlist-404-container.is-active ~ .template-404,
+#wishlist-404-container.is-active ~ #actual-404-content {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .wishlist-page-wrapper {
   background-color: #100B06;
   min-height: 60vh;
