@@ -4746,6 +4746,506 @@ footer.footer-style4,
   background: rgba(245, 228, 199, 0.45) !important;
 }
 
+/* ==========================================================================
+   PRODUCT PAGE MEDIA SHOWCASE - MULTI-COLOR CARDS & ELEVATED BOTANICAL DESIGN
+   ========================================================================== */
+
+/* 0. Flex Layout & Alignment Fix (Prevents card stretching to info column height) */
+.main-product_info.grid {
+  align-items: flex-start !important;
+}
+
+.main-product_info .product__media-wrapper {
+  align-self: flex-start !important;
+  height: auto !important;
+}
+
+.main-product_info .product__media-gallery {
+  align-self: flex-start !important;
+  height: auto !important;
+  position: sticky !important;
+  top: 90px !important;
+}
+
+.main-product_info .pdp-gallery-viewer-wrap {
+  height: auto !important;
+  flex: 1 1 auto !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.main-product_info .product__media-list {
+  height: auto !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.main-product_info .product__media-item {
+  height: auto !important;
+  align-self: flex-start !important;
+  overflow: visible !important;
+}
+
+/* 1. Main Product Media Showcase Card Base */
+.main-product_info .product__media-item .product__media,
+.quick-add-modal .product__media-item .product__media {
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  padding-top: 0 !important;
+  position: relative !important;
+  border-radius: 26px !important;
+  border: none !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.52), 0 0 35px rgba(0, 0, 0, 0.25) !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease !important;
+}
+
+/* Texture Pattern Overlay inside Card */
+.main-product_info .product__media-item .product__media::after,
+.quick-add-modal .product__media-item .product__media::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.2px, transparent 0) !important;
+  background-size: 18px 18px !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: 0.65 !important;
+}
+
+/* 2. Signature Multi-Color Palette Cycling (4 Flavors: Mustard, Cayenne, Crimson, Peach) */
+/* Flavor 1: Warm Golden Mustard */
+.main-product_info .product__media-item[data-color-index="0"] .product__media,
+.main-product_info .product__media-item:nth-child(4n + 1) .product__media,
+.quick-add-modal .product__media-item .product__media {
+  background: #BE8D3F !important;
+  background: radial-gradient(ellipse at 46% 38%, #e2ad5d 0%, #be8d3f 65%, #9e6f28 100%) !important;
+  background-color: #BE8D3F !important;
+}
+
+/* Flavor 2: Vibrant Cayenne Red-Orange */
+.main-product_info .product__media-item[data-color-index="1"] .product__media,
+.main-product_info .product__media-item:nth-child(4n + 2) .product__media {
+  background: #F15726 !important;
+  background: radial-gradient(ellipse at 46% 38%, #fa6d3f 0%, #f15726 65%, #ca3e12 100%) !important;
+  background-color: #F15726 !important;
+}
+
+/* Flavor 3: Bold Crimson Cherry Red */
+.main-product_info .product__media-item[data-color-index="2"] .product__media,
+.main-product_info .product__media-item:nth-child(4n + 3) .product__media {
+  background: #DA1F27 !important;
+  background: radial-gradient(ellipse at 46% 38%, #e8343c 0%, #da1f27 65%, #b21319 100%) !important;
+  background-color: #DA1F27 !important;
+}
+
+/* Flavor 4: Warm Peach Coral / Terracotta */
+.main-product_info .product__media-item[data-color-index="3"] .product__media,
+.main-product_info .product__media-item:nth-child(4n + 4) .product__media {
+  background: #EF8F4A !important;
+  background: radial-gradient(ellipse at 46% 38%, #f6a66c 0%, #ef8f4a 65%, #d1712a 100%) !important;
+  background-color: #EF8F4A !important;
+}
+
+/* 3. Signature Inset Dashed Border */
+.main-product_info .product__media-item .product__media::before,
+.quick-add-modal .product__media-item .product__media::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 12px !important;
+  border: 2px dashed rgba(255, 255, 255, 0.65) !important;
+  border-radius: 18px !important;
+  pointer-events: none !important;
+  z-index: 4 !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.main-product_info .product__media-item:hover .product__media::before,
+.quick-add-modal .product__media-item:hover .product__media::before {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 4. Product Pack/Jar Containment & Subtle 3D Hover Depth */
+.main-product_info .product__media-item .product__media img,
+.quick-add-modal .product__media-item .product__media img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 3 !important;
+  object-fit: contain !important;
+  padding: 26px !important;
+  box-sizing: border-box !important;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42)) !important;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.main-product_info .product__media-item .product__media:hover img {
+  transform: scale(1.04) !important;
+}
+
+/* 5. Editorial Tea Packaging Pill Header Badge */
+.pdp-card-pill-badge {
+  position: absolute !important;
+  top: 14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 28 !important;
+  background: #f5e4c7 !important;
+  color: #100B06 !important;
+  font-family: inherit !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 5px 18px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+  pointer-events: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(16, 11, 6, 0.15) !important;
+}
+
+.pdp-card-pill-badge .pill-dot {
+  color: #BE8D3F !important;
+  font-size: 13px !important;
+}
+
+/* 6. Product Gallery Viewer Container */
+.pdp-gallery-viewer-wrap {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.main-product_info .product__media-wrapper,
+.main-product_info .product__media-gallery {
+  overflow: visible !important;
+}
+
+/* 7. Ambient Floating Botanical Elements - ELEVATED Z-INDEX OVER CARD */
+.pdp-floating-botanicals {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 45 !important;
+  overflow: visible !important;
+  user-select: none !important;
+}
+
+.pdp-botanical-item {
+  position: absolute !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 45 !important;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.78)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.48)) !important;
+  will-change: transform !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.pdp-botanical-item img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+/* Top-Right: Fresh Green Tea Leaves Sprig (Overlapping top-right corner) */
+.pdp-botanical--tea-sprig {
+  top: -46px !important;
+  right: -42px !important;
+  width: clamp(140px, 14vw, 190px) !important;
+  animation: pdp-float-sprig 6s ease-in-out infinite alternate !important;
+}
+
+/* Top-Left: Dried Chamomile Flowers & Star Anise (Overlapping top-left corner) */
+.pdp-botanical--chamomile {
+  top: -38px !important;
+  left: -40px !important;
+  width: clamp(125px, 12.5vw, 165px) !important;
+  animation: pdp-float-chamomile 6.8s ease-in-out infinite alternate !important;
+}
+
+/* Mid-Right: Dried Citrus Slices / Lemon Wheel (Floating on right edge) */
+.pdp-botanical--citrus {
+  top: 36% !important;
+  right: -42px !important;
+  width: clamp(105px, 10.5vw, 140px) !important;
+  animation: pdp-float-citrus 8s ease-in-out infinite alternate !important;
+}
+
+/* Bottom-Left: Cinnamon Sticks Bundle with Loose Black Tea (Overlapping bottom-left corner) */
+.pdp-botanical--cinnamon {
+  bottom: -44px !important;
+  left: -42px !important;
+  width: clamp(145px, 14.5vw, 195px) !important;
+  animation: pdp-float-cinnamon 7.5s ease-in-out infinite alternate !important;
+}
+
+/* Bottom-Right: Whole Green Cardamom Pods & Cloves (Overlapping bottom-right corner) */
+.pdp-botanical--cardamom {
+  bottom: -38px !important;
+  right: -38px !important;
+  width: clamp(135px, 13.5vw, 175px) !important;
+  animation: pdp-float-cardamom 6.5s ease-in-out infinite alternate !important;
+}
+
+/* Sparkling Stars */
+.pdp-botanical--sparkle.pdp-sparkle--1 {
+  top: 9% !important;
+  right: -18px !important;
+  width: 26px !important;
+  height: 26px !important;
+  animation: pdp-sparkle 4s ease-in-out infinite alternate !important;
+}
+
+.pdp-botanical--sparkle.pdp-sparkle--2 {
+  bottom: 12% !important;
+  left: -20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  animation: pdp-sparkle 5s ease-in-out infinite alternate 1.5s !important;
+}
+
+/* Drift / Float Keyframe Animations */
+@keyframes pdp-float-sprig {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(10px, -12px, 0) rotate(4deg); }
+}
+
+@keyframes pdp-float-chamomile {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(-8px, -10px, 0) rotate(-3.5deg); }
+}
+
+@keyframes pdp-float-citrus {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(8px, 6px, 0) rotate(6deg); }
+}
+
+@keyframes pdp-float-cinnamon {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(-8px, 10px, 0) rotate(3deg); }
+}
+
+@keyframes pdp-float-cardamom {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(10px, 8px, 0) rotate(-3deg); }
+}
+
+@keyframes pdp-sparkle {
+  0% { opacity: 0.35; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1.2) rotate(18deg); }
+}
+
+/* 8. Thumbnail Carousel Multi-Color & Dashed Border Styling */
+.main-product_info .thumbnail-list__item button.thumbnail {
+  position: relative !important;
+  border-radius: 18px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+  transition: all 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Inset Dashed Border on Thumbnails */
+.main-product_info .thumbnail-list__item button.thumbnail::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 4px !important;
+  border: 1.5px dashed rgba(255, 255, 255, 0.55) !important;
+  border-radius: 14px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+/* Thumbnail 1: Mustard */
+.main-product_info .thumbnail-list__item[data-color-index="0"] button.thumbnail,
+.main-product_info .thumbnail-list__item:nth-child(4n + 1) button.thumbnail {
+  background: #BE8D3F !important;
+  background: radial-gradient(circle at center, #e2ad5d 0%, #be8d3f 100%) !important;
+  background-color: #BE8D3F !important;
+}
+
+/* Thumbnail 2: Cayenne Red-Orange */
+.main-product_info .thumbnail-list__item[data-color-index="1"] button.thumbnail,
+.main-product_info .thumbnail-list__item:nth-child(4n + 2) button.thumbnail {
+  background: #F15726 !important;
+  background: radial-gradient(circle at center, #fa6d3f 0%, #f15726 100%) !important;
+  background-color: #F15726 !important;
+}
+
+/* Thumbnail 3: Crimson Red */
+.main-product_info .thumbnail-list__item[data-color-index="2"] button.thumbnail,
+.main-product_info .thumbnail-list__item:nth-child(4n + 3) button.thumbnail {
+  background: #DA1F27 !important;
+  background: radial-gradient(circle at center, #e8343c 0%, #da1f27 100%) !important;
+  background-color: #DA1F27 !important;
+}
+
+/* Thumbnail 4: Peach Coral */
+.main-product_info .thumbnail-list__item[data-color-index="3"] button.thumbnail,
+.main-product_info .thumbnail-list__item:nth-child(4n + 4) button.thumbnail {
+  background: #EF8F4A !important;
+  background: radial-gradient(circle at center, #f6a66c 0%, #ef8f4a 100%) !important;
+  background-color: #EF8F4A !important;
+}
+
+/* Active Thumbnail Glowing Border */
+.main-product_info .thumbnail-list__item button.thumbnail[aria-current="true"],
+.main-product_info .thumbnail-list__item.slick-current button.thumbnail,
+.main-product_info .thumbnail-list__item button.thumbnail:hover {
+  border-color: #f5e4c7 !important;
+  box-shadow: 0 0 0 2.5px #f5e4c7, 0 8px 22px rgba(0, 0, 0, 0.55) !important;
+  transform: scale(1.05) !important;
+}
+
+.main-product_info .thumbnail-list__item button.thumbnail img {
+  position: relative !important;
+  z-index: 1 !important;
+  object-fit: contain !important;
+  padding: 6px !important;
+  box-sizing: border-box !important;
+}
+
+/* 9. Refined Thumbnail Slick Arrows (Replacing Harsh Magenta Boxes) */
+.main-product_info button.slick-prev.slick-arrow,
+.main-product_info button.slick-next.slick-arrow,
+.main-product_info .thumbnail-slider button.slick-prev.slick-arrow,
+.main-product_info .thumbnail-slider button.slick-next.slick-arrow,
+.main-product_info .thumbnail-list button.slick-prev.slick-arrow,
+.main-product_info .thumbnail-list button.slick-next.slick-arrow {
+  width: 46px !important;
+  height: 28px !important;
+  margin: 6px auto !important;
+  background: #19120b !important;
+  border: 1px solid rgba(245, 228, 199, 0.3) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+  color: #f5e4c7 !important;
+  transition: all 0.25s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+}
+
+.main-product_info button.slick-prev.slick-arrow:hover,
+.main-product_info button.slick-next.slick-arrow:hover,
+.main-product_info .thumbnail-slider button.slick-prev.slick-arrow:hover,
+.main-product_info .thumbnail-slider button.slick-next.slick-arrow:hover,
+.main-product_info .thumbnail-list button.slick-prev.slick-arrow:hover,
+.main-product_info .thumbnail-list button.slick-next.slick-arrow:hover {
+  background: #BE8D3F !important;
+  color: #100B06 !important;
+  border-color: #BE8D3F !important;
+  box-shadow: 0 4px 16px rgba(190, 141, 63, 0.55) !important;
+  transform: translateY(-2px) !important;
+}
+
+.main-product_info button.slick-prev.slick-arrow a,
+.main-product_info button.slick-next.slick-arrow a,
+.main-product_info .thumbnail-slider button.slick-prev.slick-arrow a,
+.main-product_info .thumbnail-slider button.slick-next.slick-arrow a,
+.main-product_info .thumbnail-list button.slick-prev.slick-arrow a,
+.main-product_info .thumbnail-list button.slick-next.slick-arrow a {
+  color: inherit !important;
+}
+
+.main-product_info .slider-button,
+.main-product_info .thumbnail-slider .slider-button {
+  background: #19120b !important;
+  color: #f5e4c7 !important;
+  border: 1px solid rgba(245, 228, 199, 0.35) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+  transition: all 0.25s ease !important;
+}
+
+.main-product_info .slider-button:hover,
+.main-product_info .thumbnail-slider .slider-button:hover {
+  background: #BE8D3F !important;
+  color: #100B06 !important;
+  border-color: #BE8D3F !important;
+  box-shadow: 0 4px 16px rgba(190, 141, 63, 0.55) !important;
+}
+
+/* 10. Responsive Breakpoints */
+@media screen and (max-width: 989px) {
+  .pdp-botanical--tea-sprig {
+    top: -30px !important;
+    right: -28px !important;
+    width: 125px !important;
+  }
+  .pdp-botanical--chamomile {
+    top: -24px !important;
+    left: -26px !important;
+    width: 110px !important;
+  }
+  .pdp-botanical--citrus {
+    top: 36% !important;
+    right: -28px !important;
+    width: 95px !important;
+  }
+  .pdp-botanical--cinnamon {
+    bottom: -28px !important;
+    left: -28px !important;
+    width: 125px !important;
+  }
+  .pdp-botanical--cardamom {
+    bottom: -24px !important;
+    right: -26px !important;
+    width: 115px !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .main-product_info {
+    overflow-x: clip !important;
+  }
+  .pdp-card-pill-badge {
+    font-size: 9.5px !important;
+    padding: 4px 14px !important;
+    top: 10px !important;
+  }
+  .pdp-botanical--tea-sprig {
+    top: -22px !important;
+    right: -16px !important;
+    width: 95px !important;
+  }
+  .pdp-botanical--chamomile {
+    top: -18px !important;
+    left: -16px !important;
+    width: 86px !important;
+  }
+  .pdp-botanical--citrus {
+    top: 36% !important;
+    right: -16px !important;
+    width: 76px !important;
+  }
+  .pdp-botanical--cinnamon {
+    bottom: -22px !important;
+    left: -16px !important;
+    width: 96px !important;
+  }
+  .pdp-botanical--cardamom {
+    bottom: -18px !important;
+    right: -16px !important;
+    width: 88px !important;
+  }
+  .pdp-botanical--sparkle {
+    display: none !important;
+  }
+}
+
+
+
 
 
 

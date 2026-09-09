@@ -283,7 +283,7 @@
               data-desktop-layout="{{ section.settings.gallery_layout }}"
             >
               <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
-              <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+              <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter pdp-gallery-viewer-wrap">
                 <a
                   class="skip-to-content-link button visually-hidden quick-add-hidden"
                   href="#ProductInfo-{{ section.id }}"
@@ -292,7 +292,13 @@
                 </a>
                 {% if product.metafields.custom.custom_tag != blank %}
                   <div class="ribbon">{{ product.metafields.custom.custom_tag }}</div>
-                  {% endif %}
+                {% endif %}
+
+                <!-- Editorial Tea Packaging Pill Header (Matching Whole Leaf Assam Card) -->
+                <div class="pdp-card-pill-badge" aria-hidden="true">
+                  <span class="pill-dot">•</span> WHOLE LEAF TEA <span class="pill-dot">•</span>
+                </div>
+
                 <ul
                   id="Slider-Gallery-{{ section.id }}"
                   class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile {{ section.settings.stacked_column_alignment }}-column"
@@ -313,13 +319,16 @@
                       assign media_width = 0.45
                     endif
                   -%}
+                  {%- assign slide_color_idx = 0 -%}
                   {%- if product.selected_or_first_available_variant.featured_media != null -%}
                     {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
                     <li
                       id="Slide-{{ section.id }}-{{ featured_media.id }}"
                       class="product__media-item grid__item slider__slide is-active{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains featured_media.src %} product__media-item--variant{% endif %}"
                       data-media-id="{{ section.id }}-{{ featured_media.id }}"
+                      data-color-index="{{ slide_color_idx | modulo: 4 }}"
                     >
+                      {%- assign slide_color_idx = slide_color_idx | plus: 1 -%}
                       {%- assign media_position = 1 -%}
                       {% render 'product-thumbnail',
                         media: featured_media,
@@ -338,7 +347,9 @@
                         id="Slide-{{ section.id }}-{{ media.id }}"
                         class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}"
                         data-media-id="{{ section.id }}-{{ media.id }}"
+                        data-color-index="{{ slide_color_idx | modulo: 4 }}"
                       >
+                        {%- assign slide_color_idx = slide_color_idx | plus: 1 -%}
                         {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                         {% render 'product-thumbnail',
                           media: media,
@@ -353,6 +364,35 @@
                     {%- endunless -%}
                   {%- endfor -%}
                 </ul>
+
+                <!-- Ambient Floating Botanical Elements from Benefits Section (Z-INDEX UP OVER CARDS) -->
+                <div class="pdp-floating-botanicals pointer-events-none" aria-hidden="true">
+                  <div class="pdp-botanical-item pdp-botanical--tea-sprig">
+                    <img src="{{ 'nidhi_element_green_tea_sprig.png' | asset_url }}" alt="Fresh tea leaves" loading="lazy" width="200" height="200">
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--chamomile">
+                    <img src="{{ 'nidhi_element_chamomile_anise.png' | asset_url }}" alt="Chamomile and star anise" loading="lazy" width="180" height="180">
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--citrus">
+                    <img src="{{ 'nidhi_element_dried_citrus.png' | asset_url }}" alt="Dried citrus wheel" loading="lazy" width="150" height="150">
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--cinnamon">
+                    <img src="{{ 'nidhi_element_cinnamon_tea.png' | asset_url }}" alt="Cinnamon sticks and loose tea" loading="lazy" width="200" height="200">
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--cardamom">
+                    <img src="{{ 'nidhi_element_cardamom_cloves.png' | asset_url }}" alt="Green cardamom and cloves" loading="lazy" width="180" height="180">
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--sparkle pdp-sparkle--1">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="#F7C665">
+                      <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 0 12 Z"/>
+                    </svg>
+                  </div>
+                  <div class="pdp-botanical-item pdp-botanical--sparkle pdp-sparkle--2">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#F7C665">
+                      <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 0 12 Z"/>
+                    </svg>
+                  </div>
+                </div>
                 <div class="slider-buttons no-js-hidden quick-add-hidden{% if media_count < 2 or section.settings.mobile_thumbnails == 'show' %} small-hide{% endif %}">
                   <button
                     type="button"
@@ -414,6 +454,7 @@
                   >
                     {% render 'icon-caret' %}
                   </button>
+                  {%- assign thumb_color_idx = 0 -%}
                   <ul
                     id="Slider-Thumbnails-{{ section.id }} slider-vert-height"
                     class="thumbnail-list list-unstyled slider slider--mobile{% if section.settings.gallery_layout == 'thumbnail_slider' %} slider--tablet-up{% endif %}"
@@ -436,7 +477,9 @@
                         class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains featured_media.src %} thumbnail-list_item--variant{% endif %}"
                         data-target="{{ section.id }}-{{ featured_media.id }}"
                         data-media-position="{{ media_index }}"
+                        data-color-index="{{ thumb_color_idx | modulo: 4 }}"
                       >
+                        {%- assign thumb_color_idx = thumb_color_idx | plus: 1 -%}
                         <button
                           class="thumbnail global-media-settings global-media-settings--no-shadow {% if featured_media.preview_image.aspect_ratio > 1 %}thumbnail--wide{% else %}thumbnail--narrow{% endif %}"
                           aria-label="{%- if featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
@@ -480,7 +523,9 @@
                           class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
                           data-target="{{ section.id }}-{{ media.id }}"
                           data-media-position="{{ media_index }}"
+                          data-color-index="{{ thumb_color_idx | modulo: 4 }}"
                         >
+                          {%- assign thumb_color_idx = thumb_color_idx | plus: 1 -%}
                           {%- if media.media_type == 'model' -%}
                             <span class="thumbnail__badge" aria-hidden="true">
                               {%- render 'icon-3d-model' -%}
