@@ -50,7 +50,7 @@
     <div id="benefits" class="nidhi-benefits-cards-wrap">
       {% comment %} Card 1: 100% Natural {% endcomment %}
       <div class="bene-wrap" style="z-index: 1;">
-        <div class="bene-card" style="transform: translateX(-6px) rotate(-1.1deg);">
+        <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">✦</span>
             <h3 class="bene-header-title">100% Natural</h3>
@@ -68,14 +68,14 @@
               </svg>
             </span>
             <p class="bene-text">No artificial flavours. No synthetic colours. Every blend is made with leaves, herbs, and botanicals exactly as nature intended — nothing more, nothing less.</p>
+            <div class="bene-dim"></div>
           </div>
-          <div class="bene-dim"></div>
         </div>
       </div>
 
       {% comment %} Card 2: Ethically Sourced {% endcomment %}
       <div class="bene-wrap" style="z-index: 2;">
-        <div class="bene-card" style="transform: translateX(12px) rotate(1.4deg);">
+        <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">✦</span>
             <h3 class="bene-header-title">Ethically Sourced</h3>
@@ -94,14 +94,14 @@
               </svg>
             </span>
             <p class="bene-text">We partner directly with small-estate farmers across Darjeeling, Assam, and the Nilgiris. Fresh harvests, fair wages, and full traceability from garden to cup.</p>
+            <div class="bene-dim"></div>
           </div>
-          <div class="bene-dim"></div>
         </div>
       </div>
 
       {% comment %} Card 3: No Preservatives {% endcomment %}
       <div class="bene-wrap" style="z-index: 3;">
-        <div class="bene-card" style="transform: translateX(-6px) rotate(-1.1deg);">
+        <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">✦</span>
             <h3 class="bene-header-title">No Preservatives</h3>
@@ -120,14 +120,14 @@
               </svg>
             </span>
             <p class="bene-text">Every pack is sealed at peak freshness without chemicals or preservatives. What you steep is what nature grew — authentic, clean, and alive with flavour.</p>
+            <div class="bene-dim"></div>
           </div>
-          <div class="bene-dim"></div>
         </div>
       </div>
 
       {% comment %} Card 4: Wellness First {% endcomment %}
       <div class="bene-wrap" style="z-index: 4;">
-        <div class="bene-card" style="transform: translateX(12px) rotate(1.4deg);">
+        <div class="bene-card">
           <div class="bene-header">
             <span class="bene-header-star">✦</span>
             <h3 class="bene-header-title">Wellness First</h3>
@@ -145,8 +145,8 @@
               </svg>
             </span>
             <p class="bene-text">Nidhi Tea blends are crafted with your well-being in mind — rich in antioxidants, calming adaptogens, and natural goodness that nourishes from the inside out.</p>
+            <div class="bene-dim"></div>
           </div>
-          <div class="bene-dim"></div>
         </div>
       </div>
     </div>
@@ -340,7 +340,7 @@
   .nidhi-benefits-cards-wrap {
     position: relative;
     z-index: 10;
-    max-width: 640px;
+    max-width: 544px;
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
@@ -350,38 +350,49 @@
   .bene-wrap {
     position: -webkit-sticky;
     position: sticky;
-    top: 96px;
+    top: 88px;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 22vh;
     will-change: top;
   }
   @media (min-width: 640px) {
     .bene-wrap {
-      margin-bottom: 3rem;
+      margin-bottom: 26vh;
     }
   }
   @media (min-width: 768px) {
     .bene-wrap {
-      margin-bottom: 4rem;
+      margin-bottom: 30vh;
     }
+  }
+  .bene-wrap:last-child {
+    margin-bottom: 2.5rem;
   }
 
   /* Card inner */
   .bene-card {
     position: relative;
     width: 100%;
-    overflow: hidden;
-    border-radius: 1.15rem; /* 18px */
-    border: 2px solid rgba(245, 228, 199, 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-    background-color: #100b06;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
     box-sizing: border-box;
+  }
+  @media (min-width: 640px) {
+    .bene-card {
+      gap: 12px;
+    }
   }
 
   .bene-card:hover {
-    border-color: rgba(255, 51, 102, 0.45);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.85);
+    border: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
   }
 
   /* Card Pill Header */
@@ -390,24 +401,39 @@
     align-items: center;
     justify-content: space-between;
     background-color: #f5e4c7;
-    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    padding: 1.25rem 1.6rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   @media (min-width: 640px) {
     .bene-header {
-      padding: 1.2rem 1.75rem;
+      padding: 1.45rem 2rem;
+      border-radius: 20px;
+    }
+  }
+  @media (min-width: 768px) {
+    .bene-header {
+      padding: 1.6rem 2.25rem;
     }
   }
 
   .bene-header-star {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     line-height: 1;
     color: #e63946;
     font-weight: 700;
   }
+  @media (min-width: 640px) {
+    .bene-header-star {
+      font-size: 1.65rem;
+    }
+  }
 
   .bene-header-title {
     font-family: var(--font-display-family, "Fraunces", Georgia, serif) !important;
-    font-size: 1.35rem !important;
+    font-size: 1.55rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     color: #100b06 !important;
@@ -418,12 +444,12 @@
   }
   @media (min-width: 640px) {
     .bene-header-title {
-      font-size: 1.95rem !important;
+      font-size: 2.15rem !important;
     }
   }
   @media (min-width: 768px) {
     .bene-header-title {
-      font-size: 2.25rem !important;
+      font-size: 2.45rem !important;
     }
   }
 
@@ -434,25 +460,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 2.25rem 1.5rem;
+    gap: 1.25rem;
+    padding: 2rem 1.5rem;
     text-align: center;
-    height: 300px;
+    height: 270px;
     overflow: hidden;
+    border-radius: 18px;
+    background-color: #100b06;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
     box-sizing: border-box;
   }
   @media (min-width: 640px) {
     .bene-body {
-      height: 360px;
-      gap: 2rem;
-      padding: 2.75rem 2.5rem;
+      height: 320px;
+      gap: 1.5rem;
+      padding: 2.25rem 2rem;
+      border-radius: 22px;
     }
   }
   @media (min-width: 768px) {
     .bene-body {
-      height: 420px;
-      gap: 2.5rem;
-      padding: 3rem 3rem;
+      height: 350px;
+      gap: 1.75rem;
+      padding: 2.5rem 2.25rem;
+      border-radius: 24px;
     }
   }
 
@@ -471,7 +502,7 @@
   }
 
   .bene-card:hover .bene-bg-img {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   /* Gradient overlay */
@@ -546,7 +577,8 @@
     opacity: 0;
     transition: opacity 0.35s ease;
     pointer-events: none;
-    z-index: 20;
+    z-index: 15;
+    border-radius: inherit;
   }
 
   /* Flourish end icon */
@@ -688,36 +720,64 @@
       }
     }
 
-    /* ---------- BENEFITS STICKY STACK & DIMMING MEASUREMENT ---------- */
+    /* ---------- BENEFITS STICKY STACK & SMOOTH HEADING DESIGN ---------- */
     function initBenefitsStack() {
       const root = sectionContainer.querySelector("#benefits");
       if (!root) return;
 
       const wraps = [...root.querySelectorAll(".bene-wrap")];
-      const dims = [...root.querySelectorAll(".bene-dim")];
       if (!wraps.length) return;
 
-      let HEADER = 74, BASE = 96;
+      function getStackMetrics() {
+        const isSmall = window.innerWidth < 640;
+        const firstHeader = root.querySelector(".bene-header");
+        const headerH = firstHeader ? firstHeader.offsetHeight : (isSmall ? 64 : 76);
+        const BASE = isSmall ? 70 : 88;
+        const naturalStep = headerH + (isSmall ? 10 : 12);
+
+        // Ensure headers and active card body fit comfortably on all viewport heights
+        const vh = window.innerHeight;
+        const bodyH = isSmall ? 270 : (vh < 800 ? 300 : 350);
+        const availableForHeaders = vh - BASE - bodyH - 24;
+        let stackStep = naturalStep;
+        if (availableForHeaders > 120 && naturalStep * (wraps.length - 1) > availableForHeaders) {
+          stackStep = Math.max(isSmall ? 48 : 56, Math.floor(availableForHeaders / (wraps.length - 1)));
+        }
+        return { BASE, STACK_STEP: stackStep };
+      }
 
       function measure() {
-        const small = window.innerWidth < 640;
-        HEADER = small ? 52 : 74;
-        BASE = small ? 76 : 96;
+        const { BASE, STACK_STEP } = getStackMetrics();
         wraps.forEach((w, i) => {
-          w.style.top = BASE + i * HEADER + "px";
+          w.style.top = (BASE + i * STACK_STEP) + "px";
         });
         onScroll();
       }
 
       function onScroll() {
-        let active = 0;
+        const { BASE, STACK_STEP } = getStackMetrics();
+
         wraps.forEach((w, i) => {
-          if (w.getBoundingClientRect().top <= BASE + i * HEADER + 2) {
-            active = i;
+          const dim = w.querySelector(".bene-dim");
+          const nextWrap = wraps[i + 1];
+          if (!dim) return;
+
+          if (nextWrap) {
+            const nextRect = nextWrap.getBoundingClientRect();
+            const targetTop = BASE + (i + 1) * STACK_STEP;
+            const distance = nextRect.top - targetTop;
+            const fadeRange = window.innerHeight * 0.35;
+            if (distance <= 0) {
+              dim.style.opacity = "0.55";
+            } else if (distance < fadeRange) {
+              const progress = 1 - distance / fadeRange;
+              dim.style.opacity = (progress * 0.55).toFixed(3);
+            } else {
+              dim.style.opacity = "0";
+            }
+          } else {
+            dim.style.opacity = "0";
           }
-        });
-        dims.forEach((d, i) => {
-          d.style.opacity = i < active ? 0.45 : 0;
         });
       }
 
@@ -726,8 +786,8 @@
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("load", measure);
       window.addEventListener("nidhi:loaderDone", measure);
-      setTimeout(measure, 500);
-      setTimeout(measure, 1500);
+      setTimeout(measure, 400);
+      setTimeout(measure, 1200);
     }
 
     // Initialize scripts once DOM is ready
