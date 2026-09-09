@@ -19,7 +19,7 @@
     <div class="nidhi-benefits-backdrop-gradient" aria-hidden="true"></div>
 
     {% if section.settings.show_floating_elements %}
-      <!-- Ambient Floating Food / Ingredient Items Backdrop (Fixed in viewport, 0 flow height) -->
+      <!-- Ambient Floating Food / Botanical Elements (Behind Cards, z-index: 5) -->
       <div class="nidhi-benefits-fixed-bg-wrapper" aria-hidden="true">
         <div class="nidhi-floating-food pointer-events-none">
           <!-- 6 Botanical Floating Elements matching user reference -->
@@ -287,7 +287,7 @@
     inset: 0;
     pointer-events: none;
     overflow: clip;
-    z-index: 15;
+    z-index: 5;
   }
 
   .nidhi-floating-food {
@@ -324,7 +324,7 @@
     width: clamp(160px, 18vw, 270px);
   }
   .floating-food-item.item-cinnamon {
-    left: 12.5%;
+    left: 14%;
     top: 36%;
     width: clamp(210px, 23vw, 340px);
   }
@@ -381,7 +381,7 @@
 
   @media (max-width: 1400px) {
     .floating-food-item.item-chamomile { left: 4%; width: clamp(140px, 16vw, 220px); }
-    .floating-food-item.item-cinnamon { left: 10%; width: clamp(185px, 21vw, 300px); }
+    .floating-food-item.item-cinnamon { left: 11%; width: clamp(185px, 21vw, 300px); }
     .floating-food-item.item-teacup { left: 2%; width: clamp(130px, 14.5vw, 200px); }
     .floating-food-item.item-tea-sprig { right: 14%; width: clamp(150px, 17vw, 240px); }
     .floating-food-item.item-citrus { right: 3.5%; width: clamp(135px, 15vw, 215px); }
@@ -391,7 +391,7 @@
 
   @media (max-width: 1024px) {
     .floating-food-item.item-chamomile { left: 2%; top: 3%; width: clamp(100px, 12vw, 150px); }
-    .floating-food-item.item-cinnamon { left: 3.5%; top: 37%; width: clamp(130px, 15vw, 185px); }
+    .floating-food-item.item-cinnamon { left: 4%; top: 37%; width: clamp(130px, 15vw, 185px); }
     .floating-food-item.item-teacup { left: 2%; bottom: 3%; width: clamp(95px, 11vw, 140px); }
     .floating-food-item.item-tea-sprig { right: 2%; top: 3%; width: clamp(110px, 13vw, 160px); }
     .floating-food-item.item-citrus { right: 2%; top: 32%; width: clamp(95px, 11vw, 140px); }
