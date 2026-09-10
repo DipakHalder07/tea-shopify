@@ -4792,7 +4792,7 @@ footer.footer-style4,
   aspect-ratio: 1 / 1 !important;
   height: auto !important;
   width: 100% !important;
-  max-width: 480px !important;
+  max-width: 100% !important;
   padding-top: 0 !important;
   position: relative !important;
   border-radius: 26px !important;
@@ -4875,10 +4875,10 @@ footer.footer-style4,
   width: 100% !important;
   height: 100% !important;
   z-index: 3 !important;
-  object-fit: contain !important;
-  padding: 26px !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  border-radius: 26px !important;
   box-sizing: border-box !important;
-  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.42)) !important;
   transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
@@ -4886,34 +4886,9 @@ footer.footer-style4,
   transform: scale(1.04) !important;
 }
 
-/* 5. Editorial Tea Packaging Pill Header Badge */
+/* 5. Editorial Tea Packaging Pill Header Badge - Removed */
 .pdp-card-pill-badge {
-  position: absolute !important;
-  top: 14px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 28 !important;
-  background: #f5e4c7 !important;
-  color: #100B06 !important;
-  font-family: inherit !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  padding: 5px 18px !important;
-  border-radius: 20px !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
-  pointer-events: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 7px !important;
-  white-space: nowrap !important;
-  border: 1px solid rgba(16, 11, 6, 0.15) !important;
-}
-
-.pdp-card-pill-badge .pill-dot {
-  color: #BE8D3F !important;
-  font-size: 13px !important;
+  display: none !important;
 }
 
 /* 6. Product Gallery Viewer Container */
@@ -5209,11 +5184,6 @@ footer.footer-style4,
   .main-product_info {
     overflow-x: clip !important;
   }
-  .pdp-card-pill-badge {
-    font-size: 9.5px !important;
-    padding: 4px 14px !important;
-    top: 10px !important;
-  }
   .pdp-botanical--tea-sprig {
     top: -22px !important;
     right: -16px !important;
@@ -5274,37 +5244,37 @@ footer.footer-style4,
     width: 100% !important;
   }
 
-  /* Reset product card wrapper to full width of column & centered */
+  /* Reset product card wrapper to full width of column */
   .main-product_info .product--thumbnail_slider .slider-mobile-gutter:not(.thumbnail-slider),
   .main-product_info .product--thumbnail_slider_left .slider-mobile-gutter:not(.thumbnail-slider),
   .main-product_info .slider-mobile-gutter:not(.thumbnail-slider) {
     width: 100% !important;
-    max-width: 480px !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   .main-product_info .product__media-wrapper {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
   }
 
   .main-product_info .product__media-gallery {
     width: 100% !important;
-    max-width: 480px !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   /* 2. Product Card Container with Smooth Auto Color Morphing */
   .main-product_info .product__media-list {
     position: relative !important;
     width: 100% !important;
-    max-width: 480px !important;
+    max-width: 100% !important;
     aspect-ratio: 1 / 1 !important;
     border-radius: 26px !important;
     overflow: hidden !important;
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.52), 0 0 35px rgba(0, 0, 0, 0.25) !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
     padding: 0 !important;
     list-style: none !important;
     /* Base background with smooth color morphing */
@@ -5401,13 +5371,13 @@ footer.footer-style4,
     inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
-    padding: 28px !important;
+    object-fit: cover !important;
+    padding: 0 !important;
+    border-radius: 26px !important;
     box-sizing: border-box !important;
     visibility: visible !important;
     opacity: 1 !important;
     display: block !important;
-    filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.45)) !important;
   }
 
   /* Active Product Slide - centered in view */
