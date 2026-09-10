@@ -20,12 +20,12 @@ if (!customElements.get('media-gallery')) {
     }
 
     onSlideChanged(event) {
-      const thumbnail = this.elements.thumbnails.querySelector(`[data-target="${event.detail.currentElement.dataset.mediaId}"]`);
+      const thumbnail = this.elements.thumbnails.querySelector(`[data-target="${ event.detail.currentElement.dataset.mediaId }"]`);
       this.setActiveThumbnail(thumbnail);
     }
 
     setActiveMedia(mediaId, prepend) {
-      const activeMedia = this.elements.viewer.querySelector(`li.product__media-item[data-media-id="${mediaId}"]`) || this.elements.viewer.querySelector(`[data-media-id="${mediaId}"]`);
+      const activeMedia = this.elements.viewer.querySelector(`li.product__media-item[data-media-id="${ mediaId }"]`) || this.elements.viewer.querySelector(`[data-media-id="${ mediaId }"]`);
       if (!activeMedia) return;
 
       const slides = Array.from(this.elements.viewer.querySelectorAll('li.product__media-item[data-media-id]'));
@@ -42,7 +42,7 @@ if (!customElements.get('media-gallery')) {
       if (prepend) {
         activeMedia.parentElement.prepend(activeMedia);
         if (this.elements.thumbnails) {
-          const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
+          const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${ mediaId }"]`);
           if (activeThumbnail && activeThumbnail.parentElement) {
             activeThumbnail.parentElement.prepend(activeThumbnail);
           }
@@ -61,23 +61,36 @@ if (!customElements.get('media-gallery')) {
       this.playActiveMedia(activeMedia);
 
       if (!this.elements.thumbnails) return;
-      const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
+      const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${ mediaId }"]`);
       if (activeThumbnail) {
         this.setActiveThumbnail(activeThumbnail);
         if (activeThumbnail.dataset && activeThumbnail.dataset.mediaPosition) {
           this.announceLiveRegion(activeMedia, activeThumbnail.dataset.mediaPosition);
         }
       }
+      this.animateBotanicalsPopup();
     }
 
     setActiveThumbnail(thumbnail) {
       if (!this.elements.thumbnails || !thumbnail) return;
 
       this.elements.thumbnails.querySelectorAll('button').forEach((element) => element.removeAttribute('aria-current'));
-      thumbnail.querySelector('button').setAttribute('aria-current', true);
-      if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
+      const thumbBtn = thumbnail.querySelector('button');
+      if (thumbBtn) thumbBtn.setAttribute('aria-current', true);
 
-      this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });
+      const slider = this.elements.thumbnails.slider || this.elements.thumbnails.querySelector('ul.thumbnail-list');
+      if (slider) {
+        const offsetLeft = thumbnail.offsetLeft;
+        const itemWidth = thumbnail.offsetWidth || thumbnail.clientWidth;
+        const scrollLeft = slider.scrollLeft;
+        const clientWidth = slider.clientWidth;
+
+        if (offsetLeft < scrollLeft) {
+          slider.scrollTo({ left: offsetLeft, behavior: 'smooth' });
+        } else if (offsetLeft + itemWidth > scrollLeft + clientWidth) {
+          slider.scrollTo({ left: offsetLeft + itemWidth - clientWidth, behavior: 'smooth' });
+        }
+      }
     }
 
     announceLiveRegion(activeItem, position) {
@@ -119,18 +132,18 @@ if (!customElements.get('media-gallery')) {
       const botanicals = this.querySelectorAll('.pdp-botanical-item');
       if (!botanicals.length) return;
 
-      gsap.fromTo(botanicals,
-        {
-          scale: 0.52,
+      gsap.fromTo(botanicals, 
+        { 
+          scale: 0.52, 
           opacity: 0.35,
           rotation: (i) => (i % 2 === 0 ? -12 : 12)
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          rotation: 0,
-          duration: 0.72,
-          ease: 'back.out(2.2)',
+        }, 
+        { 
+          scale: 1, 
+          opacity: 1, 
+          rotation: 0, 
+          duration: 0.72, 
+          ease: 'back.out(2.2)', 
           stagger: 0.035,
           overwrite: 'auto'
         }
@@ -143,7 +156,10 @@ if (!customElements.get('media-gallery')) {
       const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
       if (!list) return;
 
-      const initialActive = list.querySelector('li.product__media-item.is-active') || list.querySelector('li.product__media-item');
+      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
+      if (!slides.length) return;
+
+      const initialActive = list.querySelector('li.product__media-item.is-active') || slides[0];
       if (initialActive) {
         initialActive.classList.add('is-active');
         this.lastActiveSlide = initialActive;
@@ -152,16 +168,15 @@ if (!customElements.get('media-gallery')) {
         }
       }
 
-      // Prev & Next Buttons (Desktop)
+      // Render Pagination Dots
+      this.renderMobileDots(slides);
+
+      // Prev & Next Buttons (Desktop & Mobile)
       if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          if (window.innerWidth >= 750) {
-            this.stepMediaDesktop(-1);
-          } else {
-            this.stepMediaMobile(-1);
-          }
+          this.stepMedia(-1);
         });
       }
 
@@ -169,133 +184,133 @@ if (!customElements.get('media-gallery')) {
         nextBtn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          if (window.innerWidth >= 750) {
-            this.stepMediaDesktop(1);
-          } else {
-            this.stepMediaMobile(1);
-          }
+          this.stepMedia(1);
         });
       }
 
-      // Mobile Tap-to-Center on Peek Cards
-      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
-      slides.forEach((slide, idx) => {
-        slide.addEventListener('click', (e) => {
-          if (window.innerWidth >= 750) return;
-          if (!slide.classList.contains('is-active')) {
-            e.preventDefault();
-            this.scrollToMobileSlide(idx);
-          }
-        });
-      });
+      // Thumbnail Prev & Next Buttons on Mobile
+      const thumbPrev = this.elements.thumbnails ? this.elements.thumbnails.querySelector('.slider-button--prev') : null;
+      const thumbNext = this.elements.thumbnails ? this.elements.thumbnails.querySelector('.slider-button--next') : null;
 
-      // Mobile GSAP Smooth Mouse Drag & Touch Momentum
-      let isMouseDown = false;
-      let startMouseX = 0;
-      let startScrollLeft = 0;
-      let hasDragged = false;
-      let dragVelocity = 0;
-      let lastDragX = 0;
-      let lastDragTime = 0;
-
-      list.addEventListener('mousedown', (e) => {
-        if (window.innerWidth >= 750) return;
-        if (typeof gsap !== 'undefined') {
-          gsap.killTweensOf(list);
-        }
-        isMouseDown = true;
-        hasDragged = false;
-        startMouseX = e.pageX - list.offsetLeft;
-        startScrollLeft = list.scrollLeft;
-        lastDragX = e.pageX;
-        lastDragTime = Date.now();
-        dragVelocity = 0;
-        list.style.cursor = 'grabbing';
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!isMouseDown) return;
-        isMouseDown = false;
-        list.style.cursor = '';
-
-        if (hasDragged && window.innerWidth < 750) {
-          this.snapMobileCarousel(dragVelocity);
-        }
-      });
-
-      list.addEventListener('mousemove', (e) => {
-        if (!isMouseDown || window.innerWidth >= 750) return;
-        e.preventDefault();
-        const currentX = e.pageX - list.offsetLeft;
-        const walk = (currentX - startMouseX) * 1.35;
-        list.scrollLeft = startScrollLeft - walk;
-
-        const now = Date.now();
-        const dt = now - lastDragTime;
-        if (dt > 10) {
-          dragVelocity = (e.pageX - lastDragX) / dt;
-          lastDragX = e.pageX;
-          lastDragTime = now;
-        }
-
-        if (Math.abs(walk) > 6) hasDragged = true;
-      });
-
-      list.addEventListener('click', (e) => {
-        if (hasDragged) {
+      if (thumbPrev) {
+        thumbPrev.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          hasDragged = false;
-        }
-      }, true);
+          this.stepMedia(-1);
+        });
+      }
 
-      // Real-time Mobile Card Focal Depth on Scroll
-      let ticking = false;
-      list.addEventListener('scroll', () => {
-        if (window.innerWidth >= 750) return;
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            this.updateMobileCardDepth();
-            ticking = false;
-          });
-          ticking = true;
+      if (thumbNext) {
+        thumbNext.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.stepMedia(1);
+        });
+      }
+
+      // Touch Swipe Gesture for Natural Mobile Interaction
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isSwiping = false;
+
+      list.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length === 0) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = true;
+      }, { passive: true });
+
+      list.addEventListener('touchend', (e) => {
+        if (!isSwiping || !e.changedTouches || e.changedTouches.length === 0) return;
+        isSwiping = false;
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        const diffY = e.changedTouches[0].clientY - touchStartY;
+        // Verify genuine horizontal swipe
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY) * 1.1) {
+          if (diffX < 0) {
+            this.stepMedia(1);
+          } else {
+            this.stepMedia(-1);
+          }
         }
       }, { passive: true });
 
-      // Initial setup
-      if (window.innerWidth < 750) {
-        setTimeout(() => {
-          this.updateMobileCardDepth();
-          this.animateBotanicalsPopup();
-        }, 150);
-      }
+      // Initial botanical popup
+      setTimeout(() => {
+        this.animateBotanicalsPopup();
+      }, 150);
     }
 
-    // Standard Original Desktop Slider (CSS Transitions)
-    stepMediaDesktop(direction) {
+    renderMobileDots(slides) {
+      if (!this.elements.viewer || slides.length <= 1) return;
+      let dotsWrap = this.querySelector('.pdp-mobile-dots');
+      if (dotsWrap) dotsWrap.remove();
+
+      dotsWrap = document.createElement('div');
+      dotsWrap.className = 'pdp-mobile-dots';
+      dotsWrap.setAttribute('aria-label', 'Product packaging slides');
+
+      slides.forEach((slide, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `pdp-dot ${slide.classList.contains('is-active') ? 'is-active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const curr = slides.findIndex((s) => s.classList.contains('is-active'));
+          if (curr !== idx) {
+            this.stepMedia(idx > curr ? 1 : -1, idx);
+          }
+        });
+        dotsWrap.appendChild(dot);
+      });
+
+      this.elements.viewer.appendChild(dotsWrap);
+    }
+
+    updateDots(activeIdx) {
+      const dots = this.querySelectorAll('.pdp-mobile-dots .pdp-dot');
+      dots.forEach((dot, idx) => {
+        if (idx === activeIdx) {
+          dot.classList.add('is-active');
+        } else {
+          dot.classList.remove('is-active');
+        }
+      });
+    }
+
+    // Unified In-Place Slide Navigation for Both Desktop & Mobile
+    stepMedia(direction, specificIndex = null) {
       if (!this.elements.viewer) return;
       const list = this.elements.viewer.querySelector('ul.product__media-list');
       const slides = Array.from(this.elements.viewer.querySelectorAll('li.product__media-item[data-media-id]'));
       if (slides.length <= 1) return;
 
       const currentIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
-      let newIndex = currentIndex !== -1 ? currentIndex + direction : 0;
-
-      if (newIndex >= slides.length) {
-        newIndex = 0;
-      } else if (newIndex < 0) {
-        newIndex = slides.length - 1;
+      let newIndex;
+      if (specificIndex !== null && specificIndex >= 0 && specificIndex < slides.length) {
+        newIndex = specificIndex;
+      } else {
+        newIndex = currentIndex !== -1 ? currentIndex + direction : 0;
+        if (newIndex >= slides.length) {
+          newIndex = 0;
+        } else if (newIndex < 0) {
+          newIndex = slides.length - 1;
+        }
       }
 
       const currentSlide = slides[currentIndex];
       const targetSlide = slides[newIndex];
 
       if (currentSlide && targetSlide && currentSlide !== targetSlide) {
+        const isForward = specificIndex !== null ? (newIndex > currentIndex) : (direction > 0);
+
         slides.forEach((s) => {
           s.classList.remove('slide-exit-left', 'slide-exit-right', 'slide-enter-left', 'slide-enter-right');
         });
 
-        if (direction > 0) {
+        if (isForward) {
           currentSlide.classList.add('slide-exit-left');
           targetSlide.classList.add('slide-enter-right');
         } else {
@@ -303,7 +318,7 @@ if (!customElements.get('media-gallery')) {
           targetSlide.classList.add('slide-enter-left');
         }
 
-        void targetSlide.offsetWidth;
+        void targetSlide.offsetWidth; // Trigger reflow for CSS transitions
         targetSlide.classList.remove('slide-enter-left', 'slide-enter-right');
 
         if (list && targetSlide.dataset.colorIndex !== undefined) {
@@ -311,6 +326,7 @@ if (!customElements.get('media-gallery')) {
         }
 
         this.setActiveMedia(targetSlide.dataset.mediaId, false);
+        this.updateDots(newIndex);
         this.animateBotanicalsPopup();
 
         setTimeout(() => {
@@ -319,113 +335,12 @@ if (!customElements.get('media-gallery')) {
       }
     }
 
-    // GSAP-Powered Smooth Mobile Carousel
-    scrollToMobileSlide(targetIdx) {
-      const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
-      if (!list) return;
-      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
-      if (targetIdx < 0 || targetIdx >= slides.length) return;
-
-      const targetSlide = slides[targetIdx];
-      const targetScroll = targetSlide.offsetLeft - (list.clientWidth - targetSlide.offsetWidth) / 2;
-
-      if (typeof gsap !== 'undefined') {
-        gsap.to(list, {
-          scrollLeft: Math.max(0, targetScroll),
-          duration: 0.58,
-          ease: 'power3.out',
-          overwrite: 'auto',
-          onUpdate: () => this.updateMobileCardDepth()
-        });
-      } else {
-        list.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
-      }
-    }
-
-    snapMobileCarousel(velocity = 0) {
-      const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
-      if (!list) return;
-      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
-      if (slides.length <= 1) return;
-
-      const listCenter = list.scrollLeft + list.clientWidth / 2 - velocity * 130;
-      let closestIdx = 0;
-      let minDiff = Infinity;
-
-      slides.forEach((slide, idx) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const diff = Math.abs(slideCenter - listCenter);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIdx = idx;
-        }
-      });
-
-      this.scrollToMobileSlide(closestIdx);
-    }
-
-    updateMobileCardDepth() {
-      const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
-      if (!list) return;
-      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
-      const listCenter = list.scrollLeft + list.clientWidth / 2;
-      let closestSlide = null;
-      let minDiff = Infinity;
-
-      slides.forEach((slide) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const diff = Math.abs(slideCenter - listCenter);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestSlide = slide;
-        }
-      });
-
-      if (closestSlide) {
-        const isNewSlide = (this.lastActiveSlide !== closestSlide);
-        this.lastActiveSlide = closestSlide;
-
-        slides.forEach(s => {
-          if (s === closestSlide) {
-            s.classList.add('is-active');
-          } else {
-            s.classList.remove('is-active');
-          }
-        });
-        if (closestSlide.dataset.colorIndex !== undefined) {
-          list.setAttribute('data-active-color', closestSlide.dataset.colorIndex);
-        }
-
-        if (isNewSlide) {
-          this.animateBotanicalsPopup();
-        }
-      }
+    stepMediaDesktop(direction) {
+      this.stepMedia(direction);
     }
 
     stepMediaMobile(direction) {
-      const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
-      if (!list) return;
-      const slides = Array.from(list.querySelectorAll('li.product__media-item'));
-      if (slides.length <= 1) return;
-
-      const listCenter = list.scrollLeft + list.clientWidth / 2;
-      let closestIdx = 0;
-      let minDiff = Infinity;
-
-      slides.forEach((slide, idx) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const diff = Math.abs(slideCenter - listCenter);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIdx = idx;
-        }
-      });
-
-      let targetIdx = closestIdx + direction;
-      if (targetIdx < 0) targetIdx = 0;
-      if (targetIdx >= slides.length) targetIdx = slides.length - 1;
-
-      this.scrollToMobileSlide(targetIdx);
+      this.stepMedia(direction);
     }
   });
 }

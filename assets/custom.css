@@ -41,12 +41,10 @@
   background-color: #e1eb78;
   border-color: #e1eb78;
 }
-
 .bg-color-golden {
   background-color: #ffd700;
   border-color: #ffd700;
 }
-
 .bg-color-sliver {
   background-color: #f2f2f2;
   border-color: #f2f2f2;
@@ -66,12 +64,10 @@
   background-color: #fff;
   border-color: #fff;
 }
-
 .bg-color-white span,
 label.bg-color-white {
   border: 1px solid #e3e0e0 !important;
 }
-
 .bg-color-red {
   background-color: #f63400;
   border-color: #f63400;
@@ -787,42 +783,34 @@ label.bg-color-white {
   border-color: #9e7a48;
   background-color: #9e7a48;
 }
-
 .bg-color-deep-taupe {
   border-color: #816059;
   background-color: #816059;
 }
-
 .bg-color-rose-taupe {
   border-color: #945754;
   background-color: #945754;
 }
-
 .bg-color-nickel {
   border-color: #70756e;
   background-color: #70756e;
 }
-
 .bg-color-police-blue {
   border-color: #3f506e;
   background-color: #3f506e;
 }
-
 .bg-color-stormcloud {
   border-color: #4f636c;
   background-color: #4f636c;
 }
-
 .bg-color-feldgrau {
   border-color: #45604d;
   background-color: #45604d;
 }
-
 .bg-color-independence {
   border-color: #4a5163;
   background-color: #4a5163;
 }
-
 .bg-color-melon {
   border-color: #fbaca8;
   background-color: #fbaca8;
@@ -832,32 +820,26 @@ label.bg-color-white {
   border-color: #d7bdb0;
   background-color: #d7bdb0;
 }
-
 .bg-color-pastel-gray {
   border-color: #d2d6bd;
   background-color: #d2d6bd;
 }
-
 .bg-color-color_pale-cerulean {
   border-color: #9dcbd8;
   background-color: #9dcbd8;
 }
-
 .bg-color-columbia-blue {
   border-color: #cddbe6;
   background-color: #cddbe6;
 }
-
 .bg-color-chinese-silver {
   border-color: #c6d0cf;
   background-color: #c6d0cf;
 }
-
 .bg-color-bright-gray {
   border-color: #eaeaea;
   background-color: #eaeaea;
 }
-
 .bg-color-feldgrau {
   border-color: #4f7053;
   background-color: #4f7053;
@@ -872,122 +854,98 @@ label.bg-color-white {
   border-color: #d0eff4;
   background-color: #d0eff4;
 }
-
 .bg-color-ash-gray {
   border-color: #adbeb6;
   background-color: #adbeb6;
 }
-
 .bg-color-jelly-bean {
   border-color: #d76a49;
   background-color: #d76a49;
 }
-
 .bg-color-deer {
   border-color: #c07e68;
   background-color: #c07e68;
 }
-
 .bg-color-opera-mauve {
   border-color: #b47eb2;
   background-color: #b47eb2;
 }
-
 .bg-color-cool-grey {
   background-color: #8883ab;
   border-color: #8883ab;
 }
-
 .bg-color-old-rose {
   border-color: #b2817d;
   background-color: #b2817d;
 }
-
 .bg-color-deep-amethyst {
   border-color: #9c8e9b;
   background-color: #9c8e9b;
 }
-
 .bg-color-desert-sand {
   border-color: #e4c7a9;
   background-color: #e4c7a9;
 }
-
 .bg-color-pastel-pink {
   border-color: #dea89c;
   background-color: #dea89c;
 }
-
 .bg-color-pastel-purple {
   border-color: #b8a0b0;
   background-color: #b8a0b0;
 }
-
 .bg-color-unbleached-silk {
   border-color: #f9dac6;
   background-color: #f9dac6;
 }
-
 .bg-color-brown-yellow {
   background-color: #ce925e;
   border-color: #ce925e;
 }
-
 .bg-color-dark-vanilla {
   border-color: #d5b8aa;
   background-color: #d5b8aa;
 }
-
 .bg-color-iceberg {
   background-color: #68bbd9;
   border-color: #68bbd9;
 }
-
 .bg-color-cadet-grey {
   border-color: #97a6ad;
   background-color: #97a6ad;
 }
-
 .bg-color-light-taupe {
   border-color: #b48e6a;
   background-color: #b48e6a;
 }
-
 .bg-color-copper-rose {
   border-color: #916f6d;
   background-color: #916f6d;
 }
-
 .bg-color-pastel-brown {
   border-color: #767058;
   background-color: #767058;
 }
-
 .bg-color-grullo {
   border-color: #a1a290;
   background-color: #a1a290;
 }
-
 .bg-color-sonic-silver {
   border-color: #777777;
   background-color: #777777;
 }
-
 .bg-color-redwood {
   border-color: #97544e;
   background-color: #97544e;
 }
-
 .bg-color-laurel-green {
   border-color: #b1b897;
   background-color: #b1b897;
 }
-
 .bg-color-pale-cerulean {
   border-color: #9dcbd8;
   background-color: #9dcbd8;
 }
-
 .bg-color-chinese-white {
   border-color: #dbe3e6;
   background-color: #dbe3e6;
@@ -997,57 +955,46 @@ label.bg-color-white {
   border-color: #89806f;
   background-color: #89806f;
 }
-
 .bg-color-silver-pink {
   border-color: #cbadab;
   background-color: #cbadab;
 }
-
 .bg-color-pale-chestnut {
   border-color: #deb1ae;
   background-color: #deb1ae;
 }
-
 .bg-color-opal {
   border-color: #a0bdc5;
   background-color: #a0bdc5;
 }
-
 .bg-color-gold-fusion {
   border-color: #7d7a57;
   background-color: #7d7a57;
 }
-
 .bg-color-old-silver {
   border-color: #818286;
   background-color: #818286;
 }
-
 .bg-color-dust-storm {
   border-color: #e0cdc7;
   background-color: #e0cdc7;
 }
-
 .bg-color-alabaster {
   border-color: #f0e7e8;
   background-color: #f0e7e8;
 }
-
 .bg-color-english-lavender {
   border-color: #ae8e9d;
   background-color: #ae8e9d;
 }
-
 .bg-color-azureish-white {
   border-color: #d8f1ee;
   background-color: #d8f1ee;
 }
-
 .bg-color-silver-pink {
   border-color: #ccafb3;
   background-color: #ccafb3;
 }
-
 .bg-color-metallic {
   border-color: #aaa8b6;
   background-color: #aaa8b6;
@@ -1066,7 +1013,6 @@ label.bg-color-white {
 .bg-color-white {
   border: 1px solid #e3e0e0;
 }
-
 .bg-color-navy-blue {
   background: navy;
 }
@@ -1130,8 +1076,7 @@ button,
 }
 
 /* Headings Typography - Elegant Fraunces Serif */
-h1,
-.h1 {
+h1, .h1 {
   font-family: var(--font-heading-family) !important;
   color: #f5e4c7;
   font-optical-sizing: auto;
@@ -1141,10 +1086,7 @@ h1,
   line-height: 1.1 !important;
 }
 
-h2,
-.h2,
-.section-title,
-.title {
+h2, .h2, .section-title, .title {
   font-family: var(--font-heading-family) !important;
   color: #f5e4c7;
   font-optical-sizing: auto;
@@ -1154,8 +1096,7 @@ h2,
   line-height: 1.15 !important;
 }
 
-h3,
-.h3 {
+h3, .h3 {
   font-family: var(--font-heading-family) !important;
   color: #f5e4c7;
   font-optical-sizing: auto;
@@ -1165,8 +1106,7 @@ h3,
   line-height: 1.2 !important;
 }
 
-h4,
-.h4 {
+h4, .h4 {
   font-family: var(--font-heading-family) !important;
   color: #f5e4c7;
   font-optical-sizing: auto;
@@ -1176,10 +1116,7 @@ h4,
   line-height: 1.3 !important;
 }
 
-h5,
-.h5,
-h6,
-.h6 {
+h5, .h5, h6, .h6 {
   font-family: var(--font-heading-family) !important;
   color: #f5e4c7;
   font-optical-sizing: auto;
@@ -1205,11 +1142,9 @@ h6,
 .font-display {
   font-family: var(--font-display-family) !important;
 }
-
 .font-heading {
   font-family: var(--font-heading-family) !important;
 }
-
 .font-sans {
   font-family: var(--font-sans-family) !important;
 }
@@ -1302,11 +1237,13 @@ div.dotted-rule:empty,
   display: block !important;
   height: 1px !important;
   width: 100% !important;
-  background-image: repeating-linear-gradient(to right,
-      rgba(245, 228, 199, 0.45) 0px,
-      rgba(245, 228, 199, 0.45) 4px,
-      transparent 4px,
-      transparent 10px) !important;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(245, 228, 199, 0.45) 0px,
+    rgba(245, 228, 199, 0.45) 4px,
+    transparent 4px,
+    transparent 10px
+  ) !important;
   overflow: hidden;
   line-height: 0;
   font-size: 0;
@@ -1314,12 +1251,9 @@ div.dotted-rule:empty,
 
 /* Animation Name: hero-bg-pulse */
 @keyframes hero-bg-pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(0.96);
   }
-
   50% {
     transform: scale(1.04);
   }
@@ -1332,12 +1266,9 @@ div.dotted-rule:empty,
 }
 
 @keyframes hero-pack-float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: rotate(5deg) translateY(0px);
   }
-
   50% {
     transform: rotate(6.5deg) translateY(-16px);
   }
@@ -1349,24 +1280,18 @@ div.dotted-rule:empty,
 }
 
 @keyframes float-companion-top {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(14deg);
   }
-
   50% {
     transform: translateY(-24px) rotate(22deg);
   }
 }
 
 @keyframes float-companion-bottom {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(-14deg);
   }
-
   50% {
     transform: translateY(-22px) rotate(-8deg);
   }
@@ -1389,7 +1314,6 @@ div.dotted-rule:empty,
     opacity: 0;
     transform: translateY(10px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1536,7 +1460,7 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide,
 .product-tab-wrapper .swiper-wrapper,
 .product-tab-wrapper .tabs_container,
-.product-tab-wrapper .grid dt-sc-column>li,
+.product-tab-wrapper .grid dt-sc-column > li,
 .swiper-slide.color-background-1,
 .swiper-slide.card_style-standard,
 .swiper-slide.card_style-card_with_icons,
@@ -1676,8 +1600,8 @@ header svg[fill]:not([fill="none"]),
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="28"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="1"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="5"] .card,
-.product-tab-wrapper ul.grid>li:nth-child(4n + 1) .card,
-.product-tab-wrapper ul.dt-sc-column>li:nth-child(4n + 1) .card,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 1) .card,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 1) .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="0"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="4"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="8"] .card,
@@ -1704,14 +1628,14 @@ featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n
 .swiper-slide[data-swiper-slide-index="20"] .card,
 .swiper-slide[data-swiper-slide-index="24"] .card,
 .swiper-slide[data-swiper-slide-index="28"] .card,
-.collection .product-grid>li:nth-child(4n + 1) .card,
-.collection ul.grid>li:nth-child(4n + 1) .card,
-ul.product-grid>li:nth-child(4n + 1) .card,
-.product-grid>.grid__item:nth-child(4n + 1) .card,
-.product-recommendations ul.grid>li:nth-child(4n + 1) .card,
-.product-recommendations .product-grid>.grid__item:nth-child(4n + 1) .card,
-.main-search ul.grid>li:nth-child(4n + 1) .card,
-.main-search .product-grid>.grid__item:nth-child(4n + 1) .card {
+.collection .product-grid > li:nth-child(4n + 1) .card,
+.collection ul.grid > li:nth-child(4n + 1) .card,
+ul.product-grid > li:nth-child(4n + 1) .card,
+.product-grid > .grid__item:nth-child(4n + 1) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 1) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 1) .card,
+.main-search ul.grid > li:nth-child(4n + 1) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 1) .card {
   background: #BE8D3F !important;
   background-color: #BE8D3F !important;
 }
@@ -1727,8 +1651,8 @@ ul.product-grid>li:nth-child(4n + 1) .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="29"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="2"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="6"] .card,
-.product-tab-wrapper ul.grid>li:nth-child(4n + 2) .card,
-.product-tab-wrapper ul.dt-sc-column>li:nth-child(4n + 2) .card,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 2) .card,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 2) .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="1"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="5"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="9"] .card,
@@ -1755,14 +1679,14 @@ featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n
 .swiper-slide[data-swiper-slide-index="21"] .card,
 .swiper-slide[data-swiper-slide-index="25"] .card,
 .swiper-slide[data-swiper-slide-index="29"] .card,
-.collection .product-grid>li:nth-child(4n + 2) .card,
-.collection ul.grid>li:nth-child(4n + 2) .card,
-ul.product-grid>li:nth-child(4n + 2) .card,
-.product-grid>.grid__item:nth-child(4n + 2) .card,
-.product-recommendations ul.grid>li:nth-child(4n + 2) .card,
-.product-recommendations .product-grid>.grid__item:nth-child(4n + 2) .card,
-.main-search ul.grid>li:nth-child(4n + 2) .card,
-.main-search .product-grid>.grid__item:nth-child(4n + 2) .card {
+.collection .product-grid > li:nth-child(4n + 2) .card,
+.collection ul.grid > li:nth-child(4n + 2) .card,
+ul.product-grid > li:nth-child(4n + 2) .card,
+.product-grid > .grid__item:nth-child(4n + 2) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 2) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 2) .card,
+.main-search ul.grid > li:nth-child(4n + 2) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 2) .card {
   background: #F15726 !important;
   background-color: #F15726 !important;
 }
@@ -1778,8 +1702,8 @@ ul.product-grid>li:nth-child(4n + 2) .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="30"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="3"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="7"] .card,
-.product-tab-wrapper ul.grid>li:nth-child(4n + 3) .card,
-.product-tab-wrapper ul.dt-sc-column>li:nth-child(4n + 3) .card,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 3) .card,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 3) .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="2"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="6"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="10"] .card,
@@ -1806,14 +1730,14 @@ featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n
 .swiper-slide[data-swiper-slide-index="22"] .card,
 .swiper-slide[data-swiper-slide-index="26"] .card,
 .swiper-slide[data-swiper-slide-index="30"] .card,
-.collection .product-grid>li:nth-child(4n + 3) .card,
-.collection ul.grid>li:nth-child(4n + 3) .card,
-ul.product-grid>li:nth-child(4n + 3) .card,
-.product-grid>.grid__item:nth-child(4n + 3) .card,
-.product-recommendations ul.grid>li:nth-child(4n + 3) .card,
-.product-recommendations .product-grid>.grid__item:nth-child(4n + 3) .card,
-.main-search ul.grid>li:nth-child(4n + 3) .card,
-.main-search .product-grid>.grid__item:nth-child(4n + 3) .card {
+.collection .product-grid > li:nth-child(4n + 3) .card,
+.collection ul.grid > li:nth-child(4n + 3) .card,
+ul.product-grid > li:nth-child(4n + 3) .card,
+.product-grid > .grid__item:nth-child(4n + 3) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 3) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 3) .card,
+.main-search ul.grid > li:nth-child(4n + 3) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 3) .card {
   background: #DA1F27 !important;
   background-color: #DA1F27 !important;
 }
@@ -1829,8 +1753,8 @@ ul.product-grid>li:nth-child(4n + 3) .card,
 .product-tab-wrapper .swiper-slide[data-swiper-slide-index="31"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="4"] .card,
 .product-tab-wrapper .swiper-slide[data-blog-index="8"] .card,
-.product-tab-wrapper ul.grid>li:nth-child(4n + 4) .card,
-.product-tab-wrapper ul.dt-sc-column>li:nth-child(4n + 4) .card,
+.product-tab-wrapper ul.grid > li:nth-child(4n + 4) .card,
+.product-tab-wrapper ul.dt-sc-column > li:nth-child(4n + 4) .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="3"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="7"] .card,
 featured-swiper-slider .swiper-slide[data-swiper-slide-index="11"] .card,
@@ -1859,14 +1783,14 @@ featured-swiper-slider .swiper-slide:not([data-swiper-slide-index]):nth-child(4n
 .swiper-slide[data-swiper-slide-index="23"] .card,
 .swiper-slide[data-swiper-slide-index="27"] .card,
 .swiper-slide[data-swiper-slide-index="31"] .card,
-.collection .product-grid>li:nth-child(4n + 4) .card,
-.collection ul.grid>li:nth-child(4n + 4) .card,
-ul.product-grid>li:nth-child(4n + 4) .card,
-.product-grid>.grid__item:nth-child(4n + 4) .card,
-.product-recommendations ul.grid>li:nth-child(4n + 4) .card,
-.product-recommendations .product-grid>.grid__item:nth-child(4n + 4) .card,
-.main-search ul.grid>li:nth-child(4n + 4) .card,
-.main-search .product-grid>.grid__item:nth-child(4n + 4) .card {
+.collection .product-grid > li:nth-child(4n + 4) .card,
+.collection ul.grid > li:nth-child(4n + 4) .card,
+ul.product-grid > li:nth-child(4n + 4) .card,
+.product-grid > .grid__item:nth-child(4n + 4) .card,
+.product-recommendations ul.grid > li:nth-child(4n + 4) .card,
+.product-recommendations .product-grid > .grid__item:nth-child(4n + 4) .card,
+.main-search ul.grid > li:nth-child(4n + 4) .card,
+.main-search .product-grid > .grid__item:nth-child(4n + 4) .card {
   background: #EF8F4A !important;
   background-color: #EF8F4A !important;
 }
@@ -1907,7 +1831,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 @media screen and (max-width: 768px) {
-
   .product-tab-wrapper .card__inner,
   .collection .card__inner,
   .product-recommendations .card__inner,
@@ -2027,7 +1950,7 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 /* Floating overlay for inner action buttons */
-.card__inner>.card__content {
+.card__inner > .card__content {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -2041,7 +1964,7 @@ ul.product-grid>li:nth-child(4n + 4) .card,
   z-index: 6 !important;
 }
 
-.card__inner>.card__content .card__information {
+.card__inner > .card__content .card__information {
   display: none !important;
 }
 
@@ -2071,7 +1994,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 @media screen and (min-width: 769px) {
-
   .card__top-header.desktop-only-title,
   .card__top-header {
     width: 100% !important;
@@ -2085,7 +2007,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
     z-index: 5 !important;
     box-sizing: border-box !important;
   }
-
   .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
   .collection .card__content.for-arrow-alignment .card__heading,
   .card-wrapper .card__content.for-arrow-alignment .card__heading,
@@ -2095,12 +2016,10 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 @media screen and (max-width: 768px) {
-
   .card__top-header.desktop-only-title,
   .card__top-header {
     display: none !important;
   }
-
   .product-tab-wrapper .card__content.for-arrow-alignment .card__heading,
   .collection .card__content.for-arrow-alignment .card__heading,
   .card-wrapper .card__content.for-arrow-alignment .card__heading,
@@ -2238,24 +2157,18 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 @keyframes float-card-companion-bl {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(-4px, 2px) scale(1) rotate(335deg);
   }
-
   50% {
     transform: translate(-4px, -8px) scale(1) rotate(331deg);
   }
 }
 
 @keyframes float-card-companion-estate {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(6px, -2px) scale(1.04) rotate(0deg);
   }
-
   50% {
     transform: translate(6px, 8px) scale(1.04) rotate(3.5deg);
   }
@@ -2263,27 +2176,23 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 
 /* Fallback CSS Hover for Botanical Elements */
 @media screen and (min-width: 769px) {
-
   .card:hover .card-hover-elem.hover-elem-tl,
   .card-wrapper:hover .card-hover-elem.hover-elem-tl {
     opacity: 1 !important;
     transform: translate(-10px, -4px) scale(1) rotate(-10deg) !important;
   }
-
   .card:hover .card-hover-elem.hover-elem-bl,
   .card-wrapper:hover .card-hover-elem.hover-elem-bl {
     opacity: 1 !important;
     transform: translate(-4px, 2px) scale(1) rotate(335deg) !important;
     animation: float-card-companion-bl 4.4s ease-in-out infinite 0.5s;
   }
-
   .card:hover .card-hover-elem.hover-elem-estate,
   .card-wrapper:hover .card-hover-elem.hover-elem-estate {
     opacity: 1 !important;
     transform: translate(6px, -2px) scale(1.04) rotate(0deg) !important;
     animation: float-card-companion-estate 4.8s ease-in-out infinite 0.5s;
   }
-
   .card:hover .card-hover-elem.hover-elem-tr,
   .card-wrapper:hover .card-hover-elem.hover-elem-tr {
     opacity: 1 !important;
@@ -2378,7 +2287,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 }
 
 @media screen and (max-width: 768px) {
-
   .card__content.for-arrow-alignment .quick-add.button-quick-add,
   .card__content .quick-add,
   .card .quick-add,
@@ -2390,7 +2298,7 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 
   .product-tab-wrapper .card__content.for-arrow-alignment,
   .collection .card__content.for-arrow-alignment,
-  .card--card.card--media>.card__content,
+  .card--card.card--media > .card__content,
   .product-recommendations .card__content.for-arrow-alignment,
   .main-search .card__content.for-arrow-alignment {
     min-height: auto !important;
@@ -2479,7 +2387,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
   .card__content.for-arrow-alignment .price {
     transition: opacity 0.25s ease, transform 0.25s ease !important;
   }
-
   .card:hover .card__content.for-arrow-alignment .price,
   .card-wrapper:hover .card__content.for-arrow-alignment .price {
     opacity: 0 !important;
@@ -2491,7 +2398,7 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 /* 5. Card Content (Bottom Slot for Price & Quick Buy Button) */
 .product-tab-wrapper .card__content.for-arrow-alignment,
 .collection .card__content.for-arrow-alignment,
-.card--card.card--media>.card__content,
+.card--card.card--media > .card__content,
 .product-recommendations .card__content.for-arrow-alignment,
 .main-search .card__content.for-arrow-alignment {
   padding: 2px 10px 8px 10px !important;
@@ -2588,7 +2495,6 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 
 /* 7. Mobile Screen Adjustments */
 @media screen and (max-width: 768px) {
-
   .product-tab-wrapper .card--card,
   .product-tab-wrapper .card,
   .collection .product-grid .card--card,
@@ -2639,7 +2545,7 @@ ul.product-grid>li:nth-child(4n + 4) .card,
 
   .product-tab-wrapper .card__content.for-arrow-alignment,
   .collection .card__content.for-arrow-alignment,
-  .card--card.card--media>.card__content,
+  .card--card.card--media > .card__content,
   .card-wrapper .card__content.for-arrow-alignment,
   .card .card__content.for-arrow-alignment {
     min-height: auto !important;
@@ -3030,7 +2936,6 @@ input.search__input::placeholder,
   #predictive-search-results {
     padding: 20px 18px 24px !important;
   }
-
   .predictive-search .predictive-search__results-groups-wrapper {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
@@ -3044,7 +2949,6 @@ input.search__input::placeholder,
     padding-right: 36px !important;
     flex: none !important;
   }
-
   .predictive-search .predictive-search__result-group:last-child {
     flex: none !important;
   }
@@ -3243,12 +3147,10 @@ input.search__input::placeholder,
   #heroNo {
     display: none !important;
   }
-
   .nidhi-blend-bar-inner {
     justify-content: center !important;
     text-align: center !important;
   }
-
   #heroName {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
@@ -3277,8 +3179,8 @@ body.overflow-hidden-mobile #shopify-section-header,
 }
 
 /* Backdrop dim overlay */
-.js header-drawer>details>summary::before,
-.js menu-drawer>details>summary::before {
+.js header-drawer > details > summary::before,
+.js menu-drawer > details > summary::before {
   content: "" !important;
   position: fixed !important;
   inset: 0 !important;
@@ -3295,8 +3197,8 @@ body.overflow-hidden-mobile #shopify-section-header,
   transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
 
-header-drawer>details[open]>summary::before,
-menu-drawer>details[open]>summary::before {
+header-drawer > details[open] > summary::before,
+menu-drawer > details[open] > summary::before {
   visibility: visible !important;
   opacity: 1 !important;
 }
@@ -3410,7 +3312,7 @@ button.header-drawer__close.close_icon_button svg {
   background-color: #100B06 !important;
 }
 
-.menu-drawer__menu>li,
+.menu-drawer__menu > li,
 .menu-drawer__menu li.top-level-link {
   margin: 0 !important;
   width: 100% !important;
@@ -3440,7 +3342,7 @@ button.header-drawer__close.close_icon_button svg {
   color: #f5e4c7 !important;
 }
 
-.menu-drawer__menu-item>.icon-arrow {
+.menu-drawer__menu-item > .icon-arrow {
   position: static !important;
   transform: none !important;
   margin-left: auto !important;
@@ -3624,7 +3526,7 @@ cart-drawer.drawer {
 
 /* Brand heading font family for cart headings */
 .cart-drawer .drawer__heading,
-.cart-drawer .totals>h2,
+.cart-drawer .totals > h2,
 .cart-drawer .totals__subtotal,
 .cart-drawer .cart__empty-text,
 .cart-drawer .cart__login-title {
@@ -3676,7 +3578,7 @@ cart-drawer .drawer__inner {
 .cart-drawer .drawer__heading,
 .cart-drawer .cart__empty-text,
 .cart-drawer .cart-item__name,
-.cart-drawer .totals>h2,
+.cart-drawer .totals > h2,
 .cart-drawer .totals__subtotal {
   color: #f5e4c7 !important;
 }
@@ -4562,7 +4464,7 @@ footer.footer-style4,
 }
 
 /* 8. Product Variant Pickers (Buttons / Pills) */
-.product-form__input input[type="radio"]+label {
+.product-form__input input[type="radio"] + label {
   background: rgba(245, 228, 199, 0.06) !important;
   color: #f5e4c7 !important;
   border: 1.5px solid rgba(245, 228, 199, 0.3) !important;
@@ -4570,13 +4472,13 @@ footer.footer-style4,
   transition: all 0.25s ease !important;
 }
 
-.product-form__input input[type="radio"]:checked+label {
+.product-form__input input[type="radio"]:checked + label {
   background: #FF0085 !important;
   border-color: #FF0085 !important;
   color: #ffffff !important;
 }
 
-.product-form__input input[type="radio"]+label:hover {
+.product-form__input input[type="radio"] + label:hover {
   border-color: #FF0085 !important;
   color: #FF0085 !important;
 }
@@ -5037,65 +4939,33 @@ footer.footer-style4,
 
 /* Drift / Float Keyframe Animations */
 @keyframes pdp-float-sprig {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate3d(10px, -12px, 0) rotate(4deg);
-  }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(10px, -12px, 0) rotate(4deg); }
 }
 
 @keyframes pdp-float-chamomile {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate3d(-8px, -10px, 0) rotate(-3.5deg);
-  }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(-8px, -10px, 0) rotate(-3.5deg); }
 }
 
 @keyframes pdp-float-citrus {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate3d(8px, 6px, 0) rotate(6deg);
-  }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(8px, 6px, 0) rotate(6deg); }
 }
 
 @keyframes pdp-float-cinnamon {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate3d(-8px, 10px, 0) rotate(3deg);
-  }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(-8px, 10px, 0) rotate(3deg); }
 }
 
 @keyframes pdp-float-cardamom {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate3d(10px, 8px, 0) rotate(-3deg);
-  }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(10px, 8px, 0) rotate(-3deg); }
 }
 
 @keyframes pdp-sparkle {
-  0% {
-    opacity: 0.35;
-    transform: scale(0.85);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1.2) rotate(18deg);
-  }
+  0% { opacity: 0.35; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1.2) rotate(18deg); }
 }
 
 /* 8. Thumbnail Carousel Multi-Color & Dashed Border Styling */
@@ -5239,25 +5109,21 @@ footer.footer-style4,
     right: -28px !important;
     width: 125px !important;
   }
-
   .pdp-botanical--chamomile {
     top: -24px !important;
     left: -26px !important;
     width: 110px !important;
   }
-
   .pdp-botanical--citrus {
     top: 36% !important;
     right: -28px !important;
     width: 95px !important;
   }
-
   .pdp-botanical--cinnamon {
     bottom: -28px !important;
     left: -28px !important;
     width: 125px !important;
   }
-
   .pdp-botanical--cardamom {
     bottom: -24px !important;
     right: -26px !important;
@@ -5277,43 +5143,54 @@ footer.footer-style4,
     z-index: 45 !important;
     overflow: visible !important;
     width: 100% !important;
+    height: 100% !important;
   }
 
   .pdp-botanical-item {
     position: absolute !important;
     pointer-events: none !important;
     z-index: 45 !important;
-    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.72)) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45)) !important;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.72)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45)) !important;
   }
 
+  /* Top-Right: Fresh Green Tea Leaves Sprig */
   .pdp-botanical--tea-sprig {
-    top: 6px !important;
-    right: max(8px, calc(50% - min(160px, 39vw) - 14px)) !important;
-    width: 72px !important;
+    top: -14px !important;
+    right: -10px !important;
+    width: 66px !important;
+    animation: pdp-float-sprig 6s ease-in-out infinite alternate !important;
   }
 
+  /* Top-Left: Dried Chamomile Flowers & Star Anise */
   .pdp-botanical--chamomile {
-    top: 8px !important;
-    left: max(8px, calc(50% - min(160px, 39vw) - 12px)) !important;
-    width: 68px !important;
+    top: -12px !important;
+    left: -10px !important;
+    width: 62px !important;
+    animation: pdp-float-chamomile 6.8s ease-in-out infinite alternate !important;
   }
 
+  /* Mid-Right: Dried Citrus Slices */
   .pdp-botanical--citrus {
     top: 38% !important;
-    right: max(8px, calc(50% - min(160px, 39vw) - 8px)) !important;
-    width: 58px !important;
+    right: -8px !important;
+    width: 48px !important;
+    animation: pdp-float-citrus 8s ease-in-out infinite alternate !important;
   }
 
+  /* Bottom-Left: Cinnamon Sticks Bundle */
   .pdp-botanical--cinnamon {
-    bottom: 8px !important;
-    left: max(8px, calc(50% - min(160px, 39vw) - 12px)) !important;
-    width: 74px !important;
+    bottom: -12px !important;
+    left: -10px !important;
+    width: 64px !important;
+    animation: pdp-float-cinnamon 7.5s ease-in-out infinite alternate !important;
   }
 
+  /* Bottom-Right: Whole Green Cardamom Pods & Cloves */
   .pdp-botanical--cardamom {
-    bottom: 6px !important;
-    right: max(8px, calc(50% - min(160px, 39vw) - 12px)) !important;
-    width: 68px !important;
+    bottom: -10px !important;
+    right: -10px !important;
+    width: 60px !important;
+    animation: pdp-float-cardamom 6.5s ease-in-out infinite alternate !important;
   }
 
   .pdp-botanical--sparkle {
@@ -5325,13 +5202,15 @@ footer.footer-style4,
    PDP PRODUCT CARD SLIDER ARCHITECTURE (DESKTOP & MOBILE)
    ========================================================================== */
 
-/* Universal: Hide thumbnail strip and default Shopify counter */
-.main-product_info .thumbnail-slider,
-.main-product_info [id^="GalleryThumbnails-"],
-.main-product_info .slider-buttons,
-.main-product_info .slider-mobile-gutter .slider-buttons,
-.main-product_info .slider-counter {
-  display: none !important;
+/* Desktop: Hide thumbnail strip, desktop uses unified card with arrows */
+@media screen and (min-width: 750px) {
+  .main-product_info .thumbnail-slider,
+  .main-product_info [id^="GalleryThumbnails-"],
+  .main-product_info .slider-buttons,
+  .main-product_info .slider-mobile-gutter .slider-buttons,
+  .main-product_info .slider-counter {
+    display: none !important;
+  }
 }
 
 .main-product_info.product--thumbnail_slider_left media-gallery,
@@ -5458,15 +5337,12 @@ footer.footer-style4,
   .main-product_info .product__media-list:not([data-active-color]) {
     background-color: #BE8D3F !important;
   }
-
   .main-product_info .product__media-list[data-active-color="1"] {
     background-color: #F15726 !important;
   }
-
   .main-product_info .product__media-list[data-active-color="2"] {
     background-color: #DA1F27 !important;
   }
-
   .main-product_info .product__media-list[data-active-color="3"] {
     background-color: #EF8F4A !important;
   }
@@ -5620,137 +5496,154 @@ footer.footer-style4,
 }
 
 /* --------------------------------------------------------------------------
-   B. MOBILE PDP SLIDER (max-width: 749px): Horizontal Swipeable Peek Card Carousel
+   B. MOBILE PDP SLIDER (max-width: 749px): Older Style Card with Thumbnail Strip
    -------------------------------------------------------------------------- */
 @media screen and (max-width: 749px) {
   .main-product_info {
     overflow-x: clip !important;
   }
 
+  /* Centered Main Image Showcase Card - Bigger & Full Width */
   .main-product_info .pdp-gallery-viewer-wrap {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    margin-right: calc(-50vw + 50%) !important;
-    padding: 16px 0 20px 0 !important;
+    width: calc(100% - 20px) !important;
+    max-width: 440px !important;
+    margin: 16px auto 14px auto !important;
+    padding: 0 !important;
     position: relative !important;
     overflow: visible !important;
   }
 
-  /* Horizontal Scrollable Track with momentum scrolling */
+  /* Main Card: Full Space Card Stage with Signature Lighting */
   .main-product_info .product__media-list {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 14px !important;
-    padding: 12px 24px 20px 24px !important;
-    margin: 0 !important;
-    list-style: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    scrollbar-width: none !important;
-  }
-
-  .main-product_info .product__media-list::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .main-product_info .product__media-list::before,
-  .main-product_info .product__media-list::after {
-    display: none !important;
-  }
-
-  /* Each Individual Slide is a Full Sized, Vibrant Card with Smooth Focal Depth */
-  .main-product_info .product__media-item {
     position: relative !important;
-    flex: 0 0 78vw !important;
-    max-width: 320px !important;
-    min-width: 260px !important;
+    width: 100% !important;
     aspect-ratio: 1 / 1 !important;
-    height: auto !important;
-    scroll-snap-align: center !important;
-    scroll-snap-stop: always !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    border-radius: 22px !important;
+    border-radius: 24px !important;
     overflow: hidden !important;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.52), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-    margin: 0 !important;
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.52), 0 0 30px rgba(0, 0, 0, 0.25) !important;
+    margin: 0 auto !important;
     padding: 0 !important;
-    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease !important;
-    will-change: transform, opacity;
+    list-style: none !important;
+    display: block !important;
+    background-color: #BE8D3F !important;
+    background-image: radial-gradient(ellipse at 46% 38%, rgba(255, 255, 255, 0.22) 0%, transparent 55%, rgba(0, 0, 0, 0.28) 100%) !important;
+    transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: none !important;
   }
 
-  .main-product_info .product__media-item:not(.is-active) {
-    transform: scale(0.91) !important;
-    opacity: 0.72 !important;
-    filter: brightness(0.92) !important;
+  /* "Dottot": Micro-dot Texture Overlay */
+  .main-product_info .product__media-list::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.25) 0.75px, transparent 0.75px) !important;
+    background-size: 8px 8px !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    opacity: 0.38 !important;
+    display: block !important;
   }
 
-  .main-product_info .product__media-item.is-active {
-    transform: scale(1) !important;
-    opacity: 1 !important;
-    filter: brightness(1) !important;
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.65), 0 0 24px rgba(255, 255, 255, 0.08) !important;
-    z-index: 5 !important;
-  }
-
-  /* 4 Flavor Card Colors on Mobile Slides */
-  .main-product_info .product__media-item[data-color-index="0"],
-  .main-product_info .product__media-item:nth-child(4n + 1) {
-    background: #BE8D3F !important;
-    background-image: radial-gradient(ellipse at 46% 38%, #e2ad5d 0%, #be8d3f 65%, #9e6f28 100%) !important;
-  }
-
-  .main-product_info .product__media-item[data-color-index="1"],
-  .main-product_info .product__media-item:nth-child(4n + 2) {
-    background: #F15726 !important;
-    background-image: radial-gradient(ellipse at 46% 38%, #fa6d3f 0%, #f15726 65%, #ca3e12 100%) !important;
-  }
-
-  .main-product_info .product__media-item[data-color-index="2"],
-  .main-product_info .product__media-item:nth-child(4n + 3) {
-    background: #DA1F27 !important;
-    background-image: radial-gradient(ellipse at 46% 38%, #e8343c 0%, #da1f27 65%, #b21319 100%) !important;
-  }
-
-  .main-product_info .product__media-item[data-color-index="3"],
-  .main-product_info .product__media-item:nth-child(4n + 4) {
-    background: #EF8F4A !important;
-    background-image: radial-gradient(ellipse at 46% 38%, #f6a66c 0%, #ef8f4a 65%, #d1712a 100%) !important;
-  }
-
-  /* Inset Dashed Border on Each Mobile Card */
-  .main-product_info .product__media-item::before {
+  /* "Dottot": Signature Inset Dashed Framing Border */
+  .main-product_info .product__media-list::before {
     content: "" !important;
     position: absolute !important;
     inset: 10px !important;
     border: 1.5px dashed rgba(255, 255, 255, 0.65) !important;
-    border-radius: 15px !important;
+    border-radius: 18px !important;
     pointer-events: none !important;
-    z-index: 5 !important;
+    z-index: 6 !important;
+    display: block !important;
+    transition: border-color 0.3s ease !important;
   }
 
-  /* Subtle Micro-dots Texture on Each Mobile Card */
-  .main-product_info .product__media-item::after {
-    content: "" !important;
+  /* Dynamic Flavor Colors on Mobile */
+  .main-product_info .product__media-list[data-active-color="0"],
+  .main-product_info .product__media-list:not([data-active-color]) {
+    background-color: #BE8D3F !important;
+  }
+  .main-product_info .product__media-list[data-active-color="1"] {
+    background-color: #F15726 !important;
+  }
+  .main-product_info .product__media-list[data-active-color="2"] {
+    background-color: #DA1F27 !important;
+  }
+  .main-product_info .product__media-list[data-active-color="3"] {
+    background-color: #EF8F4A !important;
+  }
+
+  /* Main Card Slides - Ultra Smooth Hardware-Accelerated Sliding */
+  .main-product_info .product__media-item {
     position: absolute !important;
     inset: 0 !important;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.22) 0.75px, transparent 0.75px) !important;
-    background-size: 8px 8px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translate3d(100%, 0, 0) !important;
+    transition: transform 0.48s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, visibility 0.48s !important;
+    z-index: 2 !important;
     pointer-events: none !important;
-    z-index: 1 !important;
-    opacity: 0.35 !important;
-    display: block !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    will-change: transform, opacity !important;
   }
 
-  /* Product Media & Image Fill Inside Mobile Card */
+  /* Active Slide */
+  .main-product_info .product__media-item.is-active {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Smooth Exit Left */
+  .main-product_info .product__media-item.slide-exit-left {
+    visibility: visible !important;
+    opacity: 0 !important;
+    transform: translate3d(-100%, 0, 0) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    transition: transform 0.48s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease !important;
+  }
+
+  /* Smooth Exit Right */
+  .main-product_info .product__media-item.slide-exit-right {
+    visibility: visible !important;
+    opacity: 0 !important;
+    transform: translate3d(100%, 0, 0) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    transition: transform 0.48s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease !important;
+  }
+
+  /* Prepare Entrance from Left */
+  .main-product_info .product__media-item.slide-enter-left {
+    transform: translate3d(-100%, 0, 0) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
+  }
+
+  /* Prepare Entrance from Right */
+  .main-product_info .product__media-item.slide-enter-right {
+    transform: translate3d(100%, 0, 0) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
+  }
+
+  /* Product Media - Edge-to-Edge Container */
   .main-product_info .product__media-item .product__modal-opener,
   .main-product_info .product__media-item .product__media {
     display: block !important;
@@ -5761,9 +5654,12 @@ footer.footer-style4,
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
     aspect-ratio: 1 / 1 !important;
   }
 
+  /* Professional Cover Image Filling Full Space */
   .main-product_info .product__media-item .product__media img {
     position: absolute !important;
     inset: 0 !important;
@@ -5771,16 +5667,176 @@ footer.footer-style4,
     height: 100% !important;
     object-fit: cover !important;
     padding: 0 !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
-    border-radius: 22px !important;
-    z-index: 3 !important;
+    border-radius: 24px !important;
+    z-index: 4 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    filter: none !important;
   }
 
-  .pdp-card-desktop-nav {
+  /* Hide in-card arrows and dots on mobile (navigation is in thumbnail slider) */
+  .pdp-card-desktop-nav,
+  .pdp-mobile-dots {
     display: none !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     MOBILE THUMBNAIL SLIDER (Exactly 3 Items Shown at a Time + Smooth Scrolling)
+     -------------------------------------------------------------------------- */
+  .main-product_info .thumbnail-slider,
+  .main-product_info [id^="GalleryThumbnails-"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 16px auto 0 auto !important;
+    padding: 0 !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    height: 86px !important;
+    min-height: 86px !important;
+  }
+
+  /* Pink Circular Prev & Next Action Buttons (< and >) */
+  .main-product_info .thumbnail-slider .slider-button,
+  .main-product_info .thumbnail-slider .slider-button.slider-button--prev,
+  .main-product_info .thumbnail-slider .slider-button.slider-button--next,
+  .main-product_info .thumbnail-slider .slider-button.small-hide {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 50% !important;
+    background: #e8236d !important;
+    background-color: #e8236d !important;
+    color: #ffffff !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 12px rgba(232, 35, 109, 0.45) !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+    z-index: 5 !important;
+  }
+
+  .main-product_info .thumbnail-slider .slider-button:hover,
+  .main-product_info .thumbnail-slider .slider-button:active {
+    transform: scale(1.08) !important;
+    background-color: #ff2d6f !important;
+  }
+
+  .main-product_info .thumbnail-slider .slider-button.slider-button--prev svg,
+  .main-product_info .thumbnail-slider .slider-button.slider-button--prev .icon {
+    width: 14px !important;
+    height: 14px !important;
+    transform: rotate(90deg) !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
+  .main-product_info .thumbnail-slider .slider-button.slider-button--next svg,
+  .main-product_info .thumbnail-slider .slider-button.slider-button--next .icon {
+    width: 14px !important;
+    height: 14px !important;
+    transform: rotate(-90deg) !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
+  /* Horizontal Thumbnails Row: Exactly 3 Items Window (3 * 78px + 2 * 10px = 254px) */
+  .main-product_info .thumbnail-slider .thumbnail-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 3px 0 !important;
+    width: 254px !important;
+    max-width: 254px !important;
+    min-width: 254px !important;
+    height: 84px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .main-product_info .thumbnail-slider .thumbnail-list::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Critical Fix: Remove Dawn padding-bottom 100% that pushed buttons out of view */
+  .main-product_info .thumbnail-slider .thumbnail-list__item::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Each Item: 78px x 78px for clean 3-item display */
+  .main-product_info .thumbnail-slider .thumbnail-list__item,
+  .main-product_info .thumbnail-slider .thumbnail-list_item--variant {
+    display: block !important;
+    position: relative !important;
+    flex: 0 0 78px !important;
+    width: 78px !important;
+    height: 78px !important;
+    max-width: 78px !important;
+    min-width: 78px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transition: transform 0.25s ease !important;
+  }
+
+  /* Thumbnail Button Container */
+  .main-product_info .thumbnail-slider button.thumbnail {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 14px !important;
+    border: 2px solid transparent !important;
+    background: #f7f9ea !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease !important;
+  }
+
+  /* Active Thumbnail: Signature Green Border */
+  .main-product_info .thumbnail-slider button.thumbnail[aria-current="true"] {
+    border: 2.5px solid #2e7d32 !important;
+    box-shadow: 0 0 10px rgba(46, 125, 50, 0.45) !important;
+    transform: scale(1.02) !important;
+  }
+
+  /* Thumbnail Image Fill - Cover way for clean edge-to-edge look */
+  .main-product_info .thumbnail-slider button.thumbnail img {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 11px !important;
+    pointer-events: none !important;
   }
 
   .main-product_info .product__info-container,
@@ -5804,7 +5860,6 @@ footer.footer-style4,
 }
 
 @media screen and (min-width: 750px) {
-
   .product__info-container .price,
   .main-product_info .price,
   .price-wrapper .price,
@@ -5841,3 +5896,5 @@ footer.footer-style4,
   font-size: 1.3rem !important;
   opacity: 0.78 !important;
 }
+
+
