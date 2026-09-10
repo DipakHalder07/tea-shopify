@@ -5516,6 +5516,25 @@ footer.footer-style4,
   pointer-events: none !important;
 }
 
+/* Hide floating botanical / spice element images ONLY inside Quick Buy / Quick Add modal */
+quick-add-modal .pdp-floating-botanicals,
+.quick-add-modal .pdp-floating-botanicals,
+.quick-add-modal__content .pdp-floating-botanicals,
+[id^="QuickAdd-"] .pdp-floating-botanicals,
+[id^="QuickAddInfo-"] .pdp-floating-botanicals,
+quick-add-modal .pdp-botanical-item,
+.quick-add-modal .pdp-botanical-item,
+.quick-add-modal__content .pdp-botanical-item,
+[id^="QuickAdd-"] .pdp-botanical-item,
+[id^="QuickAddInfo-"] .pdp-botanical-item,
+quick-add-modal .pdp-botanical-item img,
+.quick-add-modal .pdp-botanical-item img {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Top-Right: Fresh Green Tea Leaves Sprig (Overlapping top-right corner) */
 .pdp-botanical--tea-sprig {
   top: -46px !important;

@@ -98,8 +98,10 @@ if (!customElements.get('quick-add-modal')) {
       if (productEnquiry) productEnquiry.remove();  
 
       const modalDialog = this.productElement.querySelectorAll('modal-dialog');
-        if (modalDialog) modalDialog.forEach((modal) => modal.remove());
-      
+      if (modalDialog) modalDialog.forEach((modal) => modal.remove());
+
+      const botanicals = this.productElement.querySelectorAll('.pdp-floating-botanicals, .pdp-botanical-item');
+      if (botanicals) botanicals.forEach((el) => el.remove());
     }
 
     preventDuplicatedIDs() {
