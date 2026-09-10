@@ -1,9 +1,13 @@
 {% comment %}
   Nidhi Tea Animated Circular Revealer Loader
-  Faithful port from Nidhi Tea index.html with instant color rendering and bulletproof GSAP animation
+  Faithfully ports the complete animation sequence from Nidhi Tea index.html:
+  1. Instant Gold Screen & Circular Ripple Stagger Expansion (Gold -> Flame -> Cherry -> Espresso)
+  2. 4 authentic floating botanical spice items + glowing logo
+  3. Explosive item burst & logo launch
+  4. Hero Title elastic character pop & UI entrance sync
 {% endcomment %}
 
-{% if template.name == 'index' or template == 'index' %}
+{% if template.name == 'index' or template == 'index' or request.page_type == 'index' %}
   <style>
     #loader {
       position: fixed;
@@ -14,7 +18,7 @@
       z-index: 9999999;
       overflow: hidden;
       pointer-events: auto;
-      background-color: var(--background, #100b06) !important;
+      background-color: #F7C665 !important;
     }
     .pl-bg {
       position: absolute;
@@ -22,7 +26,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: var(--background, #100b06) !important;
+      background-color: #F7C665 !important;
       z-index: 1;
     }
     .pl-revealer {
@@ -37,19 +41,19 @@
       will-change: clip-path, -webkit-clip-path;
     }
     .pl-revealer.rev-gold {
-      background-color: #f7c665 !important;
+      background-color: #F7C665 !important;
       z-index: 2;
     }
     .pl-revealer.rev-flame {
-      background-color: #f15726 !important;
+      background-color: #F15726 !important;
       z-index: 3;
     }
     .pl-revealer.rev-cherry {
-      background-color: #c4321c !important;
+      background-color: #C4321C !important;
       z-index: 4;
     }
     .pl-revealer.rev-background {
-      background-color: #100b06 !important;
+      background-color: #100B06 !important;
       z-index: 5;
     }
     .pl-item {
@@ -103,6 +107,11 @@
       display: block;
       filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
     }
+    #heroTitle .char,
+    #heroTitle .word {
+      display: inline-block !important;
+      will-change: transform, opacity;
+    }
   </style>
 
   <div id="loader">
@@ -114,8 +123,8 @@
 
     <div class="pl-item">
       <img
-        src="{{ 'crisp_isolated_studio_macro_photography_of_exactly_one_single_ceylon_cinnamon-removebg-preview.png' | asset_url }}"
-        alt="Cinnamon Stick"
+        src="{{ 'isolated_cinnamon_sticks_star_anise_and_dried_orange_slices_for_tea_flavoring.png' | asset_url }}"
+        alt="Tea Spices"
       />
     </div>
     <div class="pl-item">
@@ -123,14 +132,14 @@
     </div>
     <div class="pl-item">
       <img
-        src="{{ 'tea-leaf.webp' | asset_url }}"
+        src="{{ 'isolated_fresh_green_tea_leaves_with_water_droplets_macro_photography.png' | asset_url }}"
         alt="Fresh Tea Leaves"
       />
     </div>
     <div class="pl-item">
       <img
-        src="{{ 'lemon.webp' | asset_url }}"
-        alt="Lemon Slice"
+        src="{{ 'isolated_ceramic_bowl_of_dark_loose_leaf_oolong_tea_top_down_view_transparent.png' | asset_url }}"
+        alt="Loose Leaf Tea"
       />
     </div>
 
@@ -264,6 +273,20 @@
           }
         }, 6000);
 
+        // Split hero heading into characters and prepare initial hidden state
+        let heading = null;
+        const heroTitle = document.getElementById('heroTitle');
+        if (heroTitle && window.SplitTextPlugin) {
+          heading = window.SplitTextPlugin.create('#heroTitle', {
+            type: 'lines, words, chars',
+            charsClass: 'char',
+            wordsClass: 'word',
+          });
+          if (heading && heading.chars && heading.chars.length > 0) {
+            gsap.set(heading.chars, { y: 55, opacity: 0, scale: 0.45 });
+          }
+        }
+
         const T = [
           { x: '-20vw', y: '-30vh', rotation: -20 },
           { x: '25vw', y: '-20vh', rotation: 15 },
@@ -275,7 +298,7 @@
           floats = [];
 
         const tl = gsap.timeline({
-          delay: 0.1,
+          delay: 0.2,
           onComplete: () => {
             clearTimeout(emergencyTimer);
             el.remove();
@@ -286,12 +309,12 @@
           },
         });
 
-        // 1. Circle reveal stagger expansion
+        // 1. Circle reveal stagger expansion: Gold -> Flame -> Cherry -> Espresso Background
         tl.to('.pl-revealer', {
           clipPath: 'circle(150% at 50% 50%)',
           webkitClipPath: 'circle(150% at 50% 50%)',
-          duration: 0.85,
-          stagger: 0.18,
+          duration: 0.9,
+          stagger: 0.2,
           ease: 'power2.inOut',
         });
         tl.set('.pl-revealer:not(.pl-last)', { display: 'none' });
@@ -307,7 +330,7 @@
               y: t.y,
               scale: 1,
               rotation: t.rotation,
-              duration: 0.85,
+              duration: 0.9,
               ease: 'power3.out',
               onStart: () => {
                 floats[i] = gsap.to(img, {
@@ -320,16 +343,16 @@
                 });
               },
             },
-            i === 0 ? '-=0.45' : '<0.07'
+            i === 0 ? '-=0.5' : '<0.075'
           );
         });
 
-        tl.to('.pl-logo', { scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out' }, '<');
+        tl.to('.pl-logo', { scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' }, '<');
         tl.set('.pl-bg', { display: 'none' });
         tl.to({}, { duration: 0.5 });
         tl.add(() => floats.forEach((f) => f && f.kill()));
 
-        // 3. EXIT: Food items explode out, Logo shoots up, Loader background fades out
+        // 3. EXIT: Food items explode out, Logo shoots up, Loader background fades to 0
         items.forEach((item, i) => {
           const t = T[i];
           tl.to(
@@ -339,16 +362,46 @@
               y: parseFloat(t.y) * EXIT + 'vh',
               rotation: t.rotation * 2.5,
               scale: 2.5,
-              duration: 0.7,
+              duration: 0.75,
               ease: 'power2.in',
             },
-            i === 0 ? '>' : '<0.07'
+            i === 0 ? '>' : '<0.075'
           );
         });
-        tl.to('.pl-logo', { y: '-120vh', scale: 2.5, duration: 0.7, ease: 'power2.in' }, '<');
+        tl.to('.pl-logo', { y: '-120vh', scale: 2.5, duration: 0.75, ease: 'power2.in' }, '<');
 
         // Fade loader background smoothly from 1 to 0 at exit
-        tl.to('#loader', { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, '<0.1');
+        tl.to('#loader', { autoAlpha: 0, duration: 0.5, ease: 'power2.out' }, '<0.1');
+
+        // 4. Hero heading characters pop into view with bouncy elastic animation right as loader fades out!
+        if (heading && heading.chars && heading.chars.length > 0) {
+          tl.to(
+            heading.chars,
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.3,
+              stagger: 0.015,
+              ease: 'elastic.out(0.75, 0.25)',
+            },
+            '<0.05'
+          );
+        }
+
+        // Hero subtitle, badges, and buttons staggered entrance
+        const subtitle = document.querySelector('#heroSubtitle, .nidhi-hero-subtitle');
+        if (subtitle) {
+          tl.fromTo(subtitle, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }, '-=0.8');
+        }
+        const badges = document.querySelectorAll('#heroName, #heroNo');
+        if (badges.length) {
+          tl.fromTo(badges, { y: 25, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.8, ease: 'power3.out' }, '-=0.7');
+        }
+        const heroBtns = document.querySelectorAll('[data-hero]');
+        if (heroBtns.length) {
+          tl.fromTo(heroBtns, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.12, duration: 0.7, ease: 'back.out(1.8)' }, '-=0.6');
+        }
       }
 
       startLoaderAnimation();
