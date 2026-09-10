@@ -3399,7 +3399,7 @@ input.search__input::placeholder,
 .predictive-search__item mark,
 #predictive-search-results mark {
   background: transparent !important;
-  color: #FF0085 !important;
+  color: #F7C665 !important;
   font-weight: 700 !important;
   padding: 0 !important;
   text-decoration: none !important;
@@ -4018,7 +4018,7 @@ cart-drawer .drawer__inner {
   color: #F7C665 !important;
 }
 
-/* Corner close buttons in Pink color (#FF0085) */
+/* Corner close buttons in Gold / Cream */
 .cart-drawer .drawer__close,
 .cart-drawer .close_icon_button,
 .cart-drawer .drawer__close svg,
@@ -4031,24 +4031,24 @@ cart-drawer .drawer__inner {
 #Details-CartDrawer .close svg,
 #Discount-Wrapper .close,
 #Discount-Wrapper .close svg {
-  color: #FF0085 !important;
-  stroke: #FF0085 !important;
-  fill: #FF0085 !important;
+  color: #f5e4c7 !important;
+  stroke: #f5e4c7 !important;
+  fill: #f5e4c7 !important;
 }
 
 .drawer__footer .drawer-details .close svg path,
 .drawer-details .close svg path,
 .cart-drawer .drawer__close svg path,
 .cart-drawer .close_icon_button svg path {
-  fill: #FF0085 !important;
+  fill: #f5e4c7 !important;
 }
 
 .cart-drawer .drawer__close:hover svg,
 .cart-drawer .close_icon_button:hover svg,
 .drawer__footer .drawer-details .close:hover svg,
 .drawer-details .close:hover svg {
-  stroke: #ff3366 !important;
-  fill: #ff3366 !important;
+  stroke: #F7C665 !important;
+  fill: #F7C665 !important;
 }
 
 .cart-drawer cart-remove-button .button {
@@ -4056,7 +4056,7 @@ cart-drawer .drawer__inner {
 }
 
 .cart-drawer cart-remove-button .button:hover {
-  color: #FF0085 !important;
+  color: #F7C665 !important;
 }
 
 .cart-drawer cart-remove-button svg {
@@ -4071,6 +4071,11 @@ cart-drawer .drawer__inner {
 
 .cart-drawer .quantity__button {
   color: #f5e4c7 !important;
+}
+
+.cart-drawer .quantity__button:hover,
+.cart-drawer .quantity__button:focus {
+  color: #F7C665 !important;
 }
 
 .cart-drawer .quantity__input {
@@ -4097,21 +4102,65 @@ cart-drawer .drawer__inner {
 
 .cart-drawer .drawer-details input,
 .cart-drawer .drawer-details textarea {
-  background: rgba(245, 228, 199, 0.08) !important;
-  color: #f5e4c7 !important;
-  border-color: rgba(245, 228, 199, 0.2) !important;
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(190, 141, 63, 0.4) !important;
+  border-radius: 6px !important;
 }
 
-.cart-drawer .cart__checkout-button,
+.cart-drawer .drawer-details input::placeholder,
+.cart-drawer .drawer-details textarea::placeholder {
+  color: rgba(16, 11, 6, 0.6) !important;
+}
+
+/* Cart Drawer Buttons: 1 Outline Button + 1 Solid Button (NO SHADOW / NO GLOW) */
 .cart-drawer .cart__view_cart-button {
-  background: #FF0085 !important;
-  color: #ffffff !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #FF0085 !important;
+  border: 1.5px solid #FF0085 !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transition: all 0.25s ease !important;
 }
 
-.cart-drawer .cart__checkout-button:hover,
 .cart-drawer .cart__view_cart-button:hover {
-  background: #d6006e !important;
+  background: #FF0085 !important;
+  background-color: #FF0085 !important;
   color: #ffffff !important;
+  border-color: #FF0085 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.cart-drawer .cart__checkout-button {
+  background: #FF0085 !important;
+  background-color: #FF0085 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #FF0085 !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.cart-drawer .cart__checkout-button:hover {
+  background: #d6006e !important;
+  background-color: #d6006e !important;
+  border-color: #d6006e !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 /* Global Pink Buttons - NO GLOW, NO SHADOW */
@@ -4139,7 +4188,7 @@ cart-drawer .drawer__inner {
 
 .cart-progress .free-shipping strong,
 .cart-progress .free-shipping span strong {
-  color: #FF0085 !important;
+  color: #F7C665 !important;
 }
 
 .cart-progress-bar {
@@ -4162,12 +4211,14 @@ cart-drawer .drawer__inner {
 }
 
 .cart-progress-bar progress[value]::-webkit-progress-value {
-  background-color: #FF0085 !important;
+  background-color: #BE8D3F !important;
+  background-image: linear-gradient(90deg, #BE8D3F 0%, #F7C665 100%) !important;
   border-radius: 5px !important;
 }
 
 .cart-progress-bar progress[value]::-moz-progress-bar {
-  background-color: #FF0085 !important;
+  background-color: #BE8D3F !important;
+  background-image: linear-gradient(90deg, #BE8D3F 0%, #F7C665 100%) !important;
   border-radius: 5px !important;
 }
 
@@ -4233,7 +4284,7 @@ a.cart-item__name,
 
 .cart-item__name:hover,
 a.cart-item__name:hover {
-  color: #FF0085 !important;
+  color: #F7C665 !important;
 }
 
 .cart-item__details,
@@ -4272,7 +4323,7 @@ a.cart-item__name:hover {
   background: #1a130c !important;
   border: 1px solid rgba(245, 228, 199, 0.25) !important;
   color: #f5e4c7 !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
 }
 
 .cart-template .quantity__input,
@@ -4284,11 +4335,17 @@ a.cart-item__name:hover {
 .cart-template .quantity__button,
 .main-cart-wrapper .quantity__button {
   color: #f5e4c7 !important;
+  transition: all 0.2s ease !important;
 }
 
 .cart-template .quantity__button:hover,
-.main-cart-wrapper .quantity__button:hover {
-  color: #FF0085 !important;
+.main-cart-wrapper .quantity__button:hover,
+.cart-template .quantity__button:focus,
+.main-cart-wrapper .quantity__button:focus,
+.cart-template .quantity__button:active,
+.main-cart-wrapper .quantity__button:active {
+  color: #F7C665 !important;
+  background: rgba(190, 141, 63, 0.18) !important;
 }
 
 /* Remove / Trash Button */
@@ -4296,6 +4353,7 @@ a.cart-item__name:hover {
 .cart-template cart-remove-button .button {
   color: #f5e4c7 !important;
   background: transparent !important;
+  transition: all 0.2s ease !important;
 }
 
 .main-cart-wrapper cart-remove-button .button svg,
@@ -4303,30 +4361,49 @@ a.cart-item__name:hover {
   color: #f5e4c7 !important;
   stroke: currentColor !important;
   fill: currentColor !important;
+  transition: all 0.2s ease !important;
 }
 
 .main-cart-wrapper cart-remove-button .button:hover,
 .cart-template cart-remove-button .button:hover,
 .main-cart-wrapper cart-remove-button .button:hover svg,
 .cart-template cart-remove-button .button:hover svg {
-  color: #FF0085 !important;
-  stroke: #FF0085 !important;
-  fill: #FF0085 !important;
+  color: #F7C665 !important;
+  stroke: #F7C665 !important;
+  fill: #F7C665 !important;
+  transform: scale(1.1);
 }
 
-/* Continue Shopping Buttons */
+/* Continue Shopping Buttons (NO SHADOW / NO GLOW) */
 .continue-shopping a,
 .cart__warnings a.button {
-  background-color: #FF0085 !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #FF0085 !important;
+  border: 1.5px solid #FF0085 !important;
+  border-radius: 6px !important;
+  padding: 12px 28px !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transition: all 0.25s ease !important;
 }
 
 .continue-shopping a:hover,
 .cart__warnings a.button:hover {
-  background-color: #d6006e !important;
+  background: #FF0085 !important;
+  background-color: #FF0085 !important;
   color: #ffffff !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 /* Order Special Instructions Note */
@@ -4335,21 +4412,39 @@ a.cart-item__name:hover {
 .cart-template .cart-note-content,
 .cart-template .cart__note label {
   color: #f5e4c7 !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
 }
 
 .main-cart-wrapper .cart__note .field__input,
 .main-cart-wrapper .cart__note textarea,
 .cart-template .cart__note .field__input,
 .cart-template .cart__note textarea {
-  background: #272119 !important;
-  color: #f5e4c7 !important;
-  border: 1px solid rgba(245, 228, 199, 0.2) !important;
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(190, 141, 63, 0.45) !important;
   border-radius: 8px !important;
+  font-size: 1.5rem !important;
+  padding: 1.4rem 1.8rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .main-cart-wrapper .cart__note textarea::placeholder,
-.cart-template .cart__note textarea::placeholder {
-  color: rgba(245, 228, 199, 0.5) !important;
+.cart-template .cart__note textarea::placeholder,
+.main-cart-wrapper .cart__note .field__input::placeholder,
+.cart-template .cart__note .field__input::placeholder {
+  color: rgba(16, 11, 6, 0.65) !important;
+  opacity: 1 !important;
+}
+
+.main-cart-wrapper .cart__note textarea:focus,
+.cart-template .cart__note textarea:focus,
+.main-cart-wrapper .cart__note .field__input:focus,
+.cart-template .cart__note .field__input:focus {
+  outline: none !important;
+  border-color: #BE8D3F !important;
+  box-shadow: 0 0 0 3px rgba(190, 141, 63, 0.35) !important;
 }
 
 /* ==========================================================================
@@ -4401,26 +4496,29 @@ a.cart-item__name:hover {
 #shipping-calculator select,
 #shipping-calculator input[type="text"],
 .cart__footer input.discount-code {
-  background-color: rgba(245, 228, 199, 0.08) !important;
-  color: #f5e4c7 !important;
-  border: 1px solid rgba(245, 228, 199, 0.2) !important;
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(190, 141, 63, 0.45) !important;
   border-radius: 6px !important;
 }
 
 #shipping-calculator select option {
-  background-color: #272119 !important;
-  color: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
 }
 
-.cart__footer input.discount-code::placeholder {
-  color: rgba(245, 228, 199, 0.5) !important;
+.cart__footer input.discount-code::placeholder,
+#shipping-calculator input[type="text"]::placeholder {
+  color: rgba(16, 11, 6, 0.65) !important;
+  opacity: 1 !important;
 }
 
 #shipping-rates-feedback {
   color: #f5e4c7 !important;
 }
 
-/* Buttons in Cart Footer */
+/* Buttons in Cart Footer (NO SHADOW / NO GLOW) */
 .cart-template .cart__footer .button,
 .main-cart-wrapper .cart__footer .button,
 #shipping-calculator .button,
@@ -4429,9 +4527,15 @@ a.cart-item__name:hover {
 .cart-template .cart__checkout-button,
 .main-cart-wrapper .cart__checkout-button {
   background: #FF0085 !important;
+  background-color: #FF0085 !important;
   color: #ffffff !important;
+  font-weight: 700 !important;
   border: none !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transition: background-color 0.25s ease !important;
 }
 
 .cart-template .cart__footer .button:hover,
@@ -4442,7 +4546,11 @@ a.cart-item__name:hover {
 .cart-template .cart__checkout-button:hover,
 .main-cart-wrapper .cart__checkout-button:hover {
   background: #d6006e !important;
+  background-color: #d6006e !important;
   color: #ffffff !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 /* ==========================================================================
@@ -4496,7 +4604,7 @@ a.cart-item__name:hover {
   background-color: #f5e4c7 !important;
   color: #100B06 !important;
   outline: none !important;
-  box-shadow: 0 0 0 2px #FF0085 !important;
+  box-shadow: 0 0 0 2px #BE8D3F !important;
 }
 
 .fashion2newsletter .newletter_wrapper-block .field__input:-webkit-autofill,
@@ -4510,16 +4618,21 @@ a.cart-item__name:hover {
 .fashion2newsletter .newletter_wrapper-block .field__button,
 .fashionnewsletter .newletter_wrapper-block .field__button,
 .newsletter .newletter_wrapper-block .field__button {
-  background-color: #FF0085 !important;
-  color: #ffffff !important;
-  transition: background-color 0.25s ease, transform 0.15s ease !important;
+  background: linear-gradient(90deg, #BE8D3F 0%, #F7C665 100%) !important;
+  background-color: #BE8D3F !important;
+  color: #100B06 !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  transition: all 0.25s ease !important;
 }
 
 .fashion2newsletter .newletter_wrapper-block .field__button:hover,
 .fashionnewsletter .newletter_wrapper-block .field__button:hover,
 .newsletter .newletter_wrapper-block .field__button:hover {
-  background-color: #d6006e !important;
-  color: #ffffff !important;
+  background: linear-gradient(90deg, #F7C665 0%, #BE8D3F 100%) !important;
+  background-color: #F7C665 !important;
+  color: #100B06 !important;
+  box-shadow: 0 4px 12px rgba(190, 141, 63, 0.4) !important;
 }
 
 /* ==========================================================================
