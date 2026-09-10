@@ -358,7 +358,7 @@
   {% endif %}
   </head>
 
-  <body id="{{ page_title | handle }}" class="gradient {% if settings.preloader_enable %}preloader-overflow{% endif %} {% if request.page_type == '404' %}404-template{% endif %}  {{ template_is }}">
+  <body id="{{ page_title | handle }}" class="gradient template-{{ template.name | handle }} template-{{ request.page_type | handle }} {% if settings.preloader_enable %}preloader-overflow{% endif %} {% if request.page_type == '404' %}404-template{% endif %}  {{ template_is }}">
     
   <div class="dt-custom-overlay"></div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">

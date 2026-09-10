@@ -1,1 +1,132 @@
-{"sections":{"5a6167b9-7e65-4f28-bb95-335bbeadc0bc":{"type":"breadcrumb","settings":{"page_full_width":true,"page_full_width_spacing":true,"use_breadcrumb_title":true,"breadcrumb_image":"shopify:\/\/shop_images\/AdobeStock_369708595_1_2.png","breadcrumb_style":"center","image_overlay_opacity":1,"color_scheme":"accent-1","padding_top":80,"padding_bottom":72}},"main":{"type":"main-list-collections","settings":{"page_full_width":true,"page_full_width_spacing":true,"title":"","heading_size":"h1","sub_heading":"","description":"","button_label":"","button_link":"","button_style_secondary":false,"column_alignment":"center","collection_layout":"standard","collection_button_label":"","collection_count":true,"image_ratio":"portrait","columns_desktop":4,"cover_image":"shopify:\/\/shop_images\/Mask_group_42.png","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","alt_text":"","video_text":"","padding_top":40,"padding_bottom":80}}},"order":["5a6167b9-7e65-4f28-bb95-335bbeadc0bc","main"]}
+{
+  "sections": {
+    "5a6167b9-7e65-4f28-bb95-335bbeadc0bc": {
+      "type": "breadcrumb",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "use_breadcrumb_title": true,
+        "breadcrumb_image": "shopify:\/\/shop_images\/AdobeStock_369708595_1_2.png",
+        "breadcrumb_style": "center",
+        "image_overlay_opacity": 0,
+        "color_scheme": "accent-1",
+        "padding_top": 80,
+        "padding_bottom": 72
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": false,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "collection_layout": "standard",
+        "collection_button_label": "",
+        "collection_count": true,
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "cover_image": "shopify:\/\/shop_images\/Mask_group_42.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "alt_text": "",
+        "video_text": "",
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "support-block": {
+      "type": "support-block",
+      "blocks": {
+        "column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_26132.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Flexible Payment",
+            "text": "<p>100% secure payment gateways and easy installment options.<\/p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_26133.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Online Support",
+            "text": "<p>Dedicated 24\/7 tea connoisseur support ready to assist you.<\/p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        },
+        "column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_25179_fd3ecb79-b8a8-4b02-af4a-9c98f31f8723.png",
+            "icon_class": "",
+            "svg_icons": "",
+            "title": "Handcrafted Blends",
+            "text": "<p>Directly sourced single-estate leaves packaged for supreme freshness.<\/p>",
+            "link_label": "",
+            "link": "",
+            "block_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "column-1",
+        "column-2",
+        "column-3"
+      ],
+      "settings": {
+        "page_full_width": true,
+        "page_full_width_spacing": true,
+        "title": "",
+        "heading_size": "h1",
+        "sub_heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "column_alignment": "center",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "block_styles": "grid__items",
+        "block_column_alignment": "center",
+        "icon_outer_size": "90",
+        "icon_size": "",
+        "image_radius": "",
+        "vertical_position": "veritcal_center",
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "swiper_enable": true,
+        "desktop_column": 3,
+        "laptop_column": 3,
+        "tablet_column": 2,
+        "mobile_column": 1,
+        "swiper_pagination": false,
+        "swiper_navigation": false,
+        "auto_play": 0,
+        "swipe_on_mobile": false,
+        "arrow_on_mobile": false,
+        "columns_mobile": "1",
+        "custom_class_name": "fashion2support"
+      }
+    }
+  },
+  "order": [
+    "5a6167b9-7e65-4f28-bb95-335bbeadc0bc",
+    "main",
+    "support-block"
+  ]
+}
