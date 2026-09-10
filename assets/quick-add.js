@@ -102,6 +102,12 @@ if (!customElements.get('quick-add-modal')) {
 
       const botanicals = this.productElement.querySelectorAll('.pdp-floating-botanicals, .pdp-botanical-item');
       if (botanicals) botanicals.forEach((el) => el.remove());
+
+      const sliderControls = this.productElement.querySelectorAll('.pdp-card-desktop-nav, .slider-buttons, .thumbnail-slider, .pdp-mobile-nav-dots');
+      if (sliderControls) sliderControls.forEach((el) => el.remove());
+
+      const extraSlides = this.productElement.querySelectorAll('.product__media-list > li:not(:first-child)');
+      if (extraSlides) extraSlides.forEach((el) => el.remove());
     }
 
     preventDuplicatedIDs() {
@@ -115,16 +121,25 @@ if (!customElements.get('quick-add-modal')) {
 
     removeGalleryListSemantic() {      
       const galleryList = this.modalContent.querySelector('[id^="Slider-Gallery"]');      
-      if (!galleryList) return;     
-      galleryList.setAttribute('role', 'presentation');
-      galleryList.querySelectorAll('[id^="Slide-"]').forEach(li => li.setAttribute('role', 'presentation'));
-      
+      if (galleryList) {
+        galleryList.setAttribute('role', 'presentation');
+        galleryList.querySelectorAll('li').forEach((li, idx) => {
+          if (idx > 0) {
+            li.remove();
+          } else {
+            li.setAttribute('role', 'presentation');
+            li.classList.add('is-active');
+          }
+        });
+      }
+
+      const sliderControls = this.modalContent.querySelectorAll('.pdp-card-desktop-nav, .slider-buttons, .thumbnail-slider, .pdp-mobile-nav-dots');
+      if (sliderControls) sliderControls.forEach((el) => el.remove());
 
       const FBT = this.modalContent.querySelector('[id^="dT_bundleSelector"]');        
       if (FBT) FBT.remove();
       const Tabs = this.modalContent.querySelector('[class^="product__info-as-bottom-tabs"]');
       if (Tabs) Tabs.remove();
-      
     }
 
   });

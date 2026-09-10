@@ -5535,6 +5535,54 @@ quick-add-modal .pdp-botanical-item img,
   pointer-events: none !important;
 }
 
+/* Quick Buy / Quick Add Modal: Disable Slider and Show Only 1 Image */
+quick-add-modal .pdp-card-desktop-nav,
+.quick-add-modal .pdp-card-desktop-nav,
+.quick-add-modal__content .pdp-card-desktop-nav,
+[id^="QuickAdd-"] .pdp-card-desktop-nav,
+[id^="QuickAddInfo-"] .pdp-card-desktop-nav,
+quick-add-modal .slider-buttons,
+.quick-add-modal .slider-buttons,
+.quick-add-modal__content .slider-buttons,
+[id^="QuickAdd-"] .slider-buttons,
+[id^="QuickAddInfo-"] .slider-buttons,
+quick-add-modal .pdp-mobile-nav-dots,
+.quick-add-modal .pdp-mobile-nav-dots,
+quick-add-modal .thumbnail-slider,
+.quick-add-modal .thumbnail-slider,
+quick-add-modal .thumbnail-list,
+.quick-add-modal .thumbnail-list,
+quick-add-modal .product__media-list > li:not(:first-child),
+.quick-add-modal .product__media-list > li:not(:first-child),
+.quick-add-modal__content .product__media-list > li:not(:first-child),
+[id^="QuickAdd-"] .product__media-list > li:not(:first-child),
+[id^="QuickAddInfo-"] .product__media-list > li:not(:first-child),
+quick-add-modal [id^="Slider-Gallery"] > li:not(:first-child),
+.quick-add-modal [id^="Slider-Gallery"] > li:not(:first-child),
+.quick-add-modal__content [id^="Slider-Gallery"] > li:not(:first-child),
+[id^="QuickAdd-"] [id^="Slider-Gallery"] > li:not(:first-child),
+[id^="QuickAddInfo-"] [id^="Slider-Gallery"] > li:not(:first-child) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+quick-add-modal .product__media-list,
+.quick-add-modal .product__media-list,
+.quick-add-modal__content .product__media-list {
+  transform: none !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+quick-add-modal .product__media-item:first-child,
+.quick-add-modal .product__media-item:first-child {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
 /* Top-Right: Fresh Green Tea Leaves Sprig (Overlapping top-right corner) */
 .pdp-botanical--tea-sprig {
   top: -46px !important;

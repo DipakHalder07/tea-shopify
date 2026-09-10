@@ -151,6 +151,7 @@ if (!customElements.get('media-gallery')) {
     }
 
     initSliderNavigation() {
+      if (this.closest('quick-add-modal') || this.closest('.quick-add-modal')) return;
       const prevBtn = this.querySelector('[data-pdp-nav="prev"]');
       const nextBtn = this.querySelector('[data-pdp-nav="next"]');
       const list = this.elements.viewer ? this.elements.viewer.querySelector('ul.product__media-list') : null;
