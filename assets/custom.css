@@ -1340,13 +1340,26 @@ div.dotted-rule:empty,
 header.header,
 #header,
 .header,
-.header-row,
+.header .page-full-width,
+.header .page-width,
 .top-bar,
 .announcement-bar,
 .drawer__header {
+  background: #100B06 !important;
   background-color: #100B06 !important;
   color: #f5e4c7 !important;
   border-color: rgba(245, 228, 199, 0.12) !important;
+}
+
+.header .row,
+.header .page-full-width .row,
+.header-row,
+.section-header .header--middle .header-row,
+.section-header:not(.shopify-section-header-sticky) .header--middle .header-row {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .header-wrapper .color-background-1,
@@ -2477,7 +2490,11 @@ ul.product-grid > li:nth-child(4n + 4) .card,
   margin-bottom: 4px !important;
 }
 
-/* 6. Collection Page Filter & Count Typography */
+/* ==========================================================================
+   6. Collection Page Filter, Sort By & Pagination Visibility Fix
+   ========================================================================== */
+
+/* "Sort by:" Label & General Facets Typography */
 .facets__heading,
 .facets__summary,
 .facets__disclosure,
@@ -2489,9 +2506,416 @@ ul.product-grid > li:nth-child(4n + 4) .card,
 .facet-filters__sort,
 .collection .product-count__text,
 .collection .facets-vertical .facets__heading,
-.collection .facets-vertical .facets__summary {
+.collection .facets-vertical .facets__summary,
+.dt-sort__container,
+.dt-sort__container label,
+.dt-sort__container .facet-filters__field label,
+.facet-filters__field label,
+.facet-filters label,
+label[for="SortBy"],
+label[for="SortBy-mobile"] {
+  color: #f5e4c7 !important;
+  font-weight: 600 !important;
+}
+
+/* "Alphabetically, A-Z" Summary Button Text & Select Dropdown */
+.dt-sort__container .facets__summary,
+.dt-sort__container .facets__summary-label,
+.facets__summary-label,
+.button.button--tertiary.facets__summary-label,
+.button--tertiary.facets__summary-label,
+.facets__summary .button--tertiary,
+.facets__summary span,
+.facet-filters__sort,
+.facet-filters__sort.select__select,
+.select__select#SortBy,
+.select__select#SortBy-mobile,
+.mobile-facets__sort .select__select {
+  color: #f5e4c7 !important;
+  background-color: transparent !important;
+  font-weight: 500 !important;
+}
+
+/* Caret Icon (Chevron Down Arrow) */
+.dt-sort__container .icon-caret,
+.dt-sort__container .icon-caret path,
+.facets__summary .icon-caret,
+.facets__summary .icon-caret path,
+.facet-filters .icon-caret,
+.facet-filters .icon-caret path,
+.select .icon-caret,
+.select .icon-caret path,
+.mobile-facets__sort .icon-caret,
+.mobile-facets__sort .icon-caret path,
+.disclosure-has-popup .icon-caret,
+.disclosure-has-popup .icon-caret path,
+.facets-vertical-sort svg,
+.dt-sort__container svg {
+  fill: #f5e4c7 !important;
+  stroke: #f5e4c7 !important;
   color: #f5e4c7 !important;
 }
+
+/* Sort By Dropdown Z-Index & Stacking Context - Always Above Cards */
+.product-grid-container {
+  position: relative !important;
+}
+
+facet-filters-form,
+facet-filters-form.facets,
+facet-filters-form.facets-vertical-sort,
+.facets-vertical-sort,
+.facets-vertical-form,
+.dt-sort__container,
+.facet-filters.sorting {
+  position: relative !important;
+  z-index: 500 !important;
+}
+
+facet-filters-form:has(details[open]),
+.facets-vertical-sort:has(details[open]),
+.dt-sort__container:has(details[open]),
+.facets-vertical-form:has(details[open]),
+.facet-filters:has(details[open]),
+.dt-sort__container details[open],
+.facets__disclosure[open],
+details.disclosure-has-popup[open] {
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+/* Sort Dropdown Popup Menu When Clicked */
+.dt-sort__container .facets__display,
+.facet-filters .facets__display,
+.facets__disclosure[open] .facets__display,
+.disclosure-has-popup[open] > .facets__display,
+.facets__display {
+  position: absolute !important;
+  z-index: 999999 !important;
+  background: #19120b !important;
+  background-color: #19120b !important;
+  border: 1px solid rgba(245, 228, 199, 0.25) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85) !important;
+}
+
+.product-grid-container > .collection,
+.product-grid-container .collection,
+.product-grid-container #product-grid,
+.product-grid-container .product-grid {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.dt-sort__container .facets__item,
+.dt-sort__container .facets__item label,
+.dt-sort__container .facets__item span,
+.dt-sort__data .label,
+.dt-sort__data .list-menu__item,
+.facets__display .facets__item,
+.facets__display .facets__item label,
+.facets__display .facets__item span {
+  color: #f5e4c7 !important;
+  background: transparent !important;
+}
+
+.dt-sort__container .facets__item:hover,
+.dt-sort__container .facets__item:hover span,
+.dt-sort__data .list-menu__item:hover .label {
+  color: #BE8D3F !important;
+}
+
+/* "You're viewing X of Y products" Pagination Text */
+.custom-page-progress-bar,
+.custom-page-progress-bar p,
+#AjaxinatePagination .custom-page-progress-bar p,
+.pagination-method-loadmore_btn .custom-page-progress-bar p,
+.pagination-method-infinity_scroll .custom-page-progress-bar p {
+  color: #f5e4c7 !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-align: center !important;
+  margin-bottom: 12px !important;
+}
+
+/* Products Progress Bar Track & Active Gold Fill */
+.custom-page-progress-bar .progress-bar,
+.progress-bar {
+  background: rgba(245, 228, 199, 0.22) !important;
+  background-color: rgba(245, 228, 199, 0.22) !important;
+  height: 6px !important;
+  border-radius: 10px !important;
+  max-width: 320px !important;
+  margin: 14px auto 26px auto !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.custom-page-progress-bar .progress-bar .active-bar,
+.progress-bar .active-bar {
+  background: linear-gradient(90deg, #BE8D3F 0%, #F7C665 100%) !important;
+  background-color: #BE8D3F !important;
+  height: 100% !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 12px rgba(190, 141, 63, 0.6) !important;
+}
+
+/* Filter Checkbox, Checkmark Icon & Facet Label Styling */
+.facet-checkbox {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 8px 0 !important;
+  cursor: pointer !important;
+  line-height: 1.4 !important;
+  font-size: 1.5rem !important;
+  color: #f5e4c7 !important;
+  user-select: none !important;
+}
+
+/* Base custom checkbox input */
+.facet-checkbox input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.45) !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover state on checkbox */
+.facet-checkbox:hover input[type="checkbox"] {
+  border-color: #BE8D3F !important;
+  background: rgba(190, 141, 63, 0.12) !important;
+}
+
+/* Checked state - Luxury Gold fill */
+.facet-checkbox input[type="checkbox"]:checked {
+  background: #BE8D3F !important;
+  background-color: #BE8D3F !important;
+  border-color: #BE8D3F !important;
+  box-shadow: 0 0 8px rgba(190, 141, 63, 0.45) !important;
+}
+
+/* Reset any background from component-facets.css on SVGs */
+.facet-checkbox > svg,
+.facet-checkbox > svg.icon-checkmark,
+.facet-checkbox .icon-checkmark {
+  background: transparent !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Position checkmark icon precisely inside the 18px checkbox */
+.facet-checkbox .icon-checkmark {
+  position: absolute !important;
+  left: 3.5px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 11px !important;
+  height: 8px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  fill: none !important;
+  transition: opacity 0.15s ease !important;
+}
+
+/* Show checkmark when checked */
+.facet-checkbox input[type="checkbox"]:checked ~ .icon-checkmark {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Checkmark SVG Path - Crisp Dark Stroke on Gold Box */
+.facet-checkbox .icon-checkmark path {
+  stroke: #100B06 !important;
+  stroke-width: 2.2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Filter Label Text & Count - Fix magenta text issue */
+.facet-checkbox span,
+.facet-checkbox .filter-label-text,
+.facet-checkbox input[type="checkbox"]:checked ~ span,
+.facet-checkbox input[type="checkbox"]:checked ~ .filter-label-text,
+.facet-checkbox.active span,
+.facet-checkbox.active .filter-label-text {
+  color: #f5e4c7 !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.facet-checkbox:hover span,
+.facet-checkbox:hover .filter-label-text {
+  color: #BE8D3F !important;
+}
+
+.facet-checkbox .product-count,
+.facet-checkbox input[type="checkbox"]:checked ~ span .product-count,
+.facet-checkbox input[type="checkbox"]:checked ~ .filter-label-text .product-count {
+  color: rgba(245, 228, 199, 0.65) !important;
+  font-size: 1.35rem !important;
+  font-weight: 400 !important;
+  margin-left: 4px !important;
+}
+
+/* Disabled State (e.g. Out of stock with 0 count) */
+.facet-checkbox.facet-checkbox--disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.facet-checkbox.facet-checkbox--disabled input[type="checkbox"] {
+  cursor: not-allowed !important;
+  border-color: rgba(245, 228, 199, 0.25) !important;
+}
+
+/* Preserve Size, Brand, and Color custom button/swatch behaviors */
+.detail-Size ul.list-unstyled .facet-checkbox input[type="checkbox"],
+.detail-Brand ul.list-unstyled .facet-checkbox input[type="checkbox"],
+.facets__list-color .facet-checkbox input[type="checkbox"] {
+  display: none !important;
+}
+
+.detail-Size .facet-checkbox > input[type="checkbox"]:checked ~ .icon-checkmark,
+.detail-Brand .facet-checkbox > input[type="checkbox"]:checked ~ .icon-checkmark,
+.facets__list-color .facet-checkbox > input[type="checkbox"]:checked ~ .icon-checkmark {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Active Facet Filter Tags / Pills (e.g. "Availability: In Stock ✕") */
+.active-facets,
+.active-facets-desktop,
+.active-facets-mobile {
+  margin-bottom: 15px !important;
+}
+
+.active-facets__button,
+.active-facets__button-remove {
+  text-decoration: none !important;
+  margin-bottom: 8px !important;
+  display: inline-block !important;
+}
+
+span.active-facets__button-inner,
+.active-facets__button-inner {
+  background: rgba(245, 228, 199, 0.1) !important;
+  background-color: rgba(245, 228, 199, 0.1) !important;
+  color: #f5e4c7 !important;
+  border: 1px solid rgba(245, 228, 199, 0.35) !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  padding: 6px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.active-facets__button:hover span.active-facets__button-inner,
+span.active-facets__button-inner:hover {
+  background: rgba(190, 141, 63, 0.25) !important;
+  background-color: rgba(190, 141, 63, 0.25) !important;
+  border-color: #BE8D3F !important;
+  color: #BE8D3F !important;
+}
+
+.active-facets__button svg,
+.active-facets__button-inner svg {
+  fill: #f5e4c7 !important;
+  stroke: #f5e4c7 !important;
+  color: #f5e4c7 !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.active-facets__button:hover svg,
+.active-facets__button-inner:hover svg {
+  fill: #BE8D3F !important;
+  stroke: #BE8D3F !important;
+  color: #BE8D3F !important;
+}
+
+.active-facets__button-remove span,
+.active-facets__button-remove {
+  color: #BE8D3F !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+}
+
+/* Mobile Facets Drawer Checkbox Styling */
+.mobile-facets__label {
+  color: #f5e4c7 !important;
+}
+
+.mobile-facets__label input[type="checkbox"],
+input.mobile-facets__checkbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.45) !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  margin-right: 12px !important;
+  cursor: pointer !important;
+  z-index: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-facets__label input[type="checkbox"]:checked,
+input.mobile-facets__checkbox:checked {
+  background: #BE8D3F !important;
+  border-color: #BE8D3F !important;
+}
+
+.mobile-facets__label .icon-checkmark {
+  position: absolute !important;
+  left: 28px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 11px !important;
+  height: 8px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.mobile-facets__label .icon-checkmark path {
+  stroke: #100B06 !important;
+  stroke-width: 2.2 !important;
+}
+
 
 /* 7. Mobile Screen Adjustments */
 @media screen and (max-width: 768px) {
@@ -3833,6 +4257,11 @@ a.cart-item__name:hover {
   color: #F7C665 !important;
 }
 
+.cart-drawer .cart-item__totals {
+  display: flex !important;
+  visibility: visible !important;
+}
+
 .cart-item__old-price {
   color: rgba(245, 228, 199, 0.5) !important;
 }
@@ -4091,6 +4520,100 @@ a.cart-item__name:hover {
 .newsletter .newletter_wrapper-block .field__button:hover {
   background-color: #d6006e !important;
   color: #ffffff !important;
+}
+
+/* ==========================================================================
+   Contact Form & "Let's Talk" Section Inputs - Brand Off-White (#f5e4c7) Background
+   ========================================================================== */
+
+.section.form-image .field .field__input,
+.section.form-image .contact .field__input,
+.form-contact .field .field__input,
+.form-contact .contact .field__input,
+#ContactForm .field__input,
+#ContactForm input.field__input,
+#ContactForm textarea.field__input,
+.contact .field__input,
+.contact-form .field__input {
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border: 1px solid rgba(245, 228, 199, 0.7) !important;
+  border-radius: 30px !important;
+  font-family: var(--font-body-family), sans-serif !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.section.form-image .field .field__input::placeholder,
+.section.form-image .contact .field__input::placeholder,
+.form-contact .field .field__input::placeholder,
+#ContactForm .field__input::placeholder,
+.contact .field__input::placeholder,
+.contact-form .field__input::placeholder {
+  color: rgba(16, 11, 6, 0.65) !important;
+  opacity: 1 !important;
+  font-family: var(--font-body-family), sans-serif !important;
+}
+
+.section.form-image .field .field__input:focus,
+.section.form-image .contact .field__input:focus,
+.form-contact .field .field__input:focus,
+#ContactForm .field__input:focus,
+.contact .field__input:focus,
+.contact-form .field__input:focus {
+  background: #f5e4c7 !important;
+  background-color: #f5e4c7 !important;
+  color: #100B06 !important;
+  border-color: #BE8D3F !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(190, 141, 63, 0.4) !important;
+}
+
+.section.form-image .field .field__input:-webkit-autofill,
+.section.form-image .field .field__input:-webkit-autofill:hover,
+.section.form-image .field .field__input:-webkit-autofill:focus,
+#ContactForm .field__input:-webkit-autofill,
+#ContactForm .field__input:-webkit-autofill:hover,
+#ContactForm .field__input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f5e4c7 inset !important;
+  -webkit-text-fill-color: #100B06 !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Save my name, email checkbox */
+.form-contact .newsletter-checkbox label,
+.section.form-image .newsletter-checkbox label {
+  color: #f5e4c7 !important;
+  font-size: 1.4rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+}
+
+.form-contact .newsletter-checkbox input[type="checkbox"],
+.section.form-image .newsletter-checkbox input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  border: 1.5px solid rgba(245, 228, 199, 0.5) !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+  transition: all 0.2s ease !important;
+}
+
+.form-contact .newsletter-checkbox input[type="checkbox"]:checked,
+.section.form-image .newsletter-checkbox input[type="checkbox"]:checked {
+  background-color: #BE8D3F !important;
+  border-color: #BE8D3F !important;
 }
 
 /* ==========================================================================

@@ -703,8 +703,6 @@ cart-drawer-items .cart__contents{    margin-top: 0rem;}
     position:absolute;
   bottom: 2rem;
   right: 40px;
-}
-.cart-drawer .cart-item__totals{display:none;}
 .cart-drawer .drawer__footer .cart__ctas{gap: 1.4rem;padding: 1.8rem 4rem 4rem;}
 
 @media screen and (max-width: 576px) {

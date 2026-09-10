@@ -43,8 +43,9 @@
   }
 }
 
-.section.form-image .field .field__input{padding:1rem 3rem;height:6rem;min-height:6rem; line-height: 38px;background: var(--gradient-base-background-2);border:1px solid var(--gradient-base-background-2);}
-.section.form-image .field .field__input:focus{border:1px solid rgb(var(--color-foreground));}
+.section.form-image .field .field__input{padding:1rem 3rem;height:6rem;min-height:6rem; line-height: 38px;background: #f5e4c7;background-color: #f5e4c7;border:1px solid #f5e4c7;color: #100B06;border-radius: 30px;}
+.section.form-image .field .field__input::placeholder{color: rgba(16, 11, 6, 0.65);}
+.section.form-image .field .field__input:focus{border:1px solid #BE8D3F;outline: none;box-shadow: 0 0 0 2px rgba(190, 141, 63, 0.35);}
 .grecaptcha-badge {
   visibility: hidden;
 }
