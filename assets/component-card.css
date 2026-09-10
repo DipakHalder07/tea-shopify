@@ -340,12 +340,9 @@ ul.product-icons.top-aligned {
   width: 100%;
 }
 .card__media .media .motion-reduce {
-  opacity: 0;
+  opacity: 1;
   transition: all var(--duration-default) linear;
 }
- .card__media .media .motion-reduce.loaded-image:first-child {   
-     animation: 2s cubic-bezier(.26,.54,.32,1) forwards fadeIn;
-    -webkit-animation: 2s cubic-bezier(.26,.54,.32,1) forwards fadeIn;}
 
 @-webkit-keyframes fadeIn {
   from {

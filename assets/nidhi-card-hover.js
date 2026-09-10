@@ -59,7 +59,7 @@ function initSingleCard(card) {
 
   // Set initial GSAP positions on desktop
   if (window.innerWidth >= 769 && typeof gsap !== 'undefined') {
-    if (bottle) gsap.set(bottle, { rotation: 0, scale: 1.14, y: 0 });
+    if (bottle) gsap.set(bottle, { opacity: 1, visibility: 'visible', rotation: 0, scale: 1.14, y: 0 });
     if (elemTL) gsap.set(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, transformOrigin: '75% 75%' });
     if (elemBL) gsap.set(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, transformOrigin: '65% 65%' });
     if (elemEstate) gsap.set(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, transformOrigin: '25% 50%' });
@@ -88,7 +88,7 @@ function initSingleCard(card) {
       gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
 
       if (title) gsap.to(title, { scale: 0.88, duration: 0.4, ease: 'power2.out' });
-      if (bottle) gsap.to(bottle, { y: -6, scale: 1.0, rotation: 0, duration: 0.45, ease: 'power2.out' });
+      if (bottle) gsap.to(bottle, { opacity: 1, y: -6, scale: 1.0, rotation: 0, duration: 0.45, ease: 'power2.out' });
       if (elemTL) gsap.to(elemTL, { opacity: 1, scale: 1, x: -10, y: -4, rotation: -10, duration: 0.55, ease: 'back.out(1.8)' });
 
       // Terracotta clay cup: blooms outward, then enters continuous floating animation
@@ -156,7 +156,7 @@ function initSingleCard(card) {
       gsap.killTweensOf([title, bottle, elemTL, elemBL, elemEstate, elemTR, quickAdd, idlePrice].filter(Boolean));
 
       if (title) gsap.to(title, { scale: 1, duration: 0.35, ease: 'power2.inOut' });
-      if (bottle) gsap.to(bottle, { y: 0, scale: 1.14, rotation: 0, duration: 0.35, ease: 'power2.inOut' });
+      if (bottle) gsap.to(bottle, { opacity: 1, y: 0, scale: 1.14, rotation: 0, duration: 0.35, ease: 'power2.inOut' });
       if (elemTL) gsap.to(elemTL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -10, duration: 0.3, ease: 'power2.in' });
       if (elemBL) gsap.to(elemBL, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: -25, duration: 0.3, ease: 'power2.in' });
       if (elemEstate) gsap.to(elemEstate, { opacity: 0, scale: 0.2, x: 0, y: 0, rotation: 0, duration: 0.3, ease: 'power2.in' });
