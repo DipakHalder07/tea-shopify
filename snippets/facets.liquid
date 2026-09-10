@@ -435,11 +435,11 @@
             {%- endif -%}
           </span>
         </span>
-        <span tabindex="0" class="mobile-facets__close mobile-facets__close--no-js">{%- render 'icon-close' -%}</span>
+        <span tabindex="0" class="mobile-facets__close mobile-facets__close--no-js" style="display:none !important;">{%- render 'icon-close' -%}</span>
       </summary>
       <facet-filters-form>
         <div class="facet-filters-form-expanded-view">
-        <form id="FacetFiltersFormMobile" class="mobile-facets">
+        <form id="FacetFiltersFormMobile" class="mobile-facets" onclick="if(event.target === this) this.closest('.mobile-facets__wrapper').querySelector('summary').click()">
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
@@ -467,6 +467,9 @@
                     {%- endif -%}
                 </p>
               </div>
+              <button type="button" class="mobile-facets__close-icon-btn" onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()" aria-label="Close filters">
+                {% render 'icon-close' %}
+              </button>
             </div>
             <div class="mobile-facets__main has-submenu gradient">
               {%- if enable_filtering -%}
