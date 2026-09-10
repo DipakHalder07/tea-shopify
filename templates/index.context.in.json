@@ -13,20 +13,6 @@
   },
   "parent": "index.json",
   "sections": {
-    "480a5c64-fd68-4018-8db2-a9f9e1f3b315": {
-      "settings": {},
-      "blocks": {
-        "template--21548898156844__480a5c64-fd68-4018-8db2-a9f9e1f3b315-text-3": {
-          "settings": {
-            "block_image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_05_28_22_PM.webp",
-            "show_content": true,
-            "block_title": "Get flat 25% OFF This Independence",
-            "block_additional_title": "Use CoDE : NIDHITEA",
-            "block_button_link": "shopify://collections"
-          }
-        }
-      }
-    },
     "a8c50c2e-2eeb-46ec-8f40-fda922a43e82": {
       "settings": {
         "primary_image": "shopify://shop_images/Generated_Image_August_13_2026_-_9_07PM.jpg",

@@ -5244,6 +5244,288 @@ footer.footer-style4,
   }
 }
 
+/* ==========================================================================
+   DESKTOP PRODUCT CARD SLIDER & LEFT THUMBNAIL REMOVAL
+   ========================================================================== */
+
+/* 1. Mobile & Default Button States (Hidden by default) */
+.pdp-card-desktop-nav {
+  display: none !important;
+}
+
+/* 2. Desktop Only (min-width: 750px) */
+@media screen and (min-width: 750px) {
+  /* Remove Left-Side Vertical Thumbnail Slider on Desktop */
+  .main-product_info .thumbnail-slider,
+  .main-product_info [id^="GalleryThumbnails-"] {
+    display: none !important;
+  }
+
+  /* Reset media gallery layout from row-reverse so it centers cleanly */
+  .main-product_info.product--thumbnail_slider_left media-gallery,
+  .main-product_info.product--thumbnail_slider_right media-gallery,
+  .main-product_info .product--thumbnail_slider_left media-gallery,
+  .main-product_info .product--thumbnail_slider_right media-gallery,
+  .main-product_info media-gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* Reset product card wrapper to full width of column & centered */
+  .main-product_info .product--thumbnail_slider .slider-mobile-gutter:not(.thumbnail-slider),
+  .main-product_info .product--thumbnail_slider_left .slider-mobile-gutter:not(.thumbnail-slider),
+  .main-product_info .slider-mobile-gutter:not(.thumbnail-slider) {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  .main-product_info .product__media-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .main-product_info .product__media-gallery {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 2. Product Card Container with Smooth Auto Color Morphing */
+  .main-product_info .product__media-list {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 26px !important;
+    overflow: hidden !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.52), 0 0 35px rgba(0, 0, 0, 0.25) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+    /* Base background with smooth color morphing */
+    background-color: #BE8D3F !important;
+    background-image: radial-gradient(ellipse at 46% 38%, rgba(255, 255, 255, 0.22) 0%, transparent 55%, rgba(0, 0, 0, 0.28) 100%) !important;
+    transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  /* Dot texture over card stage */
+  .main-product_info .product__media-list::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.2px, transparent 0) !important;
+    background-size: 18px 18px !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    opacity: 0.65 !important;
+  }
+
+  /* Fixed signature dashed border on card stage */
+  .main-product_info .product__media-list::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 12px !important;
+    border: 2px dashed rgba(255, 255, 255, 0.65) !important;
+    border-radius: 18px !important;
+    pointer-events: none !important;
+    z-index: 4 !important;
+    transition: border-color 0.3s ease !important;
+  }
+
+  /* Smooth auto color transitions matching each flavor */
+  .main-product_info .product__media-list[data-active-color="0"],
+  .main-product_info .product__media-list:not([data-active-color]) {
+    background-color: #BE8D3F !important; /* Golden Mustard */
+  }
+  .main-product_info .product__media-list[data-active-color="1"] {
+    background-color: #F15726 !important; /* Cayenne Red */
+  }
+  .main-product_info .product__media-list[data-active-color="2"] {
+    background-color: #DA1F27 !important; /* Crimson Cherry */
+  }
+  .main-product_info .product__media-list[data-active-color="3"] {
+    background-color: #EF8F4A !important; /* Warm Peach Coral */
+  }
+
+  /* 3. Horizontal Sliding Product Items */
+  .main-product_info .product__media-item {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translate3d(100%, 0, 0) !important;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, visibility 0.55s !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  .main-product_info .product__modal-opener {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+  }
+
+  /* Clear individual card backgrounds so the smooth morphing card list background shows */
+  .main-product_info .product__media-item .product__media {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    padding-top: 0 !important;
+  }
+  .main-product_info .product__media-item .product__media::before,
+  .main-product_info .product__media-item .product__media::after {
+    display: none !important;
+  }
+
+  .main-product_info .product__media-item .product__media img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    padding: 28px !important;
+    box-sizing: border-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.45)) !important;
+  }
+
+  /* Active Product Slide - centered in view */
+  .main-product_info .product__media-item.is-active {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Slide Exiting to the Left (When Next button is clicked) */
+  .main-product_info .product__media-item.slide-exit-left {
+    visibility: visible !important;
+    opacity: 0 !important;
+    transform: translate3d(-100%, 0, 0) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  /* Slide Exiting to the Right (When Prev button is clicked) */
+  .main-product_info .product__media-item.slide-exit-right {
+    visibility: visible !important;
+    opacity: 0 !important;
+    transform: translate3d(100%, 0, 0) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  /* Slide Entering from Left (Prev button) */
+  .main-product_info .product__media-item.slide-enter-left {
+    transform: translate3d(-100%, 0, 0) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
+  }
+
+  /* Slide Entering from Right (Next button) */
+  .main-product_info .product__media-item.slide-enter-right {
+    transform: translate3d(100%, 0, 0) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
+  }
+
+  /* 4. Product Card Left & Right Center Navigation Buttons */
+  .pdp-card-desktop-nav {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 50 !important;
+  }
+
+  .pdp-card-nav-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    pointer-events: auto !important;
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 50% !important;
+    background: rgba(16, 11, 6, 0.88) !important;
+    border: 1.5px solid rgba(245, 228, 199, 0.45) !important;
+    color: #f5e4c7 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    transition: all 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    z-index: 52 !important;
+    padding: 0 !important;
+    outline: none !important;
+  }
+
+  .pdp-card-nav-btn svg {
+    display: block !important;
+    width: 22px !important;
+    height: 22px !important;
+    stroke: currentColor !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .pdp-card-nav-btn:hover {
+    background: #BE8D3F !important;
+    color: #100B06 !important;
+    border-color: #BE8D3F !important;
+    box-shadow: 0 0 22px rgba(190, 141, 63, 0.75), 0 8px 26px rgba(0, 0, 0, 0.6) !important;
+    transform: translateY(-50%) scale(1.1) !important;
+  }
+
+  .pdp-card-nav-btn:active {
+    transform: translateY(-50%) scale(0.96) !important;
+  }
+
+  /* Left button placed at center-left */
+  .pdp-card-nav-btn--prev {
+    left: 12px !important;
+  }
+
+  .pdp-card-nav-btn--prev:hover svg {
+    transform: translateX(-2px) !important;
+  }
+
+  /* Right button placed at center-right */
+  .pdp-card-nav-btn--next {
+    right: 12px !important;
+  }
+
+  .pdp-card-nav-btn--next:hover svg {
+    transform: translateX(2px) !important;
+  }
+}
+
+
 
 
 
