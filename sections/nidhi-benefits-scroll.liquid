@@ -581,23 +581,23 @@
     }
   }
 
-  /* Sticky Card Wrap */
+  /* Sticky Card Wrap - preview spacing so next card peeks in from the corner */
   .bene-wrap {
     position: -webkit-sticky;
     position: sticky;
     top: 48px;
     width: 100%;
-    margin-bottom: 35vh;
+    margin-bottom: clamp(40px, 6vh, 60px);
     will-change: top, transform;
   }
   @media (min-width: 640px) {
     .bene-wrap {
-      margin-bottom: 40vh;
+      margin-bottom: clamp(55px, 8vh, 75px);
     }
   }
   @media (min-width: 768px) {
     .bene-wrap {
-      margin-bottom: 45vh;
+      margin-bottom: clamp(65px, 9vh, 90px);
     }
   }
   .bene-wrap.is-last-card {
@@ -606,18 +606,18 @@
   .bene-stack-end-hold {
     display: block !important;
     width: 100%;
-    height: 35vh;
+    height: 40vh;
     pointer-events: none;
     visibility: hidden;
   }
   @media (min-width: 640px) {
     .bene-stack-end-hold {
-      height: 40vh;
+      height: 45vh;
     }
   }
   @media (min-width: 768px) {
     .bene-stack-end-hold {
-      height: 45vh;
+      height: 50vh;
     }
   }
 
@@ -1115,19 +1115,19 @@
         const vh = window.innerHeight;
         const vw = window.innerWidth;
 
-        // Subtle, classy corner offsets and gentle, lower tilt (further from corner of window, lower tilt angle)
+        // Subtle, classy corner preview offsets matching reference screenshot
         const cornerX = isSmall
-          ? Math.min(180, Math.round(vw * 0.32))
-          : Math.min(520, Math.round(vw * 0.38));
-        const cornerY = isSmall ? 150 : 240;
-        const cornerRot = isSmall ? 2.0 : 3.0; // gentle, elegant, lower tilt angle
-        const tiltRange = vh * 0.85;
+          ? Math.min(65, Math.round(vw * 0.12))
+          : Math.min(165, Math.round(vw * 0.16));
+        const cornerY = isSmall ? 8 : 12; // gentle vertical settling
+        const cornerRot = isSmall ? 1.8 : 2.6; // gentle, elegant, classy tilt angle
+        const tiltRange = isSmall ? vh * 0.52 : vh * 0.60;
 
         // Card 1 stays in the same place (standard centered position, no corner fly-in)
         // Subsequent cards fly in from alternating corners:
-        // Card 2: right-bottom corner come and stack
-        // Card 3: bottom-left corner come and stack
-        // Card 4: right-bottom corner come and stack
+        // Card 2: right-bottom corner preview & stack
+        // Card 3: bottom-left corner preview & stack
+        // Card 4: right-bottom corner preview & stack
         const keyframeEntries = [
           { x: 0, y: 0, rot: 0 },
           { x: cornerX, y: cornerY, rot: cornerRot },
@@ -1141,8 +1141,8 @@
           w.style.zIndex = (i + 1) * 10;
         });
 
-        // 2. Identify highest docked card (with 40px docking buffer)
-        const dockBuffer = 40;
+        // 2. Identify highest docked card (with 35px docking buffer)
+        const dockBuffer = 35;
         let highestDockedIndex = -1;
         wraps.forEach((w, i) => {
           const targetTop = BASE + i * STACK_STEP;
@@ -1177,7 +1177,7 @@
               st.targetX = entry.x;
               st.targetY = entry.y;
               st.targetRot = entry.rot;
-              st.targetOpacity = 0.25;
+              st.targetOpacity = 1;
             } else {
               // Ultra-smooth sine in-out easing for seamless docking
               const rawProgress = Math.max(0, Math.min(1, (tiltRange - dist) / (tiltRange - dockBuffer)));
@@ -1186,7 +1186,7 @@
               st.targetX = entry.x * (1 - eased);
               st.targetY = entry.y * (1 - eased);
               st.targetRot = entry.rot * (1 - eased);
-              st.targetOpacity = 0.25 + 0.75 * eased;
+              st.targetOpacity = 1;
             }
           }
 
