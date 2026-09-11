@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --background: #100B06;
   --cream: #f5e4c7;
   --gold: #F7C665;
@@ -2530,10 +2531,36 @@ label[for="SortBy-mobile"] {
 .facet-filters__sort.select__select,
 .select__select#SortBy,
 .select__select#SortBy-mobile,
+#SortBy,
+#SortBy-mobile,
 .mobile-facets__sort .select__select {
   color: #f5e4c7 !important;
+  color-scheme: dark !important;
   background-color: transparent !important;
   font-weight: 500 !important;
+}
+
+.facet-filters__sort option,
+.facet-filters__sort.select__select option,
+.select__select#SortBy option,
+.select__select#SortBy-mobile option,
+#SortBy option,
+#SortBy-mobile option,
+.mobile-facets__sort .select__select option,
+.facets-container select option,
+.mobile-facets select option {
+  background-color: #1e140b !important;
+  color: #f5e4c7 !important;
+}
+
+.facet-filters__sort option:checked,
+.select__select#SortBy option:checked,
+.select__select#SortBy-mobile option:checked,
+#SortBy option:checked,
+#SortBy-mobile option:checked,
+.mobile-facets__sort .select__select option:checked {
+  background-color: #352313 !important;
+  color: #c5a880 !important;
 }
 
 /* Caret Icon (Chevron Down Arrow) */
@@ -7221,6 +7248,7 @@ body:has(.mobile-facets__disclosure[open]) .product-collection,
   border: 1px solid rgba(245, 228, 199, 0.22) !important;
   border-radius: 10px !important;
   color: #f5e4c7 !important;
+  color-scheme: dark !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   padding: 11px 36px 11px 14px !important;
@@ -7233,6 +7261,17 @@ body:has(.mobile-facets__disclosure[open]) .product-collection,
 .mobile-facets__sort .select__select:focus {
   border-color: #c5a880 !important;
   box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.2) !important;
+}
+
+.mobile-facets__sort .select__select option {
+  background-color: #1e140b !important;
+  color: #f5e4c7 !important;
+  padding: 10px 14px !important;
+}
+
+.mobile-facets__sort .select__select option:checked {
+  background-color: #352313 !important;
+  color: #c5a880 !important;
 }
 
 .mobile-facets__sort .select .icon-caret {
