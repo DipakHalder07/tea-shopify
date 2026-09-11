@@ -207,40 +207,6 @@
       "header": {
         "type": "header",
         "blocks": {
-          "2b791c78-36aa-4c3c-a4a3-410435975699": {
-            "type": "promo_image",
-            "settings": {
-              "mega_1": "home",
-              "mega_columns": "four-column",
-              "row_reverse": false,
-              "enable_custom_width": true,
-              "custom_megamenu_width": 91,
-              "title_1": "",
-              "button_1": "Main Home",
-              "link_1": "https://dt-grove.myshopify.com/?preview_theme_id=178848563500",
-              "title_2": "",
-              "button_2": "Street style",
-              "link_2": "https://dt-grove.myshopify.com/?preview_theme_id=178848629036",
-              "title_3": "",
-              "button_3": "Fast fashion",
-              "link_3": "https://dt-grove.myshopify.com/?preview_theme_id=178848596268",
-              "title_4": "",
-              "button_4": "Ready to wear",
-              "link_4": "https://dt-grove.myshopify.com/?preview_theme_id=178848530732",
-              "title_5": "",
-              "button_5": "Skin care",
-              "link_5": "https://dt-grove.myshopify.com/?preview_theme_id=178848497964",
-              "title_6": "",
-              "button_6": "Jewellery",
-              "link_6": "https://dt-grove.myshopify.com/?preview_theme_id=178848465196",
-              "title_7": "",
-              "button_7": "Fitness store",
-              "link_7": "https://dt-grove.myshopify.com/?preview_theme_id=178848432428",
-              "title_8": "",
-              "button_8": "Pet Foods",
-              "link_8": "https://dt-grove.myshopify.com/?preview_theme_id=178848399660"
-            }
-          },
           "766bf1d8-02c1-4532-8474-0802961ae3f5": {
             "type": "promo_banner",
             "settings": {
@@ -287,7 +253,6 @@
           }
         },
         "block_order": [
-          "2b791c78-36aa-4c3c-a4a3-410435975699",
           "766bf1d8-02c1-4532-8474-0802961ae3f5",
           "b0124b59-6f4c-434a-befc-3fbf210c2762",
           "7a4623fd-898c-4da5-b757-40ebc6b9efad"
